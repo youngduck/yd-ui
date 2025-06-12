@@ -37,14 +37,31 @@ export default [
         babelHelpers: "bundled",
         presets: ["@babel/preset-env", "@babel/preset-react"],
       }),
+      postcss({
+        config: {
+          path: "./postcss.config.js"
+        },
+        extensions: ['.css'],
+        minimize: true,
+        inject: {
+          insertAt: 'top',
+        },
+      }),
       terser(),
-      postcss(),
     ],
     external: ["react", "react-dom"],
   },
   {
-    input: "dist/types/index.d.ts",
+    input: "src/index.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
+    plugins: [
+      typescript({
+        declaration: true,
+        emitDeclarationOnly: true,
+        outDir: "dist",
+      }),
+      dts(),
+    ],
+    external: [/\.css$/],
   },
 ];
