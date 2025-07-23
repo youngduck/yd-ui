@@ -4,22 +4,21 @@ import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded font-bold focus:outline-none transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center rounded-lg font-bold focus:outline-none transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none',
   {
     variants: {
       size: {
-        small: 'h-9 px-4 text-sm',
-        medium: 'h-11 px-6 text-base',
-        large: 'h-14 px-8 text-lg',
+        sm: 'h-9 text-sm w-20',
+        md: 'h-11 text-base w-[120px]',
+        lg: 'h-14 text-lg w-40',
+        full: 'h-11 text-base w-full',
       },
       variant: {
         fill: '',
-        outlined: 'bg-transparent',
+        outlined: 'bg-transparent border-2',
       },
       color: {
         primary: '',
-        secondary: '',
-        danger: '',
       },
     },
     compoundVariants: [
@@ -27,45 +26,27 @@ const buttonVariants = cva(
       {
         variant: 'fill',
         color: 'primary',
-        class: 'bg-yellow-400 text-black hover:bg-yellow-500',
-      },
-      {
-        variant: 'fill',
-        color: 'secondary',
-        class: 'bg-gray-400 text-black hover:bg-gray-500',
-      },
-      {
-        variant: 'fill',
-        color: 'danger',
-        class: 'bg-red-500 text-white hover:bg-red-600',
+        class: 'bg-primary-400 text-black hover:bg-primary-500',
       },
       // Outlined
       {
         variant: 'outlined',
         color: 'primary',
-        class:
-          'border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black',
-      },
-      {
-        variant: 'outlined',
-        color: 'secondary',
-        class:
-          'border border-gray-400 text-gray-400 hover:bg-gray-400 hover:text-black',
-      },
-      {
-        variant: 'outlined',
-        color: 'danger',
-        class:
-          'border border-red-500 text-red-500 hover:bg-red-500 hover:text-white',
+        class: 'border-primary-400 text-primary-400 hover:text-primary-300',
       },
     ],
     defaultVariants: {
-      size: 'medium',
+      size: 'md',
       variant: 'fill',
       color: 'primary',
     },
   }
 );
+
+// 타입 export
+export type ButtonSize = VariantProps<typeof buttonVariants>['size'];
+export type ButtonVariant = VariantProps<typeof buttonVariants>['variant'];
+export type ButtonColor = VariantProps<typeof buttonVariants>['color'];
 
 type ButtonProps = {
   ref?: React.Ref<HTMLButtonElement>;
