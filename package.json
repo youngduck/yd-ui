@@ -19,7 +19,8 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "tokens": "node scripts/convert-figma-tokens.js"
   },
   "peerDependencies": {
     "react": "^18.2.0",
