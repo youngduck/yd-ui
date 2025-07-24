@@ -1,30 +1,20 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import { Meta, StoryObj } from '@storybook/react';
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
-    variant: {
-      options: [
-        "default",
-        "delete",
-        "generate",
-        "save",
-        "elmark",
-        "excel",
-        "elfile",
-      ],
-      control: { type: "select" },
-    },
     size: {
-      options: ["default", "sm", "lg"],
-      control: { type: "select" },
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
     },
-    fullWidth: {
-      control: { type: "boolean" },
+    variant: {
+      options: ['fill', 'outlined'],
+      control: { type: 'select' },
     },
-    isActive: {
-      control: { type: "boolean" },
+    color: {
+      options: ['primary', 'secondary', 'danger'],
+      control: { type: 'select' },
     },
   },
 };
@@ -33,54 +23,48 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
-  args: {
-    children: "버튼",
-    variant: "default",
-  },
-};
-
-export const Delete: Story = {
-  args: {
-    children: "삭제",
-    variant: "delete",
-  },
-};
-
-export const Generate: Story = {
-  args: {
-    children: "생성",
-    variant: "generate",
-  },
-};
-
-export const Save: Story = {
-  args: {
-    children: "저장",
-    variant: "save",
-  },
-};
-
-export const Elmark: Story = {
-  args: {
-    children: "엘마크",
-    variant: "elmark",
-  },
-};
-
-export const Sizes: Story = {
+export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-4">
-      <Button size="sm">작은 버튼</Button>
-      <Button size="default">기본 버튼</Button>
-      <Button size="lg">큰 버튼</Button>
+    <div className="space-y-8">
+      {['small', 'medium', 'large'].map((size) => (
+        <div key={size}>
+          <div className="mb-2 font-bold text-lg capitalize text-white">
+            {size}
+          </div>
+          <div className="flex gap-8">
+            {/* Fill */}
+            <div>
+              <div className="mb-1 text-sm text-yellow-300">Fill</div>
+              <div className="flex gap-2">
+                <Button size={size as any} variant="fill" color="primary">
+                  저장
+                </Button>
+                <Button size={size as any} variant="fill" color="secondary">
+                  보조
+                </Button>
+                <Button size={size as any} variant="fill" color="danger">
+                  삭제
+                </Button>
+              </div>
+            </div>
+            {/* Outlined */}
+            <div>
+              <div className="mb-1 text-sm text-yellow-300">Outlined</div>
+              <div className="flex gap-2">
+                <Button size={size as any} variant="outlined" color="primary">
+                  저장
+                </Button>
+                <Button size={size as any} variant="outlined" color="secondary">
+                  보조
+                </Button>
+                <Button size={size as any} variant="outlined" color="danger">
+                  삭제
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   ),
-};
-
-export const FullWidth: Story = {
-  args: {
-    children: "너비 100%",
-    fullWidth: true,
-  },
 };
