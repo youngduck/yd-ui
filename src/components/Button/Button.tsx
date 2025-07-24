@@ -4,14 +4,14 @@ import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg font-bold focus:outline-none transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center rounded-lg font-bold focus:outline-none transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none yds-button-typography',
   {
     variants: {
       size: {
-        sm: 'h-9 text-sm w-20',
-        md: 'h-11 text-base w-[120px]',
-        lg: 'h-14 text-lg w-40',
-        full: 'h-11 text-base w-full',
+        sm: 'h-9 w-20',
+        md: 'h-11 w-[120px]',
+        lg: 'h-14 w-40',
+        full: 'h-11 w-full',
       },
       variant: {
         fill: '',
@@ -55,8 +55,44 @@ type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
+// 버튼 크기에 따른 타이포그래피 설정 (yds 변수 사용)
+const getTypographyStyle = (size: ButtonSize) => {
+  switch (size) {
+    case 'sm':
+      return {
+        '--yds-button-font-size': 'var(--yds-c1m-font-size)',
+        '--yds-button-line-height': 'var(--yds-c1m-line-height)',
+        '--yds-button-font-weight': 'var(--yds-c1m-font-weight)',
+      };
+    case 'md':
+      return {
+        '--yds-button-font-size': 'var(--yds-s2-font-size)',
+        '--yds-button-line-height': 'var(--yds-s2-line-height)',
+        '--yds-button-font-weight': 'var(--yds-s2-font-weight)',
+      };
+    case 'lg':
+      return {
+        '--yds-button-font-size': 'var(--yds-s1-font-size)',
+        '--yds-button-line-height': 'var(--yds-s1-line-height)',
+        '--yds-button-font-weight': 'var(--yds-s1-font-weight)',
+      };
+    case 'full':
+      return {
+        '--yds-button-font-size': 'var(--yds-b2-font-size)',
+        '--yds-button-line-height': 'var(--yds-b2-line-height)',
+        '--yds-button-font-weight': 'var(--yds-b2-font-weight)',
+      };
+    default:
+      return {
+        '--yds-button-font-size': 'var(--yds-s2-font-size)',
+        '--yds-button-line-height': 'var(--yds-s2-line-height)',
+        '--yds-button-font-weight': 'var(--yds-s2-font-weight)',
+      };
+  }
+};
+
 export function Button({
-  size,
+  size = 'md',
   variant,
   color,
   children,
@@ -64,10 +100,14 @@ export function Button({
   ref,
   ...props
 }: ButtonProps) {
+  // 토스와 동일한 element.style 그룹핑을 위한 스타일 (yds 변수 사용)
+  const buttonStyle = getTypographyStyle(size) as React.CSSProperties;
+
   return (
     <button
       ref={ref}
       className={buttonVariants({ size, variant, color, className })}
+      style={buttonStyle}
       tabIndex={0}
       aria-label={
         props['aria-label'] ||
