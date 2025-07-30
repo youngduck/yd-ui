@@ -19,11 +19,12 @@ module.exports = {
       /* FIGMA TOKENS START */
       fontSize: {
         'yds-h1': ['48px', { lineHeight: '58px', fontWeight: '600' }],
-        'yds-h2': ['40px', { lineHeight: '48px', fontWeight: '600' }],
-        'yds-s1': ['24px', { lineHeight: '30px', fontWeight: '600' }],
-        'yds-s2': ['24px', { lineHeight: '30px', fontWeight: '500' }],
-        'yds-b1': ['18px', { lineHeight: '26px', fontWeight: '400' }],
         'yds-b2': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'yds-b1': ['18px', { lineHeight: '26px', fontWeight: '400' }],
+        'yds-h3': ['24px', { lineHeight: '30px', fontWeight: '600' }],
+        'yds-h2': ['40px', { lineHeight: '48px', fontWeight: '600' }],
+        'yds-s1': ['20px', { lineHeight: '26px', fontWeight: '600' }],
+        'yds-s2': ['20px', { lineHeight: '26px', fontWeight: '500' }],
         'yds-c1m': ['12px', { lineHeight: '16px', fontWeight: '500' }],
         'yds-c1r': ['12px', { lineHeight: '16px', fontWeight: '400' }],
         'yds-c2r': ['10px', { lineHeight: '14px', fontWeight: '400' }],

@@ -4,14 +4,14 @@ import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg font-bold focus:outline-none transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none yds-button-typography',
+  'flex h-12 items-center justify-center rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none yds-button-typography font-yds-wanted',
   {
     variants: {
       size: {
-        sm: 'h-9 w-20',
-        md: 'h-11 w-[120px]',
-        lg: 'h-14 w-40',
-        full: 'h-11 w-full',
+        sm: 'w-20',
+        md: 'w-[120px]',
+        lg: 'w-40',
+        full: 'w-full',
       },
       variant: {
         fill: '',
@@ -26,13 +26,13 @@ const buttonVariants = cva(
       {
         variant: 'fill',
         color: 'primary',
-        class: 'bg-primary-400 text-black hover:bg-primary-500',
+        class: 'bg-primary-400 text-black',
       },
       // Outlined
       {
         variant: 'outlined',
         color: 'primary',
-        class: 'border-primary-400 text-primary-400 hover:text-primary-300',
+        class: 'border-primary-400 text-primary-400',
       },
     ],
     defaultVariants: {
@@ -60,9 +60,9 @@ const getTypographyStyle = (size: ButtonSize) => {
   switch (size) {
     case 'sm':
       return {
-        '--yds-button-font-size': 'var(--yds-c1m-font-size)',
-        '--yds-button-line-height': 'var(--yds-c1m-line-height)',
-        '--yds-button-font-weight': 'var(--yds-c1m-font-weight)',
+        '--yds-button-font-size': 'var(--yds-s2-font-size)',
+        '--yds-button-line-height': 'var(--yds-s2-line-height)',
+        '--yds-button-font-weight': 'var(--yds-s2-font-weight)',
       };
     case 'md':
       return {
@@ -72,15 +72,15 @@ const getTypographyStyle = (size: ButtonSize) => {
       };
     case 'lg':
       return {
-        '--yds-button-font-size': 'var(--yds-s1-font-size)',
-        '--yds-button-line-height': 'var(--yds-s1-line-height)',
-        '--yds-button-font-weight': 'var(--yds-s1-font-weight)',
+        '--yds-button-font-size': 'var(--yds-s2-font-size)',
+        '--yds-button-line-height': 'var(--yds-s2-line-height)',
+        '--yds-button-font-weight': 'var(--yds-s2-font-weight)',
       };
     case 'full':
       return {
-        '--yds-button-font-size': 'var(--yds-b2-font-size)',
-        '--yds-button-line-height': 'var(--yds-b2-line-height)',
-        '--yds-button-font-weight': 'var(--yds-b2-font-weight)',
+        '--yds-button-font-size': 'var(--yds-s2-font-size)',
+        '--yds-button-line-height': 'var(--yds-s2-line-height)',
+        '--yds-button-font-weight': 'var(--yds-s2-font-weight)',
       };
     default:
       return {

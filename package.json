@@ -20,7 +20,8 @@
     "watch": "rollup -c -w",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "tokens": "node scripts/convert-figma-tokens.js"
+    "tokens": "node scripts/auto-token-sync.js",
+    "tokens:test": "node scripts/auto-token-sync.js"
   },
   "peerDependencies": {
     "react": "^18.2.0",
