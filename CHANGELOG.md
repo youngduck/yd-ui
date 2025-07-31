@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.0.10] - 2025-07-31
+
+### 추가
+
+- Tokens Studio for Figma 연동을 위한 자동 토큰 동기화 스크립트 추가
+- `auto-token-sync.js` 스크립트로 `tokens.json` → CSS/Tailwind 설정 자동 변환
+- `tokens:test` 스크립트로 테스트 파일 생성 기능 추가
+- Wanted Sans Variable 폰트 통합 및 YDS 디자인 시스템 타이포그래피 적용
+- Toss 패턴 기반 버튼 타이포그래피 시스템 구현
+
+### 변경
+
+- 패키지 이름을 `@youngduck/yd-ui`에서 `@yds/yd-ui`로 변경
+- 디자인 토큰 기반 색상 시스템 (Primary 50-400) 적용
+- YDS 타이포그래피 토큰 (H1, H2, S1, S2, B1, B2, C1, C2, C3) 적용
+- 버튼 컴포넌트에 인라인 CSS 변수를 통한 동적 타이포그래피 적용
+
+### 개선
+
+- 디자인 토큰과 컴포넌트 간 일관성 향상
+- Figma Variables와 코드 간 자동 동기화 워크플로우 구축
+
 ## [0.0.8] - 2025-06-08
 
 ### 추가
