@@ -1,19 +1,24 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import {
+  Button,
+  type ButtonSize,
+  type ButtonVariant,
+  type ButtonColor,
+} from './Button';
 
 const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     size: {
-      options: ['small', 'medium', 'large'],
+      options: ['sm', 'md', 'lg', 'full'] as ButtonSize[],
       control: { type: 'select' },
     },
     variant: {
-      options: ['fill', 'outlined'],
+      options: ['fill', 'outlined'] as ButtonVariant[],
       control: { type: 'select' },
     },
     color: {
-      options: ['primary', 'secondary', 'danger'],
+      options: ['primary'] as ButtonColor[],
       control: { type: 'select' },
     },
   },
@@ -26,7 +31,8 @@ type Story = StoryObj<typeof Button>;
 export const AllVariants: Story = {
   render: () => (
     <div className="space-y-8">
-      {['small', 'medium', 'large'].map((size) => (
+      {/* Fixed width buttons */}
+      {(['sm', 'md', 'lg'] as ButtonSize[]).map((size) => (
         <div key={size}>
           <div className="mb-2 font-bold text-lg capitalize text-white">
             {size}
@@ -36,14 +42,8 @@ export const AllVariants: Story = {
             <div>
               <div className="mb-1 text-sm text-yellow-300">Fill</div>
               <div className="flex gap-2">
-                <Button size={size as any} variant="fill" color="primary">
+                <Button size={size} variant="fill" color="primary">
                   저장
-                </Button>
-                <Button size={size as any} variant="fill" color="secondary">
-                  보조
-                </Button>
-                <Button size={size as any} variant="fill" color="danger">
-                  삭제
                 </Button>
               </div>
             </div>
@@ -51,20 +51,41 @@ export const AllVariants: Story = {
             <div>
               <div className="mb-1 text-sm text-yellow-300">Outlined</div>
               <div className="flex gap-2">
-                <Button size={size as any} variant="outlined" color="primary">
+                <Button size={size} variant="outlined" color="primary">
                   저장
-                </Button>
-                <Button size={size as any} variant="outlined" color="secondary">
-                  보조
-                </Button>
-                <Button size={size as any} variant="outlined" color="danger">
-                  삭제
                 </Button>
               </div>
             </div>
           </div>
         </div>
       ))}
+
+      {/* Full width buttons */}
+      <div>
+        <div className="mb-2 font-bold text-lg capitalize text-white">full</div>
+        <div className="max-w-2xl border border-gray-600 rounded-lg p-4">
+          <div className="flex gap-8">
+            {/* Fill */}
+            <div className="flex-1">
+              <div className="mb-1 text-sm text-yellow-300">Fill</div>
+              <div className="flex gap-2">
+                <Button size="full" variant="fill" color="primary">
+                  저장
+                </Button>
+              </div>
+            </div>
+            {/* Outlined */}
+            <div className="flex-1">
+              <div className="mb-1 text-sm text-yellow-300">Outlined</div>
+              <div className="flex gap-2">
+                <Button size="full" variant="outlined" color="primary">
+                  저장
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   ),
 };
