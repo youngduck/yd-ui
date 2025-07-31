@@ -3,84 +3,87 @@ layer(base);
 
 @import 'tailwindcss';
 
-@config '../../tailwind.config.js';
+/* @config '../../tailwind.config.js'; */
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+@theme{
+  --color-primary-50: #fcf6df;
+  --color-primary-100: #c9bf91;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #eccb43;
+  --color-primary-400: #e9be11;
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+  --font-family-yds-wanted: 'Wanted Sans Variable';
+
+  --font-size-yds-h1: 48px;
+  --font-size-yds-h2: 40px;
+  --font-size-yds-s1: 24px;
+  --font-size-yds-s2: 20px;
+  --font-size-yds-b1: 18px;
+  --font-size-yds-b2: 16px;
+  --font-size-yds-c1m: 12px;
+  --font-size-yds-c1r: 12px;
+  --font-size-yds-c2r: 10px;
+
+  --line-height-yds-h1: 58px;
+  --line-height-yds-h2: 48px;
+  --line-height-yds-s1: 30px;
+  --line-height-yds-s2: 26px;
+  --line-height-yds-b1: 26px;
+  --line-height-yds-b2: 24px;
+  --line-height-yds-c1m: 16px;
+  --line-height-yds-c1r: 16px;
+  --line-height-yds-c2r: 14px;
+
+  --font-weight-yds-h1: 600;
+  --font-weight-yds-h2: 600;
+  --font-weight-yds-s1: 600;
+  --font-weight-yds-s2: 600;
+  --font-weight-yds-b1: 400;
+  --font-weight-yds-b2: 400;
+  --font-weight-yds-c1m: 500;
+  --font-weight-yds-c1r: 400;
+  --font-weight-yds-c2r: 400;
 }
 
-@utility yds-button-typography {
-  /* Button Typography - CSS 변수 사용 */
-  font-size: var(--yds-button-font-size);
-  line-height: var(--yds-button-line-height);
-  font-weight: var(--yds-button-font-weight);
+@utility yds-text-h1 {
+  font-size: var(--font-size-yds-h1);
+  line-height: var(--line-height-yds-h1);
+  font-weight: var(--font-weight-yds-h1);
 }
 
-@layer base {
-  :root {
-    /* FIGMA TOKENS START */
+@utility yds-text-h2 {
+  font-size: var(--font-size-yds-h2);
+  line-height: var(--line-height-yds-h2);
+  font-weight: var(--font-weight-yds-h2);
+}
 
-    /* Color Tokens */
-    --primary-50: #fcf6df;
-    --primary-100: #c9bf91;
-    --primary-200: #fde68a;
-    --primary-300: #eccb43;
-    --primary-400: #e9be11;
+@utility yds-text-s1 {
+  font-size: var(--font-size-yds-s1);
+  line-height: var(--line-height-yds-s1);
+  font-weight: var(--font-weight-yds-s1);
+}
 
-    /* Typography Tokens */
-    --yds-h1-font-size: 48px;
-    --yds-h1-line-height: 58px;
-    --yds-h1-font-weight: 600;
-    --yds-h2-font-size: 40px;
-    --yds-h2-line-height: 48px;
-    --yds-h2-font-weight: 600;
-    --yds-s1-font-size: 24px;
-    --yds-s1-line-height: 30px;
-    --yds-s1-font-weight: 600;
-    --yds-s2-font-size: 20px;
-    --yds-s2-line-height: 26px;
-    --yds-s2-font-weight: 600;
-    --yds-b1-font-size: 18px;
-    --yds-b1-line-height: 26px;
-    --yds-b1-font-weight: 400;
-    --yds-b2-font-size: 16px;
-    --yds-b2-line-height: 24px;
-    --yds-b2-font-weight: 400;
-    --yds-c1m-font-size: 12px;
-    --yds-c1m-line-height: 16px;
-    --yds-c1m-font-weight: 500;
-    --yds-c1r-font-size: 12px;
-    --yds-c1r-line-height: 16px;
-    --yds-c1r-font-weight: 400;
-    --yds-c2r-font-size: 10px;
-    --yds-c2r-line-height: 14px;
-    --yds-c2r-font-weight: 400;
-    /* FIGMA TOKENS END */
+@utility yds-text-s2 {
+  font-size: var(--font-size-yds-s2);
+  line-height: var(--line-height-yds-s2);
+  font-weight: var(--font-weight-yds-s2);
+}
 
-    /* Font Family */
-    --font-family-yds-wanted: 'Wanted Sans Variable';
-  }
+@utility yds-text-b1 {
+  font-size: var(--font-size-yds-b1);
+  line-height: var(--line-height-yds-b1);
+  font-weight: var(--font-weight-yds-b1);
+}
 
-  /* 기본 폰트 설정 */
-  html {
-    font-family: var(--font-family-yds-wanted);
-  }
+@utility yds-text-b2 {
+  font-size: var(--font-size-yds-b2);
+  line-height: var(--line-height-yds-b2);
+  font-weight: var(--font-weight-yds-b2);
+}
 
-  body {
-    font-family: var(--font-family-yds-wanted);
+
+@layer components {
+  .yds-button {
+    @apply yds-text-s2 flex h-12 items-center justify-center rounded-lg;
   }
 }
