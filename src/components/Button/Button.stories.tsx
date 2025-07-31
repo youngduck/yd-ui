@@ -1,10 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
-import {
-  Button,
-  type ButtonSize,
-  type ButtonVariant,
-  type ButtonColor,
-} from './Button';
+import { Meta, StoryObj } from '@storybook/react'
+import { Button, type ButtonSize, type ButtonVariant, type ButtonColor } from './Button'
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -22,21 +17,19 @@ const meta: Meta<typeof Button> = {
       control: { type: 'select' },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Button>
 
 export const AllVariants: Story = {
   render: () => (
     <div className="space-y-8">
       {/* Fixed width buttons */}
-      {(['sm', 'md', 'lg'] as ButtonSize[]).map((size) => (
+      {(['sm', 'md', 'lg'] as ButtonSize[]).map(size => (
         <div key={size}>
-          <div className="mb-2 font-bold text-lg capitalize text-white">
-            {size}
-          </div>
+          <div className="mb-2 font-bold text-lg capitalize text-white">{size}</div>
           <div className="flex gap-8">
             {/* Fill */}
             <div>
@@ -88,4 +81,4 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-};
+}
