@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.15] - 2025-01-27
+
+### 추가
+
+- ESLint 및 Prettier 설정 추가
+- `lint`, `lint:fix`, `format`, `format:check`, `check` 스크립트 추가
+- CSS 모듈 시스템 도입으로 스타일 충돌 방지
+- 독립적인 스타일 시스템으로 YD-UI 컴포넌트 스코핑 구현
+
+### 변경
+
+- ESLint flat config 시스템으로 마이그레이션
+- 롤업 PostCSS 자동주입설정
+- 패키지 이름을 `@yds/yd-ui`에서 `@youngduck/yd-ui`로 복원
+- 버전을 0.0.15로 업데이트
+
+
 ## [0.0.10] - 2025-07-31
 
 ### 추가
