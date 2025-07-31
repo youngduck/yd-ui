@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.16] - 2025-02-01
+
+### 변경
+
+- Tailwind CSS v3에서 v4로 업그레이드
+    - YD-UI를 사용할 앞으로의 사이드프로젝트 Tailwind는 v4를 사용할것이라 판단 호환 미리 적용
+- 기본 border-color가 currentcolor로 변경됨에 따른 호환성 스타일 추가
+- Tailwind CSS v4 관련 의존성 업데이트
+
 ## [0.0.15] - 2025-01-27
 
 ### 추가

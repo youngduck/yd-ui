@@ -79,7 +79,7 @@ export function CustomButton() {
     <Button
       variant="ghost"
       className={cn(
-        "bg-gradient-to-r from-purple-500 to-pink-500",
+        "bg-linear-to-r from-purple-500 to-pink-500",
         "hover:from-purple-600 hover:to-pink-600",
         "text-white shadow-lg"
       )}
