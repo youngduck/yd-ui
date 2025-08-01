@@ -1,69 +1,55 @@
+@import "tailwindcss";
+
 @import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer base {
-  :root {
-    /* FIGMA TOKENS START */
+@theme {
+  /* Color Tokens */
+  --color-primary-50: #fcf6df;
+  --color-primary-100: #c9bf91;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #eccb43;
+  --color-primary-400: #e9be11;
 
-    /* Color Tokens */
-    --primary-50: #fcf6df;
-    --primary-100: #c9bf91;
-    --primary-200: #fde68a;
-    --primary-300: #eccb43;
-    --primary-400: #e9be11;
+  /* Typography Tokens */
+  --font-size-yds-h1: 48px;
+  --line-height-yds-h1: 58px;
+  --font-weight-yds-h1: 600;
+  --font-size-yds-h2: 40px;
+  --line-height-yds-h2: 48px;
+  --font-weight-yds-h2: 600;
+  --font-size-yds-s1: 24px;
+  --line-height-yds-s1: 30px;
+  --font-weight-yds-s1: 600;
+  --font-size-yds-s2: 20px;
+  --line-height-yds-s2: 26px;
+  --font-weight-yds-s2: 600;
+  --font-size-yds-b1: 18px;
+  --line-height-yds-b1: 26px;
+  --font-weight-yds-b1: 400;
+  --font-size-yds-b2: 16px;
+  --line-height-yds-b2: 24px;
+  --font-weight-yds-b2: 400;
+  --font-size-yds-c1m: 12px;
+  --line-height-yds-c1m: 16px;
+  --font-weight-yds-c1m: 500;
+  --font-size-yds-c1r: 12px;
+  --line-height-yds-c1r: 16px;
+  --font-weight-yds-c1r: 400;
+  --font-size-yds-c2r: 10px;
+  --line-height-yds-c2r: 14px;
+  --font-weight-yds-c2r: 400;
 
-    /* Typography Tokens */
-    --yds-h1-font-size: 48px;
-    --yds-h1-line-height: 58px;
-    --yds-h1-font-weight: 600;
-    --yds-h2-font-size: 40px;
-    --yds-h2-line-height: 48px;
-    --yds-h2-font-weight: 600;
-    --yds-s1-font-size: 24px;
-    --yds-s1-line-height: 30px;
-    --yds-s1-font-weight: 600;
-    --yds-s2-font-size: 20px;
-    --yds-s2-line-height: 26px;
-    --yds-s2-font-weight: 600;
-    --yds-b1-font-size: 18px;
-    --yds-b1-line-height: 26px;
-    --yds-b1-font-weight: 400;
-    --yds-b2-font-size: 16px;
-    --yds-b2-line-height: 24px;
-    --yds-b2-font-weight: 400;
-    --yds-c1m-font-size: 12px;
-    --yds-c1m-line-height: 16px;
-    --yds-c1m-font-weight: 500;
-    --yds-c1r-font-size: 12px;
-    --yds-c1r-line-height: 16px;
-    --yds-c1r-font-weight: 400;
-    --yds-c2r-font-size: 10px;
-    --yds-c2r-line-height: 14px;
-    --yds-c2r-font-weight: 400;
-    /* FIGMA TOKENS END */
-
-    /* Font Family */
-    --font-family-yds-wanted: 'Wanted Sans Variable';
-  }
-
-  /* 기본 폰트 설정 */
-  html {
-    font-family: var(--font-family-yds-wanted);
-  }
-
-  body {
-    font-family: var(--font-family-yds-wanted);
-  }
+  /* Font Family */
+  --font-yds-wanted: 'Wanted Sans Variable';
 }
 
+
 @layer components {
-  /* Button Typography - CSS 변수 사용 */
   .yds-button-typography {
-    font-size: var(--yds-button-font-size);
-    line-height: var(--yds-button-line-height);
-    font-weight: var(--yds-button-font-weight);
+    font-size: var(--font-size-yds-s2);
+    line-height: var(--line-height-yds-s2);
+    font-weight: var(--font-weight-yds-s2);
+    @apply flex h-12 justify-center items-center rounded-lg cursor-pointer font-yds-wanted;
   }
 }

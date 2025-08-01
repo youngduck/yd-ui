@@ -9,4 +9,18 @@ export default [
     languageOptions: { globals: globals.browser },
   },
   ...tseslint.configs.recommended,
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off', // 이 규칙 비활성화
+    },
+  },
+  {
+    files: ['**/*.d.ts'],
+    rules: {
+      'no-var': 'off',
+    },
+  },
+  {
+    ignores: ['dist/**', 'node_modules/**'], // 빌드 결과물 제외
+  },
 ]
