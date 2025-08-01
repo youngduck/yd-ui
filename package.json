@@ -1,6 +1,6 @@
 {
   "name": "@youngduck/yd-ui",
-  "version": "0.0.15",
+  "version": "0.1.2",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -64,10 +64,13 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.4.7",
-    "tailwind-merge": "^2.2.1",
-    "tailwindcss": "^3.4.1",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.38.0"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
   }
 }

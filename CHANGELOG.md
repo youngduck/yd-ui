@@ -1,5 +1,41 @@
 # Changelog
 
+## [0.1.2] - 2025-01-27
+
+<!-- Tailwind v4버전 업에 따른 마이너버전 업 -->
+
+### 추가
+
+- TailwindCSS v4 완전 호환 지원
+- `@tailwindcss/postcss` 플러그인 통합으로 라이브러리 빌드 최적화
+- CSS 파일 기반 설정 시스템 (`@theme`, `@import "tailwindcss"`)
+- PostCSS 기반 스타일 주입 시스템으로 `inject: true` 설정
+
+### 변경
+
+- TailwindCSS v3.4.1에서 v4.1.11로 메이저 업그레이드
+- `tailwind.config.js` 제거 및 CSS 파일 기반 설정으로 마이그레이션
+- `@tailwindcss/vite` 의존성 제거 (PostCSS 방식으로 통합)
+- Rollup 설정에서 PostCSS 플러그인 설정
+- Storybook 설정에서 TailwindCSS v4 호환 적용
+
+### 개선
+
+- CSS 변수 시스템 v4양식에 맞게끔 재구성 (`--color-primary-*`, `--font-size-yds-*`)
+
+### 수정
+
+- ESLint 설정에서 빌드 결과물 및 타입 정의 파일 제외
+- Button 컴포넌트의 CSS 변수 참조 오류 수정
+- Storybook 무한 로딩 문제 해결
+- PostCSS 설정 충돌 문제 해결
+
+### 삭제
+
+- 불필요한 `@tailwindcss/vite` 의존성 제거
+- 기존 styled-components 관련 캐싱 파일 제거
+- 중복된 TailwindCSS 설정 파일 정리
+
 ## [0.0.15] - 2025-01-27
 
 ### 추가
