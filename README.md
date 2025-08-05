@@ -22,6 +22,27 @@ yarn add @youngduck/yd-ui
 pnpm add @youngduck/yd-ui
 ```
 
+## 🎨 CSS 스타일 적용
+
+YD-UI를 사용하기 위해서는 CSS 파일을 import해야 합니다:
+
+### 방법 1: CSS 파일에서 import (권장)
+```css
+/* your-global-styles.css */
+@import "@youngduck/yd-ui/styles";
+```
+
+### 방법 2: JavaScript/TypeScript에서 import
+```typescript
+// App.tsx 또는 main.tsx
+import "@youngduck/yd-ui/styles";
+```
+
+### 방법 3: 직접 경로 지정
+```css
+@import "@youngduck/yd-ui/dist/index.css";
+```
+
 ## 🚀 사용법
 
 ### 기본 사용
@@ -32,11 +53,11 @@ import { Button } from "@youngduck/yd-ui";
 export function App() {
   return (
     <div>
-      <Button variant="primary" size="md">
+      <Button variant="fill" color="primary" size="md">
         Primary Button
       </Button>
-      <Button variant="secondary" size="sm">
-        Secondary Button
+      <Button variant="outlined" color="primary" size="sm">
+        Outlined Button
       </Button>
     </div>
   );
@@ -49,19 +70,17 @@ export function App() {
 
 ```tsx
 // Button 컴포넌트 variant 예시
-<Button variant="primary">주요 버튼</Button>
-<Button variant="secondary">보조 버튼</Button>
-<Button variant="outline">외곽선 버튼</Button>
-<Button variant="ghost">고스트 버튼</Button>
-<Button variant="destructive">삭제 버튼</Button>
+<Button variant="fill" color="primary">채움 버튼</Button>
+<Button variant="outlined" color="primary">외곽선 버튼</Button>
 
 // 크기 조절
 <Button size="sm">작은 버튼</Button>
 <Button size="md">보통 버튼</Button>
 <Button size="lg">큰 버튼</Button>
+<Button size="full">전체 너비 버튼</Button>
 
 // 조합 사용
-<Button variant="outline" size="lg" disabled>
+<Button variant="outlined" color="primary" size="lg" disabled>
   비활성화된 큰 외곽선 버튼
 </Button>
 ```
@@ -77,7 +96,8 @@ import { cn } from "@/lib/utils";
 export function CustomButton() {
   return (
     <Button
-      variant="ghost"
+      variant="fill"
+      color="primary"
       className={cn(
         "bg-gradient-to-r from-purple-500 to-pink-500",
         "hover:from-purple-600 hover:to-pink-600",
