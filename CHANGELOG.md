@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.1.4] - 2025-01-27
+
+### 수정
+
+- yd-ui라이브러리 실행시 로컬에서는 적용, 실서버에서는 미적용 현상 최종 해결
+  - `rollup-plugin-postcss` 설정에서 `inject: true`와 `extract: 'index.css'` 동시 적용
+  - CSS 파일이 JS에 주입되면서 동시에 별도 파일로도 추출되도록 수정
+  - `package.json`의 `exports` 필드에 `"./styles": "./dist/index.css"` 추가로 import 경로 커스텀 제공
+- 사이드 프로젝트에서 `@import "@youngduck/yd-ui/styles";` 형태로 CSS 간편 import 가능
+
+### 버그 수정
+
+- 개발 환경과 프로덕션 환경 모두에서 YD-UI 적용
+
+## [0.1.3] - 2025-08-04
+
+### 버그 수정
+
+- yd-ui라이브러리 실행시 로컬에서는 적용, 실서버에서는 미적용 현상 발견
+    - PostCSS 설정에서 CSS 파일 추출 기능 추가 (`extract: 'index.css'`)
+    - `package.json`에서 CSS 파일 배포 설정 추가
+    - 빌드 결과물에 CSS 파일이 포함되지 않던 문제 해결
+<!-- - 개발 환경과 빌드 환경 간 스타일 적용 불일치 문제 해결 -->
+
 ## [0.1.2] - 2025-01-27
 
 <!-- Tailwind v4버전 업에 따른 마이너버전 업 -->

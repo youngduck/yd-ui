@@ -41,6 +41,7 @@ export default [
         extensions: ['.css'],
         minimize: true,
         inject: true,
+        extract: 'index.css',
       }),
       terser(),
     ],
