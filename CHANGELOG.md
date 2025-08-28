@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.1] - 2025-08-28
+
+### 추가
+- Input 컴포넌트(초안) 추가
+- 투명 레이어용 유틸리티 CSS 추가
+
+### 변경
+- React peerDependencies를 19로 상향 (`react`, `react-dom` → ^19.0.0)
+- 라이브러리 CSS 전파 방식 정리: Tailwind v4 대응 유틸리티 제공
+  - 색상: `.text-primary-50~400`, `.bg-primary-50~400`, `.border-primary-50~400`
+  - 타이포그래피: `.text-yds-h1/h2/s1/s2/b1/b2/c1m/c1r/c2r`, `.font-yds-wanted`
+- 컴포넌트 베이스 타이포그래피 클래스 정리 (`.yds-button-typography`, `.yds-input-typography`)
+
 ## [0.2.1] - 2025-08-27
 
 ### 변경

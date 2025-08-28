@@ -1,5 +1,6 @@
 // 컴포넌트 내보내기
 export { Button } from './components/Button/Button'
+export { Input } from './components/Input/Input'
 
 // 유틸리티 함수 내보내기
 // export { cn } from "./lib/utils";

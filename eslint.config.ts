@@ -1,6 +1,5 @@
 import js from '@eslint/js'
 import globals from 'globals'
-import tseslint from 'typescript-eslint'
 
 export default [
   js.configs.recommended,
@@ -8,7 +7,6 @@ export default [
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     languageOptions: { globals: globals.browser },
   },
-  ...tseslint.configs.recommended,
   {
     rules: {
       '@typescript-eslint/no-unused-vars': 'off', // 이 규칙 비활성화
