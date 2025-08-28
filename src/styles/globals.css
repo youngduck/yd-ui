@@ -4,6 +4,12 @@
 
 
 @theme {
+  
+  /* Background Colors Tokens*/
+  --color-background-primary: rgb(25, 25, 31);
+  --color-background-secondary: rgb(32, 36, 45);
+  --color-background-secondary-layer: rgba(32, 36, 45, 0.7);
+    
   /* Color Tokens */
   --color-primary-50: #fcf6df;
   --color-primary-100: #c9bf91;
@@ -44,6 +50,46 @@
   --font-yds-wanted: 'Wanted Sans Variable';
 }
 
+/* 색상 유틸리티 클래스 직접 정의 */
+@layer utilities {
+
+  .bg-background-primary { background-color: var(--color-background-primary); }
+  .bg-background-secondary { background-color: var(--color-background-secondary); }
+  .bg-background-secondary-layer { background-color: var(--color-background-secondary-layer); }
+
+  .text-primary-50 { color: var(--color-primary-50); }
+  .text-primary-100 { color: var(--color-primary-100); }
+  .text-primary-200 { color: var(--color-primary-200); }
+  .text-primary-300 { color: var(--color-primary-300); }
+  .text-primary-400 { color: var(--color-primary-400); }
+  
+  .bg-primary-50 { background-color: var(--color-primary-50); }
+  .bg-primary-100 { background-color: var(--color-primary-100); }
+  .bg-primary-200 { background-color: var(--color-primary-200); }
+  .bg-primary-300 { background-color: var(--color-primary-300); }
+  .bg-primary-400 { background-color: var(--color-primary-400); }
+  
+  .border-primary-50 { border-color: var(--color-primary-50); }
+  .border-primary-100 { border-color: var(--color-primary-100); }
+  .border-primary-200 { border-color: var(--color-primary-200); }
+  .border-primary-300 { border-color: var(--color-primary-300); }
+  .border-primary-400 { border-color: var(--color-primary-400); }
+
+  /* 폰트 크기 유틸리티 클래스 */
+  .text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); }
+  .text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); }
+  .text-yds-s1 { font-size: var(--font-size-yds-s1); line-height: var(--line-height-yds-s1); font-weight: var(--font-weight-yds-s1); }
+  .text-yds-s2 { font-size: var(--font-size-yds-s2); line-height: var(--line-height-yds-s2); font-weight: var(--font-weight-yds-s2); }
+  .text-yds-b1 { font-size: var(--font-size-yds-b1); line-height: var(--line-height-yds-b1); font-weight: var(--font-weight-yds-b1); }
+  .text-yds-b2 { font-size: var(--font-size-yds-b2); line-height: var(--line-height-yds-b2); font-weight: var(--font-weight-yds-b2); }
+  .text-yds-c1m { font-size: var(--font-size-yds-c1m); line-height: var(--line-height-yds-c1m); font-weight: var(--font-weight-yds-c1m); }
+  .text-yds-c1r { font-size: var(--font-size-yds-c1r); line-height: var(--line-height-yds-c1r); font-weight: var(--font-weight-yds-c1r); }
+  .text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); }
+
+  /* 폰트 패밀리 유틸리티 클래스 */
+  .font-yds-wanted { font-family: var(--font-yds-wanted); }
+}
+
 
 @layer components {
   .yds-button-typography {
@@ -52,4 +98,11 @@
     font-weight: var(--font-weight-yds-s2);
     @apply flex h-12 justify-center items-center rounded-lg cursor-pointer font-yds-wanted;
   }
+
+  .yds-input-typography {
+    font-size: var(--font-size-yds-b2);
+    line-height: var(--line-height-yds-b2);
+    font-weight: var(--font-weight-yds-b2);
+  }
+
 }
