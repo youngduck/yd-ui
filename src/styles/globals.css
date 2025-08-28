@@ -8,6 +8,8 @@
   /* Background Colors Tokens*/
   --color-background-primary: rgb(25, 25, 31);
   --color-background-secondary: rgb(32, 36, 45);
+  
+  --color-background-primary-layer: rgba(25, 25, 31, 0.7);
   --color-background-secondary-layer: rgba(32, 36, 45, 0.7);
     
   /* Color Tokens */
@@ -55,6 +57,8 @@
 
   .bg-background-primary { background-color: var(--color-background-primary); }
   .bg-background-secondary { background-color: var(--color-background-secondary); }
+  
+  .bg-background-primary-layer { background-color: var(--color-background-primary-layer); }
   .bg-background-secondary-layer { background-color: var(--color-background-secondary-layer); }
 
   .text-primary-50 { color: var(--color-primary-50); }
