@@ -27,9 +27,11 @@ const inputVariants = cva('yds-input-typography h-12 rounded-[8px] border-2 pr-3
       full: 'w-full',
     },
     color: {
-      white: 'border-white bg-transparent text-gray-900 placeholder-gray-500',
-      'primary-400': 'border-yellow-400 bg-transparent text-gray-900 placeholder-primary-400 focus:border-yellow-500',
-      'primary-100': 'border-yellow-100 bg-transparent text-gray-900 placeholder-primary-100 focus:border-yellow-200',
+      white: 'border-white bg-transparent text-white placeholder-white',
+      'primary-400':
+        'border-yellow-400 bg-transparent text-primary-400 placeholder-primary-400 focus:border-yellow-500',
+      'primary-100':
+        'border-yellow-100 bg-transparent text-primary-100 placeholder-primary-100 focus:border-yellow-200',
     },
     variant: {
       search: 'pl-10', // 아이콘 공간
