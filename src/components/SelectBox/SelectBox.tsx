@@ -6,10 +6,30 @@
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-export type SelectBoxProps = {}
 
-export function SelectBox() {
+export type SelectBoxProps = {
+  // options:
+
+
+} & VariantProps<typeof wrapperVariants>
+
+const wrapperVariants = cva('relative h-12 text-white',{
+  variants:{
+    size:{
+    sm:'w-[200px]',
+    md:'w-[300px]',
+    lg:'w-[400px]',
+    full:'w-full',
+  },
+  },
+  defaultVariants:{
+    size:'full',
+  },
+})
+
+export function SelectBox({ size }: SelectBoxProps) {
   const [isToggleOpen, setIsToggleOpen] = useState(false)
 
   const handleSelectBoxToggle = () => {
@@ -17,13 +37,13 @@ export function SelectBox() {
   }
 
   return (
-    <div className="relative h-12 w-[300px] text-white">
+    <div className={wrapperVariants({ size })}>
       <div
-        className="border-primary-400 absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-between rounded-[8px] border-2 p-3"
+        className="absolute border-primary-100 top-0 left-0 flex h-full w-full cursor-pointer items-center justify-between rounded-[8px] text-yds-b1 border-2 p-3"
         onClick={handleSelectBoxToggle}
       >
-        클릭박스zzzz
-        <ChevronDown className="text-primary-400" />
+        국적
+        <ChevronDown className="text-primary-100" />
       </div>
       {isToggleOpen && (
         <div className="bg-background-primary border-background-secondary absolute top-13 left-0 h-full w-full rounded-lg border-2">
