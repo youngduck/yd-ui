@@ -5,23 +5,31 @@
  */
 
 import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
+
+export type SelectBoxProps = {}
 
 export function SelectBox() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isToggleOpen, setIsToggleOpen] = useState(false)
 
   const handleSelectBoxToggle = () => {
-    setIsOpen(!isOpen)
+    setIsToggleOpen(!isToggleOpen)
   }
 
   return (
-    <div className="relative h-12 w-[300px]">
+    <div className="relative h-12 w-[300px] text-white">
       <div
-        className="cursor-pointer absolute top-0 left-0 w-full h-full rounded-[8px] border-2 border-primary-400"
+        className="border-primary-400 absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-between rounded-[8px] border-2 p-3"
         onClick={handleSelectBoxToggle}
       >
-        클릭박스
+        클릭박스zzzz
+        <ChevronDown className="text-primary-400" />
       </div>
-      {isOpen && <div className="absolute top-1 left-0 w-full h-full">옵션들</div>}
+      {isToggleOpen && (
+        <div className="bg-background-primary border-background-secondary absolute top-13 left-0 h-full w-full rounded-lg border-2">
+          옵션들
+        </div>
+      )}
     </div>
   )
 }
