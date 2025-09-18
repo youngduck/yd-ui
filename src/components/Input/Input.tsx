@@ -18,7 +18,7 @@ const wrapperVariants = cva('relative', {
   },
 })
 
-const inputVariants = cva('yds-input-typography h-12 rounded-[8px] border-2 pr-3 focus:outline-none', {
+const inputVariants = cva('text-yds-b2 h-12 rounded-[8px] border-2 pr-3 focus:outline-none', {
   variants: {
     size: {
       sm: 'w-[200px]',
@@ -28,10 +28,8 @@ const inputVariants = cva('yds-input-typography h-12 rounded-[8px] border-2 pr-3
     },
     color: {
       white: 'border-white bg-transparent text-white placeholder-white',
-      'primary-400':
-        'border-yellow-400 bg-transparent text-primary-400 placeholder-primary-400',
-      'primary-100':
-        'border-yellow-100 bg-transparent text-primary-100 placeholder-primary-100',
+      'primary-400': 'border-yellow-400 bg-transparent text-primary-400 placeholder-primary-400',
+      'primary-100': 'border-yellow-100 bg-transparent text-primary-100 placeholder-primary-100',
     },
     variant: {
       search: 'pl-10', // 아이콘 공간
@@ -54,15 +52,14 @@ export type InputSize = VariantProps<typeof inputVariants>['size']
 export type InputColor = VariantProps<typeof inputVariants>['color']
 export type InputVariant = VariantProps<typeof inputVariants>['variant']
 
-export type InputProps = {
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'color'> &
+export type InputProps = {} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'color'> &
   VariantProps<typeof inputVariants>
 
 export function Input({ size, color, variant, disabled, ...props }: InputProps) {
   return (
     <div className={wrapperVariants({ color })}>
       {variant === 'search' && (
-        <Search aria-hidden className="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6 text-current" />
+        <Search aria-hidden className="absolute top-1/2 left-3 h-6 w-6 -translate-y-1/2 text-current" />
       )}
       <input className={inputVariants({ size, color, variant, disabled })} disabled={disabled} {...props} />
     </div>

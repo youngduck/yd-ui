@@ -38,7 +38,7 @@ export const AllVariants: Story = {
       {/* Size variants */}
       {(['sm', 'md', 'lg'] as const).map(size => (
         <div key={size}>
-          <div className="mb-4 font-bold text-lg capitalize text-white">{size}</div>
+          <div className="mb-4 text-lg font-bold text-white capitalize">{size}</div>
           <div className="grid grid-cols-2 gap-8">
             {/* Search variants */}
             <div>
@@ -64,8 +64,8 @@ export const AllVariants: Story = {
 
       {/* Full width variants */}
       <div>
-        <div className="mb-4 font-bold text-lg capitalize text-white">full</div>
-        <div className="max-w-4xl border border-gray-600 rounded-lg p-6">
+        <div className="mb-4 text-lg font-bold text-white capitalize">full</div>
+        <div className="max-w-4xl rounded-lg border border-gray-600 p-6">
           <div className="grid grid-cols-2 gap-8">
             {/* Search variants */}
             <div>
@@ -91,7 +91,7 @@ export const AllVariants: Story = {
 
       {/* Disabled state */}
       <div>
-        <div className="mb-4 font-bold text-lg capitalize text-white">Disabled</div>
+        <div className="mb-4 text-lg font-bold text-white capitalize">Disabled</div>
         <div className="grid grid-cols-2 gap-8">
           <div>
             <div className="mb-2 text-sm text-yellow-300">Search (Disabled)</div>
@@ -106,14 +106,14 @@ export const AllVariants: Story = {
 
       {/* Usage examples */}
       <div>
-        <div className="mb-4 font-bold text-lg capitalize text-white">사용 예시</div>
-        <div className="space-y-4 max-w-md">
+        <div className="mb-4 text-lg font-bold text-white capitalize">사용 예시</div>
+        <div className="max-w-md space-y-4">
           <div>
-            <label className="block text-sm text-white mb-2">닉네임</label>
+            <label className="mb-2 block text-sm text-white">닉네임</label>
             <Input variant="search" color="primary-400" placeholder="검색..." />
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">닉네임</label>
+            <label className="mb-2 block text-sm text-white">닉네임</label>
             <Input variant="input" color="white" placeholder="검색..." />
           </div>
         </div>

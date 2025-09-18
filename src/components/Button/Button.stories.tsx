@@ -29,7 +29,7 @@ export const AllVariants: Story = {
       {/* Fixed width buttons */}
       {(['sm', 'md', 'lg'] as ButtonSize[]).map(size => (
         <div key={size}>
-          <div className="mb-2 font-bold text-lg capitalize text-white">{size}</div>
+          <div className="mb-2 text-lg font-bold text-white capitalize">{size}</div>
           <div className="flex gap-8">
             {/* Fill */}
             <div>
@@ -55,8 +55,8 @@ export const AllVariants: Story = {
 
       {/* Full width buttons */}
       <div>
-        <div className="mb-2 font-bold text-lg capitalize text-white">full</div>
-        <div className="max-w-2xl border border-gray-600 rounded-lg p-4">
+        <div className="mb-2 text-lg font-bold text-white capitalize">full</div>
+        <div className="max-w-2xl rounded-lg border border-gray-600 p-4">
           <div className="flex gap-8">
             {/* Fill */}
             <div className="flex-1">
