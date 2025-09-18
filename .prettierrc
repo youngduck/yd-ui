@@ -17,6 +17,7 @@
   "parser": "typescript",
   "bracketSpacing": true,
   "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-tailwindcss"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
