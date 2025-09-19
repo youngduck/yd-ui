@@ -16,11 +16,13 @@ export type SelectBoxOptions = {
 export type SelectBoxProps = {
   options: {
     lists: SelectBoxOptions[]
-    search: boolean
+    search?: boolean
   }
+  value: SelectBoxOptions | null
+  onChange: (option: SelectBoxOptions) => void
 } & VariantProps<typeof wrapperVariants>
 
-const wrapperVariants = cva('relative h-12 text-white', {
+const wrapperVariants = cva('relative h-12', {
   variants: {
     size: {
       sm: 'w-[200px]',
@@ -34,18 +36,18 @@ const wrapperVariants = cva('relative h-12 text-white', {
   },
 })
 
-export function SelectBox({ size, options: { lists, search } }: SelectBoxProps) {
+export function SelectBox({ size, options: { lists, search = false }, onChange, value }: SelectBoxProps) {
   const [isToggleOpen, setIsToggleOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
-  const [selectedOption, setSelectedOption] = useState<SelectBoxOptions | null>(null)
 
   const handleSelectBoxToggle = () => {
     setIsToggleOpen(!isToggleOpen)
   }
 
   const handleOptionClick = (option: SelectBoxOptions) => {
-    setSelectedOption(option)
+    onChange(option)
     setIsToggleOpen(false)
+    setSearchValue('')
   }
 
   return (
@@ -54,8 +56,8 @@ export function SelectBox({ size, options: { lists, search } }: SelectBoxProps) 
         className="text-primary-100 border-primary-100 text-yds-b1 absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-between rounded-lg border-2 p-3"
         onClick={handleSelectBoxToggle}
       >
-        {!selectedOption && '선택'}
-        {selectedOption && selectedOption.value}
+        {!value && '선택'}
+        {value && value.value}
         <ChevronDown className="text-primary-100 transition-transform duration-300" />
       </div>
       {isToggleOpen && (
@@ -65,7 +67,7 @@ export function SelectBox({ size, options: { lists, search } }: SelectBoxProps) 
               <Search className="text-primary-100" size={20} />
               <input
                 type="text"
-                className="w-full p-2 hover:outline-none focus:outline-none"
+                className="w-full p-2 text-white hover:outline-none focus:outline-none"
                 value={searchValue}
                 placeholder="검색으로 쉽게찾기"
                 onChange={e => setSearchValue(e.target.value)}
@@ -77,11 +79,11 @@ export function SelectBox({ size, options: { lists, search } }: SelectBoxProps) 
             .map(option => (
               <div
                 key={option.label}
-                className="text-yds-c1m hover:bg-background-primary flex cursor-pointer items-center justify-between"
+                className="text-yds-c1m hover:bg-background-primary flex cursor-pointer items-center justify-between text-white"
                 onClick={() => handleOptionClick(option)}
               >
                 {option.value}
-                {selectedOption?.label === option.label && <Check className="text-primary-100" size={20} />}
+                {value?.label === option.label && <Check className="text-primary-100" size={20} />}
               </div>
             ))}
         </div>
