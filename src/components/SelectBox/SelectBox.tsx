@@ -4,23 +4,19 @@
  * 프로세스 설명: 선택박스 컴포넌트
  */
 
-import { useState } from 'react'
 import { Check, ChevronDown, Search } from 'lucide-react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { useSelect } from './hooks/useSelect'
 
-export type SelectBoxOptions = {
-  label: string
-  value: string
-}
 
-export type SelectBoxProps = {
-  options: {
-    lists: SelectBoxOptions[]
-    search?: boolean
-  }
-  value: SelectBoxOptions | null
-  onChange: (option: SelectBoxOptions) => void
-} & VariantProps<typeof wrapperVariants>
+// export type SelectBoxProps = {
+//   options: {
+//     lists: SelectBoxOptions[]
+//     search?: boolean
+//   }
+//   value: SelectBoxOptions | null
+//   onChange: (option: SelectBoxOptions|null) => void
+// } & VariantProps<typeof wrapperVariants>
 
 const wrapperVariants = cva('relative h-12', {
   variants: {
@@ -35,32 +31,33 @@ const wrapperVariants = cva('relative h-12', {
     size: 'full',
   },
 })
+export type SelectBoxProps = {
+  selectBoxHook: ReturnType<typeof useSelect>
+} & VariantProps<typeof wrapperVariants>
 
-export function SelectBox({ size, options: { lists, search = false }, onChange, value }: SelectBoxProps) {
-  const [isToggleOpen, setIsToggleOpen] = useState(false)
-  const [searchValue, setSearchValue] = useState('')
-
-  const handleSelectBoxToggle = () => {
-    setIsToggleOpen(!isToggleOpen)
-  }
-
-  const handleOptionClick = (option: SelectBoxOptions) => {
-    onChange(option)
-    setIsToggleOpen(false)
-    setSearchValue('')
-  }
+export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
+  const {
+    selectedValue,
+    isOpen,
+    searchValue,
+    options,
+    search,
+    handleSelect,
+    handleToggle,
+    handleSearch
+  } = selectBoxHook
 
   return (
     <div className={wrapperVariants({ size })}>
       <div
         className="text-primary-100 border-primary-100 text-yds-b1 absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-between rounded-lg border-2 p-3"
-        onClick={handleSelectBoxToggle}
+        onClick={handleToggle}
       >
-        {!value && '선택'}
-        {value && value.value}
+        {!selectedValue && '선택'}
+        {selectedValue && selectedValue.label}
         <ChevronDown className="text-primary-100 transition-transform duration-300" />
       </div>
-      {isToggleOpen && (
+      {isOpen && (
         <div className="bg-background-secondary border-primary-100 absolute top-14 left-0 flex h-auto w-full flex-col gap-2 rounded-lg border-2 p-3">
           {search && (
             <div className="border-primary-100 flex h-[40px] items-center border-y-2">
@@ -70,20 +67,20 @@ export function SelectBox({ size, options: { lists, search = false }, onChange, 
                 className="w-full p-2 text-white hover:outline-none focus:outline-none"
                 value={searchValue}
                 placeholder="검색으로 쉽게찾기"
-                onChange={e => setSearchValue(e.target.value)}
+                onChange={e => handleSearch(e.target.value)}
               />
             </div>
           )}
-          {lists
-            .filter(option => option.value.includes(searchValue))
+          {options
+            .filter(option => option.label.includes(searchValue))
             .map(option => (
               <div
                 key={option.label}
                 className="text-yds-c1m hover:bg-background-primary flex cursor-pointer items-center justify-between text-white"
-                onClick={() => handleOptionClick(option)}
+                onClick={() => handleSelect(option)}
               >
-                {option.value}
-                {value?.label === option.label && <Check className="text-primary-100" size={20} />}
+                {option.label}
+                {selectedValue?.value === option.value && <Check className="text-primary-100" size={20} />}
               </div>
             ))}
         </div>
@@ -91,5 +88,3 @@ export function SelectBox({ size, options: { lists, search = false }, onChange, 
     </div>
   )
 }
-
-SelectBox.displayName = 'SelectBox'
