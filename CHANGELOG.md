@@ -1,6 +1,26 @@
 # Changelog
 
 
+## [0.3.5] - 2025-09-22
+
+### 추가
+- SelectBox 선언적 리팩토링 관련 유틸/전략 추가
+  - `useDismiss` 훅: 외부 클릭/ESC 닫기 전용 훅 분리
+  - `filterFn`, `itemToString`, `getValue` 전략 주입 지원
+
+### 변경
+- `useSelectBox` 리팩토링 (선언적/확장성 강화)
+  - 파생값을 선언형으로 계산: `filteredOptions`, `selectedText`
+  - 컨트롤드/언컨트롤드 동시 지원 (`value`, `onChange` + `defaultValue`는 언컨트롤드 전용)
+  - UI 상태를 리듀서로 통합: `isOpen`, `searchValue` + 액션(`OPEN/CLOSE/TOGGLE/SEARCH/RESET_SEARCH`)
+  - 닫기 로직 단일화 `handleClose` 사용 및 사이드이펙트 분리(`useDismiss`)
+- SelectBox 옵션 리스트 기본 스크롤 제공 (`max-height` 적용)
+
+### 문서
+- Devlog 글(`yds-3.md`)에 선언적 리팩토링 기록 추가
+  - 파생값 이전, 외부 클릭 훅 분리, 컨트롤드/언컨트롤드 지원, 리듀서 전이 테이블화 정리
+
+
 ## [0.3.4] - 2025-09-18
 
 ### 추가
