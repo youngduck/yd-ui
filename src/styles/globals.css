@@ -81,6 +81,9 @@
   .border-primary-300 { border-color: var(--color-primary-300); }
   .border-primary-400 { border-color: var(--color-primary-400); }
 
+  /* Z-index 모듈화 */
+  .z-select-box-dropdown { z-index: 1000; }
+
   /* 폰트 크기 유틸리티 클래스 */
   .text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); }
   .text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); }
