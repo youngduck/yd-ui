@@ -6,17 +6,7 @@
 
 import { Check, ChevronDown, Search } from 'lucide-react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { useSelect } from './hooks/useSelect'
-
-
-// export type SelectBoxProps = {
-//   options: {
-//     lists: SelectBoxOptions[]
-//     search?: boolean
-//   }
-//   value: SelectBoxOptions | null
-//   onChange: (option: SelectBoxOptions|null) => void
-// } & VariantProps<typeof wrapperVariants>
+import { useSelectBox } from './hooks/useSelectBox'
 
 const wrapperVariants = cva('relative h-12', {
   variants: {
@@ -32,29 +22,31 @@ const wrapperVariants = cva('relative h-12', {
   },
 })
 export type SelectBoxProps = {
-  selectBoxHook: ReturnType<typeof useSelect>
+  selectBoxHook: ReturnType<typeof useSelectBox>
 } & VariantProps<typeof wrapperVariants>
 
 export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
   const {
-    selectedValue,
+    selectedOption,
     isOpen,
     searchValue,
     options,
     search,
-    handleSelect,
+    containerRef,
+    handleClickOption,
     handleToggle,
-    handleSearch
+    handleSearch,
+    hasOption,
   } = selectBoxHook
 
   return (
-    <div className={wrapperVariants({ size })}>
+    <div className={wrapperVariants({ size })} ref={containerRef}>
       <div
         className="text-primary-100 border-primary-100 text-yds-b1 absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-between rounded-lg border-2 p-3"
         onClick={handleToggle}
       >
-        {!selectedValue && '선택'}
-        {selectedValue && selectedValue.label}
+        {!hasOption && '선택'}
+        {hasOption && selectedOption.value}
         <ChevronDown className="text-primary-100 transition-transform duration-300" />
       </div>
       {isOpen && (
@@ -72,15 +64,15 @@ export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
             </div>
           )}
           {options
-            .filter(option => option.label.includes(searchValue))
+            .filter(option => option.value.includes(searchValue))
             .map(option => (
               <div
                 key={option.label}
                 className="text-yds-c1m hover:bg-background-primary flex cursor-pointer items-center justify-between text-white"
-                onClick={() => handleSelect(option)}
+                onClick={() => handleClickOption(option)}
               >
-                {option.label}
-                {selectedValue?.value === option.value && <Check className="text-primary-100" size={20} />}
+                {option.value}
+                {selectedOption.value === option.value && <Check className="text-primary-100" size={20} />}
               </div>
             ))}
         </div>
