@@ -30,13 +30,13 @@ export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
     selectedOption,
     isOpen,
     searchValue,
-    options,
+    filteredOptions,
+    selectedText,
     search,
     containerRef,
     handleClickOption,
     handleToggle,
     handleSearch,
-    hasOption,
   } = selectBoxHook
 
   return (
@@ -45,8 +45,7 @@ export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
         className="text-primary-100 border-primary-100 text-yds-b1 flex h-full w-full cursor-pointer items-center justify-between rounded-lg border-2 p-3"
         onClick={handleToggle}
       >
-        {!hasOption && '선택'}
-        {hasOption && selectedOption.value}
+        {selectedText}
         <ChevronDown className="text-primary-100 transition-transform duration-300" />
       </div>
       {isOpen && (
@@ -64,18 +63,16 @@ export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
             </div>
           )}
           <div className="scrollbar-hide flex h-auto max-h-[200px] flex-col gap-2 overflow-y-scroll">
-            {options
-              .filter(option => option.value.includes(searchValue))
-              .map(option => (
-                <div
-                  key={option.label}
-                  className="text-yds-c1m hover:bg-background-primary flex cursor-pointer items-center justify-between text-white"
-                  onClick={() => handleClickOption(option)}
-                >
-                  {option.value}
-                  {selectedOption.value === option.value && <Check className="text-primary-100" size={20} />}
-                </div>
-              ))}
+            {filteredOptions.map(option => (
+              <div
+                key={option.label}
+                className="text-yds-c1m hover:bg-background-primary flex cursor-pointer items-center justify-between text-white"
+                onClick={() => handleClickOption(option)}
+              >
+                {option.value}
+                {selectedOption.value === option.value && <Check className="text-primary-100" size={20} />}
+              </div>
+            ))}
           </div>
         </div>
       )}
