@@ -44,6 +44,16 @@ export const useSelectBox = (config: { options: SelectBoxOption[]; defaultValue?
     }
   }, [isOpen])
 
+  // defaultValue / options 변경 시 선택값 동기화 (수정시 편의성 패치)
+  useEffect(() => {
+    if (!defaultValue) {
+      setSelectedOption(EMPTY_OPTION)
+      return
+    }
+    const next = options.find(opt => opt.value === defaultValue || opt.label === defaultValue) || EMPTY_OPTION
+    setSelectedOption(next)
+  }, [defaultValue, options])
+
   const handleClickOption = (option: SelectBoxOption) => {
     setSelectedOption(option)
     setIsOpen(false)
