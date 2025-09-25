@@ -28,8 +28,8 @@ const inputVariants = cva('text-yds-b2 h-12 rounded-[8px] border-2 pr-3 focus:ou
     },
     color: {
       white: 'border-white bg-transparent text-white placeholder-white',
-      'primary-400': 'border-yellow-400 bg-transparent text-primary-400 placeholder-primary-400',
-      'primary-100': 'border-yellow-100 bg-transparent text-primary-100 placeholder-primary-100',
+      'primary-400': 'border-yellow-400 bg-transparent text-yellow-400 placeholder-yellow-400',
+      'primary-100': 'border-yellow-100 bg-transparent text-yellow-100 placeholder-yellow-100',
     },
     variant: {
       search: 'pl-10', // 아이콘 공간
