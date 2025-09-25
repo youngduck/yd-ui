@@ -87,7 +87,7 @@ export const useSelectBox = (config: UseSelectBoxConfig) => {
     }
     const next = options.find(opt => opt.value === defaultValue || opt.label === defaultValue) || EMPTY_OPTION
     setSelectedOption(next)
-  }, [isControlled, defaultValue, options])
+  }, [isControlled, defaultValue])
 
   // 파생값: 검색 결과와 표시 텍스트를 선언적으로 계산
   const filteredOptions = useMemo(() => {
