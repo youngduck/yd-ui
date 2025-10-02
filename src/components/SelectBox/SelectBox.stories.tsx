@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { SelectBox } from './SelectBox'
-import { SelectBoxOption, useSelectBox } from './hooks/useSelectBox'
+import { useSelectBox } from './hooks/useSelectBox'
 
 const meta: Meta<typeof SelectBox> = {
   component: SelectBox,
