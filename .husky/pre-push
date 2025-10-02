@@ -1,0 +1,42 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 YD-UI 배포 준비 검증 시작..."
+
+# 1. 린트 검사
+echo "📝 린트 검사 중..."
+npx pnpm run lint || { echo "❌ 린트 검사 실패!"; exit 1; }
+
+# 2. 포맷팅 검사
+echo "🎨 포맷팅 검사 중..."
+npx pnpm run format:check || { echo "❌ 포맷팅 검사 실패!"; exit 1; }
+
+# 3. 타입 체크 (추가 필요)
+echo "🔧 타입 체크 중..."
+npx tsc --noEmit || { echo "❌ 타입 체크 실패!"; exit 1; }
+
+# 4. 라이브러리 빌드 테스트
+echo "📦 라이브러리 빌드 중..."
+npx pnpm run build || { echo "❌ 라이브러리 빌드 실패!"; exit 1; }
+
+# 5. 스토리북 빌드 테스트
+echo "📚 스토리북 빌드 중..."
+npx pnpm run build-storybook || { echo "❌ 스토리북 빌드 실패!"; exit 1; }
+
+# 6. 빌드 결과물 검증
+echo "🔍 빌드 결과물 검증 중..."
+if [ ! -f "dist/index.cjs.js" ] || [ ! -f "dist/index.esm.js" ] || [ ! -f "dist/index.d.ts" ]; then
+  echo "❌ 필수 빌드 파일이 누락되었습니다!"
+  exit 1
+fi
+
+# 7. 패키지 크기 체크 (선택사항)
+echo "📏 패키지 크기 체크 중..."
+PACKAGE_SIZE=$(du -sh dist | cut -f1)
+echo "📦 빌드된 패키지 크기: $PACKAGE_SIZE"
+
+# 8. 의존성 검사 (선택사항)
+echo "🔗 의존성 검사 중..."
+npx pnpm audit --audit-level moderate || { echo "⚠️  보안 취약점이 발견되었습니다!"; exit 1; }
+
+echo "✅ 모든 검증 완료! 배포 준비 완료"

@@ -16,6 +16,9 @@ const meta: Meta<typeof Button> = {
       options: ['primary'] as ButtonColor[],
       control: { type: 'select' },
     },
+    disabled: {
+      control: { type: 'boolean' },
+    },
   },
 }
 
@@ -38,6 +41,9 @@ export const AllVariants: Story = {
                 <Button size={size} variant="fill" color="primary">
                   저장
                 </Button>
+                <Button size={size} variant="fill" color="primary" disabled>
+                  저장
+                </Button>
               </div>
             </div>
             {/* Outlined */}
@@ -45,6 +51,9 @@ export const AllVariants: Story = {
               <div className="mb-1 text-sm text-yellow-300">Outlined</div>
               <div className="flex gap-2">
                 <Button size={size} variant="outlined" color="primary">
+                  저장
+                </Button>
+                <Button size={size} variant="outlined" color="primary" disabled>
                   저장
                 </Button>
               </div>
@@ -65,6 +74,9 @@ export const AllVariants: Story = {
                 <Button size="full" variant="fill" color="primary">
                   저장
                 </Button>
+                <Button size="full" variant="fill" color="primary" disabled>
+                  저장
+                </Button>
               </div>
             </div>
             {/* Outlined */}
@@ -72,6 +84,9 @@ export const AllVariants: Story = {
               <div className="mb-1 text-sm text-yellow-300">Outlined</div>
               <div className="flex gap-2">
                 <Button size="full" variant="outlined" color="primary">
+                  저장
+                </Button>
+                <Button size="full" variant="outlined" color="primary" disabled>
                   저장
                 </Button>
               </div>
