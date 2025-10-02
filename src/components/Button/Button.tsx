@@ -18,6 +18,9 @@ const buttonVariants = cva('yds-button-typography', {
     color: {
       primary: '',
     },
+    disabled: {
+      true: 'opacity-50 cursor-wait',
+    },
   },
   compoundVariants: [
     // Fill
@@ -44,6 +47,7 @@ const buttonVariants = cva('yds-button-typography', {
 export type ButtonSize = VariantProps<typeof buttonVariants>['size']
 export type ButtonVariant = VariantProps<typeof buttonVariants>['variant']
 export type ButtonColor = VariantProps<typeof buttonVariants>['color']
+export type ButtonDisabled = VariantProps<typeof buttonVariants>['disabled']
 
 type ButtonProps = {
   ref?: React.Ref<HTMLButtonElement>
@@ -52,13 +56,23 @@ type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>
 
-export function Button({ size = 'md', variant, color, children, className = '', ref, ...props }: ButtonProps) {
+export function Button({
+  size = 'md',
+  variant,
+  color,
+  children,
+  className = '',
+  ref,
+  disabled = false,
+  ...props
+}: ButtonProps) {
   return (
     <button
       ref={ref}
-      className={buttonVariants({ size, variant, color, className })}
-      tabIndex={0}
+      className={`${buttonVariants({ size, variant, color, className, disabled })}`}
+      tabIndex={disabled ? -1 : 0}
       aria-label={props['aria-label'] || (typeof children === 'string' ? children : 'button')}
+      disabled={disabled}
       {...props}
     >
       {children}
