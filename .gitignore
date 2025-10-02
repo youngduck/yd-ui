@@ -9,6 +9,8 @@ build/
 lib/
 .next/
 out/
+*storybook.log
+storybook-static
 
 # 환경 변수
 .env
