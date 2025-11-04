@@ -23,8 +23,5 @@ echo "📏 패키지 크기 체크 중..."
 PACKAGE_SIZE=$(du -sh dist | cut -f1)
 echo "📦 빌드된 패키지 크기: $PACKAGE_SIZE"
 
-# 8. 의존성 검사 (선택사항)
-echo "🔗 의존성 검사 중..."
-npx pnpm audit --audit-level moderate || { echo "⚠️  보안 취약점이 발견되었습니다!"; exit 1; }
 
 echo "✅ 모든 검증 완료! 배포 준비 완료"

@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [0.4.4] - 2025-11-04
+
+### 추가
+- Storybook Foundation 섹션 추가
+  - Colors 페이지: Yellow(primary-50~400), Navy(navy-50~300) 팔레트 및 hex/rgb 값 표시
+  - Typography 페이지: Heading, Subtitle, Body, Caption 타이포그래피 토큰 시각화
+  - Storybook 섹션 순서 제어 (Foundation → Components)
+
+### 수정
+- `.storybook/preview.ts`에 `storySort` 설정 추가로 Foundation 우선 순위 지정
+
+
 ## [0.4.2] - 2025-10-02
 
 ### 추가

@@ -12,6 +12,11 @@ const preview: Preview = {
         },
       ],
     },
+    options: {
+      storySort: {
+        order: ['Foundations', 'Components'], // Foundation이 먼저 나옴
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
