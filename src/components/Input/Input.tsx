@@ -18,7 +18,7 @@ const wrapperVariants = cva('relative', {
   },
 })
 
-const inputVariants = cva('text-yds-b2 h-12 rounded-[8px] border-2 pr-3 focus:outline-none', {
+const inputVariants = cva('yds-input-typography h-12 rounded-[8px] border-2 pr-3 focus:outline-none', {
   variants: {
     size: {
       sm: 'w-[200px]',
