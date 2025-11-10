@@ -1,0 +1,21 @@
+@theme {
+      /* Background Colors Tokens*/
+  --color-background-primary: var(--color-navy-400);
+  --color-background-secondary: var(--color-navy-300);
+  --color-background-tertiary: var(--color-navy-200);
+  --color-background-forth: var(--color-navy-100);
+  --color-background-fifth: var(--color-navy-50);
+  
+  --color-background-primary-layer: var(--color-navy-400-opacity);
+  --color-background-secondary-layer: var(--color-navy-300-opacity);
+  --color-background-tertiary-layer: var(--color-navy-200-opacity); 
+  --color-background-forth-layer: var(--color-navy-100-opacity);
+  --color-background-fifth-layer: var(--color-navy-50-opacity);
+    
+  /* Color Tokens */
+  --color-primary-50: var(--color-yellow-50);
+  --color-primary-100: var(--color-yellow-100);
+  --color-primary-200: var(--color-yellow-200);
+  --color-primary-300: var(--color-yellow-300);
+  --color-primary-400: var(--color-yellow-400);
+}

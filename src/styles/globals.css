@@ -2,80 +2,8 @@
 
 @import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
 
-
-@theme {
-  
-  /* primary colors 영역*/
-  --color-yellow-50:#fcf6df;
-  --color-yellow-100:#c9bf91;
-  --color-yellow-200:#fde68a;
-  --color-yellow-300:#eccb43;
-  --color-yellow-400:#e9be11; 
-  
-  --color-navy-50:rgb(77, 89, 109);
-  --color-navy-100:rgb(52, 58, 70);
-  --color-navy-200:rgb(42, 48, 60);
-  --color-navy-300:rgb(32, 36, 45);
-  --color-navy-400:rgb(25, 25, 31); 
-  /* primary colors 영역 끝*/
-
-  /* Background Colors Tokens*/
-  --color-background-primary: var(--color-navy-400);
-  --color-background-secondary: var(--color-navy-300);
-  --color-background-tertiary: var(--color-navy-200);
-  --color-background-forth: var(--color-navy-100);
-  --color-background-fifth: var(--color-navy-50);
-  
-  --color-background-primary-layer: rgba(25, 25, 31, 0.7);
-  --color-background-secondary-layer: rgba(32, 36, 45, 0.7);
-  --color-background-tertiary-layer: rgba(42, 48, 60, 0.7);
-  --color-background-forth-layer: rgba(52, 58, 70, 0.7);
-  --color-background-fifth-layer: rgba(77, 89, 109, 0.7);
-    
-  /* Color Tokens */
-  --color-primary-50: var(--color-yellow-50);
-  --color-primary-100: var(--color-yellow-100);
-  --color-primary-200: var(--color-yellow-200);
-  --color-primary-300: var(--color-yellow-300);
-  --color-primary-400: var(--color-yellow-400);
-
-  /* Typography Tokens */
-  --font-size-yds-h1: 48px;
-  --line-height-yds-h1: 58px;
-  --font-weight-yds-h1: 600;
-  --font-size-yds-h2: 40px;
-  --line-height-yds-h2: 48px;
-  --font-weight-yds-h2: 600;
-  --font-size-yds-s1: 24px;
-  --line-height-yds-s1: 30px;
-  --font-weight-yds-s1: 600;
-  --font-size-yds-s2: 20px;
-  --line-height-yds-s2: 26px;
-  --font-weight-yds-s2: 600;
-  --font-size-yds-b1: 18px;
-  --line-height-yds-b1: 26px;
-  --font-weight-yds-b1: 400;
-  --font-size-yds-b2: 16px;
-  --line-height-yds-b2: 24px;
-  --font-weight-yds-b2: 400;
-  --font-size-yds-c1m: 14px;
-  --line-height-yds-c1m: 16px;
-  --font-weight-yds-c1m: 500;
-  --font-size-yds-c1r: 12px;
-  --line-height-yds-c1r: 16px;
-  --font-weight-yds-c1r: 400;
-  --font-size-yds-c2r: 10px;
-  --line-height-yds-c2r: 14px;
-  --font-weight-yds-c2r: 400;
-
-  /* Font Family */
-  --font-yds-wanted: 'Wanted Sans Variable';
-
-  /* border Tokens */
-  --yds-border-width: 2px;
-  --yds-border-radius: 8px;
-  --yds-content-padding: 16px;
-}
+@import "./token.primitive.css";
+@import "./tokens.semantic.css";
 
 /* 색상 유틸리티 클래스 직접 정의 */
 @layer utilities {
@@ -113,31 +41,30 @@
   /* Z-index 모듈화 */
   .z-select-box-dropdown { z-index: 1000; }
 
-  /* 폰트 크기 유틸리티 클래스 */
-  .text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); font-family: var(--font-yds-wanted);}
-  .text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); font-family: var(--font-yds-wanted);}
-  .text-yds-s1 { font-size: var(--font-size-yds-s1); line-height: var(--line-height-yds-s1); font-weight: var(--font-weight-yds-s1); font-family: var(--font-yds-wanted);}
-  .text-yds-s2 { font-size: var(--font-size-yds-s2); line-height: var(--line-height-yds-s2); font-weight: var(--font-weight-yds-s2); font-family: var(--font-yds-wanted);}
-  .text-yds-b1 { font-size: var(--font-size-yds-b1); line-height: var(--line-height-yds-b1); font-weight: var(--font-weight-yds-b1); font-family: var(--font-yds-wanted);}
-  .text-yds-b2 { font-size: var(--font-size-yds-b2); line-height: var(--line-height-yds-b2); font-weight: var(--font-weight-yds-b2); font-family: var(--font-yds-wanted);}
-  .text-yds-c1m { font-size: var(--font-size-yds-c1m); line-height: var(--line-height-yds-c1m); font-weight: var(--font-weight-yds-c1m); font-family: var(--font-yds-wanted);}
-  .text-yds-c1r { font-size: var(--font-size-yds-c1r); line-height: var(--line-height-yds-c1r); font-weight: var(--font-weight-yds-c1r); font-family: var(--font-yds-wanted);}
-  .text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); font-family: var(--font-yds-wanted);}
-
+  
 }
+/* 폰트 크기 유틸리티 클래스 */
+@utility text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); font-family: var(--font-yds-wanted);}
+@utility text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); font-family: var(--font-yds-wanted);}
+@utility text-yds-s1 { font-size: var(--font-size-yds-s1); line-height: var(--line-height-yds-s1); font-weight: var(--font-weight-yds-s1); font-family: var(--font-yds-wanted);}
+@utility text-yds-s2 { font-size: var(--font-size-yds-s2); line-height: var(--line-height-yds-s2); font-weight: var(--font-weight-yds-s2); font-family: var(--font-yds-wanted);}
+@utility text-yds-b1 { font-size: var(--font-size-yds-b1); line-height: var(--line-height-yds-b1); font-weight: var(--font-weight-yds-b1); font-family: var(--font-yds-wanted);}
+@utility text-yds-b2 { font-size: var(--font-size-yds-b2); line-height: var(--line-height-yds-b2); font-weight: var(--font-weight-yds-b2); font-family: var(--font-yds-wanted);}
+@utility text-yds-c1m { font-size: var(--font-size-yds-c1m); line-height: var(--line-height-yds-c1m); font-weight: var(--font-weight-yds-c1m); font-family: var(--font-yds-wanted);}
+@utility text-yds-c1r { font-size: var(--font-size-yds-c1r); line-height: var(--line-height-yds-c1r); font-weight: var(--font-weight-yds-c1r); font-family: var(--font-yds-wanted);}
+@utility text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); font-family: var(--font-yds-wanted);}
 
 
 @layer components {
   .yds-button-typography {
-    font-size: var(--font-size-yds-s2);
-    line-height: var(--line-height-yds-s2);
-    font-weight: var(--font-weight-yds-s2);
-    @apply flex h-12 justify-center items-center rounded-lg cursor-pointer font-yds-wanted;
+    @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-b1;
+  }
+  .yds-button-typography2 {
+    @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-h1;
   }
 
   .yds-input-typography {
-    font-size: var(--font-size-yds-b2);
-    line-height: var(--line-height-yds-b2);
-    font-weight: var(--font-weight-yds-b2);
+
+    @apply text-yds-b2;
   }
 }
