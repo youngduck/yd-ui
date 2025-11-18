@@ -4,67 +4,7 @@
 
 @import "./token.primitive.css";
 @import "./tokens.semantic.css";
-
-/* 색상 유틸리티 클래스 직접 정의 */
-@layer utilities {
-
-  .bg-background-primary { background-color: var(--color-background-primary); }
-  .bg-background-secondary { background-color: var(--color-background-secondary); }
-  .bg-background-tertiary { background-color: var(--color-background-tertiary); }
-  .bg-background-forth { background-color: var(--color-background-forth); }
-  .bg-background-fifth { background-color: var(--color-background-fifth); }
-
-  .bg-background-primary-layer { background-color: var(--color-background-primary-layer); }
-  .bg-background-secondary-layer { background-color: var(--color-background-secondary-layer); }
-  .bg-background-tertiary-layer { background-color: var(--color-background-tertiary-layer); }
-  .bg-background-forth-layer { background-color: var(--color-background-forth-layer); }
-  .bg-background-fifth-layer { background-color: var(--color-background-fifth-layer); }
-
-  .text-primary-50 { color: var(--color-primary-50); }
-  .text-primary-100 { color: var(--color-primary-100); }
-  .text-primary-200 { color: var(--color-primary-200); }
-  .text-primary-300 { color: var(--color-primary-300); }
-  .text-primary-400 { color: var(--color-primary-400); }
-  
-  .border-primary-50 { border-color: var(--color-primary-50); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
-  .border-primary-100 { border-color: var(--color-primary-100); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
-  .border-primary-200 { border-color: var(--color-primary-200); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
-  .border-primary-300 { border-color: var(--color-primary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
-  .border-primary-400 { border-color: var(--color-primary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
-
-  .card-navy-50 { border-color: var(--color-navy-50); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-100 { border-color: var(--color-navy-100); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-200 { border-color: var(--color-navy-200); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-300 { border-color: var(--color-navy-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-400 { border-color: var(--color-navy-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-
-  /* Z-index 모듈화 */
-  .z-select-box-dropdown { z-index: 1000; }
-
-  
-}
-/* 폰트 크기 유틸리티 클래스 */
-@utility text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); font-family: var(--font-yds-wanted);}
-@utility text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); font-family: var(--font-yds-wanted);}
-@utility text-yds-s1 { font-size: var(--font-size-yds-s1); line-height: var(--line-height-yds-s1); font-weight: var(--font-weight-yds-s1); font-family: var(--font-yds-wanted);}
-@utility text-yds-s2 { font-size: var(--font-size-yds-s2); line-height: var(--line-height-yds-s2); font-weight: var(--font-weight-yds-s2); font-family: var(--font-yds-wanted);}
-@utility text-yds-b1 { font-size: var(--font-size-yds-b1); line-height: var(--line-height-yds-b1); font-weight: var(--font-weight-yds-b1); font-family: var(--font-yds-wanted);}
-@utility text-yds-b2 { font-size: var(--font-size-yds-b2); line-height: var(--line-height-yds-b2); font-weight: var(--font-weight-yds-b2); font-family: var(--font-yds-wanted);}
-@utility text-yds-c1m { font-size: var(--font-size-yds-c1m); line-height: var(--line-height-yds-c1m); font-weight: var(--font-weight-yds-c1m); font-family: var(--font-yds-wanted);}
-@utility text-yds-c1r { font-size: var(--font-size-yds-c1r); line-height: var(--line-height-yds-c1r); font-weight: var(--font-weight-yds-c1r); font-family: var(--font-yds-wanted);}
-@utility text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); font-family: var(--font-yds-wanted);}
+@import "./token.components/token.components.button.css";
+@import "./token.components/token.components.input.css";
 
 
-@layer components {
-  .yds-button-typography {
-    @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-b1;
-  }
-  .yds-button-typography2 {
-    @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-h1;
-  }
-
-  .yds-input-typography {
-
-    @apply text-yds-b2;
-  }
-}
