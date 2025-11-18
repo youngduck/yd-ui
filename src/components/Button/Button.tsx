@@ -3,7 +3,7 @@
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-const buttonVariants = cva('yds-button-typography', {
+const buttonVariants = cva('yds-button', {
   variants: {
     size: {
       sm: 'w-20',

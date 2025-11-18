@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.1] - 2025-11-18
+
+**Branch**: `ui-v0.5.1-토큰구조재설계`
+
+### 추가
+
+### 변경
+- refactor: 디자인토큰 primitive, semantic, components 재건축
+- refactor: button components 토큰명 수정
+
+### 수정
+
+### 제거
+
+---
+
 ## [0.4.5] - 2025-11-04
 
 ### 추가
