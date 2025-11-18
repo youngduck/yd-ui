@@ -1,7 +1,7 @@
 
 @layer components {
 
-    .yds-button-typography {
+    .yds-button {
         @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-b1;
     } 
 
