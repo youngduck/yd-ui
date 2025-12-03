@@ -1,24 +1,43 @@
+
+/* 폰트 크기 유틸리티 클래스 */
+@utility text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); font-family: var(--font-yds-wanted);}
+@utility text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); font-family: var(--font-yds-wanted);}
+@utility text-yds-s1 { font-size: var(--font-size-yds-s1); line-height: var(--line-height-yds-s1); font-weight: var(--font-weight-yds-s1); font-family: var(--font-yds-wanted);}
+@utility text-yds-s2 { font-size: var(--font-size-yds-s2); line-height: var(--line-height-yds-s2); font-weight: var(--font-weight-yds-s2); font-family: var(--font-yds-wanted);}
+@utility text-yds-b1 { font-size: var(--font-size-yds-b1); line-height: var(--line-height-yds-b1); font-weight: var(--font-weight-yds-b1); font-family: var(--font-yds-wanted);}
+@utility text-yds-b2 { font-size: var(--font-size-yds-b2); line-height: var(--line-height-yds-b2); font-weight: var(--font-weight-yds-b2); font-family: var(--font-yds-wanted);}
+@utility text-yds-c1m { font-size: var(--font-size-yds-c1m); line-height: var(--line-height-yds-c1m); font-weight: var(--font-weight-yds-c1m); font-family: var(--font-yds-wanted);}
+@utility text-yds-c1r { font-size: var(--font-size-yds-c1r); line-height: var(--line-height-yds-c1r); font-weight: var(--font-weight-yds-c1r); font-family: var(--font-yds-wanted);}
+@utility text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); font-family: var(--font-yds-wanted);}
+
 @theme {
-      /* Background Colors Tokens*/
-  --color-background-primary: var(--color-navy-400);
-  --color-background-secondary: var(--color-navy-300);
-  --color-background-tertiary: var(--color-navy-200);
-  --color-background-forth: var(--color-navy-100);
-  --color-background-fifth: var(--color-navy-50);
+  /* Background Colors Tokens*/
+  /* TODO정리대상 */
+  --color-background-primary: var(--color-secondary-400);
+  --color-background-secondary: var(--color-secondary-300);
+  --color-background-tertiary: var(--color-secondary-200);
+  --color-background-forth: var(--color-secondary-100);
+  --color-background-fifth: var(--color-secondary-50);
   
-  --color-background-primary-layer: var(--color-navy-400-opacity);
-  --color-background-secondary-layer: var(--color-navy-300-opacity);
-  --color-background-tertiary-layer: var(--color-navy-200-opacity); 
-  --color-background-forth-layer: var(--color-navy-100-opacity);
-  --color-background-fifth-layer: var(--color-navy-50-opacity);
+  --color-background-primary-layer: var(--color-secondary-400-opacity);
+  --color-background-secondary-layer: var(--color-secondary-300-opacity);
+  --color-background-tertiary-layer: var(--color-secondary-200-opacity); 
+  --color-background-forth-layer: var(--color-secondary-100-opacity);
+  --color-background-fifth-layer: var(--color-secondary-50-opacity);
+  /* TODO정리대상 끝 */
     
   /* Color Tokens */
-  --color-primary-50: var(--color-yellow-50);
-  --color-primary-100: var(--color-yellow-100);
-  --color-primary-200: var(--color-yellow-200);
-  --color-primary-300: var(--color-yellow-300);
-  --color-primary-400: var(--color-yellow-400);
+  --color-background2-primary-light: var(--color-primary-100);
+  --color-background2-primary-deep: var(--color-primary-400); 
+
+  --color-border-primary-light: var(--color-primary-100);
+  --color-border-primary-deep: var(--color-primary-400);
+
+  --color-text-primary-light: var(--color-primary-100);
+  --color-text-primary-deep: var(--color-primary-400);
 }
+
+
 
 @layer utilities {
 
@@ -46,11 +65,11 @@
   .border-primary-300 { border-color: var(--color-primary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
   .border-primary-400 { border-color: var(--color-primary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
 
-  .card-navy-50 { border-color: var(--color-navy-50); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-100 { border-color: var(--color-navy-100); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-200 { border-color: var(--color-navy-200); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-300 { border-color: var(--color-navy-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
-  .card-navy-400 { border-color: var(--color-navy-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
+  .card-navy-50 { border-color: var(--color-secondary-50); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
+  .card-navy-100 { border-color: var(--color-secondary-100); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
+  .card-navy-200 { border-color: var(--color-secondary-200); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
+  .card-navy-300 { border-color: var(--color-secondary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
+  .card-navy-400 { border-color: var(--color-secondary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
 
   /* Z-index 모듈화 */
   .z-select-box-dropdown { z-index: 1000; }

@@ -14,7 +14,7 @@ export const Default: Story = {
   render: () => {
     const [isChecked, setIsChecked] = useState(false)
 
-    return <CheckBox id="default-checkbox" name="기본 체크박스" checked={isChecked} onCheckedChange={setIsChecked} />
+    return <CheckBox name="기본 체크박스" checked={isChecked} onCheckedChange={setIsChecked} />
   },
 }
 
@@ -25,8 +25,8 @@ export const AllVariants: Story = {
 
     return (
       <div className="space-y-8">
-        <CheckBox id="checkbox-1" name="뭘까연ㅎㅎ" value="zz" checked={checked1} onCheckedChange={setChecked1} />
-        <CheckBox id="checkbox-2" name="체크된 상태" checked={checked2} onCheckedChange={setChecked2} />
+        <CheckBox value="zz" checked={checked1} onCheckedChange={setChecked1} />
+        <CheckBox size="md" value="zzzzvd" checked={checked2} onCheckedChange={setChecked2} />
       </div>
     )
   },

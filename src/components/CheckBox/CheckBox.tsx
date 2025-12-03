@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useId } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { CheckIcon, XIcon } from 'lucide-react'
+import { CheckIcon } from 'lucide-react'
 
-const checkboxVariants = cva('yds-checkbox', {
+const checkboxVariants = cva('yds-checkbox-typography', {
   variants: {
     size: {
       sm: 'w-4 h-4',
-      md: 'w-6 h-6',
+      md: 'w-6 h-6 text-red-500',
       lg: 'w-8 h-8',
     },
   },
 })
 
 // input태그 기본제공속성중 type, size, checked, onChange, onCheckedChange 제외한 속성을 받을 수 있도록
-// checked는 필수로만들어서 제어 모드로 사용하기 위함
+// checked는 필수로만들어서 제어 모드로 사용하기 위함, type은 checkbox로 고정
 type CheckboxInputAttributes = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'type' | 'size' | 'checked' | 'onChange' | 'onCheckedChange'
@@ -34,18 +34,20 @@ export function CheckBox({ size, value, name, checked, id, onCheckedChange, ...p
     onCheckedChange(newChecked)
   }
 
-  // id가 없을 경우 자동 생성
-  const generatedId = React.useId()
-  const checkboxId = id ?? generatedId
+  // id설정 없이 자동 생성 후 연결
+  const checkboxId = useId()
 
   return (
-    <label htmlFor={checkboxId}>
+    <label htmlFor={checkboxId} className="flex items-center gap-2">
       <input id={checkboxId} type="checkbox" checked={checked} onChange={handleChange} className="sr-only" {...props} />
-      <div className={checkboxVariants({ size })}>
-        <span className="yds-checkbox-icon">{checked ? <CheckIcon /> : <XIcon />}</span>
+      {/*네모체크박스 영역 */}
+      <div className="yds-checkbox-indicator">
+        <div className={`yds-checkbox-indicator-inner-${checked ? 'checked' : 'unchecked'}`}></div>
       </div>
-      {name && <span>{name}</span>}
-      {value && <span>{value}</span>}
+
+      {/* 브이체크박스 영역 */}
+      <span>{checked ? <CheckIcon /> : <>ㅇㅇ</>}</span>
+      {value}
     </label>
   )
 }
