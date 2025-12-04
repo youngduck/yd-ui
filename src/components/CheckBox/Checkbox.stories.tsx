@@ -26,7 +26,7 @@ export const AllVariants: Story = {
     return (
       <div className="space-y-8">
         <CheckBox value="zz" checked={checked1} onCheckedChange={setChecked1} />
-        <CheckBox size="md" value="zzzzvd" checked={checked2} onCheckedChange={setChecked2} />
+        <CheckBox shape="check" value="zzzzvd" checked={checked2} onCheckedChange={setChecked2} />
       </div>
     )
   },
