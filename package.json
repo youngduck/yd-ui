@@ -1,6 +1,6 @@
 {
   "name": "@youngduck/yd-ui",
-  "version": "0.6.1",
+  "version": "0.7.1",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -27,7 +27,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "check": "npm run lint && npm run format:check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "node scripts/auto-release.js"
   },
   "peerDependencies": {
     "react": "^19.1.0",
