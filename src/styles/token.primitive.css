@@ -1,21 +1,26 @@
 @theme {
-    --color-yellow-50:#fcf6df;
-    --color-yellow-100:#c9bf91;
-    --color-yellow-200:#fde68a;
-    --color-yellow-300:#eccb43;
-    --color-yellow-400:#e9be11; 
+  
+  /* Color Tokens */
+    --color-primary-50:#fcf6df;
+    --color-primary-100:#c9bf91;
+    --color-primary-200:#fde68a;
+    --color-primary-300:#eccb43;
+    --color-primary-400:#e9be11; 
     
-    --color-navy-50:rgb(77, 89, 109);
-    --color-navy-100:rgb(52, 58, 70);
-    --color-navy-200:rgb(42, 48, 60);
-    --color-navy-300:rgb(32, 36, 45);
-    --color-navy-400:rgb(25, 25, 31);
+    --color-secondary-50:rgb(77, 89, 109);
+    --color-secondary-100:rgb(52, 58, 70);
+    --color-secondary-200:rgb(42, 48, 60);
+    --color-secondary-300:rgb(32, 36, 45);
+    --color-secondary-400:rgb(25, 25, 31);
 
-    --color-navy-50-opacity: rgba(77, 89, 109, 0.7);
-    --color-navy-100-opacity: rgba(52, 58, 70, 0.7);
-    --color-navy-200-opacity: rgba(42, 48, 60, 0.7);
-    --color-navy-300-opacity: rgba(32, 36, 45, 0.7);
-    --color-navy-400-opacity: rgba(25, 25, 31, 0.7);
+    --color-secondary-50-opacity: rgba(77, 89, 109, 0.7);
+    --color-secondary-100-opacity: rgba(52, 58, 70, 0.7);
+    --color-secondary-200-opacity: rgba(42, 48, 60, 0.7);
+    --color-secondary-300-opacity: rgba(32, 36, 45, 0.7);
+    --color-secondary-400-opacity: rgba(25, 25, 31, 0.7);
+
+    --color-white: #ffffff;
+    --color-black: #000000;
 
     
   /* Typography Tokens */
@@ -56,14 +61,3 @@
   --yds-content-padding: 16px;
 
 }
-
-/* 폰트 크기 유틸리티 클래스 */
-@utility text-yds-h1 { font-size: var(--font-size-yds-h1); line-height: var(--line-height-yds-h1); font-weight: var(--font-weight-yds-h1); font-family: var(--font-yds-wanted);}
-@utility text-yds-h2 { font-size: var(--font-size-yds-h2); line-height: var(--line-height-yds-h2); font-weight: var(--font-weight-yds-h2); font-family: var(--font-yds-wanted);}
-@utility text-yds-s1 { font-size: var(--font-size-yds-s1); line-height: var(--line-height-yds-s1); font-weight: var(--font-weight-yds-s1); font-family: var(--font-yds-wanted);}
-@utility text-yds-s2 { font-size: var(--font-size-yds-s2); line-height: var(--line-height-yds-s2); font-weight: var(--font-weight-yds-s2); font-family: var(--font-yds-wanted);}
-@utility text-yds-b1 { font-size: var(--font-size-yds-b1); line-height: var(--line-height-yds-b1); font-weight: var(--font-weight-yds-b1); font-family: var(--font-yds-wanted);}
-@utility text-yds-b2 { font-size: var(--font-size-yds-b2); line-height: var(--line-height-yds-b2); font-weight: var(--font-weight-yds-b2); font-family: var(--font-yds-wanted);}
-@utility text-yds-c1m { font-size: var(--font-size-yds-c1m); line-height: var(--line-height-yds-c1m); font-weight: var(--font-weight-yds-c1m); font-family: var(--font-yds-wanted);}
-@utility text-yds-c1r { font-size: var(--font-size-yds-c1r); line-height: var(--line-height-yds-c1r); font-weight: var(--font-weight-yds-c1r); font-family: var(--font-yds-wanted);}
-@utility text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); font-family: var(--font-yds-wanted);}

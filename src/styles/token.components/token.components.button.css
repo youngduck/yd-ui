@@ -1,9 +1,13 @@
-
 @layer components {
-
     .yds-button {
-        @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-b1;
-    } 
-
-   
-}
+      @apply flex h-12 justify-center items-center rounded-lg cursor-pointer text-yds-b1;
+    }
+  
+    .yds-button-fill-primary {
+      @apply bg-background2-primary-deep;
+    }
+  
+    .yds-button-outlined-primary {
+      @apply bg-transparent border-2 border-border-primary-deep text-font-primary-deep;
+    }   
+  }

@@ -3,8 +3,9 @@
 @import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
 
 @import "./token.primitive.css";
-@import "./tokens.semantic.css";
+@import "./token.semantic.css";
 @import "./token.components/token.components.button.css";
 @import "./token.components/token.components.input.css";
+@import "./token.components/token.components.checkbox.css";
 
 

@@ -1,6 +1,3 @@
-'use client'
-
-import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const buttonVariants = cva('yds-button', {
@@ -27,13 +24,13 @@ const buttonVariants = cva('yds-button', {
     {
       variant: 'fill',
       color: 'primary',
-      class: 'bg-primary-400 text-black',
+      class: 'yds-button-fill-primary',
     },
     // Outlined
     {
       variant: 'outlined',
       color: 'primary',
-      class: 'border-primary-400 text-primary-400',
+      class: 'yds-button-outlined-primary',
     },
   ],
   defaultVariants: {
