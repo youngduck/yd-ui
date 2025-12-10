@@ -8,6 +8,6 @@
     }
   
     .yds-button-outlined-primary {
-      @apply bg-transparent border-2 border-border-primary-deep text-text-primary-deep;
+      @apply bg-transparent border-2 border-border-primary-deep text-font-primary-deep;
     }   
   }
