@@ -8,6 +8,7 @@
 
 - feat: Checkbox컴포넌트 초안설계
 - feat: Checkbox컴포넌트 제작
+- docs: v0.6.1작업내용문서
 
 ### 변경
 
