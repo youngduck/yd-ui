@@ -21,7 +21,7 @@ interface TableScrollUnAvailableProps extends TableBaseProps {
   scrollClassName?: never
 }
 
-type TableProps = TableScrollableProps | TableScrollUnAvailableProps
+export type TableProps = TableScrollableProps | TableScrollUnAvailableProps
 
 export function Table({ children, className, scrollable, scrollClassName, ...props }: TableProps) {
   if (scrollable) {
