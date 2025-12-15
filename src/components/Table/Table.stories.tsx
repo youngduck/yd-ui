@@ -11,14 +11,14 @@ type Story = StoryObj<typeof Table>
 
 export const Default: Story = {
   render: () => (
-    <Table>
+    <Table scrollable={true} scrollClassName="w-[800px] h-[200px]">
       <THead>
         <Tr>
-          <Th className="w-60">Name</Th>
-          <Th>Age</Th>
-          <Th>Gender</Th>
-          <Th>Email</Th>
-          <Th>Phone</Th>
+          <Th className="w-40">Name</Th>
+          <Th className="w-40">Age</Th>
+          <Th className="w-40">Gender</Th>
+          <Th className="w-40">Email</Th>
+          <Th className="w-40">Phone</Th>
         </Tr>
       </THead>
       <TBody>
@@ -34,6 +34,20 @@ export const Default: Story = {
           <Td>21</Td>
           <Td>Female</Td>
           <Td>jane.doe@example.com</Td>
+          <Td>123-456-7890</Td>
+        </Tr>
+        <Tr>
+          <Td>Jim Beam</Td>
+          <Td>22</Td>
+          <Td>Male</Td>
+          <Td>jim.beam@example.com</Td>
+          <Td>123-456-7890</Td>
+        </Tr>
+        <Tr>
+          <Td>Jim Beam</Td>
+          <Td>22</Td>
+          <Td>Male</Td>
+          <Td>jim.beam@example.com</Td>
           <Td>123-456-7890</Td>
         </Tr>
         <Tr>
