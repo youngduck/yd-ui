@@ -1,0 +1,37 @@
+@layer components {
+  .yds-table-wrapper {
+    background-color: var(--color-table-wrapper-bg);
+    border: var(--yds-border-width) solid var(--color-table-border);
+    border-radius: var(--yds-border-radius);
+    color: var(--color-table-text);
+  }
+
+  .yds-table-header {
+    background-color: var(--color-table-header-bg);
+    border-bottom: var(--yds-border-width) solid var(--color-table-border-header);
+  }
+
+  .yds-table-header-cell {
+    height: var(--table-header-height);
+    padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+    text-align: center;
+    color: var(--color-table-text-header);
+  }
+
+  .yds-table-row {
+    background-color: var(--color-table-row-bg);
+  }
+
+  .yds-table-row-striped {
+    background-color: var(--color-table-row-bg-striped);
+  }
+
+  .yds-table-cell {
+    height: var(--table-cell-height);
+    padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+    border-bottom: var(--yds-border-width) solid var(--color-table-border);
+    text-align: center;
+    color: var(--color-table-text);
+  }
+}
+

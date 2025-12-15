@@ -11,8 +11,7 @@
 @utility text-yds-c2r { font-size: var(--font-size-yds-c2r); line-height: var(--line-height-yds-c2r); font-weight: var(--font-weight-yds-c2r); font-family: var(--font-yds-wanted);}
 
 @theme {
-  /* Background Colors Tokens*/
-  /* TODO정리대상 */
+  /* Background Colors Tokens */
   --color-background-primary: var(--color-secondary-400);
   --color-background-secondary: var(--color-secondary-300);
   --color-background-tertiary: var(--color-secondary-200);
@@ -24,17 +23,36 @@
   --color-background-tertiary-layer: var(--color-secondary-200-opacity); 
   --color-background-forth-layer: var(--color-secondary-100-opacity);
   --color-background-fifth-layer: var(--color-secondary-50-opacity);
-  /* TODO정리대상 끝 */
     
-  /* Color Tokens */
-  --color-background2-primary-light: var(--color-primary-100);
+  /* Button Tokens */
+  --color-background2-primary-light: var(--color-primary-50);
   --color-background2-primary-deep: var(--color-primary-400); 
 
+  /* Border Tokens */
   --color-border-primary-light: var(--color-primary-100);
   --color-border-primary-deep: var(--color-primary-400);
+  --color-border-secondary-light: var(--color-secondary-50);
+  --color-border-secondary-deep: var(--color-secondary-400);
 
+  /* Font Tokens */
   --color-font-primary-light: var(--color-primary-100);
   --color-font-primary-deep: var(--color-primary-400);
+
+  /* Table Tokens */
+  --color-table-wrapper-bg: var(--color-secondary-300);
+  --color-table-header-bg: var(--color-secondary-200);
+  --color-table-row-bg: var(--color-secondary-300);
+  --color-table-row-bg-striped: var(--color-secondary-200);
+  --color-table-border: var(--color-secondary-100);
+  --color-table-border-header: var(--color-secondary-100);
+  --color-table-text: var(--color-white);
+  --color-table-text-header: var(--color-primary-100);
+  
+  /* Table Spacing Tokens */
+  --table-cell-padding-x: 16px;
+  --table-cell-padding-y: 10px;
+  --table-cell-height: 40px;
+  --table-header-height: 40px;
 }
 
 
@@ -64,6 +82,12 @@
   .border-primary-200 { border-color: var(--color-primary-200); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
   .border-primary-300 { border-color: var(--color-primary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
   .border-primary-400 { border-color: var(--color-primary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
+
+  .border-secondary-50 { border-color: var(--color-secondary-50); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
+  .border-secondary-100 { border-color: var(--color-secondary-100); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
+  .border-secondary-200 { border-color: var(--color-secondary-200); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
+  .border-secondary-300 { border-color: var(--color-secondary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
+  .border-secondary-400 { border-color: var(--color-secondary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); }
 
   .card-navy-50 { border-color: var(--color-secondary-50); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
   .card-navy-100 { border-color: var(--color-secondary-100); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}

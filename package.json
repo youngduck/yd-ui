@@ -7,10 +7,16 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs.js"
     },
+    "./Table": {
+      "types": "./dist/Table.d.ts",
+      "import": "./dist/Table.esm.js",
+      "require": "./dist/Table.cjs.js"
+    },
+
     "./styles": "./dist/index.css",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
