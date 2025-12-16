@@ -1,31 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Table, THead, TBody, Th, Td, Tr } from './index'
-
-const showCopySuccess = () => {
-  const toast = document.createElement('div')
-  toast.textContent = '코드가 클립보드에 복사되었습니다!'
-  toast.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #10b981;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    z-index: 9999;
-    font-size: 14px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  `
-  document.body.appendChild(toast)
-  setTimeout(() => {
-    document.body.removeChild(toast)
-  }, 2000)
-}
-
-const copyCode = (code: string) => {
-  navigator.clipboard.writeText(code)
-  showCopySuccess()
-}
+import { copyCodeToClipboard } from '../../storybook/utils'
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -331,7 +306,7 @@ function ScrollableTable() {
                 </div>
                 <div
                   className="hover:bg-background-tertiary cursor-pointer rounded p-4 transition-colors"
-                  onClick={() => copyCode(example.code)}
+                  onClick={() => copyCodeToClipboard(example.code)}
                 >
                   {example.component}
                 </div>
