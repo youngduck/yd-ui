@@ -8,6 +8,7 @@
 - feat: 테이블 컴포넌트 개발
     - 스크롤 옵셔널
 - feat: Storybook 공통 유틸리티 함수(예시코드 복사기능) 추가 (`src/storybook/utils.ts`)
+- docs: v0.8.1작업내용문서
 
 ### 변경
 
