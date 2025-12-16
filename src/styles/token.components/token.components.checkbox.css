@@ -1,34 +1,60 @@
-
 @layer components {
-
   .yds-checkbox-wrapper {
-      @apply flex items-center gap-1.5;
-    }
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
 
   .yds-checkbox-typography {
-      @apply text-yds-b2 text-white;
-    }
+    font-size: var(--font-size-yds-b2);
+    line-height: var(--line-height-yds-b2);
+    font-weight: var(--font-weight-yds-b2);
+    font-family: var(--font-yds-wanted);
+    color: var(--color-white);
+  }
 
   /* 네모체크박스 영역*/
-  .yds-checkbox-indicator{
-    @apply border-2 border-border-primary-light rounded-sm w-5 h-5 flex items-center justify-center text-font-primary-light;
+  .yds-checkbox-indicator {
+    border: var(--yds-border-width) solid var(--color-border-primary-light);
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-font-primary-light);
   }
 
-  .yds-checkbox-indicator-inner-checked{
-    @apply bg-background2-primary-light  w-3 h-3;
+  .yds-checkbox-indicator-inner-checked {
+    background-color: var(--color-background2-primary-light);
+    width: 12px;
+    height: 12px;
   }
 
-  .yds-checkbox-indicator-inner-unchecked{
-    @apply bg-transparent w-3 h-3;
+  .yds-checkbox-indicator-inner-unchecked {
+    background-color: transparent;
+    width: 12px;
+    height: 12px;
   }
 
-  .yds-checkbox-indicator-inner-indeterminate{
-    @apply w-5 h-5 flex items-center justify-center;
+  .yds-checkbox-indicator-inner-indeterminate {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* V체크 아이콘 영역 */
-  .yds-checkbox-icon-indicator{
-    @apply border-2 rounded-sm text-font-primary-light border-border-primary-light w-5 h-5 flex items-center justify-center;
+  .yds-checkbox-icon-indicator {
+    border: var(--yds-border-width) solid var(--color-border-primary-light);
+    border-radius: 2px;
+    color: var(--color-font-primary-light);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

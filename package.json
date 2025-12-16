@@ -1,16 +1,22 @@
 {
   "name": "@youngduck/yd-ui",
-  "version": "0.7.1",
+  "version": "0.8.1",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs.js"
     },
+    "./Table": {
+      "types": "./dist/Table.d.ts",
+      "import": "./dist/Table.esm.js",
+      "require": "./dist/Table.cjs.js"
+    },
+
     "./styles": "./dist/index.css",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"

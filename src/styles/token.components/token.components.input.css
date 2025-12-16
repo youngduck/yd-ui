@@ -1,9 +1,8 @@
-
-  
 @layer components {
-
-    .yds-input-typography {
-        @apply text-yds-b2;
-      }
-
+  .yds-input-typography {
+    font-size: var(--font-size-yds-b2);
+    line-height: var(--line-height-yds-b2);
+    font-weight: var(--font-weight-yds-b2);
+    font-family: var(--font-yds-wanted);
+  }
 }

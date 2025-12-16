@@ -7,5 +7,21 @@
 @import "./token.components/token.components.button.css";
 @import "./token.components/token.components.input.css";
 @import "./token.components/token.components.checkbox.css";
+@import "./token.components/token.components.table.css";
 
 
+/* 모든 스크롤바에 적용 */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

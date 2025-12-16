@@ -1,28 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import React, { useState } from 'react'
 import { CheckBox } from './CheckBox'
-
-const showCopySuccess = () => {
-  // 간단한 토스트 메시지 (필요시 더 정교한 구현 가능)
-  const toast = document.createElement('div')
-  toast.textContent = '코드가 클립보드에 복사되었습니다!'
-  toast.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #10b981;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    z-index: 9999;
-    font-size: 14px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  `
-  document.body.appendChild(toast)
-  setTimeout(() => {
-    document.body.removeChild(toast)
-  }, 2000)
-}
+import { copyCodeToClipboard } from '../../storybook/utils'
 
 const copyCode = (shape: 'square' | 'check', checked: boolean, indeterminate: boolean, value: string) => {
   const shapeProp = shape === 'check' ? ' shape="check"' : ''
@@ -30,8 +9,7 @@ const copyCode = (shape: 'square' | 'check', checked: boolean, indeterminate: bo
   const indeterminateProp = indeterminate ? ' indeterminate={true}' : ''
   const code = `import { CheckBox } from '@youngduck/yd-ui';\nimport { useState } from 'react';\n\nfunction Example() {\n  const [checked, setChecked] = useState(${checkedState});\n  \n  return (\n    <CheckBox${shapeProp}${indeterminateProp}\n      value="${value}"\n      checked={checked}\n      onCheckedChange={setChecked}\n    />\n  );\n}`
 
-  navigator.clipboard.writeText(code)
-  showCopySuccess()
+  copyCodeToClipboard(code)
 }
 
 const meta: Meta<typeof CheckBox> = {
@@ -275,8 +253,7 @@ const IndeterminateCheckboxExample = () => {
   const copyParentCode = () => {
     const code = `import { CheckBox } from '@youngduck/yd-ui';\nimport { useState } from 'react';\n\nfunction ParentChildExample() {\n  const [items, setItems] = useState([\n    { id: 1, label: '항목 1', checked: false },\n    { id: 2, label: '항목 2', checked: true },\n    { id: 3, label: '항목 3', checked: false },\n  ]);\n\n  const allChecked = items.every(item => item.checked);\n  const someChecked = items.some(item => item.checked);\n  const parentIndeterminate = someChecked && !allChecked;\n\n  const handleParentChange = (checked: boolean) => {\n    setItems(items.map(item => ({ ...item, checked })));\n  };\n\n  const handleChildChange = (id: number, checked: boolean) => {\n    setItems(items.map(item => (item.id === id ? { ...item, checked } : item)));\n  };\n\n  return (\n    <div className="space-y-2">\n      <CheckBox\n        value="전체 선택"\n        checked={allChecked}\n        indeterminate={parentIndeterminate}\n        onCheckedChange={handleParentChange}\n      />\n      {items.map(item => (\n        <div key={item.id} className="ml-6">\n          <CheckBox\n            value={item.label}\n            checked={item.checked}\n            onCheckedChange={(checked) => handleChildChange(item.id, checked)}\n          />\n        </div>\n      ))}\n    </div>\n  );\n}`
 
-    navigator.clipboard.writeText(code)
-    showCopySuccess()
+    copyCodeToClipboard(code)
   }
 
   return (
