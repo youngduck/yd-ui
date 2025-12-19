@@ -2,7 +2,7 @@
   .yds-checkbox-wrapper {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--checkbox-wrapper-gap);
   }
 
   .yds-checkbox-typography {
@@ -10,36 +10,36 @@
     line-height: var(--line-height-yds-b2);
     font-weight: var(--font-weight-yds-b2);
     font-family: var(--font-yds-wanted);
-    color: var(--color-white);
+    color: var(--color-checkbox-text);
   }
 
   /* 네모체크박스 영역*/
   .yds-checkbox-indicator {
-    border: var(--yds-border-width) solid var(--color-border-primary-light);
-    border-radius: 2px;
-    width: 20px;
-    height: 20px;
+    border: var(--yds-border-width) solid var(--color-checkbox-indicator-border);
+    border-radius: var(--checkbox-indicator-border-radius);
+    width: var(--checkbox-indicator-size);
+    height: var(--checkbox-indicator-size);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-font-primary-light);
+    color: var(--color-checkbox-indicator-text);
   }
 
   .yds-checkbox-indicator-inner-checked {
-    background-color: var(--color-background2-primary-light);
-    width: 12px;
-    height: 12px;
+    background-color: var(--color-checkbox-indicator-checked-bg);
+    width: var(--checkbox-indicator-inner-size);
+    height: var(--checkbox-indicator-inner-size);
   }
 
   .yds-checkbox-indicator-inner-unchecked {
     background-color: transparent;
-    width: 12px;
-    height: 12px;
+    width: var(--checkbox-indicator-inner-size);
+    height: var(--checkbox-indicator-inner-size);
   }
 
   .yds-checkbox-indicator-inner-indeterminate {
-    width: 20px;
-    height: 20px;
+    width: var(--checkbox-indicator-size);
+    height: var(--checkbox-indicator-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,11 +47,11 @@
 
   /* V체크 아이콘 영역 */
   .yds-checkbox-icon-indicator {
-    border: var(--yds-border-width) solid var(--color-border-primary-light);
-    border-radius: 2px;
-    color: var(--color-font-primary-light);
-    width: 20px;
-    height: 20px;
+    border: var(--yds-border-width) solid var(--color-checkbox-indicator-border);
+    border-radius: var(--checkbox-indicator-border-radius);
+    color: var(--color-checkbox-indicator-text);
+    width: var(--checkbox-indicator-size);
+    height: var(--checkbox-indicator-size);
     display: flex;
     align-items: center;
     justify-content: center;
