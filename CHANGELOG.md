@@ -1,6 +1,22 @@
 # Changelog
 
-## [0.8.1] - 2025-12-16
+## [0.9.1] - 2025-12-19
+
+**Branch**: `ui-v0.9.1-토큰재개편잔여컴포넌트일괄적용`
+
+### 추가
+
+- docs: v0.9.1작업내용문서
+
+### 변경
+- refactor: button, checkbox, input컴포넌트 모두 시맨틱토큰 사용하게끔 변경
+
+### 수정
+- fix: 버튼 컴포넌트 disabled일때 css indicator loading -> not-alowed로 수정
+- fix: Table import경로 yd-ui, yd-ui/Table 두곳에서 둘다 되는 상황 yd-ui/Table에서만 되도록 수정
+### 제거
+
+---
 
 **Branch**: `ui-v0.8.1-테이블컴포넌트추가`
 
