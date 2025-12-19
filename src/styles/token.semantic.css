@@ -53,6 +53,38 @@
   --table-cell-padding-y: 10px;
   --table-cell-height: 40px;
   --table-header-height: 40px;
+
+  /* Button Tokens */
+  --color-button-fill-primary-bg: var(--color-background2-primary-deep);
+  --color-button-fill-primary-text: var(--color-black);
+  --color-button-outlined-primary-bg: transparent;
+  --color-button-outlined-primary-border: var(--color-border-primary-deep);
+  --color-button-outlined-primary-text: var(--color-font-primary-deep);
+  
+  /* Button Spacing Tokens */
+  --button-height: 48px;
+  --button-border-radius: var(--yds-border-radius);
+
+  /* Checkbox Tokens */
+  --color-checkbox-text: var(--color-white);
+  --color-checkbox-indicator-border: var(--color-border-primary-light);
+  --color-checkbox-indicator-text: var(--color-font-primary-light);
+  --color-checkbox-indicator-checked-bg: var(--color-background2-primary-light);
+  
+  /* Checkbox Spacing Tokens */
+  --checkbox-wrapper-gap: 6px;
+  --checkbox-indicator-size: 20px;
+  --checkbox-indicator-inner-size: 12px;
+  --checkbox-indicator-border-radius: 2px;
+
+  /* Input Tokens */
+  --color-input-text: var(--color-white);
+  
+  /* Input Spacing Tokens */
+  --input-typography-font-size: var(--font-size-yds-b2);
+  --input-typography-line-height: var(--line-height-yds-b2);
+  --input-typography-font-weight: var(--font-weight-yds-b2);
+  --input-typography-font-family: var(--font-yds-wanted);
 }
 
 

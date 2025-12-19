@@ -1,10 +1,10 @@
 @layer components {
   .yds-button {
     display: flex;
-    height: 48px;
+    height: var(--button-height);
     justify-content: center;
     align-items: center;
-    border-radius: var(--yds-border-radius);
+    border-radius: var(--button-border-radius);
     cursor: pointer;
     font-size: var(--font-size-yds-b1);
     line-height: var(--line-height-yds-b1);
@@ -13,12 +13,13 @@
   }
 
   .yds-button-fill-primary {
-    background-color: var(--color-background2-primary-deep);
+    background-color: var(--color-button-fill-primary-bg);
+    color: var(--color-button-fill-primary-text);
   }
 
   .yds-button-outlined-primary {
-    background-color: transparent;
-    border: var(--yds-border-width) solid var(--color-border-primary-deep);
-    color: var(--color-font-primary-deep);
+    background-color: var(--color-button-outlined-primary-bg);
+    border: var(--yds-border-width) solid var(--color-button-outlined-primary-border);
+    color: var(--color-button-outlined-primary-text);
   }   
 }
