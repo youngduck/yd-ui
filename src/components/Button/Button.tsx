@@ -16,7 +16,7 @@ const buttonVariants = cva('yds-button', {
       primary: '',
     },
     disabled: {
-      true: 'opacity-50 cursor-wait',
+      true: 'opacity-50 cursor-not-allowed',
     },
   },
   compoundVariants: [
