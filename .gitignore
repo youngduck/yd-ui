@@ -12,6 +12,13 @@ out/
 *storybook.log
 storybook-static
 
+# Vitepress 빌드 결과물
+.vitepress/dist
+.vitepress/cache
+ui-docs-site/.vitepress/dist
+ui-docs-site/.vitepress/cache
+
+
 # 환경 변수
 .env
 .env.local
