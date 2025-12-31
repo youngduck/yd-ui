@@ -1,0 +1,14 @@
+/* Hero 이미지 크기 조절 */
+.VPHero .VPImage {
+  max-width: 510px; /* 원하는 최대 너비로 조절 */
+  max-height: 340px; /* 원하는 최대 높이로 조절 */
+}
+
+
+/* 반응형 조절 */
+@media (max-width: 768px) {
+  .VPHero .VPImage {
+    max-width: 100%;
+    max-height: 300px;
+  }
+}
