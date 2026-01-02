@@ -10,6 +10,10 @@ export default defineConfig({
       { text: '시작하기', link: '/guide/installation' },
       { text: '컴포넌트', link: '/components/button' },
       { text: '패치노트', link: 'https://github.com/youngduck/yd-ui/blob/main/CHANGELOG.md' },
+      {
+        text: 'Storybook',
+        link: 'https://main--690969bfd75edb1c2e672267.chromatic.com/',
+      },
     ],
     sidebar: {
       '/guide/': [
