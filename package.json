@@ -16,6 +16,11 @@
       "import": "./dist/Table.esm.js",
       "require": "./dist/Table.cjs.js"
     },
+    "./Overlays": {
+      "types": "./dist/Overlays.d.ts",
+      "import": "./dist/Overlays.esm.js",
+      "require": "./dist/Overlays.cjs.js"
+    },
 
     "./styles": "./dist/index.css",
     "./dist/*": "./dist/*",

@@ -35,6 +35,7 @@ const getCommonPlugins = (extractCss = false) => [
 // 개별 컴포넌트 entry 정의 (tsup처럼 간단하게!)
 const componentEntries = {
   Table: 'src/components/Table/index.ts',
+  Overlays: 'src/components/Overlays/index.ts',
   // 새로운 컴포넌트 추가 시 여기에만 추가하면 됨
   // Button: 'src/components/Button/index.ts',
   // Input: 'src/components/Input/index.ts',
