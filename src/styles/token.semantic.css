@@ -65,6 +65,21 @@
   --button-height: 48px;
   --button-border-radius: var(--yds-border-radius);
 
+  /* Modal Spacing Tokens */
+  --modal-size-sm-width: 320px;
+  --modal-size-sm-height: 400px;
+  --modal-size-sm-max-height: 400px;
+  --modal-size-md-width: 480px;
+  --modal-size-md-height: 600px;
+  --modal-size-md-max-height: 600px;
+  --modal-size-lg-width: 640px;
+  --modal-size-lg-height: 800px;
+  --modal-size-lg-max-height: 800px;
+  --modal-size-xl-width: 800px;
+  --modal-size-xl-height: 900px;
+  --modal-size-xl-max-height: 900px;
+
+
   /* Checkbox Tokens */
   --color-checkbox-text: var(--color-white);
   --color-checkbox-indicator-border: var(--color-border-primary-light);
@@ -129,5 +144,7 @@
 
   /* Z-index 모듈화 */
   .z-select-box-dropdown { z-index: 1000; }
+  .z-modal-backdrop { z-index: 1200; }
+  .z-modal { z-index: 1210; }
   
 }

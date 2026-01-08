@@ -1,6 +1,6 @@
 {
   "name": "@youngduck/yd-ui",
-  "version": "0.10.2",
+  "version": "0.11.1",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -15,6 +15,11 @@
       "types": "./dist/Table.d.ts",
       "import": "./dist/Table.esm.js",
       "require": "./dist/Table.cjs.js"
+    },
+    "./Overlays": {
+      "types": "./dist/Overlays.d.ts",
+      "import": "./dist/Overlays.esm.js",
+      "require": "./dist/Overlays.cjs.js"
     },
 
     "./styles": "./dist/index.css",

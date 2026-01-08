@@ -1,0 +1,52 @@
+@layer components {
+  .yds-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-primary-layer);
+  }
+
+  .yds-modal {
+    background-color: var(--color-background-secondary);
+    border-radius: var(--yds-border-radius);
+    padding: var(--yds-content-padding);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+
+
+
+
+  .yds-modal-size-sm {
+    width: var(--modal-size-sm-width);
+    height: var(--modal-size-sm-height);
+    max-height: var(--modal-size-sm-max-height);
+  }
+
+  .yds-modal-size-md {
+    width: var(--modal-size-md-width);
+    height: var(--modal-size-md-height);
+    max-height: var(--modal-size-md-max-height);
+  }
+
+  .yds-modal-size-lg {
+    width: var(--modal-size-lg-width);
+    height: var(--modal-size-lg-height);
+    max-height: var(--modal-size-lg-max-height);
+  }
+
+  .yds-modal-size-xl {
+    width: var(--modal-size-xl-width);
+    height: var(--modal-size-xl-height);
+    max-height: var(--modal-size-xl-max-height);
+  }
+
+
+ 
+}
+
+
