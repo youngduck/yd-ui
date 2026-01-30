@@ -42,6 +42,7 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "check": "npm run lint && npm run format:check",
     "prepare": "husky",
+    "changelog": "node scripts/update-changelog.js",
     "release": "node scripts/auto-release.js"
   },
   "peerDependencies": {
