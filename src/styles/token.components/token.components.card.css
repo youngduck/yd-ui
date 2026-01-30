@@ -1,0 +1,18 @@
+/**
+ * Card 컴포넌트 스타일.
+ * card-navy-50 스타일을 token.semantic.css에서 가져와 사용합니다.
+ */
+@layer components {
+  .yds-card {
+    display: block;
+    box-sizing: border-box;
+    border-style: solid;
+  }
+  
+  .yds-card.card-navy-50 {
+    border-color: var(--color-secondary-50);
+    border-width: var(--yds-border-width);
+    border-radius: var(--yds-border-radius);
+    padding: var(--yds-content-padding);
+  }
+}
