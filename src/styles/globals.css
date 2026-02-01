@@ -9,6 +9,7 @@
 @import "./token.components/token.components.checkbox.css";
 @import "./token.components/token.components.modal.css";
 @import "./token.components/token.components.table.css";
+@import "./token.components/token.components.card.css";
 
 
 /* 모든 스크롤바에 적용 */
