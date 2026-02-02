@@ -100,6 +100,21 @@
   --input-typography-line-height: var(--line-height-yds-b2);
   --input-typography-font-weight: var(--font-weight-yds-b2);
   --input-typography-font-family: var(--font-yds-wanted);
+
+  /* Chips Tokens */
+  --chips-height: 28px;
+  --chips-padding-x: 8px;
+  --chips-typography-font-size: var(--font-size-yds-c1m);
+  --chips-typography-line-height: var(--line-height-yds-c1m);
+  --chips-typography-font-weight: var(--font-weight-yds-c1m);
+  --chips-typography-font-family: var(--font-yds-wanted);
+  
+  /* Chips Color Tokens */
+  --color-chips-fill-primary-bg: var(--color-background2-primary-deep);
+  --color-chips-fill-primary-text: var(--color-black);
+  --color-chips-outlined-primary-bg: transparent;
+  --color-chips-outlined-primary-border: var(--color-border-primary-deep);
+  --color-chips-outlined-primary-text: var(--color-font-primary-deep);
 }
 
 

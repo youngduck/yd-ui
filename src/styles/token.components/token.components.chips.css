@@ -1,0 +1,33 @@
+/**
+ * Chips 컴포넌트 스타일.
+ * fill과 outlined variant를 지원하며, primary 색상을 사용합니다.
+ */
+@layer components {
+  .yds-chips {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: var(--chips-height);
+    padding-left: var(--chips-padding-x);
+    padding-right: var(--chips-padding-x);
+    border-style: solid;
+    border-width: var(--yds-border-width);
+    border-radius: var(--yds-border-radius);
+    font-size: var(--chips-typography-font-size);
+    line-height: var(--chips-typography-line-height);
+    font-weight: var(--chips-typography-font-weight);
+    font-family: var(--chips-typography-font-family);
+  }
+
+  .yds-chips-fill-primary {
+    background-color: var(--color-chips-fill-primary-bg);
+    color: var(--color-chips-fill-primary-text);
+    border-color: transparent;
+  }
+
+  .yds-chips-outlined-primary {
+    background-color: var(--color-chips-outlined-primary-bg);
+    border-color: var(--color-chips-outlined-primary-border);
+    color: var(--color-chips-outlined-primary-text);
+  }
+}
