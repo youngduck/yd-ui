@@ -1,5 +1,6 @@
 export { Button } from './Button/Button'
 export { Card } from './Card/Card'
+export { Chips } from './Chips/Chips'
 export { Input } from './Input/Input'
 export { CheckBox } from './CheckBox/CheckBox'
 export { SelectBox, useSelectBox } from './SelectBox'
