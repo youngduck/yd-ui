@@ -18,7 +18,7 @@ hero:
       link: /components/button
     - theme: alt
       text: 디자인토큰
-      link: /tokens/color
+      link: /tokens/overview
 
 features:
   - icon: 🎨
