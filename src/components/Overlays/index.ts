@@ -1,2 +1,2 @@
 export { useOverlay } from './useOverlay'
-export { OvelayProvider } from './OvelayProvider'
+export { OverlayProvider } from './OverlayProvider'
