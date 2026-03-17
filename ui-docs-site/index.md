@@ -11,11 +11,14 @@ hero:
     
   actions:
     - theme: brand
-      text: 설치방법
+      text: 설치
       link: /guide/installation
     - theme: alt
-      text: 컴포넌트 보러가기
+      text: 컴포넌트
       link: /components/button
+    - theme: alt
+      text: 디자인토큰
+      link: /tokens/color
 
 features:
   - icon: 🎨
