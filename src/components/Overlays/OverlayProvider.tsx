@@ -21,7 +21,7 @@ export const OverlayContext = createContext<{
   unmount: () => {},
 })
 
-export const OvelayProvider = ({ children }: { children: ReactNode }) => {
+export const OverlayProvider = ({ children }: { children: ReactNode }) => {
   const [overlays, setOverlays] = useState<Map<number, ReactNode>>(new Map())
 
   const mount = (overlayConfig: OverlayConfig) => {

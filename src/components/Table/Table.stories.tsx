@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Table, THead, TBody, Th, Td, Tr } from './index'
+import { Table, THead, TBody, Th, Td, Tr, ColGroup, Col } from './index'
 import { copyCodeToClipboard } from '../../storybook/utils'
 
 const meta: Meta<typeof Table> = {
@@ -194,6 +194,70 @@ function BasicTable() {
         ),
       },
       {
+        name: 'ColGroup으로 열 너비 고정',
+        description: 'ColGroup, Col 컴포넌트로 각 열의 너비를 Tailwind className으로 지정',
+        code: `import { Table, ColGroup, Col, THead, TBody, Th, Td, Tr } from '@youngduck/yd-ui/Table';
+
+function ColGroupTable() {
+  return (
+    <Table>
+      <ColGroup>
+        <Col className="w-[200px]" />
+        <Col className="w-[80px]" />
+        <Col className="w-[280px]" />
+      </ColGroup>
+      <THead>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Age</Th>
+          <Th>Email</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>김영덕</Td>
+          <Td>28</Td>
+          <Td>youngduck.kim@example.com</Td>
+        </Tr>
+        <Tr>
+          <Td>이민수</Td>
+          <Td>32</Td>
+          <Td>minsu.lee@example.com</Td>
+        </Tr>
+      </TBody>
+    </Table>
+  );
+}`,
+        component: (
+          <Table>
+            <ColGroup>
+              <Col className="w-[200px]" />
+              <Col className="w-[50px]" />
+              <Col className="w-[280px]" />
+            </ColGroup>
+            <THead>
+              <Tr>
+                <Th>Name</Th>
+                <Th>Age</Th>
+                <Th>Email</Th>
+              </Tr>
+            </THead>
+            <TBody>
+              <Tr>
+                <Td>김영덕</Td>
+                <Td>28</Td>
+                <Td>youngduck.kim@example.com</Td>
+              </Tr>
+              <Tr>
+                <Td>이민수</Td>
+                <Td>32</Td>
+                <Td>minsu.lee@example.com</Td>
+              </Tr>
+            </TBody>
+          </Table>
+        ),
+      },
+      {
         name: '스크롤 가능한 테이블',
         description: '많은 데이터를 스크롤로 표시, 헤더는 고정',
         code: `import { Table, THead, TBody, Th, Td, Tr } from '@youngduck/yd-ui/Table';
@@ -248,10 +312,10 @@ function ScrollableTable() {
           <Table scrollable={true} scrollClassName="w-[600px] h-[200px]">
             <THead>
               <Tr>
-                <Th className="w-[150px]">Name</Th>
-                <Th className="w-[100px]">Age</Th>
-                <Th className="w-[250px]">Email</Th>
-                <Th className="w-[100px]">Role</Th>
+                <Th>Name</Th>
+                <Th>Age</Th>
+                <Th>Email</Th>
+                <Th>Role</Th>
               </Tr>
             </THead>
             <TBody>
@@ -284,6 +348,128 @@ function ScrollableTable() {
                 <Td>35</Td>
                 <Td>daeun.jung@example.com</Td>
                 <Td>Designer</Td>
+              </Tr>
+            </TBody>
+          </Table>
+        ),
+      },
+      {
+        name: '스크롤 + ColGroup 열 너비 고정',
+        description: '가로·세로 스크롤 테이블에서 ColGroup, Col로 각 열 너비를 Tailwind className으로 지정',
+        code: `import { Table, ColGroup, Col, THead, TBody, Th, Td, Tr } from '@youngduck/yd-ui/Table';
+
+function ScrollableColGroupTable() {
+  return (
+    <Table scrollable={true} scrollClassName="w-[500px] h-[200px]">
+      <ColGroup>
+        <Col className="w-[180px]" />
+        <Col className="w-[80px]" />
+        <Col className="w-[300px]" />
+        <Col className="w-[120px]" />
+        <Col className="w-[150px]" />
+      </ColGroup>
+      <THead>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Age</Th>
+          <Th>Email</Th>
+          <Th>Role</Th>
+          <Th>Department</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>김영덕</Td>
+          <Td>28</Td>
+          <Td>youngduck.kim@example.com</Td>
+          <Td>Developer</Td>
+          <Td>Engineering</Td>
+        </Tr>
+        <Tr>
+          <Td>이민수</Td>
+          <Td>32</Td>
+          <Td>minsu.lee@example.com</Td>
+          <Td>Designer</Td>
+          <Td>Product</Td>
+        </Tr>
+        <Tr>
+          <Td>박지훈</Td>
+          <Td>45</Td>
+          <Td>jihoon.park@example.com</Td>
+          <Td>Manager</Td>
+          <Td>Engineering</Td>
+        </Tr>
+        <Tr>
+          <Td>최수진</Td>
+          <Td>29</Td>
+          <Td>sujin.choi@example.com</Td>
+          <Td>Developer</Td>
+          <Td>Platform</Td>
+        </Tr>
+        <Tr>
+          <Td>정다은</Td>
+          <Td>35</Td>
+          <Td>daeun.jung@example.com</Td>
+          <Td>Designer</Td>
+          <Td>Product</Td>
+        </Tr>
+      </TBody>
+    </Table>
+  );
+}`,
+        component: (
+          <Table scrollable={true} scrollClassName="w-[500px] h-[200px]">
+            <ColGroup>
+              <Col className="w-[180px]" />
+              <Col className="w-[80px]" />
+              <Col className="w-[300px]" />
+              <Col className="w-[120px]" />
+              <Col className="w-[150px]" />
+            </ColGroup>
+            <THead>
+              <Tr>
+                <Th>Name</Th>
+                <Th>Age</Th>
+                <Th>Email</Th>
+                <Th>Role</Th>
+                <Th>Department</Th>
+              </Tr>
+            </THead>
+            <TBody>
+              <Tr>
+                <Td>김영덕</Td>
+                <Td>28</Td>
+                <Td>youngduck.kim@example.com</Td>
+                <Td>Developer</Td>
+                <Td>Engineering</Td>
+              </Tr>
+              <Tr>
+                <Td>이민수</Td>
+                <Td>32</Td>
+                <Td>minsu.lee@example.com</Td>
+                <Td>Designer</Td>
+                <Td>Product</Td>
+              </Tr>
+              <Tr>
+                <Td>박지훈</Td>
+                <Td>45</Td>
+                <Td>jihoon.park@example.com</Td>
+                <Td>Manager</Td>
+                <Td>Engineering</Td>
+              </Tr>
+              <Tr>
+                <Td>최수진</Td>
+                <Td>29</Td>
+                <Td>sujin.choi@example.com</Td>
+                <Td>Developer</Td>
+                <Td>Platform</Td>
+              </Tr>
+              <Tr>
+                <Td>정다은</Td>
+                <Td>35</Td>
+                <Td>daeun.jung@example.com</Td>
+                <Td>Designer</Td>
+                <Td>Product</Td>
               </Tr>
             </TBody>
           </Table>

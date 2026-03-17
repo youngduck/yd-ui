@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { OverlayContext } from './OvelayProvider'
+import { OverlayContext } from './OverlayProvider'
 import { Modal } from './Modal/Modal'
 import { IModalOpenRequestData } from './Modal/ModalTypes'
 
@@ -8,7 +8,7 @@ export const useOverlay = () => {
   const { mount, unmount } = context
   const [activeOverlayId, setActiveOverlayId] = useState(0)
   if (!context) {
-    throw new Error('useOverlay는 OvelayProvider 내에서만 사용할 수 있습니다.')
+    throw new Error('useOverlay는 OverlayProvider 내에서만 사용할 수 있습니다.')
   }
 
   const modalOpen = (modalData: IModalOpenRequestData) => {

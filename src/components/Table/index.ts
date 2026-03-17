@@ -15,3 +15,9 @@ export type { TdProps } from './Td'
 
 export { Tr } from './Tr'
 export type { TrProps } from './Tr'
+
+export { ColGroup } from './ColGroup'
+export type { ColGroupProps } from './ColGroup'
+
+export { Col } from './Col'
+export type { ColProps } from './Col'

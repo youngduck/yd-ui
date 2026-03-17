@@ -1,4 +1,24 @@
-# Changelog
+# C
+## [0.13.1] - 2026-03-17
+
+**Branch**: `ui-v0.13.1-컴포넌트재정비`
+
+### 추가
+- feat: Table컴포넌트col,colgroup태그추가
+
+### 수정
+- fix: export소스코드에 type export 누락 추가
+- fix: Tr태그 미사용 props제거
+- fix: overlay 영문명오타 수정
+
+### 변경
+- docs: README 컴포넌트현황 최신화
+- test: Table컴포넌트col,colgroup문서정리
+
+### 제거
+
+---
+hangelog
 
 ## 작성 규칙
 
@@ -23,8 +43,8 @@
 - **PR 머지 방식**  
   - 여러 커밋을 하나의 PR로 작업 후, **스쿼시머지**하여 병합합니다.
 
----
 
+---
 ## [0.12.2] - 2026-02-02
 
 **Branch**: `ui-v0.12.2-Chips컴포넌트추가`
