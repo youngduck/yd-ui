@@ -60,11 +60,73 @@ function App() {
 - `w-96`: 너비 24rem (384px)
 - `h-[500px]`: 커스텀 높이
 
+## 열 너비 고정 (ColGroup, Col)
+
+`ColGroup`과 `Col` 컴포넌트를 사용하면 각 열의 너비를 Tailwind `className`으로 지정할 수 있습니다.
+
+```tsx
+import { Table, ColGroup, Col, THead, TBody, Tr, Th, Td } from '@youngduck/yd-ui/Table'
+
+<Table>
+  <ColGroup>
+    <Col className="w-[200px]" />
+    <Col className="w-[80px]" />
+    <Col className="w-[300px]" />
+  </ColGroup>
+  <THead>
+    <Tr>
+      <Th>이름</Th>
+      <Th>나이</Th>
+      <Th>이메일</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>홍길동</Td>
+      <Td>30</Td>
+      <Td>hong@example.com</Td>
+    </Tr>
+  </TBody>
+</Table>
+```
+
+## 스크롤 + ColGroup 조합
+
+스크롤 테이블에서 열 너비 합계가 컨테이너 너비를 초과하면 가로 스크롤도 자동으로 동작합니다.
+
+```tsx
+<Table scrollable={true} scrollClassName="w-[500px] h-[200px]">
+  <ColGroup>
+    <Col className="w-[180px]" />
+    <Col className="w-[80px]" />
+    <Col className="w-[300px]" />
+    <Col className="w-[120px]" />
+    <Col className="w-[150px]" />
+  </ColGroup>
+  <THead>
+    <Tr>
+      <Th>이름</Th>
+      <Th>나이</Th>
+      <Th>이메일</Th>
+      <Th>직책</Th>
+      <Th>부서</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    {/* 행들... */}
+  </TBody>
+</Table>
+```
+
+> 열 너비 합계(830px)가 컨테이너(500px)보다 크므로 가로 스크롤 발생
+
 ## 컴포넌트 구조
 
 Table은 다음 하위 컴포넌트들로 구성됩니다:
 
 - `Table`: 테이블 래퍼
+- `ColGroup`: 열 그룹 정의
+- `Col`: 개별 열 너비/스타일 지정
 - `THead`: 테이블 헤더
 - `TBody`: 테이블 본문
 - `Tr`: 테이블 행
@@ -132,12 +194,20 @@ Table은 표준 HTML table 요소의 모든 속성을 지원합니다.
 Table 컴포넌트는 별도 경로에서 임포트해야 합니다:
 
 ```tsx
-import { Table, THead, TBody, Tr, Th, Td } from '@youngduck/yd-ui/Table'
+import { Table, ColGroup, Col, THead, TBody, Tr, Th, Td } from '@youngduck/yd-ui/Table'
 ```
 
 ## 타입
 
 ```tsx
-import type { TableProps } from '@youngduck/yd-ui/Table'
+import type { TableProps, ColGroupProps, ColProps } from '@youngduck/yd-ui/Table'
 ```
+
+## Col Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Tailwind 클래스로 열 너비 지정 (예: `w-[200px]`, `w-1/4`) |
+
+`Col`은 표준 HTML `col` 요소의 모든 속성을 지원합니다.
 
