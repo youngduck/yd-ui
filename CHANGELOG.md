@@ -25,6 +25,25 @@
 
 ---
 
+## [0.13.1] - 2026-03-17
+
+**Branch**: `ui-v0.13.1-컴포넌트재정비`
+
+### 추가
+- feat: Table컴포넌트col,colgroup태그추가
+
+### 변경
+- test: Table컴포넌트col,colgroup문서정리
+- docs: README 컴포넌트현황 최신화
+
+### 수정
+- fix: overlay 영문명오타 수정
+- fix: Tr태그 미사용 props제거
+- fix: export소스코드에 type export 누락 추가
+
+### 제거
+
+---
 ## [0.12.2] - 2026-02-02
 
 **Branch**: `ui-v0.12.2-Chips컴포넌트추가`
