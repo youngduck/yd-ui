@@ -15,13 +15,13 @@
   --color-background-primary: var(--color-secondary-400);
   --color-background-secondary: var(--color-secondary-300);
   --color-background-tertiary: var(--color-secondary-200);
-  --color-background-forth: var(--color-secondary-100);
+  --color-background-fourth: var(--color-secondary-100);
   --color-background-fifth: var(--color-secondary-50);
   
   --color-background-primary-layer: var(--color-secondary-400-opacity);
   --color-background-secondary-layer: var(--color-secondary-300-opacity);
   --color-background-tertiary-layer: var(--color-secondary-200-opacity); 
-  --color-background-forth-layer: var(--color-secondary-100-opacity);
+  --color-background-fourth-layer: var(--color-secondary-100-opacity);
   --color-background-fifth-layer: var(--color-secondary-50-opacity);
     
   /* Button Tokens */
@@ -124,13 +124,13 @@
   .bg-background-primary { background-color: var(--color-background-primary); }
   .bg-background-secondary { background-color: var(--color-background-secondary); }
   .bg-background-tertiary { background-color: var(--color-background-tertiary); }
-  .bg-background-forth { background-color: var(--color-background-forth); }
+  .bg-background-fourth { background-color: var(--color-background-fourth); }
   .bg-background-fifth { background-color: var(--color-background-fifth); }
 
   .bg-background-primary-layer { background-color: var(--color-background-primary-layer); }
   .bg-background-secondary-layer { background-color: var(--color-background-secondary-layer); }
   .bg-background-tertiary-layer { background-color: var(--color-background-tertiary-layer); }
-  .bg-background-forth-layer { background-color: var(--color-background-forth-layer); }
+  .bg-background-fourth-layer { background-color: var(--color-background-fourth-layer); }
   .bg-background-fifth-layer { background-color: var(--color-background-fifth-layer); }
 
   .text-primary-50 { color: var(--color-primary-50); }
