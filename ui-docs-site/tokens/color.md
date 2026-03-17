@@ -50,7 +50,7 @@ Opacity 변형(`-opacity`)도 제공합니다 (`rgba` 0.7):
 | `bg-background-primary` | 최상위 배경 (가장 어두움) |
 | `bg-background-secondary` | 2단계 배경 |
 | `bg-background-tertiary` | 3단계 배경 |
-| `bg-background-forth` | 4단계 배경 |
+| `bg-background-fourth` | 4단계 배경 |
 | `bg-background-fifth` | 5단계 배경 (가장 밝음) |
 
 레이어(투명도 0.7) 변형:
@@ -60,7 +60,7 @@ Opacity 변형(`-opacity`)도 제공합니다 (`rgba` 0.7):
 | `bg-background-primary-layer` |
 | `bg-background-secondary-layer` |
 | `bg-background-tertiary-layer` |
-| `bg-background-forth-layer` |
+| `bg-background-fourth-layer` |
 | `bg-background-fifth-layer` |
 
 ### Text
