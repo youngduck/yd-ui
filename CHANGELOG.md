@@ -24,6 +24,24 @@
 
 ---
 
+## [0.14.1] - 2026-03-20
+
+**Branch**: `ui-v0.14.1-overlay오류수정및기능추가`
+
+### 추가
+- feat: Toast 컴포넌트 추가 및 useOverlay toast 함수 구현
+
+### 수정
+- fix: Modal 접근성 속성(role, aria-modal) 누락 수정
+
+### 변경
+- style: Toast 디자인토큰 및 컴포넌트 스타일 추가
+- test: Modal, Toast 스토리북 추가
+
+### 제거
+
+---
+
 ## [0.13.2] - 2026-03-17
 
 **Branch**: `ui-v0.13.2-문서재정비`
