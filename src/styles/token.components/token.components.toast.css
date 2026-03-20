@@ -1,0 +1,40 @@
+@layer components {
+  .yds-toast-container {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--toast-gap);
+    pointer-events: none;
+  }
+
+  .yds-toast {
+    min-width: var(--toast-min-width);
+    max-width: var(--toast-max-width);
+    padding: var(--toast-padding-y) var(--toast-padding-x);
+    background-color: var(--color-toast-bg);
+    color: var(--color-toast-text);
+    border: 1px solid var(--color-toast-border);
+    border-radius: var(--toast-border-radius);
+    font-size: var(--toast-typography-font-size);
+    line-height: var(--toast-typography-line-height);
+    font-weight: var(--toast-typography-font-weight);
+    font-family: var(--toast-typography-font-family);
+    pointer-events: auto;
+    animation: yds-toast-slide-in 0.3s ease-out;
+  }
+
+  @keyframes yds-toast-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

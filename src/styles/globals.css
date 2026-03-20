@@ -11,6 +11,7 @@
 @import "./token.components/token.components.table.css";
 @import "./token.components/token.components.card.css";
 @import "./token.components/token.components.chips.css";
+@import "./token.components/token.components.toast.css";
 
 
 /* 모든 스크롤바에 적용 */
