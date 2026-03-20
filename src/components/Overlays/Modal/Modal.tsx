@@ -24,7 +24,7 @@ export const Modal = ({ onClose, children, size }: IModal) => {
   //!SECTION 메서드 영역
 
   return (
-    <div className="yds-modal-backdrop z-modal-backdrop" onClick={handleCloseBubble}>
+    <div className="yds-modal-backdrop z-modal-backdrop" onClick={handleCloseBubble} role="dialog" aria-modal="true">
       <div className={modalSizeVariants({ size })}>{children}</div>
     </div>
   )
