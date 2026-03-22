@@ -28,7 +28,7 @@ const ModalPlayground = () => {
           content: onClose => (
             <div className="flex flex-col gap-4 p-4 items-stretch justify-around">
               <h2 className="text-yds-s1 text-white">모달 제목</h2>
-              <p className="text-yds-b2 text-gray-300">배경을 클릭하거나 닫기 버튼으로 닫을 수 있습니다.</p>
+              <p className="text-yds-b2 text-gray-300">배경 클릭, ESC 키, 닫기 버튼으로 닫을 수 있습니다.</p>
               <div className="flex justify-center">
                 <Button size="lg" variant="outlined" color="primary" onClick={onClose}>
                   닫기
@@ -66,7 +66,7 @@ YD-UI 디자인 시스템의 모달 컴포넌트입니다.
 - Context 기반 오버레이 관리 (OverlayProvider + useOverlay)
 - 명령형 API로 모달 열기/닫기 (\`modalOpen\`, \`modalClose\`)
 - 정적 content와 함수형 content(onClose 콜백) 모두 지원
-- 배경 클릭 시 닫기 지원
+- 배경 클릭 또는 ESC 키로 닫기 지원
 - sm / md / lg / xl 사이즈 지원
 
 ## 사용 가이드

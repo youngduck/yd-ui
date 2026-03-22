@@ -125,7 +125,7 @@ YD-UI 디자인 시스템의 확인 다이얼로그 컴포넌트입니다.
 - Context 기반 오버레이 관리 (OverlayProvider + useOverlay)
 - 명령형 API로 확인 다이얼로그 표시 (\`confirmDialog\`)
 - 확인/취소 버튼 텍스트 커스텀 가능
-- 배경 클릭 시 취소 처리
+- 배경 클릭 또는 ESC 키로 취소 처리
 - window.confirm 대체용
 
 ## 사용 가이드

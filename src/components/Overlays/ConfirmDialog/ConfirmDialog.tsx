@@ -9,13 +9,27 @@ export const ConfirmDialog = ({ title, description, confirmText, cancelText, onC
     }
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') {
+      onCancel()
+    }
+  }
+
   const handleConfirm = async () => {
     await onConfirm()
     onCancel()
   }
 
   return (
-    <div className="yds-confirm-dialog-backdrop" onClick={handleBackdropClick} role="alertdialog" aria-modal="true">
+    <div
+      className="yds-confirm-dialog-backdrop"
+      onClick={handleBackdropClick}
+      onKeyDown={handleKeyDown}
+      role="alertdialog"
+      aria-modal="true"
+      tabIndex={-1}
+      ref={(el) => el?.focus()}
+    >
       <div className="yds-confirm-dialog">
         <h2 className="yds-confirm-dialog-title">{title}</h2>
         {description && <p className="yds-confirm-dialog-description">{description}</p>}

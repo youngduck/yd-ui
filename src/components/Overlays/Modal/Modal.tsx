@@ -7,24 +7,30 @@ import React from 'react'
 import { IModal, modalSizeVariants } from './ModalTypes'
 
 export const Modal = ({ onClose, children, size }: IModal) => {
-  //SECTION HOOK호출 영역
-
-  //!SECTION HOOK호출 영역
-
-  //SECTION 상태값 영역
-
-  //!SECTION 상태값 영역
-
   //SECTION 메서드 영역
   const handleCloseBubble = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose()
     }
   }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') {
+      onClose()
+    }
+  }
   //!SECTION 메서드 영역
 
   return (
-    <div className="yds-modal-backdrop" onClick={handleCloseBubble} role="dialog" aria-modal="true">
+    <div
+      className="yds-modal-backdrop"
+      onClick={handleCloseBubble}
+      onKeyDown={handleKeyDown}
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      ref={(el) => el?.focus()}
+    >
       <div className={modalSizeVariants({ size })}>{children}</div>
     </div>
   )
