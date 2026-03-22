@@ -115,6 +115,36 @@
   --color-chips-outlined-primary-bg: transparent;
   --color-chips-outlined-primary-border: var(--color-border-primary-deep);
   --color-chips-outlined-primary-text: var(--color-font-primary-deep);
+
+  /* Toast Tokens */
+  --toast-min-width: 280px;
+  --toast-max-width: 420px;
+  --toast-padding-x: 16px;
+  --toast-padding-y: 12px;
+  --toast-border-width: 2px;
+  --toast-border-radius: var(--yds-border-radius);
+  --toast-gap: 8px;
+  --toast-typography-font-size: var(--font-size-yds-b2);
+  --toast-typography-line-height: var(--line-height-yds-b2);
+  --toast-typography-font-weight: var(--font-weight-yds-b2);
+  --toast-typography-font-family: var(--font-yds-wanted);
+  --color-toast-bg: var(--color-background-tertiary);
+  --color-toast-text: var(--color-white);
+  --color-toast-border: var(--color-secondary-50);
+
+  /* ConfirmDialog Tokens */
+  --confirm-dialog-width: 360px;
+  --confirm-dialog-max-width: 90vw;
+  --confirm-dialog-padding: 24px;
+  --confirm-dialog-gap: 12px;
+
+  /* Z-index Tokens */
+  --z-index-select-box-dropdown: 1000;
+  --z-index-modal-backdrop: 1200;
+  --z-index-modal: 1210;
+  --z-index-confirm-dialog-backdrop: 1300;
+  --z-index-confirm-dialog: 1310;
+  --z-index-toast: 1400;
 }
 
 
@@ -157,9 +187,6 @@
   .card-navy-300 { border-color: var(--color-secondary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
   .card-navy-400 { border-color: var(--color-secondary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
 
-  /* Z-index 모듈화 */
-  .z-select-box-dropdown { z-index: 1000; }
-  .z-modal-backdrop { z-index: 1200; }
-  .z-modal { z-index: 1210; }
+
   
 }

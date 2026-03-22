@@ -1,0 +1,41 @@
+@layer components {
+  .yds-toast-container {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--toast-gap);
+    pointer-events: none;
+  }
+
+  .yds-toast {
+    min-width: var(--toast-min-width);
+    max-width: var(--toast-max-width);
+    padding: var(--toast-padding-y) var(--toast-padding-x);
+    background-color: var(--color-toast-bg);
+    color: var(--color-toast-text);
+    border: var(--toast-border-width) solid var(--color-toast-border);
+    border-radius: var(--toast-border-radius);
+    font-size: var(--toast-typography-font-size);
+    line-height: var(--toast-typography-line-height);
+    font-weight: var(--toast-typography-font-weight);
+    font-family: var(--toast-typography-font-family);
+    pointer-events: auto;
+    z-index: var(--z-index-toast);
+    animation: yds-toast-slide-in 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+  }
+
+  @keyframes yds-toast-slide-in {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

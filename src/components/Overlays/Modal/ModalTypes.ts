@@ -6,7 +6,7 @@ export interface IModal extends VariantProps<typeof modalSizeVariants> {
   children: React.ReactNode
 }
 
-export const modalSizeVariants = cva('yds-modal z-modal', {
+export const modalSizeVariants = cva('yds-modal', {
   variants: {
     size: {
       sm: 'yds-modal-size-sm',

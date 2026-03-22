@@ -24,6 +24,31 @@
 
 ---
 
+## [0.14.1] - 2026-03-20
+
+**Branch**: `ui-v0.14.1-overlay오류수정및기능추가`
+
+### 추가
+- feat: Toast 컴포넌트 추가 및 useOverlay toast 함수 구현
+- feat: ConfirmDialog컴포넌트추가
+
+### 수정
+- fix: Modal 접근성 속성(role, aria-modal) 누락 수정
+
+### 변경
+- style: Toast 디자인토큰 및 컴포넌트 스타일 추가
+- test: Modal, Toast 스토리북 추가
+- refactor: z-index 유틸리티 클래스를 컴포넌트 CSS 토큰 변수로 이관
+- style: toast 스타일 조정
+- test: modal, toast storybook 추가 및 수정
+- docs: overlay컴포넌트들 사용방법문서화
+- docs: vitepress 오버레이컴포넌트들경로추가
+- refactor: 모달,컨펌 컴포넌트 키보드 접근성 추가 ESC, TAB포커스
+
+### 제거
+
+---
+
 ## [0.13.2] - 2026-03-17
 
 **Branch**: `ui-v0.13.2-문서재정비`

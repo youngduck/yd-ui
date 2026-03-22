@@ -49,7 +49,7 @@ export function SelectBox({ size, selectBoxHook }: SelectBoxProps) {
         <ChevronDown className="text-yellow-100 transition-transform duration-300" />
       </div>
       {isOpen && (
-        <div className="bg-background-secondary border-primary-100 z-select-box-dropdown absolute top-14 left-0 flex w-full flex-col gap-2 rounded-lg border-2 p-3">
+        <div className="bg-background-secondary border-primary-100 z-[var(--z-index-select-box-dropdown)] absolute top-14 left-0 flex w-full flex-col gap-2 rounded-lg border-2 p-3">
           {search && (
             <div className="flex h-[40px] items-center border-y-2 border-yellow-100">
               <Search className="text-yellow-100" size={20} />
