@@ -1,7 +1,7 @@
 @layer components {
   .yds-toast-container {
     position: fixed;
-    top: 0%;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -17,7 +17,7 @@
     padding: var(--toast-padding-y) var(--toast-padding-x);
     background-color: var(--color-toast-bg);
     color: var(--color-toast-text);
-    border: 1px solid var(--color-toast-border);
+    border: var(--toast-border-width) solid var(--color-toast-border);
     border-radius: var(--toast-border-radius);
     font-size: var(--toast-typography-font-size);
     line-height: var(--toast-typography-line-height);
@@ -25,17 +25,17 @@
     font-family: var(--toast-typography-font-family);
     pointer-events: auto;
     z-index: var(--z-index-toast);
-    animation: yds-toast-slide-in 0.3s ease-out;
+    animation: yds-toast-slide-in 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
   }
 
   @keyframes yds-toast-slide-in {
     from {
       opacity: 0;
-      transform: translateY(16px);
+      transform: scale(0.85);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: scale(1);
     }
   }
 }

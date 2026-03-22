@@ -121,11 +121,12 @@
   --toast-max-width: 420px;
   --toast-padding-x: 16px;
   --toast-padding-y: 12px;
+  --toast-border-width: 2px;
   --toast-border-radius: var(--yds-border-radius);
   --toast-gap: 8px;
-  --toast-typography-font-size: var(--font-size-yds-c1m);
-  --toast-typography-line-height: var(--line-height-yds-c1m);
-  --toast-typography-font-weight: var(--font-weight-yds-c1m);
+  --toast-typography-font-size: var(--font-size-yds-b2);
+  --toast-typography-line-height: var(--line-height-yds-b2);
+  --toast-typography-font-weight: var(--font-weight-yds-b2);
   --toast-typography-font-family: var(--font-yds-wanted);
   --color-toast-bg: var(--color-background-tertiary);
   --color-toast-text: var(--color-white);
