@@ -22,7 +22,7 @@ const Toast = ({ content, duration, onDismiss }: IToast) => {
 
   //!SECTION 메서드 영역
 
-  return <div className="yds-toast z-toast">{content}</div>
+  return <div className="yds-toast">{content}</div>
 }
 
 export default Toast

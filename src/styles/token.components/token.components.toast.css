@@ -1,7 +1,7 @@
 @layer components {
   .yds-toast-container {
     position: fixed;
-    bottom: 32px;
+    top: 0%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -24,6 +24,7 @@
     font-weight: var(--toast-typography-font-weight);
     font-family: var(--toast-typography-font-family);
     pointer-events: auto;
+    z-index: var(--z-index-toast);
     animation: yds-toast-slide-in 0.3s ease-out;
   }
 

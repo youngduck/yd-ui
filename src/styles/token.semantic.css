@@ -130,6 +130,12 @@
   --color-toast-bg: var(--color-background-tertiary);
   --color-toast-text: var(--color-white);
   --color-toast-border: var(--color-secondary-50);
+
+  /* Z-index Tokens */
+  --z-index-select-box-dropdown: 1000;
+  --z-index-modal-backdrop: 1200;
+  --z-index-modal: 1210;
+  --z-index-toast: 1220;
 }
 
 
@@ -172,11 +178,6 @@
   .card-navy-300 { border-color: var(--color-secondary-300); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
   .card-navy-400 { border-color: var(--color-secondary-400); border-width: var(--yds-border-width); border-radius: var(--yds-border-radius); padding: var(--yds-content-padding);}
 
-  /* Z-index 모듈화 */
-  .z-select-box-dropdown { z-index: 1000; }
-  .z-modal-backdrop { z-index: 1200; }
-  .z-modal { z-index: 1210; }
-  .z-toast { z-index: 1220; }
 
   
 }
