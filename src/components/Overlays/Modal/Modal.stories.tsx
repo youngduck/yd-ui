@@ -4,11 +4,10 @@ import { useOverlay } from '../useOverlay'
 import { Button } from '../../Button/Button'
 import { copyCodeToClipboard } from '../../../storybook/utils'
 
-const copyCode = (type: 'static' | 'function' | 'stack', size: string = 'md') => {
+const copyCode = (type: 'static' | 'function', size: string = 'md') => {
   const codes: Record<string, string> = {
     static: `import { useOverlay } from '@youngduck/yd-ui/Overlays';\nimport { Button } from '@youngduck/yd-ui';\n\nfunction Example() {\n  const { modalOpen } = useOverlay();\n\n  return (\n    <Button\n      onClick={() =>\n        modalOpen({\n          config: { size: '${size}' },\n          content: (\n            <div>\n              <h2>모달 제목</h2>\n              <p>모달 내용</p>\n            </div>\n          ),\n        })\n      }\n    >\n      모달 열기\n    </Button>\n  );\n}`,
     function: `import { useOverlay } from '@youngduck/yd-ui/Overlays';\nimport { Button } from '@youngduck/yd-ui';\n\nfunction Example() {\n  const { modalOpen } = useOverlay();\n\n  return (\n    <Button\n      onClick={() =>\n        modalOpen({\n          config: { size: '${size}' },\n          content: (onClose) => (\n            <div>\n              <h2>모달 제목</h2>\n              <p>onClose 콜백으로 내부에서 닫기 가능</p>\n              <Button onClick={onClose}>닫기</Button>\n            </div>\n          ),\n        })\n      }\n    >\n      모달 열기\n    </Button>\n  );\n}`,
-    stack: `import { useOverlay } from '@youngduck/yd-ui/Overlays';\nimport { Button } from '@youngduck/yd-ui';\n\nfunction Example() {\n  const { modalOpen } = useOverlay();\n\n  const openNested = (depth: number) => {\n    modalOpen({\n      config: { size: 'md' },\n      content: (onClose) => (\n        <div>\n          <h2>모달 #{depth}</h2>\n          <Button onClick={() => openNested(depth + 1)}>다음 모달</Button>\n          <Button onClick={onClose}>닫기</Button>\n        </div>\n      ),\n    });\n  };\n\n  return <Button onClick={() => openNested(1)}>첫 번째 모달</Button>;\n}`,
   }
   copyCodeToClipboard(codes[type])
 }
@@ -67,7 +66,6 @@ YD-UI 디자인 시스템의 모달 컴포넌트입니다.
 - Context 기반 오버레이 관리 (OverlayProvider + useOverlay)
 - 명령형 API로 모달 열기/닫기 (\`modalOpen\`, \`modalClose\`)
 - 정적 content와 함수형 content(onClose 콜백) 모두 지원
-- 다중 오버레이 스택 지원 (모달 위에 모달)
 - 배경 클릭 시 닫기 지원
 - sm / md / lg / xl 사이즈 지원
 
@@ -122,15 +120,6 @@ export const Examples = {
               content에 함수를 전달하면 onClose 콜백을 받아 내부 버튼으로 닫기 처리가 가능합니다.
             </p>
             <ModalFunctionDemo />
-          </div>
-
-          {/* 다중 모달 */}
-          <div className="bg-background-secondary mb-8 rounded-lg p-8">
-            <h2 className="text-yds-s1 mb-4 text-white">다중 모달 (스택)</h2>
-            <p className="text-yds-c1m mb-6 text-gray-300">
-              모달 위에 모달을 쌓을 수 있습니다. 각 모달은 독립적으로 닫힙니다.
-            </p>
-            <ModalStackDemo />
           </div>
         </div>
       </div>
@@ -201,14 +190,13 @@ const ModalFunctionDemo = () => {
                 </p>
                 <div className="flex justify-end gap-2">
                   <Button size="lg" variant="outlined" color="primary" onClick={onClose}>
-                    취소
+                    닫기
                   </Button>
                   <Button
                     size="lg"
                     variant="fill"
                     color="primary"
                     onClick={() => {
-                      alert('확인!')
                       onClose()
                     }}
                   >
@@ -234,48 +222,3 @@ const ModalFunctionDemo = () => {
   )
 }
 
-/** 다중 모달 데모 */
-const ModalStackDemo = () => {
-  const { modalOpen } = useOverlay()
-
-  const openNested = (depth: number) => {
-    modalOpen({
-      config: { size: 'md' },
-      content: onClose => (
-        <div className="flex flex-col gap-4 p-4">
-          <h2 className="text-yds-s1 text-white">모달 #{depth}</h2>
-          <p className="text-yds-b2 text-gray-300">모달 위에 모달을 쌓을 수 있습니다.</p>
-          <div className="flex gap-2">
-            <Button size="lg" variant="fill" color="primary" onClick={() => openNested(depth + 1)}>
-              모달 #{depth + 1} 열기
-            </Button>
-            <Button size="lg" variant="outlined" color="primary" onClick={onClose}>
-              닫기
-            </Button>
-          </div>
-        </div>
-      ),
-    })
-  }
-
-  return (
-    <div className="flex items-center gap-4">
-      <Button
-        size="lg"
-        variant="fill"
-        color="primary"
-        onClick={() => openNested(1)}
-      >
-        첫 번째 모달 열기
-      </Button>
-      <Button
-        size="lg"
-        variant="outlined"
-        color="primary"
-        onClick={() => copyCode('stack')}
-      >
-        소스코드 복사하기
-      </Button>
-    </div>
-  )
-}
