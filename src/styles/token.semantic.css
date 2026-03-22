@@ -132,11 +132,19 @@
   --color-toast-text: var(--color-white);
   --color-toast-border: var(--color-secondary-50);
 
+  /* ConfirmDialog Tokens */
+  --confirm-dialog-width: 360px;
+  --confirm-dialog-max-width: 90vw;
+  --confirm-dialog-padding: 24px;
+  --confirm-dialog-gap: 12px;
+
   /* Z-index Tokens */
   --z-index-select-box-dropdown: 1000;
   --z-index-modal-backdrop: 1200;
   --z-index-modal: 1210;
-  --z-index-toast: 1220;
+  --z-index-confirm-dialog-backdrop: 1300;
+  --z-index-confirm-dialog: 1310;
+  --z-index-toast: 1400;
 }
 
 

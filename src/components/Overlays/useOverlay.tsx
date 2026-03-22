@@ -1,5 +1,7 @@
 import { useContext } from 'react'
 import { OverlayContext } from './OverlayProvider'
+import { ConfirmDialog } from './ConfirmDialog/ConfirmDialog'
+import { IConfirmDialogOpenRequestData } from './ConfirmDialog/ConfirmDialogTypes'
 import { Modal } from './Modal/Modal'
 import { IModalOpenRequestData } from './Modal/ModalTypes'
 import Toast from './Toast/Toast'
@@ -50,5 +52,28 @@ export const useOverlay = () => {
     })
   }
 
-  return { modalOpen, modalClose, toast }
+  const confirmDialog = (confirmData: IConfirmDialogOpenRequestData) => {
+    const id = ++overlayIdCounter
+    const DEFAULT_CONFIRM_TEXT = '확인'
+    const DEFAULT_CANCEL_TEXT = '취소'
+
+    mount({
+      id,
+      component: (
+        <ConfirmDialog
+          title={confirmData.title}
+          description={confirmData.description}
+          confirmText={confirmData.confirmText ?? DEFAULT_CONFIRM_TEXT}
+          cancelText={confirmData.cancelText ?? DEFAULT_CANCEL_TEXT}
+          onConfirm={confirmData.onConfirm}
+          onCancel={() => {
+            confirmData.onCancel?.()
+            unmount(id)
+          }}
+        />
+      ),
+    })
+  }
+
+  return { modalOpen, modalClose, toast, confirmDialog }
 }

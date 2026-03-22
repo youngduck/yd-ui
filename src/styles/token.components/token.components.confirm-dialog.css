@@ -1,0 +1,57 @@
+@layer components {
+  .yds-confirm-dialog-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-primary-layer);
+    z-index: var(--z-index-confirm-dialog-backdrop);
+  }
+
+  .yds-confirm-dialog {
+    width: var(--confirm-dialog-width);
+    max-width: var(--confirm-dialog-max-width);
+    background-color: var(--color-background-secondary);
+    border-radius: var(--yds-border-radius);
+    padding: var(--confirm-dialog-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--confirm-dialog-gap);
+    z-index: var(--z-index-confirm-dialog);
+    animation: yds-confirm-dialog-fade-in 0.2s ease-out forwards;
+  }
+
+  .yds-confirm-dialog-title {
+    font-size: var(--font-size-yds-s1);
+    line-height: var(--line-height-yds-s1);
+    font-weight: var(--font-weight-yds-s1);
+    font-family: var(--font-yds-wanted);
+    color: var(--color-white);
+  }
+
+  .yds-confirm-dialog-description {
+    font-size: var(--font-size-yds-b2);
+    line-height: var(--line-height-yds-b2);
+    font-weight: var(--font-weight-yds-b2);
+    font-family: var(--font-yds-wanted);
+    color: var(--color-primary-100);
+  }
+
+  .yds-confirm-dialog-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  @keyframes yds-confirm-dialog-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

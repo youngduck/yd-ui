@@ -47,6 +47,13 @@ export default defineConfig({
             { text: 'Table', link: '/components/table' },
           ],
         },
+        {
+          text: '오버레이',
+          items: [
+            { text: 'Toast', link: '/components/toast' },
+            { text: 'ConfirmDialog', link: '/components/confirm-dialog' },
+          ],
+        },
       ],
     },
     socialLinks: [
