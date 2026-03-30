@@ -1,3 +1,9 @@
+/* Nav 로고 크기 조절 */
+.VPNavBarTitle .logo {
+  height: 80px;
+  width: auto;
+}
+
 /* Hero 이미지 크기 조절 */
 .VPHero .VPImage {
   max-width: 510px; /* 원하는 최대 너비로 조절 */
