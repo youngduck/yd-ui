@@ -40,11 +40,11 @@ const OverviewPage: React.FC = () => {
   })
 
   const primaryColors = [
-    { name: 'primary-50', value: '#fcf6df', class: 'bg-primary-50' },
-    { name: 'primary-100', value: '#c9bf91', class: 'bg-primary-100' },
-    { name: 'primary-200', value: '#fde68a', class: 'bg-primary-200' },
-    { name: 'primary-300', value: '#eccb43', class: 'bg-primary-300' },
-    { name: 'primary-400', value: '#e9be11', class: 'bg-primary-400' },
+    { name: 'primary-50', value: 'rgb(252, 246, 223)', class: 'bg-primary-50' },
+    { name: 'primary-100', value: 'rgb(201, 191, 145)', class: 'bg-primary-100' },
+    { name: 'primary-200', value: 'rgb(253, 230, 138)', class: 'bg-primary-200' },
+    { name: 'primary-300', value: 'rgb(236, 203, 67)', class: 'bg-primary-300' },
+    { name: 'primary-400', value: 'rgb(233, 190, 17)', class: 'bg-primary-400' },
   ]
 
   const secondaryColors = [

@@ -11,48 +11,54 @@ const meta: Meta = {
 export default meta
 
 const ColorPalette: React.FC = () => {
-  const yellowColors = [
-    { name: 'yellow-50', hex: '#fcf6df', class: 'bg-yellow-50' },
-    { name: 'yellow-100', hex: '#c9bf91', class: 'bg-yellow-100' },
-    { name: 'yellow-200', hex: '#fde68a', class: 'bg-yellow-200' },
-    { name: 'yellow-300', hex: '#eccb43', class: 'bg-yellow-300' },
-    { name: 'yellow-400', hex: '#e9be11', class: 'bg-yellow-400' },
+  const primaryColors = [
+    { name: 'primary-50', value: 'rgb(252, 246, 223)', class: 'bg-primary-50' },
+    { name: 'primary-100', value: 'rgb(201, 191, 145)', class: 'bg-primary-100' },
+    { name: 'primary-200', value: 'rgb(253, 230, 138)', class: 'bg-primary-200' },
+    { name: 'primary-300', value: 'rgb(236, 203, 67)', class: 'bg-primary-300' },
+    { name: 'primary-400', value: 'rgb(233, 190, 17)', class: 'bg-primary-400' },
   ]
 
-  const navyColors = [
-    { name: 'navy-50', rgb: 'rgb(77, 89, 109)', class: 'bg-navy-50' },
-    { name: 'navy-100', rgb: 'rgb(52, 58, 70)', class: 'bg-navy-100' },
-    { name: 'navy-200', rgb: 'rgb(32, 36, 45)', class: 'bg-navy-200' },
-    { name: 'navy-300', rgb: 'rgb(42, 48, 60)', class: 'bg-navy-300' },
-    { name: 'navy-400', rgb: 'rgb(25, 25, 31)', class: 'bg-navy-400' },
+  const secondaryColors = [
+    { name: 'secondary-50', value: 'rgb(77, 89, 109)', class: 'bg-secondary-50' },
+    { name: 'secondary-100', value: 'rgb(52, 58, 70)', class: 'bg-secondary-100' },
+    { name: 'secondary-200', value: 'rgb(42, 48, 60)', class: 'bg-secondary-200' },
+    { name: 'secondary-300', value: 'rgb(32, 36, 45)', class: 'bg-secondary-300' },
+    { name: 'secondary-400', value: 'rgb(25, 25, 31)', class: 'bg-secondary-400' },
   ]
 
   return (
-    <div className="p-8">
-      <h2 className="text-yds-h2 mb-6 text-white">Yellow</h2>
-      <div className="mb-12 flex gap-4">
-        {yellowColors.map(color => (
-          <div key={color.name} className="flex flex-col items-center gap-2">
-            <div className={`${color.class} h-24 w-24 rounded-lg border-2 border-white`} />
-            <div className="text-yds-b1 text-center text-white">
-              <div className="">{color.name}</div>
-              <div className="text-yds-c1m text-gray-400">{color.hex}</div>
+    <div className="space-y-8 p-8">
+      {/* Primary */}
+      <div>
+        <div className="mb-4 text-lg font-bold text-white">Primary</div>
+        <div className="flex gap-4">
+          {primaryColors.map(color => (
+            <div key={color.name} className="flex w-30 flex-col items-center gap-2">
+              <div className={`${color.class} h-24 w-24 rounded-lg border border-gray-600`} />
+              <div className="text-center">
+                <div className="text-sm text-yellow-300">{color.name}</div>
+                <div className="text-xs text-gray-400">{color.value}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      <h2 className="text-yds-h2 mb-6 text-white">Navy</h2>
-      <div className="flex gap-4">
-        {navyColors.map(color => (
-          <div key={color.name} className="flex flex-col items-center gap-2">
-            <div className={`${color.class} h-24 w-24 rounded-lg border-2 border-white`} />
-            <div className="text-yds-b1 text-center text-white">
-              <div className="">{color.name}</div>
-              <div className="text-yds-c1m text-gray-400">{color.rgb}</div>
+      {/* Secondary */}
+      <div>
+        <div className="mb-4 text-lg font-bold text-white">Secondary</div>
+        <div className="flex gap-4">
+          {secondaryColors.map(color => (
+            <div key={color.name} className="flex w-30 flex-col items-center gap-2">
+              <div className={`${color.class} h-24 w-24 rounded-lg border border-gray-600`} />
+              <div className="text-center">
+                <div className="text-sm text-yellow-300">{color.name}</div>
+                <div className="text-xs text-gray-400">{color.value}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
