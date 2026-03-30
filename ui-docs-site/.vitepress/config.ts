@@ -6,6 +6,7 @@ export default defineConfig({
   base: '/',
   lang: 'ko-KR',
   themeConfig: {
+    logo: '/logo.png',
     nav: [
       { text: '시작하기', link: '/guide/installation' },
       { text: '컴포넌트', link: '/components/button' },
