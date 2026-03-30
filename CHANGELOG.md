@@ -3,10 +3,15 @@
 **Branch**: `ui-v0.15.1-라이브러리외관수정`
 
 ### 추가
+- feat: 스토리북에 yds로고추가
+- feat: viterpess에 yds로고추가
+- feat: storybook overview화면 추가
 
 ### 수정
 
 ### 변경
+- build: storybook branding커스텀제공 라이브러리 설치
+- refactor: primitive토큰값 rgb로 획일화
 
 ### 제거
 
