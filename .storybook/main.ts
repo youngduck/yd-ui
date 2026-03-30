@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  staticDirs: ['./public'],
   // PostCSS 설정 제거 - globals.css에서 직접 처리
 }
 
