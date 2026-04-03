@@ -21,6 +21,11 @@
       "import": "./dist/Overlays.esm.js",
       "require": "./dist/Overlays.cjs.js"
     },
+    "./DragScroll": {
+      "types": "./dist/DragScroll.d.ts",
+      "import": "./dist/DragScroll.esm.js",
+      "require": "./dist/DragScroll.cjs.js"
+    },
     "./styles": "./dist/index.css",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
