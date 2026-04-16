@@ -13,6 +13,7 @@
 @import "./token.components/token.components.chips.css";
 @import "./token.components/token.components.toast.css";
 @import "./token.components/token.components.confirm-dialog.css";
+@import "./token.components/token.components.horizon-drag-scroll.css";
 
 
 /* 모든 스크롤바에 적용 */

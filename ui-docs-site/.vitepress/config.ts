@@ -46,6 +46,7 @@ export default defineConfig({
             { text: 'SelectBox', link: '/components/selectbox' },
             { text: 'Chips', link: '/components/chips' },
             { text: 'Table', link: '/components/table' },
+            { text: 'HorizonDragScroll', link: '/components/horizon-drag-scroll' },
           ],
         },
         {

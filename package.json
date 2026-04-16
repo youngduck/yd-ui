@@ -1,6 +1,6 @@
 {
   "name": "@youngduck/yd-ui",
-  "version": "0.15.1",
+  "version": "0.16.1",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -20,6 +20,11 @@
       "types": "./dist/Overlays.d.ts",
       "import": "./dist/Overlays.esm.js",
       "require": "./dist/Overlays.cjs.js"
+    },
+    "./HorizonDragScroll": {
+      "types": "./dist/HorizonDragScroll.d.ts",
+      "import": "./dist/HorizonDragScroll.esm.js",
+      "require": "./dist/HorizonDragScroll.cjs.js"
     },
     "./styles": "./dist/index.css",
     "./dist/*": "./dist/*",

@@ -1,0 +1,13 @@
+/* HorizonDragScroll 컴포넌트 */
+.horizon-drag-scroll {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.horizon-drag-scroll::-webkit-scrollbar {
+  display: none;
+}

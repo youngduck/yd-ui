@@ -1,3 +1,20 @@
+## [0.16.1] - 2026-04-03
+
+**Branch**: `ui-v0.16.1-드래그스크롤컴포넌트기능추가`
+> react-indiana-drag-scrol 오픈소스를 참고하여 나만의 드래그스크롤컴포넌트제작
+### 추가
+- feat: DragScroll컴포넌트 export 경로세팅
+- feat: HorizonDragScroll컴포넌트기능구현
+
+### 수정
+
+### 변경
+- refactor: HorizonDragScroll로 컴포넌트이름변경
+- docs: HorizonDragScroll문서추가
+
+### 제거
+
+---
 ## [0.15.1] - 2026-03-30
 
 **Branch**: `ui-v0.15.1-라이브러리외관수정`
