@@ -21,10 +21,10 @@
       "import": "./dist/Overlays.esm.js",
       "require": "./dist/Overlays.cjs.js"
     },
-    "./DragScroll": {
-      "types": "./dist/DragScroll.d.ts",
-      "import": "./dist/DragScroll.esm.js",
-      "require": "./dist/DragScroll.cjs.js"
+    "./HorizonDragScroll": {
+      "types": "./dist/HorizonDragScroll.d.ts",
+      "import": "./dist/HorizonDragScroll.esm.js",
+      "require": "./dist/HorizonDragScroll.cjs.js"
     },
     "./styles": "./dist/index.css",
     "./dist/*": "./dist/*",

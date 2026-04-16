@@ -36,7 +36,7 @@ const getCommonPlugins = (extractCss = false) => [
 const componentEntries = {
   Table: 'src/components/Table/index.ts',
   Overlays: 'src/components/Overlays/index.ts',
-  DragScroll: 'src/components/DragScroll/index.ts',
+  HorizonDragScroll: 'src/components/HorizonDragScroll/index.ts',
   // 새로운 컴포넌트 추가 시 여기에 추가하면 됨
   // SelectBox: 'src/components/SelectBox/index.ts',
 }
