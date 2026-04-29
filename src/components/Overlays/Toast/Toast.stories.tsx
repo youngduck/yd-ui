@@ -88,6 +88,7 @@ YD-UI 디자인 시스템의 토스트 컴포넌트입니다.
 - Context 기반 오버레이 관리 (OverlayProvider + useOverlay)
 - 명령형 API로 토스트 표시 (\`toast\`)
 - 자동 dismiss (기본 2초, duration 커스텀 가능)
+- 스크린리더 자동 알림 (aria-live="polite")
 - 토스트 스택 지원
 
 ## 사용 가이드
