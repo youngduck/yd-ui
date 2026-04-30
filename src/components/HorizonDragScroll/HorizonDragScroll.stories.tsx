@@ -17,21 +17,33 @@ react-indiana-drag-scroll 오픈소스를 분석하여 함수형 컴포넌트로
 
 ## 주요 특징
 - 마우스 드래그로 가로 스크롤 가능
+- 키보드 내비게이션 지원 (ArrowLeft/Right, Home/End)
 - 클릭과 드래그 자동 구분 (activationDistance 기반)
 - 스크롤바 자동 숨김
 - 이미지 위에서 드래그해도 네이티브 드래그 방지
 - 드래그 후 자식 요소 클릭 차단
+- \`as\` prop으로 렌더링 태그 변경 가능 (div, ul, ol, nav, section)
 
 ## 사용 가이드
 - \`className\`으로 width, gap 등 레이아웃을 지정합니다.
 - flex, flex-direction: row, user-select: none은 CSS에 내장되어 있습니다.
 - 자식 요소에 \`shrink-0\`을 주어야 가로 스크롤이 정상 작동합니다.
+- \`<li>\` 자식을 사용할 때는 \`as="ul"\`로 시맨틱 마크업을 맞춰주세요.
         `,
       },
     },
   },
   tags: ['autodocs'],
   argTypes: {
+    as: {
+      control: 'select',
+      options: ['div', 'ul', 'ol', 'nav', 'section'],
+      description: '렌더링할 HTML 태그 (기본: div)',
+      table: {
+        type: { summary: "'div' | 'ul' | 'ol' | 'nav' | 'section'" },
+        defaultValue: { summary: "'div'" },
+      },
+    },
     children: {
       control: false,
       description: '스크롤할 자식 요소들',
@@ -78,6 +90,26 @@ export const Default: Story = {
   },
 }
 
+export const AsList: Story = {
+  render: args => (
+    <div className="relative w-[500px] border-4 border-black">
+      <HorizonDragScroll as="ul" className={args.className}>
+        {Array.from({ length: 10 }, (_, i) => (
+          <li
+            key={i}
+            className="flex h-[150px] w-[200px] shrink-0 list-none items-center justify-center rounded-lg bg-gray-700 text-white"
+          >
+            Item {i + 1}
+          </li>
+        ))}
+      </HorizonDragScroll>
+    </div>
+  ),
+  args: {
+    className: 'gap-4',
+  },
+}
+
 export const Examples = {
   parameters: {
     layout: 'fullscreen',
@@ -86,7 +118,7 @@ export const Examples = {
   render: () => {
     const copyCode = () => {
       copyCodeToClipboard(
-        `import { HorizonDragScroll } from '@youngduck/yd-ui/HorizonDragScroll';\n\n<HorizonDragScroll className="gap-4">\n  {items.map(item => (\n    <div key={item.id} className="shrink-0">{item.name}</div>\n  ))}\n</HorizonDragScroll>`,
+        `import { HorizonDragScroll } from '@youngduck/yd-ui/HorizonDragScroll';\n\n// 기본 사용 (div)\n<HorizonDragScroll className="gap-4">\n  {items.map(item => (\n    <div key={item.id} className="shrink-0">{item.name}</div>\n  ))}\n</HorizonDragScroll>\n\n// 리스트 사용 (ul)\n<HorizonDragScroll as="ul" className="gap-4">\n  {items.map(item => (\n    <li key={item.id} className="shrink-0 list-none">{item.name}</li>\n  ))}\n</HorizonDragScroll>`,
       )
     }
 

@@ -74,10 +74,18 @@ confirmDialog({
 })
 ```
 
-## 키보드 지원
+## 키보드 및 포커스 관리
 
 - **ESC** — 다이얼로그 닫기 (취소 처리)
-- **Tab / Shift+Tab** — 확인/취소 버튼 간 포커스 이동
+- **Tab / Shift+Tab** — 다이얼로그 내부에서만 포커스 순환 (포커스 트랩)
+- 열릴 때 첫 번째 포커스 가능 요소에 자동 포커스
+- 닫힐 때 이전 포커스 위치로 자동 복귀
+
+## 접근성
+
+- `role="alertdialog"`, `aria-modal="true"` 적용
+- `aria-labelledby`로 제목 연결
+- `aria-describedby`로 설명 연결 (description이 있을 때)
 
 ## API
 

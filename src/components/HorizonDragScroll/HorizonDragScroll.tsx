@@ -6,16 +6,27 @@
  */
 import { useEffect, useRef } from 'react'
 
-type HorizonDragScrollProps = React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>
+type AsTag = 'div' | 'ul' | 'ol' | 'nav' | 'section'
+
+type HorizonDragScrollProps<T extends AsTag = 'div'> = {
+  as?: T
+} & React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>
 
 const BASE_CLASS = 'horizon-drag-scroll'
 const ACTIVATION_DISTANCE = 5
+const KEYBOARD_SCROLL_AMOUNT = 150
 
-export function HorizonDragScroll({ children, className, ...props }: HorizonDragScrollProps) {
+export function HorizonDragScroll<T extends AsTag = 'div'>({
+  as,
+  children,
+  className,
+  ...props
+}: HorizonDragScrollProps<T>) {
+  const Tag = (as || 'div') as React.ElementType
   const containerClassName = className ? `${BASE_CLASS} ${className}` : BASE_CLASS
 
   // SECTION DOM 직접제어 상태값
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLElement>(null)
   const pressedRef = useRef(false)
   const isDraggingRef = useRef(false)
   const startXRef = useRef(0)
@@ -27,6 +38,30 @@ export function HorizonDragScroll({ children, className, ...props }: HorizonDrag
     pressedRef.current = true
     startXRef.current = e.clientX
     startScrollLeftRef.current = containerRef.current!.scrollLeft
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    const container = containerRef.current
+    if (!container) return
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        e.preventDefault()
+        container.scrollBy({ left: -KEYBOARD_SCROLL_AMOUNT, behavior: 'smooth' })
+        break
+      case 'ArrowRight':
+        e.preventDefault()
+        container.scrollBy({ left: KEYBOARD_SCROLL_AMOUNT, behavior: 'smooth' })
+        break
+      case 'Home':
+        e.preventDefault()
+        container.scrollTo({ left: 0, behavior: 'smooth' })
+        break
+      case 'End':
+        e.preventDefault()
+        container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' })
+        break
+    }
   }
 
   useEffect(() => {
@@ -69,9 +104,18 @@ export function HorizonDragScroll({ children, className, ...props }: HorizonDrag
   }, [])
 
   return (
-    <div {...props} ref={containerRef} onMouseDown={handleMouseDown} className={containerClassName}>
+    <Tag
+      {...props}
+      ref={containerRef}
+      onMouseDown={handleMouseDown}
+      onKeyDown={handleKeyDown}
+      className={containerClassName}
+      tabIndex={0}
+      role="region"
+      aria-label="횡스크롤 영역"
+    >
       {children}
-    </div>
+    </Tag>
   )
 }
 

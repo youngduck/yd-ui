@@ -59,10 +59,17 @@ modalOpen({ config: { size: 'lg' }, content: <div>Large</div> })
 modalOpen({ config: { size: 'xl' }, content: <div>Extra Large</div> })
 ```
 
-## 키보드 지원
+## 키보드 및 포커스 관리
 
 - **ESC** — 모달 닫기
-- **Tab / Shift+Tab** — 모달 내부 포커스 이동
+- **Tab / Shift+Tab** — 모달 내부에서만 포커스 순환 (포커스 트랩)
+- 열릴 때 첫 번째 포커스 가능 요소에 자동 포커스
+- 닫힐 때 이전 포커스 위치로 자동 복귀
+
+## 접근성
+
+- `role="dialog"`, `aria-modal="true"` 적용
+- 포커스 트랩으로 모달 외부 요소에 포커스 불가
 
 ## 닫기 방식
 

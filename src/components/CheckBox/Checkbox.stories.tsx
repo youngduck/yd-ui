@@ -26,7 +26,8 @@ YD-UI 디자인 시스템의 체크박스 컴포넌트입니다.
 - 2가지 형태 제공 (square, check)
 - 3가지 상태 지원 (unchecked, checked, indeterminate)
 - 완전 제어 형태 컴포넌트 (controlled component)
-- 접근성 고려 설계
+- 키보드 접근성 (Tab으로 포커스, Space/Enter로 토글)
+- 포커스 시 시각적 표시 (focus-visible ring)
 
 ## 사용 가이드
 - \`checked\`와 \`onCheckedChange\`는 필수 prop입니다.

@@ -5,8 +5,11 @@
  */
 import React from 'react'
 import { IModal, modalSizeVariants } from './ModalTypes'
+import { useFocusTrap } from '../hooks/useFocusTrap'
 
 export const Modal = ({ onClose, children, size }: IModal) => {
+  const focusTrapRef = useFocusTrap<HTMLDivElement>()
+
   //SECTION 메서드 영역
   const handleCloseBubble = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -29,9 +32,10 @@ export const Modal = ({ onClose, children, size }: IModal) => {
       role="dialog"
       aria-modal="true"
       tabIndex={-1}
-      ref={(el) => el?.focus()}
     >
-      <div className={modalSizeVariants({ size })}>{children}</div>
+      <div ref={focusTrapRef} className={modalSizeVariants({ size })} tabIndex={-1}>
+        {children}
+      </div>
     </div>
   )
 }

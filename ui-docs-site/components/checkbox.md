@@ -138,6 +138,6 @@ CheckBox는 표준 HTML input 요소의 대부분의 속성을 지원합니다 (
 ## 접근성
 
 - 키보드 네비게이션 지원 (Enter, Space)
-- `aria-checked` 속성 자동 설정
-- `tabIndex` 지원
+- `aria-checked` 속성 자동 설정 (`indeterminate` 시 `mixed`)
+- `peer-focus-visible` 포커스 링 표시 (키보드 탐색 시 시각적 피드백)
 

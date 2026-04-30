@@ -67,18 +67,54 @@ function App() {
 | `overflow` | `auto` | 넘침 시 스크롤 |
 | scrollbar | 숨김 | 스크롤바 비노출 |
 
+## as prop
+
+렌더링할 HTML 태그를 변경할 수 있습니다.
+
+```tsx
+<HorizonDragScroll as="ul" className="gap-4">
+  {items.map(item => (
+    <li key={item.id} className="shrink-0">{item.name}</li>
+  ))}
+</HorizonDragScroll>
+
+<HorizonDragScroll as="nav" className="gap-4">
+  ...
+</HorizonDragScroll>
+```
+
+지원 태그: `div`(기본), `ul`, `ol`, `nav`, `section`
+
+## 키보드 지원
+
+컴포넌트에 포커스 시 키보드로 스크롤할 수 있습니다.
+
+| 키 | 동작 |
+|-----|------|
+| `ArrowLeft` | 왼쪽으로 150px 스크롤 |
+| `ArrowRight` | 오른쪽으로 150px 스크롤 |
+| `Home` | 맨 앞으로 스크롤 |
+| `End` | 맨 뒤로 스크롤 |
+
 ## Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
+| `as` | `'div' \| 'ul' \| 'ol' \| 'nav' \| 'section'` | `'div'` | 렌더링할 HTML 태그 |
 | `children` | `React.ReactNode` | **필수** | 스크롤할 자식 요소들 |
 | `className` | `string` | - | 추가 CSS 클래스 (width, gap 등) |
 
-HorizonDragScroll은 표준 HTML div 요소의 모든 속성을 지원합니다.
+HorizonDragScroll은 표준 HTML 요소의 모든 속성을 지원합니다.
+
+## 접근성
+
+- `role="region"`, `aria-label="횡스크롤 영역"` 자동 적용
+- `tabIndex={0}`으로 키보드 포커스 가능
 
 ## 주요 특징
 
 - 마우스 드래그로 가로 스크롤
+- 키보드 네비게이션 지원 (Arrow, Home, End)
 - 클릭과 드래그 자동 구분 (activationDistance 5px)
 - 스크롤바 자동 숨김
 - 이미지 위에서 드래그해도 네이티브 드래그 방지

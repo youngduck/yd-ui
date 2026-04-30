@@ -23,7 +23,7 @@ const Toast = ({ content, duration, onDismiss }: IToast) => {
   //!SECTION 메서드 영역
 
   return (
-    <div className="yds-toast-container">
+    <div className="yds-toast-container" role="status" aria-live="polite">
       <div className="yds-toast">{content}</div>
     </div>
   )
