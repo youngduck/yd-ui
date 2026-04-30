@@ -67,6 +67,8 @@ YD-UI 디자인 시스템의 모달 컴포넌트입니다.
 - 명령형 API로 모달 열기/닫기 (\`modalOpen\`, \`modalClose\`)
 - 정적 content와 함수형 content(onClose 콜백) 모두 지원
 - 배경 클릭 또는 ESC 키로 닫기 지원
+- 포커스 트랩 (Tab 키가 모달 내부에서만 순환)
+- 닫힐 때 이전 포커스 위치로 자동 복귀
 - sm / md / lg / xl 사이즈 지원
 
 ## 사용 가이드
