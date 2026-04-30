@@ -45,6 +45,11 @@ toast({
 | `content` | `ReactNode` | - | 토스트 내용 (필수) |
 | `duration` | `number` | `2000` | 표시 시간 (ms) |
 
+## 접근성
+
+- `role="status"`, `aria-live="polite"` 적용
+- 스크린리더가 토스트 메시지를 자동으로 읽어줌
+
 ## 사전 조건
 
 앱 최상단에 `<OverlayProvider>`가 감싸져 있어야 합니다.

@@ -21,7 +21,7 @@ function App() {
     defaultValue: 'option1',
   })
 
-  return <SelectBox selectBoxHook={selectBoxHook} />
+  return <SelectBox selectBoxHook={selectBoxHook} label="옵션 선택" />
 }
 ```
 
@@ -146,6 +146,11 @@ const selectBoxHook = useSelectBox({
 | `handleToggle` | `() => void` | 드롭다운 토글 핸들러 |
 | `handleSearch` | `(value: string) => void` | 검색 핸들러 |
 | `handleClose` | `() => void` | 드롭다운 닫기 핸들러 |
+| `handleTriggerKeyDown` | `(e: KeyboardEvent) => void` | 트리거 키보드 핸들러 |
+| `handleOptionKeyDown` | `(e: KeyboardEvent, option, index) => void` | 옵션 키보드 핸들러 |
+| `highlightedIndex` | `number` | 현재 하이라이트된 옵션 인덱스 |
+| `listboxRef` | `RefObject<HTMLDivElement>` | 리스트박스 ref |
+| `optionRefs` | `MutableRefObject<(HTMLElement \| null)[]>` | 옵션 요소 refs |
 
 ### 옵션
 
@@ -166,6 +171,7 @@ const selectBoxHook = useSelectBox({
 |------|------|---------|-------------|
 | `selectBoxHook` | `ReturnType<typeof useSelectBox>` | **필수** | useSelectBox hook 반환값 |
 | `size` | `'sm' \| 'md' \| 'lg' \| 'full'` | `'full'` | 선택박스 크기 |
+| `label` | `string` | - | 접근성 레이블 (sr-only로 표시) |
 
 ## 타입
 
@@ -178,11 +184,43 @@ const option: SelectBoxOption = {
 }
 ```
 
+## 키보드 지원
+
+### 트리거 (닫힌 상태)
+
+| 키 | 동작 |
+|-----|------|
+| `Enter` / `Space` | 드롭다운 열기 |
+| `ArrowDown` | 드롭다운 열고 첫 번째 옵션에 포커스 |
+| `ArrowUp` | 드롭다운 열고 마지막 옵션에 포커스 |
+
+### 옵션 목록 (열린 상태)
+
+| 키 | 동작 |
+|-----|------|
+| `ArrowDown` | 다음 옵션으로 이동 (마지막에서 처음으로 순환) |
+| `ArrowUp` | 이전 옵션으로 이동 (처음에서 마지막으로 순환) |
+| `Home` | 첫 번째 옵션으로 이동 |
+| `End` | 마지막 옵션으로 이동 |
+| `Enter` / `Space` | 현재 옵션 선택 후 닫기 |
+| `Escape` | 드롭다운 닫기 |
+| `Tab` | 드롭다운 닫고 다음 요소로 이동 |
+
+## 접근성
+
+- `role="combobox"` 트리거, `role="listbox"` 드롭다운, `role="option"` 옵션
+- `aria-expanded`, `aria-haspopup`, `aria-controls` 자동 관리
+- `aria-selected`로 선택 상태 표시
+- `label` prop으로 스크린리더 레이블 제공
+- 선택/닫기 후 트리거로 포커스 자동 복귀
+- 하이라이트된 옵션 자동 스크롤
+
 ## 기능
 
 - ✅ 외부 클릭 시 자동 닫기
 - ✅ ESC 키로 닫기
 - ✅ 검색 기능 (옵션)
 - ✅ Controlled/Uncontrolled 모드 지원
-- ✅ 키보드 네비게이션 지원
+- ✅ 완전한 키보드 네비게이션
+- ✅ WAI-ARIA Combobox 패턴 준수
 
