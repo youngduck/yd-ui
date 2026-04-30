@@ -33,6 +33,13 @@ export function CheckBox({
     onCheckedChange(newChecked)
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      onCheckedChange(!checked)
+    }
+  }
+
   const checkboxId = id ?? useId()
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -46,36 +53,30 @@ export function CheckBox({
   // indeterminate일 때는 checked 상태를 무시
   const displayState = indeterminate ? 'indeterminate' : checked ? 'checked' : 'unchecked'
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      onCheckedChange(!checked)
-    }
-  }
-
   return (
-    <label htmlFor={checkboxId} className="yds-checkbox-wrapper" onKeyDown={handleKeyDown} tabIndex={0}>
+    <label htmlFor={checkboxId} className="yds-checkbox-wrapper cursor-pointer">
       <input
         ref={inputRef}
         id={checkboxId}
         type="checkbox"
         checked={checked}
         onChange={handleChange}
-        className="sr-only"
+        onKeyDown={handleKeyDown}
+        className="sr-only peer"
         aria-checked={indeterminate ? 'mixed' : checked ? 'true' : 'false'}
         {...props}
       />
 
       {/*네모체크박스 영역 */}
       {shape === 'square' && (
-        <div className="yds-checkbox-indicator">
+        <div className="yds-checkbox-indicator peer-focus-visible:ring-2 peer-focus-visible:ring-yellow-100 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-transparent rounded-sm">
           <div className={`yds-checkbox-indicator-inner-${displayState}`}>{indeterminate && <Minus size={20} />}</div>
         </div>
       )}
 
       {/* V체크 아이콘 영역 */}
       {shape === 'check' && (
-        <div className="yds-checkbox-icon-indicator">
+        <div className="yds-checkbox-icon-indicator peer-focus-visible:ring-2 peer-focus-visible:ring-yellow-100 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-transparent rounded-sm">
           {indeterminate ? (
             <div>
               <Minus size={20} />
