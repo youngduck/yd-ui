@@ -36,9 +36,15 @@ export const ConfirmDialog = ({ title, description, confirmText, cancelText, onC
       aria-describedby={description ? descriptionId : undefined}
       tabIndex={-1}
     >
-      <div ref={focusTrapRef} className="yds-confirm-dialog">
-        <h2 id={titleId} className="yds-confirm-dialog-title">{title}</h2>
-        {description && <p id={descriptionId} className="yds-confirm-dialog-description">{description}</p>}
+      <div ref={focusTrapRef} className="yds-confirm-dialog" tabIndex={1}>
+        <h2 id={titleId} className="yds-confirm-dialog-title">
+          {title}
+        </h2>
+        {description && (
+          <p id={descriptionId} className="yds-confirm-dialog-description">
+            {description}
+          </p>
+        )}
         <div className="yds-confirm-dialog-actions">
           <Button variant="outlined" color="primary" size="full" onClick={onCancel}>
             {cancelText}

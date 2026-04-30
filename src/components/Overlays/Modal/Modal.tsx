@@ -33,7 +33,9 @@ export const Modal = ({ onClose, children, size }: IModal) => {
       aria-modal="true"
       tabIndex={-1}
     >
-      <div ref={focusTrapRef} className={modalSizeVariants({ size })}>{children}</div>
+      <div ref={focusTrapRef} className={modalSizeVariants({ size })} tabIndex={-1}>
+        {children}
+      </div>
     </div>
   )
 }
