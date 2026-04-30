@@ -8,10 +8,40 @@ const meta: Meta<typeof SelectBox> = {
     size: {
       options: ['sm', 'md', 'lg', 'full'],
       control: { type: 'select' },
+      description: '셀렉트박스 너비',
+      table: {
+        type: { summary: "'sm' | 'md' | 'lg' | 'full'" },
+        defaultValue: { summary: "'full'" },
+      },
+    },
+    label: {
+      control: 'text',
+      description: '접근성 라벨 (스크린리더용)',
+      table: {
+        type: { summary: 'string' },
+      },
     },
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+YD-UI 디자인 시스템의 셀렉트박스 컴포넌트입니다.
+
+## 주요 특징
+- 키보드 내비게이션 지원 (Enter/Space로 열기, ArrowUp/Down으로 이동, Enter로 선택)
+- Tab 키로 드롭다운 닫고 다음 요소로 이동
+- Escape 키로 닫기
+- WAI-ARIA combobox/listbox 패턴 적용
+- 검색 기능 지원
+
+## 사용 가이드
+- \`useSelectBox\` 훅으로 상태를 관리하고 \`selectBoxHook\` prop에 전달합니다.
+- \`label\` prop으로 스크린리더 사용자에게 용도를 알려줄 수 있습니다.
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
 }
