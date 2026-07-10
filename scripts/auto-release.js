@@ -15,6 +15,17 @@ const tagName = `v${version}`
 console.log(`${tagName} version 배포시작!`)
 
 try {
+  // 0. CHANGELOG 생성 (마지막 태그 이후 커밋 기준) 및 커밋
+  console.log(`📝 Generating CHANGELOG...`)
+  execSync('node scripts/update-changelog.js', { stdio: 'inherit' })
+
+  const changelogDirty = execSync('git status --porcelain CHANGELOG.md', { encoding: 'utf-8' }).trim()
+  if (changelogDirty) {
+    console.log(`📝 Committing CHANGELOG...`)
+    execSync('git add CHANGELOG.md', { stdio: 'inherit' })
+    execSync(`git commit -m "docs: v${version} CHANGELOG 갱신"`, { stdio: 'inherit' })
+  }
+
   // 1. 빌드 실행
   console.log(`🔨 Building project...`)
   execSync('npx pnpm run build', { stdio: 'inherit' })
@@ -23,8 +34,9 @@ try {
   console.log(`📌 Creating git tag: ${tagName}`)
   execSync(`git tag ${tagName}`, { stdio: 'inherit' })
 
-  // 3. Git push origin tag
-  console.log(`📤 Pushing tag to origin: ${tagName}`)
+  // 3. Git push origin branch + tag
+  console.log(`📤 Pushing branch and tag to origin: ${tagName}`)
+  execSync('git push origin HEAD', { stdio: 'inherit' })
   execSync(`git push origin ${tagName}`, { stdio: 'inherit' })
 
   // 4. npm publish
