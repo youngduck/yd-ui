@@ -133,12 +133,19 @@ function main() {
   }
 
   const { sections, skipped } = groupBySection(messages);
-  const newSection = buildVersionSection(version, sections);
 
   if (skipped.length > 0) {
     console.warn(`⚠️ 형식이 맞지 않아 건너뛴 커밋 ${skipped.length}건:`);
     for (const message of skipped) console.warn(`   - ${message}`);
   }
+
+  // squash merge 등으로 형식에 맞는 커밋이 하나도 없으면 기존 섹션을 덮어쓰지 않고 종료
+  if (messages.length === skipped.length) {
+    console.log("ℹ️ 형식에 맞는 커밋이 없어 CHANGELOG를 수정하지 않습니다.");
+    return;
+  }
+
+  const newSection = buildVersionSection(version, sections);
 
   if (dryRun) {
     console.log(`\n📋 [dry-run] ${lastTag ?? "전체 이력"} 이후 ${messages.length}개 커밋 기준 생성 결과:\n`);
