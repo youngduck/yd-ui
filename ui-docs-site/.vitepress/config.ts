@@ -42,6 +42,7 @@ export default defineConfig({
             { text: 'Button', link: '/components/button' },
             { text: 'Card', link: '/components/card' },
             { text: 'Input', link: '/components/input' },
+            { text: 'NumberInput', link: '/components/number-input' },
             { text: 'CheckBox', link: '/components/checkbox' },
             { text: 'SelectBox', link: '/components/selectbox' },
             { text: 'Chips', link: '/components/chips' },

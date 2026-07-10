@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from './components/Button/Button'
 import { Input } from './components/Inputs/Input/Input'
+import { NumberInput } from './components/Inputs/NumberInput/NumberInput'
 import { CheckBox } from './components/CheckBox/CheckBox'
 import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
@@ -29,6 +30,8 @@ const OverviewPage: React.FC = () => {
   const [tabSm, setTabSm] = useState('all')
   const [tabMd, setTabMd] = useState('all')
   const [tabLg, setTabLg] = useState('all')
+
+  const [amount, setAmount] = useState('400000')
 
   const [year, setYear] = useState('2026')
   const [month, setMonth] = useState('2026-07')
@@ -141,6 +144,7 @@ const OverviewPage: React.FC = () => {
             <Input size="md" variant="input" color="primary-400" placeholder="입력..." />
             <Input size="md" variant="input" color="primary-100" placeholder="입력..." />
             <Input size="md" variant="input" color="primary-400" placeholder="Disabled" disabled />
+            <NumberInput size="md" value={amount} onValueChange={setAmount} suffix="원" aria-label="금액" />
           </div>
         </section>
 
