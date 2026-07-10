@@ -1,0 +1,103 @@
+/**
+ * Tabs 컴포넌트 스타일.
+ * 컨테이너 안에서 하나의 탭을 선택하는 탭형 토글(radiogroup)입니다.
+ * sm / md / lg 사이즈를 지원하며 선택된 탭은 노란(primary) 배경 + 검정 글씨로 강조됩니다.
+ */
+@layer components {
+  .yds-tabs {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    gap: var(--tabs-gap);
+    padding: var(--tabs-padding);
+    background-color: var(--color-tabs-bg);
+    border-radius: var(--tabs-border-radius);
+  }
+
+  /* 선택된 탭 위로 슬라이드하는 하이라이트 */
+  .yds-tabs-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: var(--tabs-item-border-radius);
+    background-color: var(--color-tabs-item-selected-bg);
+    pointer-events: none;
+    will-change: transform, width;
+  }
+
+  .yds-tabs-indicator-animated {
+    transition:
+      transform var(--tabs-indicator-transition-duration) var(--tabs-indicator-transition-easing),
+      width var(--tabs-indicator-transition-duration) var(--tabs-indicator-transition-easing),
+      opacity var(--tabs-indicator-transition-duration) var(--tabs-indicator-transition-easing);
+  }
+
+  .yds-tabs-item {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    height: var(--tabs-item-height);
+    padding-left: var(--tabs-item-padding-x);
+    padding-right: var(--tabs-item-padding-x);
+    border: none;
+    border-radius: var(--tabs-item-border-radius);
+    background-color: transparent;
+    color: var(--color-tabs-item-text);
+    font-size: var(--tabs-typography-font-size);
+    line-height: var(--tabs-typography-line-height);
+    font-weight: var(--tabs-typography-font-weight);
+    font-family: var(--tabs-typography-font-family);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .yds-tabs-item:hover:not(:disabled):not(.yds-tabs-item-selected) {
+    color: var(--color-tabs-item-text-hover);
+  }
+
+  .yds-tabs-item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-tabs-focus-ring);
+  }
+
+  .yds-tabs-item:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* 선택된 탭 텍스트 색상. 배경은 하이라이트(indicator)가 담당 */
+  .yds-tabs-item-selected {
+    color: var(--color-tabs-item-selected-text);
+  }
+
+  /* 모션 최소화 선호 시 슬라이드 애니메이션 비활성화 */
+  @media (prefers-reduced-motion: reduce) {
+    .yds-tabs-indicator-animated {
+      transition: none;
+    }
+  }
+
+  /* Sizes */
+  .yds-tabs-sm .yds-tabs-item {
+    height: var(--tabs-item-height-sm);
+    font-size: var(--font-size-yds-c1r);
+    line-height: var(--line-height-yds-c1r);
+  }
+
+  .yds-tabs-md .yds-tabs-item {
+    height: var(--tabs-item-height-md);
+  }
+
+  .yds-tabs-lg .yds-tabs-item {
+    height: var(--tabs-item-height-lg);
+    font-size: var(--font-size-yds-b2);
+    line-height: var(--line-height-yds-b2);
+  }
+}

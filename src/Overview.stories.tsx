@@ -6,6 +6,7 @@ import { CheckBox } from './components/CheckBox/CheckBox'
 import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
 import { Chips } from './components/Chips/Chips'
+import { Tabs } from './components/Tabs/Tabs'
 import { Table, THead, TBody, Tr, Th, Td } from './components/Table'
 
 const meta: Meta = {
@@ -21,6 +22,16 @@ const OverviewPage: React.FC = () => {
   const [checked1, setChecked1] = useState(false)
   const [checked2, setChecked2] = useState(true)
   const [checked3, setChecked3] = useState(false)
+
+  const [tabSm, setTabSm] = useState('all')
+  const [tabMd, setTabMd] = useState('all')
+  const [tabLg, setTabLg] = useState('all')
+
+  const tabOptions = [
+    { label: '전체', value: 'all' },
+    { label: '국내', value: 'domestic' },
+    { label: '해외', value: 'overseas' },
+  ]
 
   const selectBox1 = useSelectBox({
     options: [
@@ -196,6 +207,27 @@ const OverviewPage: React.FC = () => {
               </Tr>
             </TBody>
           </Table>
+        </section>
+      </div>
+
+      {/* 4행: Tabs */}
+      <div className="flex gap-8">
+        <section className="flex-1">
+          <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
+          <div className="flex flex-col items-start gap-6">
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
+              <Tabs size="lg" value={tabLg} onValueChange={setTabLg} options={tabOptions} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
+              <Tabs size="md" value={tabMd} onValueChange={setTabMd} options={tabOptions} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
+              <Tabs size="sm" value={tabSm} onValueChange={setTabSm} options={tabOptions} />
+            </div>
+          </div>
         </section>
       </div>
     </div>

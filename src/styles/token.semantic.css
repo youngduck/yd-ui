@@ -94,7 +94,7 @@
 
   /* Input Tokens */
   --color-input-text: var(--color-white);
-  
+
   /* Input Spacing Tokens */
   --input-typography-font-size: var(--font-size-yds-b2);
   --input-typography-line-height: var(--line-height-yds-b2);
@@ -137,6 +137,31 @@
   --confirm-dialog-max-width: 90vw;
   --confirm-dialog-padding: 24px;
   --confirm-dialog-gap: 12px;
+
+  /* Tabs Spacing Tokens */
+  --tabs-padding: 4px;
+  --tabs-gap: 2px;
+  --tabs-border-radius: var(--yds-border-radius);
+  --tabs-item-border-radius: var(--yds-border-radius);
+  --tabs-item-padding-x: 16px;
+  --tabs-item-height-sm: 28px;
+  --tabs-item-height-md: 34px;
+  --tabs-item-height-lg: 42px;
+  --tabs-item-height: var(--tabs-item-height-md);
+  --tabs-typography-font-size: var(--font-size-yds-c1m);
+  --tabs-typography-line-height: var(--line-height-yds-c1m);
+  --tabs-typography-font-weight: var(--font-weight-yds-c1m);
+  --tabs-typography-font-family: var(--font-yds-wanted);
+  --tabs-indicator-transition-duration: 0.25s;
+  --tabs-indicator-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Tabs Color Tokens */
+  --color-tabs-bg: var(--color-secondary-300);
+  --color-tabs-item-text: var(--color-secondary-50);
+  --color-tabs-item-text-hover: var(--color-white);
+  --color-tabs-item-selected-bg: var(--color-primary-400);
+  --color-tabs-item-selected-text: var(--color-black);
+  --color-tabs-focus-ring: var(--color-white);
 
   /* Z-index Tokens */
   --z-index-select-box-dropdown: 1000;
