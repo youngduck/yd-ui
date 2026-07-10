@@ -94,8 +94,19 @@
 
   /* Input Tokens */
   --color-input-text: var(--color-white);
+  --color-input-white: var(--color-white);
+  --color-input-primary-400: var(--color-primary-400);
+  --color-input-primary-100: var(--color-primary-100);
 
   /* Input Spacing Tokens */
+  --input-height: 48px;
+  --input-size-sm-width: 200px;
+  --input-size-md-width: 300px;
+  --input-size-lg-width: 400px;
+  --input-padding-x: 12px;
+  --input-search-padding-left: 40px;
+  --input-border-width: var(--yds-border-width);
+  --input-border-radius: var(--yds-border-radius);
   --input-typography-font-size: var(--font-size-yds-b2);
   --input-typography-line-height: var(--line-height-yds-b2);
   --input-typography-font-weight: var(--font-weight-yds-b2);

@@ -1,9 +1,132 @@
+/**
+ * Input 컴포넌트 스타일.
+ * 검색, 텍스트 입력, 폼 입력 등에 사용하는 기본 입력 필드입니다.
+ * white / primary-400 / primary-100 색상과 sm / md / lg / full 사이즈를 지원합니다.
+ */
 @layer components {
+  /* 하위 호환용 타이포그래피 유틸 (기존 사용처 유지) */
   .yds-input-typography {
     font-size: var(--input-typography-font-size);
     line-height: var(--input-typography-line-height);
     font-weight: var(--input-typography-font-weight);
     font-family: var(--input-typography-font-family);
     color: var(--color-input-text);
+  }
+
+  .yds-input-wrapper {
+    position: relative;
+  }
+
+  /* wrapper 색상은 search 아이콘(currentColor)에 사용 */
+  .yds-input-wrapper-white {
+    color: var(--color-input-white);
+  }
+
+  .yds-input-wrapper-primary-400 {
+    color: var(--color-input-primary-400);
+  }
+
+  .yds-input-wrapper-primary-100 {
+    color: var(--color-input-primary-100);
+  }
+
+  .yds-input-icon {
+    position: absolute;
+    top: 50%;
+    left: var(--input-padding-x);
+    width: 24px;
+    height: 24px;
+    transform: translateY(-50%);
+    color: currentColor;
+    pointer-events: none;
+  }
+
+  .yds-input {
+    box-sizing: border-box;
+    height: var(--input-height);
+    padding-right: var(--input-padding-x);
+    background-color: transparent;
+    border-width: var(--input-border-width);
+    border-style: solid;
+    border-radius: var(--input-border-radius);
+    font-size: var(--input-typography-font-size);
+    line-height: var(--input-typography-line-height);
+    font-weight: var(--input-typography-font-weight);
+    font-family: var(--input-typography-font-family);
+  }
+
+  .yds-input:focus {
+    outline: none;
+  }
+
+  .yds-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* 브라우저 기본 숫자 스핀 버튼 숨김 (type="number" 사용 시) */
+  .yds-input::-webkit-outer-spin-button,
+  .yds-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .yds-input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  /* Colors */
+  .yds-input-white {
+    border-color: var(--color-input-white);
+    color: var(--color-input-white);
+  }
+
+  .yds-input-white::placeholder {
+    color: var(--color-input-white);
+  }
+
+  .yds-input-primary-400 {
+    border-color: var(--color-input-primary-400);
+    color: var(--color-input-primary-400);
+  }
+
+  .yds-input-primary-400::placeholder {
+    color: var(--color-input-primary-400);
+  }
+
+  .yds-input-primary-100 {
+    border-color: var(--color-input-primary-100);
+    color: var(--color-input-primary-100);
+  }
+
+  .yds-input-primary-100::placeholder {
+    color: var(--color-input-primary-100);
+  }
+
+  /* Variants (좌측 패딩: search 는 아이콘 공간 확보) */
+  .yds-input-variant-input {
+    padding-left: var(--input-padding-x);
+  }
+
+  .yds-input-variant-search {
+    padding-left: var(--input-search-padding-left);
+  }
+
+  /* Sizes */
+  .yds-input-sm {
+    width: var(--input-size-sm-width);
+  }
+
+  .yds-input-md {
+    width: var(--input-size-md-width);
+  }
+
+  .yds-input-lg {
+    width: var(--input-size-lg-width);
+  }
+
+  .yds-input-full {
+    width: 100%;
   }
 }
