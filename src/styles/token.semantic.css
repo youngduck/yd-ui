@@ -163,8 +163,51 @@
   --color-tabs-item-selected-text: var(--color-black);
   --color-tabs-focus-ring: var(--color-white);
 
+  /* Calendar Spacing Tokens */
+  --calendar-size-sm-width: 200px;
+  --calendar-size-md-width: 300px;
+  --calendar-size-lg-width: 400px;
+  --calendar-trigger-height: 48px;
+  --calendar-trigger-padding-x: 12px;
+  --calendar-border-width: 2px;
+  --calendar-border-radius: var(--yds-border-radius);
+  --calendar-panel-top: 56px;
+  --calendar-panel-min-width: 296px;
+  --calendar-panel-padding: 12px;
+  --calendar-panel-gap: 8px;
+  --calendar-grid-gap: 4px;
+  --calendar-cell-height: 34px;
+  --calendar-cell-border-radius: var(--yds-border-radius);
+  --calendar-nav-button-size: 28px;
+  --calendar-trigger-typography-font-size: var(--font-size-yds-b2);
+  --calendar-trigger-typography-line-height: var(--line-height-yds-b2);
+  --calendar-trigger-typography-font-weight: var(--font-weight-yds-b2);
+  --calendar-typography-font-size: var(--font-size-yds-c1m);
+  --calendar-typography-line-height: var(--line-height-yds-c1m);
+  --calendar-typography-font-weight: var(--font-weight-yds-c1m);
+  --calendar-typography-font-family: var(--font-yds-wanted);
+
+  /* Calendar Color Tokens */
+  --color-calendar-trigger-border: var(--color-border-primary-light);
+  --color-calendar-trigger-text: var(--color-font-primary-light);
+  --color-calendar-trigger-placeholder: var(--color-secondary-50);
+  --color-calendar-panel-bg: var(--color-background-secondary);
+  --color-calendar-panel-border: var(--color-border-primary-light);
+  --color-calendar-header-text: var(--color-white);
+  --color-calendar-nav-button-text: var(--color-font-primary-light);
+  --color-calendar-nav-button-text-hover: var(--color-white);
+  --color-calendar-weekday-text: var(--color-secondary-50);
+  --color-calendar-cell-text: var(--color-white);
+  --color-calendar-cell-bg-hover: var(--color-background-primary);
+  --color-calendar-cell-outside-text: var(--color-secondary-50);
+  --color-calendar-cell-selected-bg: var(--color-primary-400);
+  --color-calendar-cell-selected-text: var(--color-black);
+  --color-calendar-cell-today-border: var(--color-primary-100);
+  --color-calendar-focus-ring: var(--color-white);
+
   /* Z-index Tokens */
   --z-index-select-box-dropdown: 1000;
+  --z-index-calendar-panel: 1000;
   --z-index-modal-backdrop: 1200;
   --z-index-modal: 1210;
   --z-index-confirm-dialog-backdrop: 1300;

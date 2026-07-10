@@ -7,6 +7,9 @@ import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
 import { Chips } from './components/Chips/Chips'
 import { Tabs } from './components/Tabs/Tabs'
+import { YearPicker } from './components/Calendars/YearPicker/YearPicker'
+import { MonthPicker } from './components/Calendars/MonthPicker/MonthPicker'
+import { DatePicker } from './components/Calendars/DatePicker/DatePicker'
 import { Table, THead, TBody, Tr, Th, Td } from './components/Table'
 
 const meta: Meta = {
@@ -26,6 +29,10 @@ const OverviewPage: React.FC = () => {
   const [tabSm, setTabSm] = useState('all')
   const [tabMd, setTabMd] = useState('all')
   const [tabLg, setTabLg] = useState('all')
+
+  const [year, setYear] = useState('2026')
+  const [month, setMonth] = useState('2026-07')
+  const [date, setDate] = useState('2026-07-10')
 
   const tabOptions = [
     { label: '전체', value: 'all' },
@@ -210,8 +217,26 @@ const OverviewPage: React.FC = () => {
         </section>
       </div>
 
-      {/* 4행: Tabs */}
+      {/* 4행: Tabs, Calendar */}
       <div className="flex gap-8">
+        <section className="flex-1">
+          <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
+          <div className="flex flex-col items-start gap-6">
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">YearPicker</div>
+              <YearPicker value={year} onValueChange={setYear} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">MonthPicker</div>
+              <MonthPicker value={month} onValueChange={setMonth} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">DatePicker</div>
+              <DatePicker value={date} onValueChange={setDate} />
+            </div>
+          </div>
+        </section>
+
         <section className="flex-1">
           <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
           <div className="flex flex-col items-start gap-6">

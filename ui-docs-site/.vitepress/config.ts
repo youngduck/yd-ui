@@ -51,6 +51,14 @@ export default defineConfig({
           ],
         },
         {
+          text: '달력',
+          items: [
+            { text: 'YearPicker', link: '/components/year-picker' },
+            { text: 'MonthPicker', link: '/components/month-picker' },
+            { text: 'DatePicker', link: '/components/date-picker' },
+          ],
+        },
+        {
           text: '오버레이',
           items: [
             { text: 'Modal', link: '/components/modal' },
