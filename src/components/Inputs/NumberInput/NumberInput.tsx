@@ -97,14 +97,10 @@ export function NumberInput({
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       e.preventDefault()
 
-      let next: number
-      if (value === '') {
-        next = min ?? 0
-      } else {
-        next = Number(value) + (e.key === 'ArrowUp' ? step : -step)
-      }
+      // 빈 값에서는 min(없으면 0)을 기준으로 증감을 시작해 네이티브 스핀 동작과 유사하게
+      const base = value === '' ? (min ?? 0) : Number(value)
       // 음수 미지원: 하한은 min 과 0 중 큰 값
-      next = clamp(Math.max(next, 0), min, max)
+      const next = clamp(Math.max(base + (e.key === 'ArrowUp' ? step : -step), 0), min, max)
       onValueChange(String(next))
     }
     onKeyDown?.(e)
