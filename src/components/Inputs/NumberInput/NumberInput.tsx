@@ -102,6 +102,15 @@ export function NumberInput({
       // 음수 미지원: 하한은 min 과 0 중 큰 값
       const next = clamp(Math.max(base + (e.key === 'ArrowUp' ? step : -step), 0), min, max)
       onValueChange(String(next))
+    } else if (e.key === 'Backspace') {
+      // 커서 바로 앞이 콤마면 콤마와 그 왼쪽 숫자를 함께 삭제
+      // (콤마만 지우면 포맷터가 콤마를 되살려 Backspace 가 동작하지 않는 것처럼 보임)
+      const { selectionStart, selectionEnd, value: displayValue } = e.currentTarget
+      if (selectionStart !== null && selectionStart === selectionEnd && displayValue[selectionStart - 1] === ',') {
+        e.preventDefault()
+        const nextValue = displayValue.slice(0, selectionStart - 2) + displayValue.slice(selectionStart)
+        onValueChange(toDigits(nextValue))
+      }
     }
     onKeyDown?.(e)
   }
