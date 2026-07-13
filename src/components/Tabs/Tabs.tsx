@@ -1,6 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
+// SSR(Next.js 등) 서버 렌더 시 useLayoutEffect 경고를 피하기 위한 대체
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
 const tabsVariants = cva('yds-tabs', {
   variants: {
     size: {
@@ -96,7 +99,7 @@ export function Tabs({ options, value, onValueChange, size, className = '', ...p
   const focusableIndex = selectedIndex !== -1 ? selectedIndex : enabledIndexes[0]
 
   // 선택된 탭의 위치/크기를 측정해 indicator에 반영. 선택값이 없으면 숨김.
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = selectedIndex !== -1 ? itemRefs.current[selectedIndex] : null
 
     if (!el) {
@@ -115,7 +118,9 @@ export function Tabs({ options, value, onValueChange, size, className = '', ...p
 
     update()
 
-    // 컨테이너/폰트 로드 등으로 크기가 바뀌면 위치 재계산
+    // 컨테이너/폰트 로드 등으로 크기가 바뀌면 위치 재계산 (Jest/jsdom 등 미지원 환경에서는 생략)
+    if (typeof ResizeObserver === 'undefined') return
+
     const observer = new ResizeObserver(update)
     if (containerRef.current) observer.observe(containerRef.current)
     return () => observer.disconnect()
