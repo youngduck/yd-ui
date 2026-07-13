@@ -64,6 +64,11 @@
     cursor: not-allowed;
   }
 
+  /* 입력 비활성화 시 검색 아이콘도 함께 흐리게 */
+  .yds-input:disabled + .yds-input-icon {
+    opacity: 0.4;
+  }
+
   /* 브라우저 기본 숫자 스핀 버튼 숨김 (type="number" 사용 시) */
   .yds-input::-webkit-outer-spin-button,
   .yds-input::-webkit-inner-spin-button {

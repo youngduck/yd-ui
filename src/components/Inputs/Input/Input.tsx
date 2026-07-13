@@ -56,8 +56,9 @@ export type InputProps = {} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 
 export function Input({ size, color, variant, disabled, className = '', ...props }: InputProps) {
   return (
     <div className={wrapperVariants({ color })}>
-      {variant === 'search' && <Search aria-hidden className="yds-input-icon" />}
       <input className={`${inputVariants({ size, color, variant })} ${className}`} disabled={disabled} {...props} />
+      {/* 아이콘은 input 뒤에 위치해야 input:disabled + 형제 선택자로 투명도가 동기화됨 (absolute 라 시각 위치는 동일) */}
+      {variant === 'search' && <Search aria-hidden className="yds-input-icon" />}
     </div>
   )
 }
