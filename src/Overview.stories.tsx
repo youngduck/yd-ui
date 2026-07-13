@@ -1,11 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from './components/Button/Button'
-import { Input } from './components/Input/Input'
+import { Input } from './components/Inputs/Input/Input'
+import { NumberInput } from './components/Inputs/NumberInput/NumberInput'
 import { CheckBox } from './components/CheckBox/CheckBox'
 import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
 import { Chips } from './components/Chips/Chips'
+import { Tabs } from './components/Tabs/Tabs'
+import { YearPicker } from './components/Calendars/YearPicker/YearPicker'
+import { MonthPicker } from './components/Calendars/MonthPicker/MonthPicker'
+import { DatePicker } from './components/Calendars/DatePicker/DatePicker'
 import { Table, THead, TBody, Tr, Th, Td } from './components/Table'
 
 const meta: Meta = {
@@ -21,6 +26,22 @@ const OverviewPage: React.FC = () => {
   const [checked1, setChecked1] = useState(false)
   const [checked2, setChecked2] = useState(true)
   const [checked3, setChecked3] = useState(false)
+
+  const [tabSm, setTabSm] = useState('all')
+  const [tabMd, setTabMd] = useState('all')
+  const [tabLg, setTabLg] = useState('all')
+
+  const [amount, setAmount] = useState('400000')
+
+  const [year, setYear] = useState('2026')
+  const [month, setMonth] = useState('2026-07')
+  const [date, setDate] = useState('2026-07-10')
+
+  const tabOptions = [
+    { label: '전체', value: 'all' },
+    { label: '국내', value: 'domestic' },
+    { label: '해외', value: 'overseas' },
+  ]
 
   const selectBox1 = useSelectBox({
     options: [
@@ -123,6 +144,7 @@ const OverviewPage: React.FC = () => {
             <Input size="md" variant="input" color="primary-400" placeholder="입력..." />
             <Input size="md" variant="input" color="primary-100" placeholder="입력..." />
             <Input size="md" variant="input" color="primary-400" placeholder="Disabled" disabled />
+            <NumberInput size="md" value={amount} onValueChange={setAmount} suffix="원" aria-label="금액" />
           </div>
         </section>
 
@@ -196,6 +218,45 @@ const OverviewPage: React.FC = () => {
               </Tr>
             </TBody>
           </Table>
+        </section>
+      </div>
+
+      {/* 4행: Tabs, Calendar */}
+      <div className="flex gap-8">
+        <section className="flex-1">
+          <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
+          <div className="flex flex-col items-start gap-6">
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">YearPicker</div>
+              <YearPicker value={year} onValueChange={setYear} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">MonthPicker</div>
+              <MonthPicker value={month} onValueChange={setMonth} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">DatePicker</div>
+              <DatePicker value={date} onValueChange={setDate} />
+            </div>
+          </div>
+        </section>
+
+        <section className="flex-1">
+          <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
+          <div className="flex flex-col items-start gap-6">
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
+              <Tabs size="lg" value={tabLg} onValueChange={setTabLg} options={tabOptions} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
+              <Tabs size="md" value={tabMd} onValueChange={setTabMd} options={tabOptions} />
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
+              <Tabs size="sm" value={tabSm} onValueChange={setTabSm} options={tabOptions} />
+            </div>
+          </div>
         </section>
       </div>
     </div>

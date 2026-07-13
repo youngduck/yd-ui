@@ -1,0 +1,219 @@
+/**
+ * Calendar(YearPicker / MonthPicker / DatePicker) 컴포넌트 스타일.
+ * 트리거 버튼을 누르면 달력 패널이 드롭다운으로 열리는 날짜 선택 피커입니다.
+ * 선택된 셀은 노란(primary) 배경 + 검정 글씨, 오늘 날짜는 노란 테두리로 강조됩니다.
+ */
+@layer components {
+  .yds-calendar {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  /* Sizes (트리거 너비) */
+  .yds-calendar-sm {
+    width: var(--calendar-size-sm-width);
+  }
+
+  .yds-calendar-md {
+    width: var(--calendar-size-md-width);
+  }
+
+  .yds-calendar-lg {
+    width: var(--calendar-size-lg-width);
+  }
+
+  .yds-calendar-full {
+    width: 100%;
+  }
+
+  .yds-calendar-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--calendar-trigger-height);
+    padding-left: var(--calendar-trigger-padding-x);
+    padding-right: var(--calendar-trigger-padding-x);
+    background-color: transparent;
+    border: var(--calendar-border-width) solid var(--color-calendar-trigger-border);
+    border-radius: var(--calendar-border-radius);
+    color: var(--color-calendar-trigger-text);
+    font-size: var(--calendar-trigger-typography-font-size);
+    line-height: var(--calendar-trigger-typography-line-height);
+    font-weight: var(--calendar-trigger-typography-font-weight);
+    font-family: var(--calendar-typography-font-family);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  /* 미선택 상태의 placeholder 문구 */
+  .yds-calendar-trigger-empty {
+    color: var(--color-calendar-trigger-placeholder);
+  }
+
+  .yds-calendar-trigger:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-calendar-focus-ring);
+  }
+
+  .yds-calendar-trigger:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* 트리거 아래로 열리는 달력 패널 */
+  .yds-calendar-panel {
+    position: absolute;
+    top: var(--calendar-panel-top);
+    left: 0;
+    z-index: var(--z-index-calendar-panel);
+    display: flex;
+    flex-direction: column;
+    gap: var(--calendar-panel-gap);
+    box-sizing: border-box;
+    width: 100%;
+    min-width: var(--calendar-panel-min-width);
+    padding: var(--calendar-panel-padding);
+    background-color: var(--color-calendar-panel-bg);
+    border: var(--calendar-border-width) solid var(--color-calendar-panel-border);
+    border-radius: var(--calendar-border-radius);
+  }
+
+  .yds-calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .yds-calendar-header-label {
+    color: var(--color-calendar-header-text);
+    font-size: var(--calendar-typography-font-size);
+    line-height: var(--calendar-typography-line-height);
+    font-weight: var(--calendar-typography-font-weight);
+    font-family: var(--calendar-typography-font-family);
+  }
+
+  /* 이전/다음 이동 버튼 */
+  .yds-calendar-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--calendar-nav-button-size);
+    height: var(--calendar-nav-button-size);
+    background-color: transparent;
+    border: none;
+    border-radius: var(--calendar-cell-border-radius);
+    color: var(--color-calendar-nav-button-text);
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .yds-calendar-nav-button:hover:not(:disabled) {
+    color: var(--color-calendar-nav-button-text-hover);
+    background-color: var(--color-calendar-cell-bg-hover);
+  }
+
+  .yds-calendar-nav-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-calendar-focus-ring);
+  }
+
+  .yds-calendar-nav-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* 요일 헤더 (일 ~ 토) */
+  .yds-calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--calendar-grid-gap);
+  }
+
+  .yds-calendar-weekday {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-calendar-weekday-text);
+    font-size: var(--font-size-yds-c1r);
+    line-height: var(--line-height-yds-c1r);
+    font-weight: var(--font-weight-yds-c1r);
+    font-family: var(--calendar-typography-font-family);
+  }
+
+  /* 연/월/일 셀 그리드 */
+  .yds-calendar-grid {
+    display: grid;
+    gap: var(--calendar-grid-gap);
+  }
+
+  .yds-calendar-grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .yds-calendar-grid-cols-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .yds-calendar-cell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: var(--calendar-cell-height);
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: var(--calendar-cell-border-radius);
+    color: var(--color-calendar-cell-text);
+    font-size: var(--calendar-typography-font-size);
+    line-height: var(--calendar-typography-line-height);
+    font-weight: var(--calendar-typography-font-weight);
+    font-family: var(--calendar-typography-font-family);
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .yds-calendar-cell:hover:not(:disabled):not(.yds-calendar-cell-selected) {
+    background-color: var(--color-calendar-cell-bg-hover);
+  }
+
+  .yds-calendar-cell:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-calendar-focus-ring);
+  }
+
+  .yds-calendar-cell:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* 표시 중인 달의 앞뒤를 채우는 다른 달 날짜 */
+  .yds-calendar-cell-outside {
+    color: var(--color-calendar-cell-outside-text);
+  }
+
+  /* 오늘 날짜 표시 */
+  .yds-calendar-cell-today {
+    box-shadow: inset 0 0 0 1px var(--color-calendar-cell-today-border);
+  }
+
+  /* 선택된 셀 */
+  .yds-calendar-cell-selected {
+    background-color: var(--color-calendar-cell-selected-bg);
+    color: var(--color-calendar-cell-selected-text);
+  }
+
+  .yds-calendar-cell-selected:focus-visible,
+  .yds-calendar-cell-today:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-calendar-focus-ring);
+  }
+}

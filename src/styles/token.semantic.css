@@ -94,12 +94,47 @@
 
   /* Input Tokens */
   --color-input-text: var(--color-white);
-  
+  --color-input-white: var(--color-white);
+  --color-input-primary-400: var(--color-primary-400);
+  --color-input-primary-100: var(--color-primary-100);
+
   /* Input Spacing Tokens */
+  --input-height: 48px;
+  --input-size-sm-width: 200px;
+  --input-size-md-width: 300px;
+  --input-size-lg-width: 400px;
+  --input-padding-x: 12px;
+  --input-search-padding-left: 40px;
+  --input-border-width: var(--yds-border-width);
+  --input-border-radius: var(--yds-border-radius);
   --input-typography-font-size: var(--font-size-yds-b2);
   --input-typography-line-height: var(--line-height-yds-b2);
   --input-typography-font-weight: var(--font-weight-yds-b2);
   --input-typography-font-family: var(--font-yds-wanted);
+
+  /* NumberInput Spacing Tokens */
+  --number-input-height: 48px;
+  --number-input-size-sm-width: 200px;
+  --number-input-size-md-width: 300px;
+  --number-input-size-lg-width: 400px;
+  --number-input-padding-x: 12px;
+  --number-input-gap: 8px;
+  --number-input-border-width: var(--yds-border-width);
+  --number-input-border-radius: var(--yds-border-radius);
+  --number-input-typography-font-size: var(--font-size-yds-b2);
+  --number-input-typography-line-height: var(--line-height-yds-b2);
+  --number-input-typography-font-weight: var(--font-weight-yds-b2);
+  --number-input-typography-font-family: var(--font-yds-wanted);
+  --number-input-affix-typography-font-size: var(--font-size-yds-c1m);
+  --number-input-affix-typography-line-height: var(--line-height-yds-c1m);
+  --number-input-affix-typography-font-weight: var(--font-weight-yds-c1m);
+
+  /* NumberInput Color Tokens */
+  --color-number-input-border: var(--color-border-primary-light);
+  --color-number-input-text: var(--color-white);
+  --color-number-input-placeholder: var(--color-secondary-50);
+  --color-number-input-affix-text: var(--color-font-primary-light);
+  --color-number-input-focus-ring: var(--color-white);
 
   /* Chips Tokens */
   --chips-height: 28px;
@@ -138,8 +173,76 @@
   --confirm-dialog-padding: 24px;
   --confirm-dialog-gap: 12px;
 
+  /* Tabs Spacing Tokens */
+  --tabs-padding: 4px;
+  --tabs-gap: 2px;
+  --tabs-border-radius: var(--yds-border-radius);
+  --tabs-item-border-radius: var(--yds-border-radius);
+  --tabs-item-padding-x: 16px;
+  --tabs-item-height-sm: 28px;
+  --tabs-item-height-md: 34px;
+  --tabs-item-height-lg: 42px;
+  --tabs-item-height: var(--tabs-item-height-md);
+  --tabs-typography-font-size: var(--font-size-yds-c1m);
+  --tabs-typography-line-height: var(--line-height-yds-c1m);
+  --tabs-typography-font-weight: var(--font-weight-yds-c1m);
+  --tabs-typography-font-family: var(--font-yds-wanted);
+  --tabs-indicator-transition-duration: 0.25s;
+  --tabs-indicator-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Tabs Color Tokens */
+  --color-tabs-bg: var(--color-secondary-300);
+  --color-tabs-item-text: var(--color-secondary-50);
+  --color-tabs-item-text-hover: var(--color-white);
+  --color-tabs-item-selected-bg: var(--color-primary-400);
+  --color-tabs-item-selected-text: var(--color-black);
+  --color-tabs-focus-ring: var(--color-white);
+
+  /* Calendar Spacing Tokens */
+  --calendar-size-sm-width: 200px;
+  --calendar-size-md-width: 300px;
+  --calendar-size-lg-width: 400px;
+  --calendar-trigger-height: 48px;
+  --calendar-trigger-padding-x: 12px;
+  --calendar-border-width: 2px;
+  --calendar-border-radius: var(--yds-border-radius);
+  --calendar-panel-top: 56px;
+  --calendar-panel-min-width: 296px;
+  --calendar-panel-padding: 12px;
+  --calendar-panel-gap: 8px;
+  --calendar-grid-gap: 4px;
+  --calendar-cell-height: 34px;
+  --calendar-cell-border-radius: var(--yds-border-radius);
+  --calendar-nav-button-size: 28px;
+  --calendar-trigger-typography-font-size: var(--font-size-yds-b2);
+  --calendar-trigger-typography-line-height: var(--line-height-yds-b2);
+  --calendar-trigger-typography-font-weight: var(--font-weight-yds-b2);
+  --calendar-typography-font-size: var(--font-size-yds-c1m);
+  --calendar-typography-line-height: var(--line-height-yds-c1m);
+  --calendar-typography-font-weight: var(--font-weight-yds-c1m);
+  --calendar-typography-font-family: var(--font-yds-wanted);
+
+  /* Calendar Color Tokens */
+  --color-calendar-trigger-border: var(--color-border-primary-light);
+  --color-calendar-trigger-text: var(--color-font-primary-light);
+  --color-calendar-trigger-placeholder: var(--color-secondary-50);
+  --color-calendar-panel-bg: var(--color-background-secondary);
+  --color-calendar-panel-border: var(--color-border-primary-light);
+  --color-calendar-header-text: var(--color-white);
+  --color-calendar-nav-button-text: var(--color-font-primary-light);
+  --color-calendar-nav-button-text-hover: var(--color-white);
+  --color-calendar-weekday-text: var(--color-secondary-50);
+  --color-calendar-cell-text: var(--color-white);
+  --color-calendar-cell-bg-hover: var(--color-background-primary);
+  --color-calendar-cell-outside-text: var(--color-secondary-50);
+  --color-calendar-cell-selected-bg: var(--color-primary-400);
+  --color-calendar-cell-selected-text: var(--color-black);
+  --color-calendar-cell-today-border: var(--color-primary-100);
+  --color-calendar-focus-ring: var(--color-white);
+
   /* Z-index Tokens */
   --z-index-select-box-dropdown: 1000;
+  --z-index-calendar-panel: 1000;
   --z-index-modal-backdrop: 1200;
   --z-index-modal: 1210;
   --z-index-confirm-dialog-backdrop: 1300;

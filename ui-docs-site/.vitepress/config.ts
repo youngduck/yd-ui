@@ -42,11 +42,21 @@ export default defineConfig({
             { text: 'Button', link: '/components/button' },
             { text: 'Card', link: '/components/card' },
             { text: 'Input', link: '/components/input' },
+            { text: 'NumberInput', link: '/components/number-input' },
             { text: 'CheckBox', link: '/components/checkbox' },
             { text: 'SelectBox', link: '/components/selectbox' },
             { text: 'Chips', link: '/components/chips' },
+            { text: 'Tabs', link: '/components/tabs' },
             { text: 'Table', link: '/components/table' },
             { text: 'HorizonDragScroll', link: '/components/horizon-drag-scroll' },
+          ],
+        },
+        {
+          text: '달력',
+          items: [
+            { text: 'YearPicker', link: '/components/year-picker' },
+            { text: 'MonthPicker', link: '/components/month-picker' },
+            { text: 'DatePicker', link: '/components/date-picker' },
           ],
         },
         {

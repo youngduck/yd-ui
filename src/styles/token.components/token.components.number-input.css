@@ -1,0 +1,86 @@
+/**
+ * NumberInput 컴포넌트 스타일.
+ * 금액·수량 등 숫자 전용 입력 필드입니다. 테두리는 wrapper 가 담당해
+ * prefix/suffix 단위 문구가 입력과 한 박스 안에 정렬됩니다.
+ */
+@layer components {
+  .yds-number-input {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--number-input-gap);
+    box-sizing: border-box;
+    height: var(--number-input-height);
+    padding-left: var(--number-input-padding-x);
+    padding-right: var(--number-input-padding-x);
+    background-color: transparent;
+    border: var(--number-input-border-width) solid var(--color-number-input-border);
+    border-radius: var(--number-input-border-radius);
+  }
+
+  .yds-number-input:focus-within {
+    box-shadow: 0 0 0 2px var(--color-number-input-focus-ring);
+  }
+
+  .yds-number-input-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Sizes */
+  .yds-number-input-sm {
+    width: var(--number-input-size-sm-width);
+  }
+
+  .yds-number-input-md {
+    width: var(--number-input-size-md-width);
+  }
+
+  .yds-number-input-lg {
+    width: var(--number-input-size-lg-width);
+  }
+
+  .yds-number-input-full {
+    width: 100%;
+  }
+
+  .yds-number-input-field {
+    flex: 1 1 0;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--color-number-input-text);
+    font-size: var(--number-input-typography-font-size);
+    line-height: var(--number-input-typography-line-height);
+    font-weight: var(--number-input-typography-font-weight);
+    font-family: var(--number-input-typography-font-family);
+    text-align: right;
+  }
+
+  .yds-number-input-field-left {
+    text-align: left;
+  }
+
+  .yds-number-input-field:focus {
+    outline: none;
+  }
+
+  .yds-number-input-field:disabled {
+    cursor: not-allowed;
+  }
+
+  .yds-number-input-field::placeholder {
+    color: var(--color-number-input-placeholder);
+  }
+
+  /* prefix/suffix 단위 문구 (예: '원') */
+  .yds-number-input-affix {
+    color: var(--color-number-input-affix-text);
+    font-size: var(--number-input-affix-typography-font-size);
+    line-height: var(--number-input-affix-typography-line-height);
+    font-weight: var(--number-input-affix-typography-font-weight);
+    font-family: var(--number-input-typography-font-family);
+    white-space: nowrap;
+  }
+}

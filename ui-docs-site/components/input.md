@@ -1,6 +1,6 @@
 # Input
 
-입력 필드 컴포넌트는 사용자 입력을 받는 기본 입력 필드입니다.
+입력 필드 컴포넌트는 사용자 입력을 받는 기본 입력 필드입니다. 자유 텍스트(text / password / email 등) 입력을 담당하며, 금액·수량 같은 숫자 입력에는 [NumberInput](/components/number-input), 날짜 입력에는 [DatePicker](/components/date-picker) 사용을 권장합니다.
 
 ## 기본 사용법
 
@@ -95,4 +95,26 @@ const size: InputSize = 'md'
 const variant: InputVariant = 'input'
 const color: InputColor = 'primary-100'
 ```
+
+## 디자인 토큰
+
+Input 컴포넌트는 다음 디자인 토큰을 사용합니다.
+
+### Spacing Tokens
+- `--input-height`: 입력 필드 높이 (48px)
+- `--input-size-sm-width` / `-md-` / `-lg-`: 사이즈별 너비 (200 / 300 / 400px)
+- `--input-padding-x`: 좌우 패딩 (12px)
+- `--input-search-padding-left`: search variant 좌측 패딩, 아이콘 공간 (40px)
+- `--input-border-width`: 테두리 두께 (2px)
+- `--input-border-radius`: 모서리 반경 (8px)
+
+### Typography Tokens
+- `--input-typography-*`: 입력 폰트 (yds-b2)
+
+### Color Tokens
+- `--color-input-white`: white 색상 (white)
+- `--color-input-primary-400`: primary-400 색상 (primary-400)
+- `--color-input-primary-100`: primary-100 색상 (primary-100)
+
+각 색상은 테두리·텍스트·placeholder·search 아이콘에 일괄 적용됩니다. `type="number"` 를 사용하는 경우에도 브라우저 기본 스핀 버튼은 자동으로 숨겨집니다.
 
