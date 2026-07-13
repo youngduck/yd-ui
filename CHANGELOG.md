@@ -12,13 +12,15 @@
 - fix: 달력피커범위밖비활성셀키보드포커스유실방지
 - fix: NumberInput빈값방향키증감동작자연스럽게개선
 - fix: Input비활성화시검색아이콘투명도동기화
+- fix: NumberInput콤마뒤Backspace미동작수정
 
 ### 변경
 - refactor: Input컴포넌트토큰화및Inputs폴더재편
 - chore: 체인지로그릴리스시점생성전환및v0.18.1버전범프
 - docs: v0.18.1 CHANGELOG 갱신
-
-### 제거
+- docs: v0.18.1 CHANGELOG 갱신
+- refactor: Input클래스네임을래퍼에적용해타컴포넌트와일관성확보
+- chore: 체인지로그빈섹션생략으로가독성개선
 
 ---
 ## [0.17.1] - 2026-04-29
