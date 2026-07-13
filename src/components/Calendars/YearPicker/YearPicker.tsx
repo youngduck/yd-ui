@@ -96,6 +96,11 @@ export function YearPicker({
     if (next === null) return
 
     e.preventDefault()
+
+    // 범위 밖 연도 셀은 disabled 라 포커스를 받을 수 없으므로 이동하지 않음 (포커스 유실 방지)
+    const targetYear = years[next]
+    if (targetYear < minYear || targetYear > maxYear) return
+
     setFocusIndex(next)
     cellRefs.current[next]?.focus()
   }
