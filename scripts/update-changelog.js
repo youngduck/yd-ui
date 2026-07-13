@@ -84,7 +84,9 @@ function buildVersionSection(version, sections) {
   const branch = sh("git rev-parse --abbrev-ref HEAD");
 
   const lines = [`## [${version}] - ${date}`, "", `**Branch**: \`${branch}\``];
+  // 항목이 있는 섹션만 렌더링 (빈 헤더 방지)
   for (const name of SECTION_ORDER) {
+    if (sections[name].length === 0) continue;
     lines.push(`### ${name}`);
     lines.push(...sections[name]);
     lines.push("");
