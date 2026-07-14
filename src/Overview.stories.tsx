@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from './components/Button/Button'
+import { Card } from './components/Card/Card'
 import { Input } from './components/Inputs/Input/Input'
 import { NumberInput } from './components/Inputs/NumberInput/NumberInput'
 import { CheckBox } from './components/CheckBox/CheckBox'
@@ -11,6 +12,7 @@ import { Tabs } from './components/Tabs/Tabs'
 import { YearPicker } from './components/Calendars/YearPicker/YearPicker'
 import { MonthPicker } from './components/Calendars/MonthPicker/MonthPicker'
 import { DatePicker } from './components/Calendars/DatePicker/DatePicker'
+import { Stack } from './components/Layouts/Stack/Stack'
 import { Table, THead, TBody, Tr, Th, Td } from './components/Table'
 
 const meta: Meta = {
@@ -76,188 +78,222 @@ const OverviewPage: React.FC = () => {
     { name: 'secondary-400', value: 'rgb(25,25,31)', class: 'bg-secondary-400' },
   ]
 
+  const systemColors = [
+    { name: 'success / income', varName: '--color-success' },
+    { name: 'error / expense', varName: '--color-error' },
+  ]
+
   return (
-    <div className="bg-background-primary flex min-h-screen flex-col gap-10 p-10">
-      {/* 1행: 로고 + 색상 */}
-      <div className="flex items-center gap-12">
-        <section className="flex shrink-0 flex-col items-center">
-          <img src="/logo.png" alt="YD-UI Logo" className="h-60 w-60" />
-          <h1 className="text-yds-h1 text-primary-400">YD - Design System</h1>
-        </section>
-        <div className="flex flex-1 flex-col gap-6">
-          <div>
-            <h2 className="text-yds-h2 mb-4 text-white">Primary</h2>
-            <div className="flex gap-3">
-              {primaryColors.map(c => (
-                <div key={c.name} className={`${c.class} h-20 w-20 rounded-lg`} />
-              ))}
-            </div>
+    <div className="bg-background-primary min-h-screen p-10">
+      <div className="mx-auto flex w-[1000px] max-w-full flex-col gap-10">
+        {/* 1행: 로고 + 색상 */}
+        <div className="flex items-center gap-12">
+          <div className="flex shrink-0 flex-col items-center">
+            <img src="/logo.png" alt="YD-UI Logo" className="h-60 w-60" />
+            <h1 className="text-yds-h1 text-primary-400">YD - Design System</h1>
           </div>
-          <div>
-            <h2 className="text-yds-h2 mb-4 text-white">Secondary</h2>
-            <div className="flex gap-3">
-              {secondaryColors.map(c => (
-                <div key={c.name} className={`${c.class} border-secondary-50 h-20 w-20 rounded-lg`} />
-              ))}
+          <Card variant="outlined" className="flex flex-1 flex-col gap-6">
+            <h2 className="text-yds-h2 text-primary-300">Colors</h2>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Primary</div>
+              <div className="flex gap-3">
+                {primaryColors.map(c => (
+                  <div key={c.name} className={`${c.class} h-20 w-20 rounded-lg`} />
+                ))}
+              </div>
             </div>
-          </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">Secondary</div>
+              <div className="flex gap-3">
+                {secondaryColors.map(c => (
+                  <div key={c.name} className={`${c.class} border-secondary-50 h-20 w-20 rounded-lg`} />
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="text-yds-c1m mb-2 text-gray-300">System</div>
+              <div className="flex gap-3">
+                {systemColors.map(c => (
+                  <div key={c.name} className="h-20 w-20 rounded-lg" style={{ backgroundColor: `var(${c.varName})` }} />
+                ))}
+              </div>
+            </div>
+          </Card>
         </div>
-      </div>
 
-      {/* 2행: Button, Input, CheckBox */}
-      <div className="flex gap-8">
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">Button</h2>
-          <div className="flex flex-wrap items-center gap-3">
-            <Button size="sm" variant="fill" color="primary">
-              Small
-            </Button>
-            <Button size="md" variant="fill" color="primary">
-              Medium
-            </Button>
-            <Button size="lg" variant="fill" color="primary">
-              Large
-            </Button>
-          </div>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
-            <Button size="sm" variant="outlined" color="primary">
-              Small
-            </Button>
-            <Button size="md" variant="outlined" color="primary">
-              Medium
-            </Button>
-            <Button size="lg" variant="outlined" color="primary">
-              Large
-            </Button>
-          </div>
-          <div className="mt-3">
-            <Button size="full" variant="fill" color="primary">
-              Full Width
-            </Button>
-          </div>
-        </section>
-
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">Input</h2>
-          <div className="flex flex-col gap-3">
-            <Input size="md" variant="search" color="white" placeholder="검색..." />
-            <Input size="md" variant="input" color="primary-400" placeholder="입력..." />
-            <Input size="md" variant="input" color="primary-100" placeholder="입력..." />
-            <Input size="md" variant="input" color="primary-400" placeholder="Disabled" disabled />
-            <NumberInput size="md" value={amount} onValueChange={setAmount} suffix="원" aria-label="금액" />
-          </div>
-        </section>
-
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">CheckBox</h2>
-          <div className="flex flex-col gap-3">
-            <CheckBox value="Unchecked" checked={checked1} onCheckedChange={setChecked1} shape="square" />
-            <CheckBox value="Checked" checked={checked2} onCheckedChange={setChecked2} shape="square" />
-            <CheckBox value="Check Shape" checked={checked3} onCheckedChange={setChecked3} shape="check" />
-            <CheckBox value="Indeterminate" checked={false} onCheckedChange={() => {}} indeterminate shape="square" />
-          </div>
-        </section>
-      </div>
-
-      {/* 3행: SelectBox, Chips, Table */}
-      <div className="flex gap-8">
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">SelectBox</h2>
-          <div className="flex flex-col gap-3">
-            <SelectBox selectBoxHook={selectBox1} size="md" />
-            <SelectBox selectBoxHook={selectBox2} size="md" />
-          </div>
-        </section>
-
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">Chips</h2>
-          <div className="flex flex-wrap gap-3">
-            <Chips variant="fill" color="primary">
-              <span className="text-black">Fill</span>
-            </Chips>
-            <Chips variant="outlined" color="primary">
-              Outlined
-            </Chips>
-            <Chips variant="fill" color="primary">
-              <span className="text-black">Tag</span>
-            </Chips>
-            <Chips variant="outlined" color="primary">
-              Label
-            </Chips>
-          </div>
-        </section>
-
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">Table</h2>
-          <Table>
-            <THead>
-              <Tr>
-                <Th>Name</Th>
-                <Th>Position</Th>
-                <Th>Status</Th>
-              </Tr>
-            </THead>
-            <TBody>
-              <Tr>
-                <Td>김영덕</Td>
-                <Td>Frontend</Td>
-                <Td>
-                  <Chips variant="fill" color="primary">
-                    <span className="text-black">Active</span>
-                  </Chips>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>홍길동</Td>
-                <Td>Backend</Td>
-                <Td>
-                  <Chips variant="outlined" color="primary">
-                    Inactive
-                  </Chips>
-                </Td>
-              </Tr>
-            </TBody>
-          </Table>
-        </section>
-      </div>
-
-      {/* 4행: Tabs, Calendar */}
-      <div className="flex gap-8">
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
-          <div className="flex flex-col items-start gap-6">
-            <div>
-              <div className="text-yds-c1m mb-2 text-gray-300">YearPicker</div>
-              <YearPicker value={year} onValueChange={setYear} />
+        {/* 2행: Button, Input, CheckBox */}
+        <div className="grid grid-cols-3 gap-8">
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Button</h2>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button size="sm" variant="fill" color="primary">
+                Small
+              </Button>
+              <Button size="md" variant="fill" color="primary">
+                Medium
+              </Button>
+              <Button size="lg" variant="fill" color="primary">
+                Large
+              </Button>
             </div>
-            <div>
-              <div className="text-yds-c1m mb-2 text-gray-300">MonthPicker</div>
-              <MonthPicker value={month} onValueChange={setMonth} />
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <Button size="sm" variant="outlined" color="primary">
+                Small
+              </Button>
+              <Button size="md" variant="outlined" color="primary">
+                Medium
+              </Button>
+              <Button size="lg" variant="outlined" color="primary">
+                Large
+              </Button>
             </div>
-            <div>
-              <div className="text-yds-c1m mb-2 text-gray-300">DatePicker</div>
-              <DatePicker value={date} onValueChange={setDate} />
+            <div className="mt-3">
+              <Button size="full" variant="fill" color="primary">
+                Full Width
+              </Button>
             </div>
-          </div>
-        </section>
+          </Card>
 
-        <section className="flex-1">
-          <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
-          <div className="flex flex-col items-start gap-6">
-            <div>
-              <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
-              <Tabs size="lg" value={tabLg} onValueChange={setTabLg} options={tabOptions} />
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Input</h2>
+            <div className="flex flex-col gap-3">
+              <Input size="full" variant="search" color="white" placeholder="검색..." />
+              <Input size="full" variant="input" color="primary-400" placeholder="입력..." />
+              <Input size="full" variant="input" color="primary-100" placeholder="입력..." />
+              <Input size="full" variant="input" color="primary-400" placeholder="Disabled" disabled />
+              <NumberInput size="full" value={amount} onValueChange={setAmount} suffix="원" aria-label="금액" />
             </div>
-            <div>
-              <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
-              <Tabs size="md" value={tabMd} onValueChange={setTabMd} options={tabOptions} />
+          </Card>
+
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">CheckBox</h2>
+            <div className="flex flex-col gap-3">
+              <CheckBox value="Unchecked" checked={checked1} onCheckedChange={setChecked1} shape="square" />
+              <CheckBox value="Checked" checked={checked2} onCheckedChange={setChecked2} shape="square" />
+              <CheckBox value="Check Shape" checked={checked3} onCheckedChange={setChecked3} shape="check" />
+              <CheckBox value="Indeterminate" checked={false} onCheckedChange={() => {}} indeterminate shape="square" />
             </div>
-            <div>
-              <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
-              <Tabs size="sm" value={tabSm} onValueChange={setTabSm} options={tabOptions} />
+          </Card>
+        </div>
+
+        {/* 3행: SelectBox, Chips, Table */}
+        <div className="grid grid-cols-3 gap-8">
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">SelectBox</h2>
+            <div className="flex flex-col gap-3">
+              <SelectBox selectBoxHook={selectBox1} size="full" />
+              <SelectBox selectBoxHook={selectBox2} size="full" />
             </div>
-          </div>
-        </section>
+          </Card>
+
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Chips</h2>
+            <div className="flex flex-wrap gap-3">
+              <Chips variant="fill" color="primary">
+                <span className="text-black">Fill</span>
+              </Chips>
+              <Chips variant="outlined" color="primary">
+                Outlined
+              </Chips>
+              <Chips variant="fill" color="primary">
+                <span className="text-black">Tag</span>
+              </Chips>
+              <Chips variant="outlined" color="primary">
+                Label
+              </Chips>
+            </div>
+          </Card>
+
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Table</h2>
+            <Table>
+              <THead>
+                <Tr>
+                  <Th>Name</Th>
+                  <Th>Position</Th>
+                  <Th>Status</Th>
+                </Tr>
+              </THead>
+              <TBody>
+                <Tr>
+                  <Td>김영덕</Td>
+                  <Td>Frontend</Td>
+                  <Td>
+                    <Chips variant="fill" color="primary">
+                      <span className="text-black">Active</span>
+                    </Chips>
+                  </Td>
+                </Tr>
+                <Tr>
+                  <Td>홍길동</Td>
+                  <Td>Backend</Td>
+                  <Td>
+                    <Chips variant="outlined" color="primary">
+                      Inactive
+                    </Chips>
+                  </Td>
+                </Tr>
+              </TBody>
+            </Table>
+          </Card>
+        </div>
+
+        {/* 4행: Calendar, Tabs, Card */}
+        <div className="grid grid-cols-3 gap-8">
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
+            <div className="flex flex-col gap-6">
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">YearPicker</div>
+                <YearPicker size="full" value={year} onValueChange={setYear} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">MonthPicker</div>
+                <MonthPicker size="full" value={month} onValueChange={setMonth} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">DatePicker</div>
+                <DatePicker size="full" value={date} onValueChange={setDate} />
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
+            <div className="flex flex-col items-start gap-6">
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
+                <Tabs size="lg" value={tabLg} onValueChange={setTabLg} options={tabOptions} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
+                <Tabs size="md" value={tabMd} onValueChange={setTabMd} options={tabOptions} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
+                <Tabs size="sm" value={tabSm} onValueChange={setTabSm} options={tabOptions} />
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Card</h2>
+            <div className="flex flex-col gap-6">
+              <Card variant="outlined">
+                <Stack gap="sm">
+                  <span className="text-yds-b1 text-white">Outlined</span>
+                  <span className="text-yds-c1m text-gray-300">테두리로 영역을 구분합니다.</span>
+                </Stack>
+              </Card>
+              <Card variant="filled">
+                <Stack gap="sm">
+                  <span className="text-yds-b1 text-white">Filled</span>
+                  <span className="text-yds-c1m text-gray-300">배경색으로 영역을 구분합니다.</span>
+                </Stack>
+              </Card>
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
   )

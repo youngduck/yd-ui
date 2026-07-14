@@ -34,17 +34,17 @@ const TypographyShowcase: React.FC = () => {
     <div className="space-y-8 p-8">
       {sections.map(section => (
         <div key={section.title}>
-          <div className="mb-4 text-lg font-bold text-white">{section.title}</div>
+          <div className="text-yds-s2 mb-4 text-white">{section.title}</div>
           <div className="space-y-4">
             {section.items.map(item => (
               <div key={item.name} className="flex items-baseline gap-8">
                 <div className="w-16 shrink-0">
-                  <div className="text-sm text-yellow-300">{item.name}</div>
+                  <div className="text-yds-c1m text-yellow-300">{item.name}</div>
                 </div>
                 <div className={`${item.class} flex-1 text-white`}>
                   YD Design System Typography 영덕 디자인 시스템
                 </div>
-                <div className="shrink-0 text-xs text-gray-400">
+                <div className="text-yds-c1r shrink-0 text-gray-400">
                   <code className="text-yellow-300">.{item.class}</code> • {item.size} / {item.line} • {item.weight}
                 </div>
               </div>
