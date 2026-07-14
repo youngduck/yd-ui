@@ -247,6 +247,30 @@
   --color-calendar-cell-today-border: var(--color-primary-100);
   --color-calendar-focus-ring: var(--color-white);
 
+  /* Layout(Stack/Inline) Spacing Tokens */
+  --stack-gap-sm: var(--spacing-2);
+  --stack-gap-md: var(--spacing-4);
+  --stack-gap-lg: var(--spacing-6);
+  --inline-gap-sm: var(--spacing-1);
+  --inline-gap-md: var(--spacing-2);
+  --inline-gap-lg: var(--spacing-4);
+
+  /* Field Spacing Tokens */
+  --field-gap: var(--spacing-2);
+  --field-label-typography-font-size: var(--font-size-yds-c1m);
+  --field-label-typography-line-height: var(--line-height-yds-c1m);
+  --field-label-typography-font-weight: var(--font-weight-yds-c1m);
+  --field-message-typography-font-size: var(--font-size-yds-c1r);
+  --field-message-typography-line-height: var(--line-height-yds-c1r);
+  --field-message-typography-font-weight: var(--font-weight-yds-c1r);
+  --field-typography-font-family: var(--font-yds-wanted);
+
+  /* Field Color Tokens */
+  --color-field-label-text: var(--color-font-primary-light);
+  --color-field-description-text: var(--color-secondary-50);
+  --color-field-error-text: var(--color-error);
+  --color-field-required-mark: var(--color-error);
+
   /* Z-index Tokens */
   --z-index-select-box-dropdown: 1000;
   --z-index-calendar-panel: 1000;
