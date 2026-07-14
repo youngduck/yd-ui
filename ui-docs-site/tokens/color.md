@@ -37,6 +37,28 @@ Opacity 변형(`-opacity`)도 제공합니다 (`rgba` 0.7):
 | `--color-white` | `rgb(255, 255, 255)` |
 | `--color-black` | `rgb(0, 0, 0)` |
 
+### Green
+
+| 토큰 | 값 |
+|------|-----|
+| `--color-green-50` | `rgb(240, 253, 244)` |
+| `--color-green-100` | `rgb(220, 252, 231)` |
+| `--color-green-200` | `rgb(187, 247, 208)` |
+| `--color-green-300` | `rgb(134, 239, 172)` |
+| `--color-green-400` | `rgb(74, 222, 128)` |
+
+### Red
+
+| 토큰 | 값 |
+|------|-----|
+| `--color-red-50` | `rgb(254, 242, 242)` |
+| `--color-red-100` | `rgb(254, 226, 226)` |
+| `--color-red-200` | `rgb(254, 202, 202)` |
+| `--color-red-300` | `rgb(252, 165, 165)` |
+| `--color-red-400` | `rgb(248, 113, 113)` |
+
+> 원시 층 명명 규칙: 브랜드색은 역할명(primary/secondary), 기능색은 색상명(green/red)을 사용합니다. 색에 의미(success 등)를 부여하는 것은 Semantic 층의 몫입니다. 같은 빨강이 문맥에 따라 에러(나쁨)일 수도, 주가 상승(좋음, 한국 증시 관례)일 수도 있기 때문입니다.
+
 ---
 
 ## Semantic Colors
@@ -73,6 +95,26 @@ Opacity 변형(`-opacity`)도 제공합니다 (`rgba` 0.7):
 | `text-primary-300` | 진한 골드 텍스트 |
 | `text-primary-400` | 강조 골드 텍스트 |
 
+### System
+
+시스템 상태 전달용 시맨틱 토큰입니다.
+
+| 토큰 | 참조 | 용도 |
+|------|------|------|
+| `--color-success` | green-400 | 성공 상태 |
+| `--color-error` | red-400 | 에러 상태 (Field 에러 메시지 등) |
+
+### Finance
+
+수입/지출 등 금액 증감 표현용 시맨틱 토큰입니다. 금융 도메인 화면에서는 이 이름을 사용합니다.
+
+| 토큰 | 참조 | 용도 |
+|------|------|------|
+| `--color-income` | green-400 | 수입 금액 표시 |
+| `--color-expense` | red-400 | 지출 금액 표시 |
+
+> 색상만으로 수입/지출을 구분하지 말고 `+`/`-` 부호를 병행하는 것을 권장합니다. (WCAG 1.4.1)
+
 ### Border
 
 | Tailwind 클래스 | 설명 |
@@ -81,6 +123,16 @@ Opacity 변형(`-opacity`)도 제공합니다 (`rgba` 0.7):
 | `border-secondary-50` ~ `border-secondary-400` | Secondary 계열 테두리 |
 
 > 모든 border 클래스는 `border-width: 2px`, `border-radius: 8px`가 기본 적용됩니다.
+
+시맨틱 테두리 토큰:
+
+| 토큰 | 참조 | 용도 |
+|------|------|------|
+| `--color-border-primary-light` | primary-100 | Input·Calendar 트리거 등 밝은 강조 테두리 |
+| `--color-border-primary-deep` | primary-400 | Button outlined 등 진한 강조 테두리 |
+| `--color-border-secondary-light` | secondary-50 | Card outlined 등 면 구분 테두리 |
+| `--color-border-secondary-deep` | secondary-400 | 어두운 면 구분 테두리 |
+| `--color-border-divider` | secondary-100 | Table 행 구분선 · Tabs 컨테이너 테두리 |
 
 ### Z-index
 

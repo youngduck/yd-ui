@@ -52,6 +52,14 @@ export default defineConfig({
           ],
         },
         {
+          text: '레이아웃',
+          items: [
+            { text: 'Stack', link: '/components/stack' },
+            { text: 'Inline', link: '/components/inline' },
+            { text: 'Field', link: '/components/field' },
+          ],
+        },
+        {
           text: '달력',
           items: [
             { text: 'YearPicker', link: '/components/year-picker' },

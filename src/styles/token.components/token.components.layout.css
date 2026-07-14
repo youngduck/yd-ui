@@ -1,0 +1,128 @@
+/**
+ * Layout(Stack / Inline / Field) 컴포넌트 스타일.
+ * 컴포넌트 사이의 간격을 spacing 토큰으로 강제하는 조합용 프리미티브입니다.
+ * Stack 은 수직 나열, Inline 은 수평 나열(줄바꿈), Field 는 라벨+입력+메시지 묶음을 담당합니다.
+ */
+@layer components {
+  .yds-stack {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  /* Stack Gaps */
+  .yds-stack-gap-sm {
+    gap: var(--stack-gap-sm);
+  }
+
+  .yds-stack-gap-md {
+    gap: var(--stack-gap-md);
+  }
+
+  .yds-stack-gap-lg {
+    gap: var(--stack-gap-lg);
+  }
+
+  /* Stack Aligns */
+  .yds-stack-align-start {
+    align-items: flex-start;
+  }
+
+  .yds-stack-align-center {
+    align-items: center;
+  }
+
+  .yds-stack-align-end {
+    align-items: flex-end;
+  }
+
+  .yds-stack-align-stretch {
+    align-items: stretch;
+  }
+
+  .yds-inline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  /* Inline Gaps */
+  .yds-inline-gap-sm {
+    gap: var(--inline-gap-sm);
+  }
+
+  .yds-inline-gap-md {
+    gap: var(--inline-gap-md);
+  }
+
+  .yds-inline-gap-lg {
+    gap: var(--inline-gap-lg);
+  }
+
+  /* Inline Aligns (교차축) */
+  .yds-inline-align-start {
+    align-items: flex-start;
+  }
+
+  .yds-inline-align-center {
+    align-items: center;
+  }
+
+  .yds-inline-align-end {
+    align-items: flex-end;
+  }
+
+  /* Inline Justifies (주축) */
+  .yds-inline-justify-start {
+    justify-content: flex-start;
+  }
+
+  .yds-inline-justify-center {
+    justify-content: center;
+  }
+
+  .yds-inline-justify-end {
+    justify-content: flex-end;
+  }
+
+  .yds-inline-justify-between {
+    justify-content: space-between;
+  }
+
+  .yds-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--field-gap);
+    box-sizing: border-box;
+  }
+
+  .yds-field-label {
+    color: var(--color-field-label-text);
+    font-size: var(--field-label-typography-font-size);
+    line-height: var(--field-label-typography-line-height);
+    font-weight: var(--field-label-typography-font-weight);
+    font-family: var(--field-typography-font-family);
+  }
+
+  .yds-field-required {
+    margin-left: var(--spacing-1);
+    color: var(--color-field-required-mark);
+  }
+
+  .yds-field-description {
+    color: var(--color-field-description-text);
+    font-size: var(--field-message-typography-font-size);
+    line-height: var(--field-message-typography-line-height);
+    font-weight: var(--field-message-typography-font-weight);
+    font-family: var(--field-typography-font-family);
+  }
+
+  .yds-field-error {
+    color: var(--color-field-error-text);
+    font-size: var(--field-message-typography-font-size);
+    line-height: var(--field-message-typography-line-height);
+    font-weight: var(--field-message-typography-font-weight);
+    font-family: var(--field-typography-font-family);
+  }
+}

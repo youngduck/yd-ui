@@ -1,14 +1,24 @@
 /**
  * Card 컴포넌트 스타일.
- * card-navy-50 스타일을 token.semantic.css에서 가져와 사용합니다.
+ * 콘텐츠를 담는 면(surface)으로, outlined(테두리) / filled(배경) 두 가지 variant 를 지원합니다.
  */
 @layer components {
   .yds-card {
     display: block;
     box-sizing: border-box;
-    border-style: solid;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
   }
-  
+
+  .yds-card-outlined {
+    border: var(--yds-border-width) solid var(--color-card-outlined-border);
+  }
+
+  .yds-card-filled {
+    background-color: var(--color-card-filled-bg);
+  }
+
+  /* 하위 호환: 기존 card-navy-* 유틸을 className 으로 넘기던 사용처 유지 */
   .yds-card.card-navy-50 {
     border-color: var(--color-secondary-50);
     border-width: var(--yds-border-width);

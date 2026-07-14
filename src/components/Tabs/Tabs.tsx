@@ -1,8 +1,5 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
-
-// SSR(Next.js 등) 서버 렌더 시 useLayoutEffect 경고를 피하기 위한 대체
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
+import { useRef } from 'react'
 
 const tabsVariants = cva('yds-tabs', {
   variants: {
@@ -40,13 +37,7 @@ type TabsProps = {
   VariantProps<typeof tabsVariants>
 
 export function Tabs({ options, value, onValueChange, size, className = '', ...props }: TabsProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([])
-
-  // 선택된 탭 위로 부드럽게 이동하는 하이라이트(indicator) 위치/크기
-  const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({ opacity: 0 })
-  // 첫 렌더에서는 슬라이드 애니메이션 없이 제자리에 표시, 이후 상호작용부터 애니메이션 적용
-  const [animated, setAnimated] = useState(false)
 
   // 활성화된 탭의 인덱스만 추출 (키보드 이동 시 disabled 건너뛰기 위함)
   const enabledIndexes = options.map((option, index) => (option.disabled ? -1 : index)).filter(index => index !== -1)
@@ -98,53 +89,13 @@ export function Tabs({ options, value, onValueChange, size, className = '', ...p
   const selectedIndex = options.findIndex(option => option.value === value)
   const focusableIndex = selectedIndex !== -1 ? selectedIndex : enabledIndexes[0]
 
-  // 선택된 탭의 위치/크기를 측정해 indicator에 반영. 선택값이 없으면 숨김.
-  useIsomorphicLayoutEffect(() => {
-    const el = selectedIndex !== -1 ? itemRefs.current[selectedIndex] : null
-
-    if (!el) {
-      setIndicatorStyle(prev => ({ ...prev, opacity: 0 }))
-      return
-    }
-
-    const update = () => {
-      setIndicatorStyle({
-        opacity: 1,
-        width: el.offsetWidth,
-        height: el.offsetHeight,
-        transform: `translate(${el.offsetLeft}px, ${el.offsetTop}px)`,
-      })
-    }
-
-    update()
-
-    // 컨테이너/폰트 로드 등으로 크기가 바뀌면 위치 재계산 (Jest/jsdom 등 미지원 환경에서는 생략)
-    if (typeof ResizeObserver === 'undefined') return
-
-    const observer = new ResizeObserver(update)
-    if (containerRef.current) observer.observe(containerRef.current)
-    return () => observer.disconnect()
-  }, [selectedIndex, size, options])
-
-  // 마운트 직후부터 슬라이드 애니메이션 활성화 (첫 배치는 애니메이션 없이)
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setAnimated(true))
-    return () => cancelAnimationFrame(id)
-  }, [])
-
   return (
     <div
-      ref={containerRef}
       role="radiogroup"
       aria-label={props['aria-label'] || '탭'}
       className={`${tabsVariants({ size })} ${className}`}
       {...props}
     >
-      <span
-        aria-hidden="true"
-        className={`yds-tabs-indicator${animated ? ' yds-tabs-indicator-animated' : ''}`}
-        style={indicatorStyle}
-      />
       {options.map((option, index) => {
         const selected = option.value === value
 

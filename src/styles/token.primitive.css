@@ -22,6 +22,18 @@
     --color-white: rgb(255, 255, 255);
     --color-black: rgb(0, 0, 0);
 
+    --color-green-50: rgb(240, 253, 244);
+    --color-green-100: rgb(220, 252, 231);
+    --color-green-200: rgb(187, 247, 208);
+    --color-green-300: rgb(134, 239, 172);
+    --color-green-400: rgb(74, 222, 128);
+
+    --color-red-50: rgb(254, 242, 242);
+    --color-red-100: rgb(254, 226, 226);
+    --color-red-200: rgb(254, 202, 202);
+    --color-red-300: rgb(252, 165, 165);
+    --color-red-400: rgb(248, 113, 113);
+
     
   /* Typography Tokens */
   --font-size-yds-h1: 48px;
@@ -54,6 +66,17 @@
 
   /* Font Family */
   --font-yds-wanted: 'Wanted Sans Variable';
+
+  /* Spacing Tokens (4px 단위 스케일) */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
 
   /* border Tokens */
   --yds-border-width: 2px;

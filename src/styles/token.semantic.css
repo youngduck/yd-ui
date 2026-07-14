@@ -33,18 +33,27 @@
   --color-border-primary-deep: var(--color-primary-400);
   --color-border-secondary-light: var(--color-secondary-50);
   --color-border-secondary-deep: var(--color-secondary-400);
+  --color-border-divider: var(--color-secondary-100);
 
   /* Font Tokens */
   --color-font-primary-light: var(--color-primary-100);
   --color-font-primary-deep: var(--color-primary-400);
+
+  /* System Semantic Tokens (성공·에러 등 시스템 상태 표현) */
+  --color-success: var(--color-green-400);
+  --color-error: var(--color-red-400);
+
+  /* Finance Semantic Tokens (수입/지출 등 증감 표현) */
+  --color-income: var(--color-green-400);
+  --color-expense: var(--color-red-400);
 
   /* Table Tokens */
   --color-table-wrapper-bg: var(--color-secondary-300);
   --color-table-header-bg: var(--color-secondary-200);
   --color-table-row-bg: var(--color-secondary-300);
   --color-table-row-bg-striped: var(--color-secondary-200);
-  --color-table-border: var(--color-secondary-100);
-  --color-table-border-header: var(--color-secondary-100);
+  --color-table-border: var(--color-border-divider);
+  --color-table-border-header: var(--color-border-divider);
   --color-table-text: var(--color-white);
   --color-table-text-header: var(--color-primary-100);
   
@@ -64,6 +73,12 @@
   /* Button Spacing Tokens */
   --button-height: 48px;
   --button-border-radius: var(--yds-border-radius);
+
+  /* Card Tokens */
+  --card-padding: var(--yds-content-padding);
+  --card-border-radius: var(--yds-border-radius);
+  --color-card-outlined-border: var(--color-secondary-50);
+  --color-card-filled-bg: var(--color-background-secondary);
 
   /* Modal Spacing Tokens */
   --modal-size-sm-width: 320px;
@@ -187,15 +202,13 @@
   --tabs-typography-line-height: var(--line-height-yds-c1m);
   --tabs-typography-font-weight: var(--font-weight-yds-c1m);
   --tabs-typography-font-family: var(--font-yds-wanted);
-  --tabs-indicator-transition-duration: 0.25s;
-  --tabs-indicator-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Tabs Color Tokens */
+  /* Tabs Color Tokens (구분선 색 테두리, 선택은 노란 글자로 강조) */
   --color-tabs-bg: var(--color-secondary-300);
-  --color-tabs-item-text: var(--color-secondary-50);
-  --color-tabs-item-text-hover: var(--color-white);
-  --color-tabs-item-selected-bg: var(--color-primary-400);
-  --color-tabs-item-selected-text: var(--color-black);
+  --color-tabs-border: var(--color-border-divider);
+  --color-tabs-item-text: var(--color-white);
+  --color-tabs-item-text-hover: var(--color-primary-100);
+  --color-tabs-item-selected-text: var(--color-primary-400);
   --color-tabs-focus-ring: var(--color-white);
 
   /* Calendar Spacing Tokens */
@@ -239,6 +252,30 @@
   --color-calendar-cell-selected-text: var(--color-black);
   --color-calendar-cell-today-border: var(--color-primary-100);
   --color-calendar-focus-ring: var(--color-white);
+
+  /* Layout(Stack/Inline) Spacing Tokens */
+  --stack-gap-sm: var(--spacing-2);
+  --stack-gap-md: var(--spacing-4);
+  --stack-gap-lg: var(--spacing-6);
+  --inline-gap-sm: var(--spacing-1);
+  --inline-gap-md: var(--spacing-2);
+  --inline-gap-lg: var(--spacing-4);
+
+  /* Field Spacing Tokens */
+  --field-gap: var(--spacing-2);
+  --field-label-typography-font-size: var(--font-size-yds-c1m);
+  --field-label-typography-line-height: var(--line-height-yds-c1m);
+  --field-label-typography-font-weight: var(--font-weight-yds-c1m);
+  --field-message-typography-font-size: var(--font-size-yds-c1r);
+  --field-message-typography-line-height: var(--line-height-yds-c1r);
+  --field-message-typography-font-weight: var(--font-weight-yds-c1r);
+  --field-typography-font-family: var(--font-yds-wanted);
+
+  /* Field Color Tokens */
+  --color-field-label-text: var(--color-font-primary-light);
+  --color-field-description-text: var(--color-secondary-50);
+  --color-field-error-text: var(--color-error);
+  --color-field-required-mark: var(--color-error);
 
   /* Z-index Tokens */
   --z-index-select-box-dropdown: 1000;
