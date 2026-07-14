@@ -21,8 +21,8 @@ function App() {
 - **표준 구조**: 라벨(yds-c1m, primary-100) + 임의의 입력(children) + 설명/에러 메시지(yds-c1r)
 - **에러 표시**: `error` 지정 시 설명 대신 에러가 표시되고 `role="alert"` 로 스크린 리더에 즉시 전달됩니다.
 - **필수 표시**: `required` 지정 시 라벨 옆에 빨간 별표(*)가 붙습니다.
-- **라벨 클릭 포커스**: label 요소로 감싸므로 네이티브 input 은 라벨 클릭 시 자동으로 포커스됩니다.
-- **입력 무관**: Input / NumberInput / DatePicker / SelectBox 등 어떤 입력이든 children 으로 감쌀 수 있습니다.
+- **접근성 자동 연결**: 단일 입력 요소에는 `id` 가 자동 부여되어 라벨과 `htmlFor` 로 연결되고, 설명/에러가 있으면 `aria-describedby`, 에러 상태면 `aria-invalid` 가 함께 주입됩니다. 네이티브 input 은 라벨 클릭 시 자동으로 포커스됩니다.
+- **입력 무관**: Input / NumberInput / DatePicker / SelectBox 등 어떤 입력이든 children 으로 넣을 수 있습니다.
 
 ## 에러 상태
 
@@ -61,7 +61,7 @@ function App() {
 | `required`    | `boolean`         | `false` | 필수 입력 표시(*) 여부                   |
 | `children`    | `React.ReactNode` | -       | 라벨이 감쌀 입력 요소 (필수)             |
 
-Field는 표준 HTML label 요소의 속성을 함께 지원합니다.
+Field는 표준 HTML div 요소의 속성을 함께 지원합니다. children 이 단일 요소일 때만 `id` / `aria-describedby` / `aria-invalid` 가 자동 주입되며, 이미 `id` 를 가진 요소는 기존 id 로 라벨이 연결됩니다.
 
 ## 디자인 토큰
 
