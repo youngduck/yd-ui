@@ -33,6 +33,7 @@
   --color-border-primary-deep: var(--color-primary-400);
   --color-border-secondary-light: var(--color-secondary-50);
   --color-border-secondary-deep: var(--color-secondary-400);
+  --color-border-divider: var(--color-secondary-100);
 
   /* Font Tokens */
   --color-font-primary-light: var(--color-primary-100);
@@ -43,8 +44,8 @@
   --color-table-header-bg: var(--color-secondary-200);
   --color-table-row-bg: var(--color-secondary-300);
   --color-table-row-bg-striped: var(--color-secondary-200);
-  --color-table-border: var(--color-secondary-100);
-  --color-table-border-header: var(--color-secondary-100);
+  --color-table-border: var(--color-border-divider);
+  --color-table-border-header: var(--color-border-divider);
   --color-table-text: var(--color-white);
   --color-table-text-header: var(--color-primary-100);
   
@@ -187,15 +188,13 @@
   --tabs-typography-line-height: var(--line-height-yds-c1m);
   --tabs-typography-font-weight: var(--font-weight-yds-c1m);
   --tabs-typography-font-family: var(--font-yds-wanted);
-  --tabs-indicator-transition-duration: 0.25s;
-  --tabs-indicator-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Tabs Color Tokens */
+  /* Tabs Color Tokens (구분선 색 테두리, 선택은 노란 글자로 강조) */
   --color-tabs-bg: var(--color-secondary-300);
-  --color-tabs-item-text: var(--color-secondary-50);
-  --color-tabs-item-text-hover: var(--color-white);
-  --color-tabs-item-selected-bg: var(--color-primary-400);
-  --color-tabs-item-selected-text: var(--color-black);
+  --color-tabs-border: var(--color-border-divider);
+  --color-tabs-item-text: var(--color-white);
+  --color-tabs-item-text-hover: var(--color-primary-100);
+  --color-tabs-item-selected-text: var(--color-primary-400);
   --color-tabs-focus-ring: var(--color-white);
 
   /* Calendar Spacing Tokens */

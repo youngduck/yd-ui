@@ -1,6 +1,6 @@
 # Tabs
 
-Tabs 컴포넌트는 컨테이너 안에서 여러 항목 중 하나를 선택하는 탭형 토글입니다. 선택된 탭은 노란(primary) 배경 + 검정 글씨로 강조되며, 지역·기간 필터 같은 단일 선택 UI에 적합합니다. `value` / `onValueChange` 로 상태를 관리하는 제어 컴포넌트입니다.
+Tabs 컴포넌트는 컨테이너 안에서 여러 항목 중 하나를 선택하는 탭형 토글입니다. 구분선 색 테두리를 두른 네이비 컨테이너 안에서 선택된 탭은 노란(primary) 글자, 미선택 탭은 흰 글자로 표시되며, 지역·기간 필터 같은 단일 선택 UI에 적합합니다. `value` / `onValueChange` 로 상태를 관리하는 제어 컴포넌트입니다.
 
 ## 기본 사용법
 
@@ -29,8 +29,8 @@ function App() {
 
 - **제어 컴포넌트**: `value` / `onValueChange` 로 선택 상태를 직접 관리합니다.
 - **options 기반**: `{ label, value, disabled? }` 배열로 탭을 구성합니다.
-- **선택 강조**: 선택된 탭은 노란(primary-400) 배경 + 검정 글씨로 표시됩니다.
-- **슬라이드 애니메이션**: 선택이 바뀌면 노란 하이라이트가 새 탭 위치로 부드럽게 이동합니다. `prefers-reduced-motion: reduce` 환경에서는 애니메이션이 자동으로 비활성화됩니다.
+- **선택 강조**: 선택된 탭은 노란(primary-400) 글자, 미선택 탭은 흰 글자로 표시됩니다.
+- **구분선 테두리**: 컨테이너에 Table 행 구분선과 같은 `--color-border-divider` 토큰의 테두리가 적용됩니다.
 - **사이즈 지원**: sm / md / lg 세 가지 사이즈 제공 (기본값 md)
 - **접근성**: `role="radiogroup"` / `role="radio"`, 방향키·Home·End 키보드 탐색, 로빙 탭인덱스 적용
 - **디자인 토큰**: 색상·간격·타이포그래피를 모두 토큰에서 일괄 적용
@@ -143,8 +143,6 @@ Tabs 컴포넌트는 다음 디자인 토큰을 사용합니다.
 - `--tabs-item-border-radius`: 개별 탭 모서리 반경 (6px)
 - `--tabs-item-padding-x`: 탭 좌우 패딩 (16px)
 - `--tabs-item-height-sm` / `-md` / `-lg`: 사이즈별 탭 높이 (28 / 34 / 42px)
-- `--tabs-indicator-transition-duration`: 하이라이트 이동 시간 (0.25s)
-- `--tabs-indicator-transition-easing`: 하이라이트 이동 이징 (cubic-bezier(0.4, 0, 0.2, 1))
 
 ### Typography Tokens
 - `--tabs-typography-font-size`: yds-c1m 폰트 크기
@@ -154,8 +152,8 @@ Tabs 컴포넌트는 다음 디자인 토큰을 사용합니다.
 
 ### Color Tokens
 - `--color-tabs-bg`: 컨테이너 배경색 (secondary-300)
-- `--color-tabs-item-text`: 미선택 탭 텍스트 색상 (secondary-50)
-- `--color-tabs-item-text-hover`: 미선택 탭 hover 텍스트 색상 (white)
-- `--color-tabs-item-selected-bg`: 선택된 탭 배경색 (primary-400, 노란색)
-- `--color-tabs-item-selected-text`: 선택된 탭 텍스트 색상 (black)
+- `--color-tabs-border`: 컨테이너 테두리 색상 (border-divider, Table 구분선과 공유)
+- `--color-tabs-item-text`: 미선택 탭 텍스트 색상 (white)
+- `--color-tabs-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-100)
+- `--color-tabs-item-selected-text`: 선택된 탭 텍스트 색상 (primary-400, 노란색)
 - `--color-tabs-focus-ring`: 포커스 링 색상 (white)
