@@ -6,10 +6,14 @@
 - feat: spacing토큰및레이아웃컴포넌트추가
 - feat: Card컴포넌트variant추가
 
+### 수정
+- fix: Field라벨htmlFor분리및aria속성자동주입으로접근성보강
+
 ### 변경
 - refactor: Tabs디자인개편및구분선토큰계층정비
 - refactor: Overview쇼케이스및파운데이션타이포토큰정비
 - chore: v0.19.1버전범프
+- docs: v0.19.1 CHANGELOG 갱신
 
 ---
 ## [0.18.1] - 2026-07-13
