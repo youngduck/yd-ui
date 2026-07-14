@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
 const meta: Meta = {
@@ -27,18 +27,34 @@ const ColorPalette: React.FC = () => {
     { name: 'secondary-400', value: 'rgb(25, 25, 31)', class: 'bg-secondary-400' },
   ]
 
+  const greenColors = [
+    { name: 'green-50', value: 'rgb(240, 253, 244)', varName: '--color-green-50' },
+    { name: 'green-100', value: 'rgb(220, 252, 231)', varName: '--color-green-100' },
+    { name: 'green-200', value: 'rgb(187, 247, 208)', varName: '--color-green-200' },
+    { name: 'green-300', value: 'rgb(134, 239, 172)', varName: '--color-green-300' },
+    { name: 'green-400', value: 'rgb(74, 222, 128)', varName: '--color-green-400' },
+  ]
+
+  const redColors = [
+    { name: 'red-50', value: 'rgb(254, 242, 242)', varName: '--color-red-50' },
+    { name: 'red-100', value: 'rgb(254, 226, 226)', varName: '--color-red-100' },
+    { name: 'red-200', value: 'rgb(254, 202, 202)', varName: '--color-red-200' },
+    { name: 'red-300', value: 'rgb(252, 165, 165)', varName: '--color-red-300' },
+    { name: 'red-400', value: 'rgb(248, 113, 113)', varName: '--color-red-400' },
+  ]
+
   return (
     <div className="space-y-8 p-8">
       {/* Primary */}
       <div>
-        <div className="mb-4 text-lg font-bold text-white">Primary</div>
+        <div className="mb-4 text-yds-s2 text-white">Primary</div>
         <div className="flex gap-4">
           {primaryColors.map(color => (
             <div key={color.name} className="flex w-30 flex-col items-center gap-2">
               <div className={`${color.class} h-24 w-24 rounded-lg border border-gray-600`} />
               <div className="text-center">
-                <div className="text-sm text-yellow-300">{color.name}</div>
-                <div className="text-xs text-gray-400">{color.value}</div>
+                <div className="text-yds-c1m text-yellow-300">{color.name}</div>
+                <div className="text-yds-c1r text-gray-400">{color.value}</div>
               </div>
             </div>
           ))}
@@ -47,19 +63,58 @@ const ColorPalette: React.FC = () => {
 
       {/* Secondary */}
       <div>
-        <div className="mb-4 text-lg font-bold text-white">Secondary</div>
+        <div className="mb-4 text-yds-s2 text-white">Secondary</div>
         <div className="flex gap-4">
           {secondaryColors.map(color => (
             <div key={color.name} className="flex w-30 flex-col items-center gap-2">
               <div className={`${color.class} h-24 w-24 rounded-lg border border-gray-600`} />
               <div className="text-center">
-                <div className="text-sm text-yellow-300">{color.name}</div>
-                <div className="text-xs text-gray-400">{color.value}</div>
+                <div className="text-yds-c1m text-yellow-300">{color.name}</div>
+                <div className="text-yds-c1r text-gray-400">{color.value}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Green */}
+      <div>
+        <div className="mb-4 text-yds-s2 text-white">Green</div>
+        <div className="flex gap-4">
+          {greenColors.map(color => (
+            <div key={color.name} className="flex w-30 flex-col items-center gap-2">
+              <div
+                className="h-24 w-24 rounded-lg border border-gray-600"
+                style={{ backgroundColor: `var(${color.varName})` }}
+              />
+              <div className="text-center">
+                <div className="text-yds-c1m text-yellow-300">{color.name}</div>
+                <div className="text-yds-c1r text-gray-400">{color.value}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Red */}
+      <div>
+        <div className="mb-4 text-yds-s2 text-white">Red</div>
+        <div className="flex gap-4">
+          {redColors.map(color => (
+            <div key={color.name} className="flex w-30 flex-col items-center gap-2">
+              <div
+                className="h-24 w-24 rounded-lg border border-gray-600"
+                style={{ backgroundColor: `var(${color.varName})` }}
+              />
+              <div className="text-center">
+                <div className="text-yds-c1m text-yellow-300">{color.name}</div>
+                <div className="text-yds-c1r text-gray-400">{color.value}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   )
 }

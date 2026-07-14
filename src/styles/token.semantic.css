@@ -39,6 +39,14 @@
   --color-font-primary-light: var(--color-primary-100);
   --color-font-primary-deep: var(--color-primary-400);
 
+  /* System Semantic Tokens (성공·에러 등 시스템 상태 표현) */
+  --color-success: var(--color-green-400);
+  --color-error: var(--color-red-400);
+
+  /* Finance Semantic Tokens (수입/지출 등 증감 표현) */
+  --color-income: var(--color-green-400);
+  --color-expense: var(--color-red-400);
+
   /* Table Tokens */
   --color-table-wrapper-bg: var(--color-secondary-300);
   --color-table-header-bg: var(--color-secondary-200);

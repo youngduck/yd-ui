@@ -22,6 +22,18 @@
     --color-white: rgb(255, 255, 255);
     --color-black: rgb(0, 0, 0);
 
+    --color-green-50: rgb(240, 253, 244);
+    --color-green-100: rgb(220, 252, 231);
+    --color-green-200: rgb(187, 247, 208);
+    --color-green-300: rgb(134, 239, 172);
+    --color-green-400: rgb(74, 222, 128);
+
+    --color-red-50: rgb(254, 242, 242);
+    --color-red-100: rgb(254, 226, 226);
+    --color-red-200: rgb(254, 202, 202);
+    --color-red-300: rgb(252, 165, 165);
+    --color-red-400: rgb(248, 113, 113);
+
     
   /* Typography Tokens */
   --font-size-yds-h1: 48px;
