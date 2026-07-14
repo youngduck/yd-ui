@@ -74,6 +74,12 @@
   --button-height: 48px;
   --button-border-radius: var(--yds-border-radius);
 
+  /* Card Tokens */
+  --card-padding: var(--yds-content-padding);
+  --card-border-radius: var(--yds-border-radius);
+  --color-card-outlined-border: var(--color-secondary-50);
+  --color-card-filled-bg: var(--color-background-secondary);
+
   /* Modal Spacing Tokens */
   --modal-size-sm-width: 320px;
   --modal-size-sm-height: 400px;
