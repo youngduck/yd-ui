@@ -23,10 +23,13 @@ export const useOverlay = () => {
     const content =
       typeof modalData.content === 'function' ? modalData.content(() => modalClose(id)) : modalData.content
 
+    const { title, footer } = modalData.config
+    const resolvedFooter = typeof footer === 'function' ? footer(() => modalClose(id)) : footer
+
     mount({
       id,
       component: (
-        <Modal onClose={() => modalClose(id)} size={modalData.config.size}>
+        <Modal onClose={() => modalClose(id)} size={modalData.config.size} title={title} footer={resolvedFooter}>
           {content}
         </Modal>
       ),
