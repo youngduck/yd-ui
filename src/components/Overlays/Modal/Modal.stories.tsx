@@ -26,7 +26,7 @@ const ModalPlayground = () => {
           modalOpen({
             config: {
               size: 'sm',
-              title: <span className="text-yds-s1 text-white">모달 제목</span>,
+              title: '모달 제목',
               footer: onClose => (
                 <Button size="full" variant="outlined" color="primary" onClick={onClose}>
                   닫기
@@ -152,7 +152,7 @@ const ModalStickyDemo = () => {
         modalOpen({
           config: {
             size: 'md',
-            title: <span className="text-yds-s1 text-white">고정 제목 영역</span>,
+            title: '고정 제목 영역',
             footer: onClose => (
               <div className="flex gap-2">
                 <Button size="full" variant="outlined" color="primary" onClick={onClose}>
