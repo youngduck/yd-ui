@@ -17,30 +17,30 @@ const ModalPlayground = () => {
   const { modalOpen } = useOverlay()
 
   return (
-    <div className='w-[800px] h-[500px] flex items-center justify-center'>
-    <Button
-      size="lg"
-      variant="fill"
-      color="primary"
-      onClick={() =>
-        modalOpen({
-          config: { size: 'sm' },
-          content: onClose => (
-            <div className="flex flex-col gap-4 p-4 items-stretch justify-around">
-              <h2 className="text-yds-s1 text-white">모달 제목</h2>
-              <p className="text-yds-b2 text-gray-300">배경 클릭, ESC 키, 닫기 버튼으로 닫을 수 있습니다.</p>
-              <div className="flex justify-center">
-                <Button size="lg" variant="outlined" color="primary" onClick={onClose}>
+    <div className="w-[800px] h-[500px] flex items-center justify-center">
+      <Button
+        size="lg"
+        variant="fill"
+        color="primary"
+        onClick={() =>
+          modalOpen({
+            config: {
+              size: 'sm',
+              title: <span className="text-yds-s1 text-white">모달 제목</span>,
+              footer: onClose => (
+                <Button size="full" variant="outlined" color="primary" onClick={onClose}>
                   닫기
                 </Button>
-              </div>
-            </div>
-          ),
-        })
-      }
-    >
-      모달 열기
-    </Button>
+              ),
+            },
+            content: (
+              <p className="text-yds-b2 text-gray-300">배경 클릭, ESC 키, 닫기 버튼으로 닫을 수 있습니다.</p>
+            ),
+          })
+        }
+      >
+        모달 열기
+      </Button>
     </div>
   )
 }
@@ -123,10 +123,62 @@ export const Examples = {
             </p>
             <ModalFunctionDemo />
           </div>
+
+          {/* 고정 헤더/푸터 */}
+          <div className="bg-background-secondary mb-8 rounded-lg p-8">
+            <h2 className="text-yds-s1 mb-4 text-white">고정 헤더 / 푸터 (Sticky Header & Footer)</h2>
+            <p className="text-yds-c1m mb-6 text-gray-300">
+              config에 title / footer를 넘기면 본문이 길어져도 제목은 상단, 버튼은 하단에 고정되고 가운데
+              본문만 스크롤됩니다.
+            </p>
+            <ModalStickyDemo />
+          </div>
         </div>
       </div>
     )
   },
+}
+
+/** 고정 헤더/푸터 데모 (긴 본문 스크롤) */
+const ModalStickyDemo = () => {
+  const { modalOpen } = useOverlay()
+
+  return (
+    <Button
+      size="lg"
+      variant="fill"
+      color="primary"
+      onClick={() =>
+        modalOpen({
+          config: {
+            size: 'md',
+            title: <span className="text-yds-s1 text-white">고정 제목 영역</span>,
+            footer: onClose => (
+              <div className="flex gap-2">
+                <Button size="full" variant="outlined" color="primary" onClick={onClose}>
+                  닫기
+                </Button>
+                <Button size="full" variant="fill" color="primary" onClick={onClose}>
+                  확인
+                </Button>
+              </div>
+            ),
+          },
+          content: (
+            <div className="flex flex-col gap-4">
+              {Array.from({ length: 30 }, (_, i) => (
+                <p key={i} className="text-yds-b2 text-gray-300">
+                  {i + 1}. 본문이 길어져도 위 제목과 아래 버튼은 고정된 채 이 영역만 스크롤됩니다.
+                </p>
+              ))}
+            </div>
+          ),
+        })
+      }
+    >
+      긴 본문 모달 열기
+    </Button>
+  )
 }
 
 /** 사이즈별 모달 데모 */
