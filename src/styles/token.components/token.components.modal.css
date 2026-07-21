@@ -12,15 +12,37 @@
   .yds-modal {
     background-color: var(--color-background-secondary);
     border-radius: var(--yds-border-radius);
-    padding: var(--yds-content-padding);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    /* 박스 전체 스크롤 제거 → 내부 body 영역만 스크롤 */
+    overflow: hidden;
     z-index: var(--z-index-modal);
   }
 
+  /* 상단 고정 영역 (스크롤되지 않음) */
+  .yds-modal-header {
+    flex-shrink: 0;
+    padding: var(--yds-content-padding);
+  }
 
+  .yds-modal-title {
+    margin: 0;
+  }
 
+  /* 스크롤되는 본문 영역 */
+  .yds-modal-body {
+    flex: 1 1 auto;
+    /* flex 자식이 넘칠 때 스크롤되도록 하는 필수 조건 */
+    min-height: 0;
+    overflow-y: auto;
+    padding: var(--yds-content-padding);
+  }
+
+  /* 하단 고정 영역 (스크롤되지 않음) */
+  .yds-modal-footer {
+    flex-shrink: 0;
+    padding: var(--yds-content-padding);
+  }
 
 
   .yds-modal-size-sm {

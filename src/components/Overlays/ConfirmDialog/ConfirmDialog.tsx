@@ -2,11 +2,14 @@ import React, { useId } from 'react'
 import { Button } from '../../Button/Button'
 import { IConfirmDialog } from './ConfirmDialogTypes'
 import { useFocusTrap } from '../hooks/useFocusTrap'
+import { useScrollLock } from '../hooks/useScrollLock'
 
 export const ConfirmDialog = ({ title, description, confirmText, cancelText, onConfirm, onCancel }: IConfirmDialog) => {
   const focusTrapRef = useFocusTrap<HTMLDivElement>()
   const titleId = useId()
   const descriptionId = useId()
+
+  useScrollLock()
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
