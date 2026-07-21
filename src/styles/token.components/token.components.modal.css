@@ -27,6 +27,11 @@
 
   .yds-modal-title {
     margin: 0;
+    font-size: var(--font-size-yds-s1);
+    line-height: var(--line-height-yds-s1);
+    font-weight: var(--font-weight-yds-s1);
+    font-family: var(--font-yds-wanted);
+    color: var(--color-white);
   }
 
   /* 스크롤되는 본문 영역 */
