@@ -6,10 +6,13 @@
 import React, { useId } from 'react'
 import { IModal, modalSizeVariants } from './ModalTypes'
 import { useFocusTrap } from '../hooks/useFocusTrap'
+import { useScrollLock } from '../hooks/useScrollLock'
 
 export const Modal = ({ onClose, children, size, title, footer }: IModal) => {
   const focusTrapRef = useFocusTrap<HTMLDivElement>()
   const titleId = useId()
+
+  useScrollLock()
 
   //SECTION 메서드 영역
   const handleCloseBubble = (e: React.MouseEvent<HTMLDivElement>) => {
