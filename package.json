@@ -21,6 +21,11 @@
       "import": "./dist/Overlays.esm.js",
       "require": "./dist/Overlays.cjs.js"
     },
+    "./Cards": {
+      "types": "./dist/Cards.d.ts",
+      "import": "./dist/Cards.esm.js",
+      "require": "./dist/Cards.cjs.js"
+    },
     "./HorizonDragScroll": {
       "types": "./dist/HorizonDragScroll.d.ts",
       "import": "./dist/HorizonDragScroll.esm.js",
