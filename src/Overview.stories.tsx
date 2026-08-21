@@ -301,31 +301,31 @@ const OverviewPage: React.FC = () => {
         {/* 5행: PagedCard */}
         <div className="grid grid-cols-3 gap-8">
           <Card variant="outlined" className="col-span-3 min-w-0">
-            <h2 className="text-yds-h2 text-primary-300 mb-1">PagedCard</h2>
-            <p className="text-yds-c1m mb-4 text-gray-300">
-              우측 상단 dot 을 눌러 페이지를 넘기는 카드입니다. Card 와 동일하게 outlined / filled variant 를 지원합니다.
-            </p>
+            <h2 className="text-yds-h2 text-primary-300 mb-4">PagedCard</h2>
             <div className="flex flex-wrap gap-8">
               <PagedCard defaultPage={0} className="h-52 w-80">
                 <PagedCard.Header>Outlined</PagedCard.Header>
                 <PagedCard.Page>
-                  <div className={pageBox}>1 페이지</div>
+                  <div className={pageBox}>outlined 1page</div>
                 </PagedCard.Page>
                 <PagedCard.Page>
-                  <div className={pageBox}>2 페이지</div>
+                  <div className={pageBox}>outlined 2page</div>
                 </PagedCard.Page>
                 <PagedCard.Page>
-                  <div className={pageBox}>3 페이지</div>
+                  <div className={pageBox}>outlined 3page</div>
                 </PagedCard.Page>
               </PagedCard>
 
               <PagedCard variant="filled" defaultPage={0} className="h-52 w-80">
                 <PagedCard.Header>Filled</PagedCard.Header>
                 <PagedCard.Page>
-                  <div className={pageBox}>A</div>
+                  <div className={pageBox}>filled 1page</div>
                 </PagedCard.Page>
                 <PagedCard.Page>
-                  <div className={pageBox}>B</div>
+                  <div className={pageBox}>filled 2page</div>
+                </PagedCard.Page>
+                <PagedCard.Page>
+                  <div className={pageBox}>filled 3page</div>
                 </PagedCard.Page>
               </PagedCard>
             </div>
