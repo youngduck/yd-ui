@@ -41,6 +41,7 @@ export default defineConfig({
           items: [
             { text: 'Button', link: '/components/button' },
             { text: 'Card', link: '/components/card' },
+            { text: 'PagedCard', link: '/components/paged-card' },
             { text: 'Input', link: '/components/input' },
             { text: 'NumberInput', link: '/components/number-input' },
             { text: 'CheckBox', link: '/components/checkbox' },

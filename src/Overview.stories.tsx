@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from './components/Button/Button'
-import { Card } from './components/Card/Card'
+import { Card } from './components/Cards/Card/Card'
+import { PagedCard } from './components/Cards/PagedCard'
 import { Input } from './components/Inputs/Input/Input'
 import { NumberInput } from './components/Inputs/NumberInput/NumberInput'
 import { CheckBox } from './components/CheckBox/CheckBox'
@@ -82,6 +83,8 @@ const OverviewPage: React.FC = () => {
     { name: 'success / income', varName: '--color-success' },
     { name: 'error / expense', varName: '--color-error' },
   ]
+
+  const pageBox = 'flex h-full w-full items-center justify-center text-yds-b1 text-white'
 
   return (
     <div className="bg-background-primary min-h-screen p-10">
@@ -291,6 +294,40 @@ const OverviewPage: React.FC = () => {
                   <span className="text-yds-c1m text-gray-300">배경색으로 영역을 구분합니다.</span>
                 </Stack>
               </Card>
+            </div>
+          </Card>
+        </div>
+
+        {/* 5행: PagedCard */}
+        <div className="grid grid-cols-3 gap-8">
+          <Card variant="outlined" className="col-span-3 min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">PagedCard</h2>
+            <div className="flex flex-wrap gap-8">
+              <PagedCard defaultPage={0} className="h-52 w-80">
+                <PagedCard.Header>Outlined</PagedCard.Header>
+                <PagedCard.Page>
+                  <div className={pageBox}>outlined 1page</div>
+                </PagedCard.Page>
+                <PagedCard.Page>
+                  <div className={pageBox}>outlined 2page</div>
+                </PagedCard.Page>
+                <PagedCard.Page>
+                  <div className={pageBox}>outlined 3page</div>
+                </PagedCard.Page>
+              </PagedCard>
+
+              <PagedCard variant="filled" defaultPage={0} className="h-52 w-80">
+                <PagedCard.Header>Filled</PagedCard.Header>
+                <PagedCard.Page>
+                  <div className={pageBox}>filled 1page</div>
+                </PagedCard.Page>
+                <PagedCard.Page>
+                  <div className={pageBox}>filled 2page</div>
+                </PagedCard.Page>
+                <PagedCard.Page>
+                  <div className={pageBox}>filled 3page</div>
+                </PagedCard.Page>
+              </PagedCard>
             </div>
           </Card>
         </div>

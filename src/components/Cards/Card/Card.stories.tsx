@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Card, type CardVariant } from './Card'
-import { Stack } from '../Layouts/Stack/Stack'
-import { Inline } from '../Layouts/Inline/Inline'
+import { Stack } from '../../Layouts/Stack/Stack'
+import { Inline } from '../../Layouts/Inline/Inline'
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',

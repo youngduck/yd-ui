@@ -1,0 +1,5 @@
+export { PagedCard } from './PagedCard'
+export type { PagedCardProps } from './PagedCard'
+export type { PagedCardHeaderProps } from './PagedCardHeader'
+export type { PagedCardPageProps } from './PagedCardPage'
+export type { PagedCardDotsProps } from './PagedCardDots'

@@ -1,6 +1,5 @@
 export { Button } from './Button/Button'
-export { Card } from './Card/Card'
-export type { CardVariant } from './Card/Card'
+// Card / PagedCard 는 메인 barrel 에서 제외 — 서브패스(@youngduck/yd-ui/Cards)로만 노출합니다. (Table/Overlays 와 동일 정책)
 export { Chips } from './Chips/Chips'
 export { Input, NumberInput } from './Inputs'
 export type { InputSize, InputColor, InputVariant, NumberInputSize } from './Inputs'
