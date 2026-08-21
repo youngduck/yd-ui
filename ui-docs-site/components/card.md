@@ -5,7 +5,7 @@
 ## 기본 사용법
 
 ```tsx
-import { Card } from '@youngduck/yd-ui'
+import { Card } from '@youngduck/yd-ui/Cards'
 
 function App() {
   return <Card>카드 내용</Card>
