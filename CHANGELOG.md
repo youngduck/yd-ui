@@ -1,3 +1,22 @@
+## [0.22.1] - 2026-08-21
+
+**Branch**: `ui-v0.22.1-PagedCard컴포넌트개발`
+### 수정
+
+### 변경
+- feat: PagedCard 컴포넌트 추가 (dot 페이저 + 좌우 슬라이드 compound, outlined/filled variant)
+- refactor: Card·PagedCard를 components/Cards 그룹 폴더로 재편 (메인 barrel 제외, 서브패스 노출)
+- chore: Cards 서브패스(@youngduck/yd-ui/Cards) 배포 엔트리 추가
+
+---
+## [0.21.1] - 2026-07-21
+
+**Branch**: `ui-v0.21.1-Tabs디자인개편`
+### 변경
+- refactor: Tabs컨트롤높이통일및배경·보더토큰정비
+- chore: v0.21.1버전범프
+
+---
 ## [0.21.2] - 2026-07-21
 
 **Branch**: `ui-v0.21.2-모달제목타이포적용`
