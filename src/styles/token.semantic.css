@@ -56,12 +56,21 @@
   --color-table-border-header: var(--color-border-divider);
   --color-table-text: var(--color-white);
   --color-table-text-header: var(--color-primary-100);
+
+  /* Table Sort Tokens */
+  --color-table-header-cell-bg-hover: var(--color-secondary-100);
+  --color-table-sort-icon: var(--color-table-text-header);
+  --color-table-sort-icon-active: var(--color-white);
+  --color-table-sort-focus-ring: var(--color-primary-100);
   
   /* Table Spacing Tokens */
   --table-cell-padding-x: 16px;
   --table-cell-padding-y: 10px;
   --table-cell-height: 40px;
   --table-header-height: 40px;
+  --table-sort-icon-size: 12px;
+  --table-sort-icon-gap: 4px;
+  --table-sort-icon-opacity-inactive: 0.35;
 
   /* Button Tokens */
   --color-button-fill-primary-bg: var(--color-background2-primary-deep);

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Table, THead, TBody, Th, Td, Tr, ColGroup, Col } from './index'
+import { Table, THead, TBody, Th, Td, Tr, ColGroup, Col, useTableSort } from './index'
 import { copyCodeToClipboard } from '../../storybook/utils'
 
 const meta: Meta<typeof Table> = {
@@ -16,6 +16,7 @@ YD-UI 디자인 시스템의 테이블 컴포넌트입니다.
 - Compound Component 패턴으로 구성된 유연한 테이블 컴포넌트
 - 스크롤 가능한 테이블 지원 (scrollable prop)
 - 모든 서브 컴포넌트에서 className 커스터마이징 가능
+- \`useTableSort\` 훅 + \`Th sortable\` 조합으로 오름차순/내림차순 정렬 지원
 - 접근성 고려 설계
 
 ## 사용 가이드
@@ -23,6 +24,7 @@ YD-UI 디자인 시스템의 테이블 컴포넌트입니다.
 - \`scrollable={true}\`일 때는 \`scrollClassName\` prop이 필수입니다. (예: "w-[800px] h-[200px]")
 - \`scrollable={true}\`일 때 \`THead\`는 자동으로 sticky 처리됩니다.
 - 모든 컴포넌트에서 \`className\` prop을 통해 Tailwind 클래스로 스타일을 커스터마이징할 수 있습니다.
+- 정렬은 \`useTableSort(data)\` 로 상태·정렬된 데이터를 얻고, \`<Th {...getSortProps('key')}>\` 로 헤더에 연결합니다.
         `,
       },
     },
@@ -55,6 +57,63 @@ YD-UI 디자인 시스템의 테이블 컴포넌트입니다.
 export default meta
 
 type Story = StoryObj<typeof Table>
+
+type Member = {
+  name: string
+  age: number
+  email: string
+  role: string
+  joinedAt: string
+}
+
+const MEMBERS: Member[] = [
+  { name: '김영덕', age: 28, email: 'youngduck.kim@example.com', role: 'Developer', joinedAt: '2023-04-01' },
+  { name: '이민수', age: 32, email: 'minsu.lee@example.com', role: 'Designer', joinedAt: '2021-11-15' },
+  { name: '박지훈', age: 45, email: 'jihoon.park@example.com', role: 'Manager', joinedAt: '2019-02-20' },
+  { name: '최수진', age: 29, email: 'sujin.choi@example.com', role: 'Developer', joinedAt: '2024-07-08' },
+  { name: '정다은', age: 35, email: 'daeun.jung@example.com', role: 'Designer', joinedAt: '2022-09-30' },
+]
+
+/** useTableSort 훅으로 정렬 상태를 관리하는 예시 컴포넌트 */
+function SortableTableExample() {
+  const { sortedData, getSortProps } = useTableSort(MEMBERS, {
+    defaultSort: { key: 'name', direction: 'asc' },
+    // 문자열 날짜는 Date 로 변환해 비교합니다.
+    accessors: { joinedAt: member => new Date(member.joinedAt) },
+  })
+
+  return (
+    <Table>
+      <ColGroup>
+        <Col className="w-[140px]" />
+        <Col className="w-[80px]" />
+        <Col className="w-[260px]" />
+        <Col className="w-[120px]" />
+        <Col className="w-[140px]" />
+      </ColGroup>
+      <THead>
+        <Tr>
+          <Th {...getSortProps('name')}>Name</Th>
+          <Th {...getSortProps('age')}>Age</Th>
+          <Th>Email</Th>
+          <Th {...getSortProps('role')}>Role</Th>
+          <Th {...getSortProps('joinedAt')}>Joined</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {sortedData.map(member => (
+          <Tr key={member.email}>
+            <Td>{member.name}</Td>
+            <Td>{member.age}</Td>
+            <Td>{member.email}</Td>
+            <Td>{member.role}</Td>
+            <Td>{member.joinedAt}</Td>
+          </Tr>
+        ))}
+      </TBody>
+    </Table>
+  )
+}
 
 export const Default: Story = {
   render: args => {
@@ -128,6 +187,18 @@ export const Default: Story = {
   args: {
     scrollable: false,
   },
+}
+
+export const Sortable: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '`useTableSort` 훅과 `Th` 의 `sortable` prop 을 조합한 정렬 테이블입니다. 헤더를 클릭하면 오름차순 → 내림차순으로 순환하고, 다른 컬럼을 누르면 오름차순부터 다시 시작합니다.',
+      },
+    },
+  },
+  render: () => <SortableTableExample />,
 }
 
 export const Examples = {
@@ -474,6 +545,43 @@ function ScrollableColGroupTable() {
             </TBody>
           </Table>
         ),
+      },
+      {
+        name: '정렬 가능한 테이블',
+        description: 'useTableSort 훅으로 오름차순·내림차순 정렬 (헤더 클릭 시 방향 순환)',
+        code: `import { Table, THead, TBody, Th, Td, Tr, useTableSort } from '@youngduck/yd-ui/Table';
+
+function SortableTable({ members }) {
+  const { sortedData, getSortProps } = useTableSort(members, {
+    defaultSort: { key: 'name', direction: 'asc' },
+    // 문자열 날짜는 Date 로 변환해 비교
+    accessors: { joinedAt: member => new Date(member.joinedAt) },
+  });
+
+  return (
+    <Table>
+      <THead>
+        <Tr>
+          <Th {...getSortProps('name')}>Name</Th>
+          <Th {...getSortProps('age')}>Age</Th>
+          <Th>Email</Th>
+          <Th {...getSortProps('joinedAt')}>Joined</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {sortedData.map((member) => (
+          <Tr key={member.email}>
+            <Td>{member.name}</Td>
+            <Td>{member.age}</Td>
+            <Td>{member.email}</Td>
+            <Td>{member.joinedAt}</Td>
+          </Tr>
+        ))}
+      </TBody>
+    </Table>
+  );
+}`,
+        component: <SortableTableExample />,
       },
     ]
 

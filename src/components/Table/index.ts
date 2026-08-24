@@ -21,3 +21,11 @@ export type { ColGroupProps } from './ColGroup'
 
 export { Col } from './Col'
 export type { ColProps } from './Col'
+
+export { useTableSort } from './hooks/useTableSort'
+export type { UseTableSortConfig, UseTableSortReturn, SortableThProps } from './hooks/useTableSort'
+
+export { sortRows, compareSortableValues } from './utils/sortRows'
+export type { SortRowsOptions } from './utils/sortRows'
+
+export type { SortDirection, SortState, SortableValue, SortAccessor, SortComparator } from './types/sort.types'
