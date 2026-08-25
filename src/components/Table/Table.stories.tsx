@@ -130,6 +130,58 @@ export const Default: Story = {
   },
 }
 
+export const Sortable: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `정렬하고 싶은 컬럼의 \`Th\`에 \`sortable\` prop 하나만 **선언(declarative)** 하면 됩니다.
+소비자는 "이 컬럼은 정렬 가능하다"는 **의도만 선언**할 뿐, 정렬 상태 관리·값 비교·행 재정렬 같은 **동작(how)은 컴포넌트 내부가 캡슐화**해 처리합니다. \`sorted.map()\` 같은 절차를 직접 작성하지 않습니다.
+
+- 헤더 클릭 시 오름차순 → 내림차순 → 정렬 해제 순으로 순환합니다.
+- 값의 타입(숫자/날짜/문자열)은 런타임에 자동 판별되어(zero-config) \`Td\`에는 별도 설정이 필요 없습니다.`,
+      },
+    },
+  },
+  render: () => (
+    <Table>
+      <THead>
+        <Tr>
+          <Th sortable>Name</Th>
+          <Th sortable>Age</Th>
+          <Th sortable>Join Date</Th>
+          <Th>Email</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>김영덕</Td>
+          <Td>28</Td>
+          <Td>2023-05-14</Td>
+          <Td>youngduck.kim@example.com</Td>
+        </Tr>
+        <Tr>
+          <Td>이민수</Td>
+          <Td>32</Td>
+          <Td>2021-11-02</Td>
+          <Td>minsu.lee@example.com</Td>
+        </Tr>
+        <Tr>
+          <Td>박지훈</Td>
+          <Td>45</Td>
+          <Td>2019-03-27</Td>
+          <Td>jihoon.park@example.com</Td>
+        </Tr>
+        <Tr>
+          <Td>최수진</Td>
+          <Td>9</Td>
+          <Td>2024-01-08</Td>
+          <Td>sujin.choi@example.com</Td>
+        </Tr>
+      </TBody>
+    </Table>
+  ),
+}
+
 export const Examples = {
   parameters: {
     layout: 'fullscreen',
@@ -139,6 +191,78 @@ export const Examples = {
   },
   render: () => {
     const examples = [
+      {
+        name: '정렬 가능한 테이블',
+        description: 'Th에 sortable prop만 선언(declarative)하면 정렬 활성화. 정렬 로직·상태 관리는 컴포넌트가 캡슐화해 처리하고, 값 타입(숫자/날짜/문자열)은 자동 판별됩니다',
+        code: `import { Table, THead, TBody, Th, Td, Tr } from '@youngduck/yd-ui/Table';
+
+function SortableTable() {
+  return (
+    <Table>
+      <THead>
+        <Tr>
+          <Th sortable>Name</Th>
+          <Th sortable>Age</Th>
+          <Th sortable>Join Date</Th>
+          <Th>Email</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>김영덕</Td>
+          <Td>28</Td>
+          <Td>2023-05-14</Td>
+          <Td>youngduck.kim@example.com</Td>
+        </Tr>
+        <Tr>
+          <Td>이민수</Td>
+          <Td>32</Td>
+          <Td>2021-11-02</Td>
+          <Td>minsu.lee@example.com</Td>
+        </Tr>
+        <Tr>
+          <Td>최수진</Td>
+          <Td>9</Td>
+          <Td>2024-01-08</Td>
+          <Td>sujin.choi@example.com</Td>
+        </Tr>
+      </TBody>
+    </Table>
+  );
+}`,
+        component: (
+          <Table>
+            <THead>
+              <Tr>
+                <Th sortable>Name</Th>
+                <Th sortable>Age</Th>
+                <Th sortable>Join Date</Th>
+                <Th>Email</Th>
+              </Tr>
+            </THead>
+            <TBody>
+              <Tr>
+                <Td>김영덕</Td>
+                <Td>28</Td>
+                <Td>2023-05-14</Td>
+                <Td>youngduck.kim@example.com</Td>
+              </Tr>
+              <Tr>
+                <Td>이민수</Td>
+                <Td>32</Td>
+                <Td>2021-11-02</Td>
+                <Td>minsu.lee@example.com</Td>
+              </Tr>
+              <Tr>
+                <Td>최수진</Td>
+                <Td>9</Td>
+                <Td>2024-01-08</Td>
+                <Td>sujin.choi@example.com</Td>
+              </Tr>
+            </TBody>
+          </Table>
+        ),
+      },
       {
         name: '기본 테이블',
         description: '스크롤 없는 기본 테이블',
