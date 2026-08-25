@@ -21,3 +21,5 @@ export type { ColGroupProps } from './ColGroup'
 
 export { Col } from './Col'
 export type { ColProps } from './Col'
+
+export type { SortDirection } from './types'
