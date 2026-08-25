@@ -23,6 +23,50 @@
     
   }
 
+  .yds-table-header-cell--sortable {
+    padding: 0;
+  }
+
+  .yds-table-sort-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+  }
+
+  .yds-table-sort-button:hover {
+    opacity: 0.8;
+  }
+
+  .yds-table-sort-icon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* move-up / move-down 두 화살표를 좌우로 바싹 붙임 */
+  .yds-table-sort-icon > * + * {
+    margin-left: -6px;
+  }
+
+  .yds-table-sort-arrow {
+    color: var(--color-table-text-header);
+    opacity: 0.3;
+    transition: opacity 0.15s ease;
+  }
+
+  .yds-table-sort-arrow--active {
+    opacity: 1;
+  }
+
   .yds-table-row {
     background-color: var(--color-table-row-bg);
   }

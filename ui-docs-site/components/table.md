@@ -1,6 +1,6 @@
 # Table
 
-테이블 컴포넌트는 데이터를 행과 열로 표시하는 컴포넌트입니다.
+테이블 컴포넌트는 데이터를 행과 열로 표시하는 컴포넌트입니다. Compound Component 패턴으로 구성되며, 스크롤·열 너비 고정·컬럼 정렬을 지원합니다.
 
 ## 기본 사용법
 
@@ -59,6 +59,52 @@ function App() {
 - `h-64`: 높이 16rem (256px)
 - `w-96`: 너비 24rem (384px)
 - `h-[500px]`: 커스텀 높이
+
+## 정렬 (Sorting)
+
+정렬하고 싶은 컬럼의 `Th`에 `sortable` prop 하나만 **선언**하면 됩니다. "이 컬럼은 정렬 가능하다"는 의도만 선언하면, 정렬 상태 관리·값 비교·행 재정렬 같은 동작은 모두 컴포넌트 내부에서 처리합니다. `sorted.map()` 같은 절차를 직접 작성할 필요가 없습니다.
+
+```tsx
+<Table>
+  <THead>
+    <Tr>
+      <Th sortable>이름</Th>
+      <Th sortable>나이</Th>
+      <Th sortable>입사일</Th>
+      <Th>이메일</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>김영덕</Td>
+      <Td>28</Td>
+      <Td>2023-05-14</Td>
+      <Td>youngduck.kim@example.com</Td>
+    </Tr>
+    <Tr>
+      <Td>이민수</Td>
+      <Td>32</Td>
+      <Td>2021-11-02</Td>
+      <Td>minsu.lee@example.com</Td>
+    </Tr>
+    <Tr>
+      <Td>최수진</Td>
+      <Td>9</Td>
+      <Td>2024-01-08</Td>
+      <Td>sujin.choi@example.com</Td>
+    </Tr>
+  </TBody>
+</Table>
+```
+
+### 동작 방식
+
+- **3단계 토글**: 헤더 클릭 시 오름차순(`asc`) → 내림차순(`desc`) → 정렬 해제(원본 순서) 순으로 순환합니다.
+- **타입 자동 판별**: 해당 컬럼 값들을 보고 숫자 / 날짜 / 문자열 타입을 런타임에 추론합니다. 따라서 `28`, `9` 같은 값도 문자열이 아닌 숫자로 올바르게 정렬됩니다(`"28" < "9"` 버그 없음). 문자열은 한글 로케일(`localeCompare('ko')`) 기준으로 정렬됩니다.
+- **Td는 별도 설정 불필요**: `Td`에는 아무것도 추가하지 않아도 됩니다. 셀의 텍스트를 그대로 읽어 정렬합니다.
+- **접근성**: 정렬 중인 `Th`에 `aria-sort` 속성이 자동으로 부여됩니다(`ascending` / `descending` / `none`).
+
+> **참고**: 정렬 키는 `Td`의 텍스트 콘텐츠에서 추출합니다. 따라서 셀 안이 순수 텍스트로 추출되지 않는 복잡한 JSX(예: 아이콘만 있는 셀)는 정렬 키가 비어 뒤로 밀립니다.
 
 ## 열 너비 고정 (ColGroup, Col)
 
@@ -143,6 +189,15 @@ Table은 다음 하위 컴포넌트들로 구성됩니다:
 
 Table은 표준 HTML table 요소의 모든 속성을 지원합니다.
 
+## Th Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `sortable` | `boolean` | `false` | 이 컬럼의 정렬 기능 활성화 여부. `true`면 헤더 클릭으로 정렬됩니다. |
+| `className` | `string` | - | 추가 CSS 클래스 |
+
+`Th`는 표준 HTML `th` 요소의 모든 속성을 지원합니다.
+
 ## 사용 예제
 
 ### 기본 테이블
@@ -200,8 +255,10 @@ import { Table, ColGroup, Col, THead, TBody, Tr, Th, Td } from '@youngduck/yd-ui
 ## 타입
 
 ```tsx
-import type { TableProps, ColGroupProps, ColProps } from '@youngduck/yd-ui/Table'
+import type { TableProps, ThProps, ColGroupProps, ColProps, SortDirection } from '@youngduck/yd-ui/Table'
 ```
+
+`SortDirection`은 정렬 방향 타입입니다: `'asc' | 'desc' | null`
 
 ## Col Props
 
