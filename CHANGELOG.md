@@ -1,3 +1,25 @@
+## [0.23.2] - 2026-08-26
+
+**Branch**: `ui-v0.23.2-릴리스검증및훅정비`
+### 변경
+- build: husky pre-push의 deprecated 라인 제거 및 릴리스(버전 범프) 시 CHANGELOG 섹션 존재 검증 추가
+- build: husky pre-commit 훅 추가 (lint-staged, type-check)
+- chore: lint-staged 도입 및 type-check(tsc --noEmit) 스크립트 추가
+- docs: 누락된 0.23.1 CHANGELOG 섹션 백필
+- chore: v0.23.2 버전 범프
+
+---
+## [0.23.1] - 2026-08-26
+
+**Branch**: `ui-v0.23.1-Table컬럼정렬추가`
+### 추가
+- feat: Table 컬럼 정렬 기능 추가 (Th에 sortable prop만 선언, 헤더 클릭 3단계 토글 asc→desc→해제, 값 타입 런타임 자동 판별)
+
+### 변경
+- style: 정렬 헤더 및 화살표 아이콘 스타일 추가 (lucide MoveUp/MoveDown 좌우 배치)
+- docs: 정렬 기능 문서화 (Storybook Sortable 스토리, VitePress 정렬 섹션·Th Props)
+
+---
 ## [0.22.1] - 2026-08-21
 
 **Branch**: `ui-v0.22.1-PagedCard컴포넌트개발`
