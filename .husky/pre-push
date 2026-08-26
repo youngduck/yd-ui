@@ -1,5 +1,20 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# 0. CHANGELOG 검증 (버전이 마지막 태그보다 범프된 경우 = 릴리스 의도일 때만)
+#    버전을 올려놓고 CHANGELOG 섹션을 안 만든 채 push하는 실수를 차단한다.
+#    (squash merge 시 릴리스 시점 자동생성이 no-op이 되므로, 브랜치 단계에서 잡아야 함)
+VERSION=$(node -p "require('./package.json').version")
+LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+LAST_VER=${LAST_TAG#v}
+
+if [ -n "$LAST_TAG" ] && [ "$VERSION" != "$LAST_VER" ]; then
+  echo "🔖 버전 범프 감지: $LAST_VER → $VERSION (릴리스 준비 상태)"
+  if ! grep -q "^## \[${VERSION}\]" CHANGELOG.md; then
+    echo "❌ CHANGELOG.md에 [$VERSION] 섹션이 없습니다."
+    echo "   👉 'npm run changelog' 를 실행해 섹션을 생성·커밋한 뒤 다시 push 하세요."
+    echo "   (의도적으로 건너뛰려면 'git push --no-verify')"
+    exit 1
+  fi
+  echo "✅ CHANGELOG [$VERSION] 섹션 확인"
+fi
 
 echo "🔍 YD-UI 배포 준비 검증 시작..."
 
