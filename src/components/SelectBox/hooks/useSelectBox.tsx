@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { useEscapeDismiss, useOutsideDismiss } from './useDismiss'
+import { useAnchoredFloating } from '../../../hooks/useAnchoredFloating'
 
 export type SelectBoxOption = {
   label: string
@@ -77,6 +78,14 @@ export const useSelectBox = (config: UseSelectBoxConfig) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const listboxRef = useRef<HTMLDivElement>(null)
   const optionRefs = useRef<(HTMLElement | null)[]>([])
+
+  // 드롭다운 위치: 트리거 폭에 맞추고, 아래 공간이 부족하면 위로 flip / 좌우로 넘치면 shift 한다.
+  // (목록 높이는 내부 listbox의 max-h가 이미 제한하므로 여기서 별도 높이 제한은 두지 않는다.)
+  const floating = useAnchoredFloating({
+    open: isOpen,
+    placement: 'bottom-start',
+    matchReferenceWidth: true,
+  })
 
   const handleClose = useCallback(() => {
     dispatch({ type: 'CLOSE' })
@@ -241,6 +250,11 @@ export const useSelectBox = (config: UseSelectBoxConfig) => {
     // refs
     listboxRef,
     optionRefs,
+
+    // Floating UI: 트리거/드롭다운 연결용 ref와 위치 스타일
+    setTriggerRef: floating.setReference,
+    setDropdownRef: floating.setFloating,
+    dropdownStyle: floating.floatingStyles,
 
     // 편의 프로퍼티들
     value: viewSelected.value,
