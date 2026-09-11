@@ -1,3 +1,16 @@
+## [0.23.3] - 2026-09-11
+
+**Branch**: `ui-v0.23.3-팝오버위치FloatingUI전환`
+### 추가
+- feat: 트리거 기준 팝오버 위치 계산 공통 훅 useAnchoredFloating 추가 (Floating UI 기반 flip/shift/폭맞춤)
+
+### 변경
+- refactor: 달력 피커 패널 위치를 useAnchoredFloating으로 전환 (고정 top 토큰 제거, 뷰포트 경계 자동 보정)
+- refactor: SelectBox 드롭다운 위치를 useAnchoredFloating으로 전환 (트리거 폭 매칭, 절대좌표 하드코딩 제거)
+- docs: useLayoutEffect·isomorphic layout effect 학습 노트 추가
+- chore: v0.23.3 버전 범프
+
+---
 ## [0.23.2] - 2026-08-26
 
 **Branch**: `ui-v0.23.2-릴리스검증및훅정비`

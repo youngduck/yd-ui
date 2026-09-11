@@ -51,7 +51,8 @@ export function MonthPicker({
   className = '',
   ...props
 }: MonthPickerProps) {
-  const { isOpen, containerRef, triggerRef, panelRef, toggle, close, handlePanelKeyDown } = usePickerDropdown()
+  const { isOpen, containerRef, setTriggerRef, setPanelRef, panelStyle, toggle, close, handlePanelKeyDown } =
+    usePickerDropdown()
   const cellRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   const today = getToday()
@@ -101,12 +102,12 @@ export function MonthPicker({
   return (
     <div ref={containerRef} className={`${monthPickerVariants({ size })} ${className}`} {...props}>
       <button
-        ref={triggerRef}
+        ref={setTriggerRef}
         type="button"
         aria-haspopup="dialog"
         aria-expanded={isOpen}
         disabled={disabled}
-        className={`yds-calendar-trigger${selected ? '' : ' yds-calendar-trigger-empty'}`}
+        className={`yds-calendar-trigger${selected ? '' : 'yds-calendar-trigger-empty'}`}
         onClick={toggle}
       >
         {selected ? `${selected.year}년 ${selected.month}월` : placeholder}
@@ -114,10 +115,11 @@ export function MonthPicker({
       </button>
       {isOpen && (
         <div
-          ref={panelRef}
+          ref={setPanelRef}
           role="dialog"
           aria-label="월 선택 달력"
           className="yds-calendar-panel"
+          style={panelStyle}
           onKeyDown={handlePanelKeyDown}
         >
           <div className="yds-calendar-header">
@@ -159,7 +161,7 @@ export function MonthPicker({
                   aria-pressed={isSelected}
                   aria-label={`${viewYear}년 ${month}월`}
                   aria-current={isToday ? 'date' : undefined}
-                  className={`yds-calendar-cell${isToday ? ' yds-calendar-cell-today' : ''}${isSelected ? ' yds-calendar-cell-selected' : ''}`}
+                  className={`yds-calendar-cell${isToday ? 'yds-calendar-cell-today' : ''}${isSelected ? 'yds-calendar-cell-selected' : ''}`}
                   onClick={() => selectMonth(month)}
                   onKeyDown={e => handleCellKeyDown(e, index)}
                 >

@@ -64,17 +64,15 @@
     cursor: not-allowed;
   }
 
-  /* 트리거 아래로 열리는 달력 패널 */
+  /* 트리거에 붙어 열리는 달력 패널.
+     위치(position/top/left)와 경계 flip/shift는 Floating UI(useAnchoredFloating)가
+     인라인 스타일로 지정하므로 여기서는 지정하지 않는다. */
   .yds-calendar-panel {
-    position: absolute;
-    top: var(--calendar-panel-top);
-    left: 0;
     z-index: var(--z-index-calendar-panel);
     display: flex;
     flex-direction: column;
     gap: var(--calendar-panel-gap);
     box-sizing: border-box;
-    width: 100%;
     min-width: var(--calendar-panel-min-width);
     padding: var(--calendar-panel-padding);
     background-color: var(--color-calendar-panel-bg);
