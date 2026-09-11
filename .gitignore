@@ -40,3 +40,6 @@ yarn-error.log*
 # OS 파일
 .DS_Store
 Thumbs.db
+
+# 개인 작업 메모
+TODO.md
