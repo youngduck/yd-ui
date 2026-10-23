@@ -7,6 +7,7 @@
  */
 
 import React from 'react'
+import { clsx } from 'clsx'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const numberInputVariants = cva('yds-number-input', {
@@ -116,9 +117,7 @@ export function NumberInput({
   }
 
   return (
-    <div
-      className={`${numberInputVariants({ size })}${disabled ? ' yds-number-input-disabled' : ''} ${className}`}
-    >
+    <div className={clsx(numberInputVariants({ size }), disabled && 'yds-number-input-disabled', className)}>
       {prefix && (
         <span className="yds-number-input-affix" aria-hidden="true">
           {prefix}
@@ -133,7 +132,7 @@ export function NumberInput({
         aria-valuemax={max}
         disabled={disabled}
         value={value === '' ? '' : addComma(value)}
-        className={`yds-number-input-field${align === 'left' ? ' yds-number-input-field-left' : ''}`}
+        className={clsx('yds-number-input-field', align === 'left' && 'yds-number-input-field-left')}
         onChange={handleChange}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
