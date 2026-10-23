@@ -205,6 +205,43 @@
   --tabs-typography-font-weight: var(--font-weight-yds-c1m);
   --tabs-typography-font-family: var(--font-yds-wanted);
 
+  /* Accordion Spacing Tokens */
+  --accordion-border-radius: var(--yds-border-radius);
+  /* 헤더 높이. Button/Input/Calendar 트리거와 같은 표준 컨트롤 높이(48px)를 따른다 */
+  --accordion-trigger-height: 48px;
+  --accordion-trigger-padding-x: 16px;
+  /* 헤더 상하 패딩. 한 줄 라벨은 min-height 48px 안에 묻히고, 여러 줄 라벨에서만 실제로 쓰인다 */
+  --accordion-trigger-padding-y: 8px;
+  --accordion-trigger-gap: 12px;
+  --accordion-panel-padding-x: 16px;
+  --accordion-panel-padding-y: 12px;
+  --accordion-icon-size: 20px;
+  --accordion-transition-duration: 0.25s;
+
+  /* Accordion Typography Tokens */
+  --accordion-trigger-typography-font-size: var(--font-size-yds-b2);
+  --accordion-trigger-typography-line-height: var(--line-height-yds-b2);
+  --accordion-trigger-typography-font-weight: var(--font-weight-yds-b2);
+  --accordion-trigger-typography-font-family: var(--font-yds-wanted);
+  --accordion-panel-typography-font-size: var(--font-size-yds-c1r);
+  --accordion-panel-typography-line-height: var(--line-height-yds-c1r);
+  --accordion-panel-typography-font-weight: var(--font-weight-yds-c1r);
+  --accordion-panel-typography-font-family: var(--font-yds-wanted);
+
+  /* Accordion Color Tokens
+     variant 체계는 Card 와 동일하다. outlined 는 테두리로, filled 는 배경으로 영역을 구분하며
+     두 토큰 값도 Card(--color-card-outlined-border / --color-card-filled-bg)와 같은 값을 쓴다.
+     펼쳐진 헤더는 Tabs 와 같이 옐로우(primary-400)로 강조한다. */
+  --color-accordion-outlined-border: var(--color-secondary-50);
+  --color-accordion-filled-bg: var(--color-background-secondary);
+  --color-accordion-divider: var(--color-border-divider);
+  --color-accordion-trigger-text: var(--color-white);
+  --color-accordion-trigger-text-hover: var(--color-primary-200);
+  --color-accordion-trigger-text-expanded: var(--color-primary-400);
+  --color-accordion-icon: var(--color-primary-100);
+  --color-accordion-panel-text: var(--color-primary-100);
+  --color-accordion-focus-ring: var(--color-white);
+
   /* Tabs Color Tokens (구분선 색 테두리, 선택은 노란 글자로 강조) */
   /* Calendar 트리거·SelectBox와 동일한 패턴: 투명(검은) 배경 + 옐로우 보더.
      미선택 탭은 흰색, 선택된 탭은 옐로우(primary-400) 강조 */
