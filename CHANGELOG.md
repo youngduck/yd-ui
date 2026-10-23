@@ -10,6 +10,7 @@
 - refactor: NumberInput className 조합을 clsx로 정리
 - docs: Accordion 문서화 (VitePress 페이지·사이드바, Overview 스토리 반영)
 - chore: v0.24.1 버전 범프
+- docs: v0.24.1 CHANGELOG 갱신
 
 ---
 ## [0.23.3] - 2026-09-11
