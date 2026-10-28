@@ -11,7 +11,20 @@ const REGION_OPTIONS: TabOption[] = [
 
 const copyCode = (size?: TabsSize) => {
   const sizeProp = size ? ` size="${size}"` : ''
-  const code = `import { Tabs } from '@youngduck/yd-ui';\nimport { useState } from 'react';\n\nfunction Example() {\n  const [value, setValue] = useState('all');\n\n  return (\n    <Tabs${sizeProp}\n      value={value}\n      onValueChange={setValue}\n      options={[\n        { label: '전체', value: 'all' },\n        { label: '국내', value: 'domestic' },\n        { label: '해외', value: 'overseas' },\n      ]}\n    />\n  );\n}`
+  const code = `import { Tabs } from '@youngduck/yd-ui';
+
+function Example() {
+  return (
+    <Tabs${sizeProp}
+      defaultValue="all"
+      options={[
+        { label: '전체', value: 'all' },
+        { label: '국내', value: 'domestic' },
+        { label: '해외', value: 'overseas' },
+      ]}
+    />
+  );
+}`
 
   copyCodeToClipboard(code)
 }
@@ -31,7 +44,8 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
 ## 주요 특징
 - 구분선 색 테두리를 두른 네이비 컨테이너 안에서 선택 탭은 노란 글자, 미선택 탭은 흰 글자로 표시
 - sm / md / lg 사이즈 지원 (토큰화)
-- 제어 컴포넌트: \`value\` / \`onValueChange\` 로 상태를 관리
+- 기본은 비제어: \`defaultValue\` 로 처음 선택할 탭만 지정하면 선택 상태는 컴포넌트가 직접 관리
+- 바깥에서 선택값을 읽거나 직접 바꿔야 할 때만 \`value\` / \`onValueChange\` 로 제어
 - \`options\` 배열로 탭을 구성하며 탭별 \`disabled\` 지원
 - 접근성: \`role="radiogroup"\` / \`role="radio"\`, 방향키·Home·End 키보드 탐색, 로빙 탭인덱스 적용
 - 색상·간격·타이포그래피는 모두 디자인 토큰에서 일괄 적용
@@ -53,7 +67,11 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
     },
     value: {
       control: false,
-      description: '현재 선택된 값 (제어 컴포넌트)',
+      description: '현재 선택된 값 (제어 모드). 주지 않으면 비제어로 동작합니다',
+    },
+    defaultValue: {
+      control: false,
+      description: '처음 선택해둘 값 (비제어 모드)',
     },
     onValueChange: {
       control: false,
@@ -75,9 +93,7 @@ type Story = StoryObj<typeof Tabs>
 
 export const Default: Story = {
   render: args => {
-    const [value, setValue] = useState('all')
-
-    return <Tabs size={args.size} value={value} onValueChange={setValue} options={REGION_OPTIONS} />
+    return <Tabs size={args.size} defaultValue="all" options={REGION_OPTIONS} />
   },
   args: {
     size: 'md',
@@ -86,23 +102,19 @@ export const Default: Story = {
 
 export const AllSizes: Story = {
   render: () => {
-    const [sm, setSm] = useState('all')
-    const [md, setMd] = useState('all')
-    const [lg, setLg] = useState('all')
-
     return (
       <div className="space-y-8">
         <div>
           <div className="mb-2 text-lg font-bold text-white">Small</div>
-          <Tabs size="sm" value={sm} onValueChange={setSm} options={REGION_OPTIONS} />
+          <Tabs size="sm" defaultValue="all" options={REGION_OPTIONS} />
         </div>
         <div>
           <div className="mb-2 text-lg font-bold text-white">Medium (기본)</div>
-          <Tabs size="md" value={md} onValueChange={setMd} options={REGION_OPTIONS} />
+          <Tabs size="md" defaultValue="all" options={REGION_OPTIONS} />
         </div>
         <div>
           <div className="mb-2 text-lg font-bold text-white">Large</div>
-          <Tabs size="lg" value={lg} onValueChange={setLg} options={REGION_OPTIONS} />
+          <Tabs size="lg" defaultValue="all" options={REGION_OPTIONS} />
         </div>
       </div>
     )
@@ -111,12 +123,9 @@ export const AllSizes: Story = {
 
 export const WithDisabledTab: Story = {
   render: () => {
-    const [value, setValue] = useState('all')
-
     return (
       <Tabs
-        value={value}
-        onValueChange={setValue}
+        defaultValue="all"
         options={[
           { label: '전체', value: 'all' },
           { label: '국내', value: 'domestic' },
@@ -140,6 +149,8 @@ export const Examples = {
 }
 
 function ExamplesContent() {
+  // 선택값을 탭 바깥(아래 "선택: ..." 문구)에서 읽어야 하므로 여기서는 제어 모드가 실제로 필요하다.
+  // 이런 경우가 아니면 defaultValue 만으로 충분하다.
   const [region, setRegion] = useState('all')
   const [period, setPeriod] = useState('day')
 
@@ -202,6 +213,5 @@ function ExamplesContent() {
 }
 
 function SizedExample({ size }: { size: TabsSize }) {
-  const [value, setValue] = useState('all')
-  return <Tabs size={size} value={value} onValueChange={setValue} options={REGION_OPTIONS} />
+  return <Tabs size={size} defaultValue="all" options={REGION_OPTIONS} />
 }

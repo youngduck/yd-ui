@@ -1,20 +1,16 @@
 # Tabs
 
-Tabs 컴포넌트는 컨테이너 안에서 여러 항목 중 하나를 선택하는 탭형 토글입니다. 구분선 색 테두리를 두른 네이비 컨테이너 안에서 선택된 탭은 노란(primary) 글자, 미선택 탭은 흰 글자로 표시되며, 지역·기간 필터 같은 단일 선택 UI에 적합합니다. `value` / `onValueChange` 로 상태를 관리하는 제어 컴포넌트입니다.
+Tabs 컴포넌트는 컨테이너 안에서 여러 항목 중 하나를 선택하는 탭형 토글입니다. 구분선 색 테두리를 두른 네이비 컨테이너 안에서 선택된 탭은 노란(primary) 글자, 미선택 탭은 흰 글자로 표시되며, 지역·기간 필터 같은 단일 선택 UI에 적합합니다. 선택 상태는 기본적으로 컴포넌트가 직접 관리하며, 바깥에서 그 값을 읽거나 바꿔야 할 때만 `value` / `onValueChange` 로 제어합니다.
 
 ## 기본 사용법
 
 ```tsx
 import { Tabs } from '@youngduck/yd-ui'
-import { useState } from 'react'
 
 function App() {
-  const [value, setValue] = useState('all')
-
   return (
     <Tabs
-      value={value}
-      onValueChange={setValue}
+      defaultValue="all"
       options={[
         { label: '전체', value: 'all' },
         { label: '국내', value: 'domestic' },
@@ -25,9 +21,41 @@ function App() {
 }
 ```
 
+## 비제어와 제어
+
+탭 선택값은 대부분 **그 화면 안에서만** 쓰입니다. 그래서 기본은 비제어이고, 처음 선택해둘 탭만 `defaultValue` 로 주면 됩니다.
+
+```tsx
+<Tabs defaultValue="all" options={options} />
+```
+
+::: warning defaultValue 를 생략하면 아무 탭도 선택되지 않습니다
+선택을 자동으로 첫 탭에 맞추지 않습니다. 첫 탭부터 시작하려면 그 탭의 `value` 를 `defaultValue` 로 명시하세요.
+:::
+
+선택값을 **탭 바깥에서 읽거나 직접 바꿔야 할 때만** `value` / `onValueChange` 를 줍니다. 목록을 필터링하거나 URL 쿼리와 맞출 때가 그런 경우입니다.
+
+```tsx
+const [region, setRegion] = useState('all')
+
+return (
+  <>
+    <Tabs value={region} onValueChange={setRegion} options={options} />
+    <ProductList region={region} />
+  </>
+)
+```
+
+::: tip 어느 쪽인지 판단하는 기준
+useState 로 만든 값이 `<Tabs>` 에 돌려주는 것 말고 **아무 데도 쓰이지 않는다면** 제어가 필요 없는 경우입니다.
+:::
+
+`onValueChange` 는 비제어 모드에서도 호출되므로, 상태를 넘기지 않고 변경 알림만 받을 수도 있습니다.
+
 ## 주요 특징
 
-- **제어 컴포넌트**: `value` / `onValueChange` 로 선택 상태를 직접 관리합니다.
+- **비제어 기본**: `defaultValue` 로 처음 선택할 탭만 지정하면 선택 상태는 컴포넌트가 직접 관리합니다.
+- **필요할 때만 제어**: `value` / `onValueChange` 를 주면 선택값을 바깥에서 관리합니다.
 - **options 기반**: `{ label, value, disabled? }` 배열로 탭을 구성합니다.
 - **선택 강조**: 선택된 탭은 노란(primary-400) 글자, 미선택 탭은 흰 글자로 표시됩니다.
 - **구분선 테두리**: 컨테이너에 Table 행 구분선과 같은 `--color-border-divider` 토큰의 테두리가 적용됩니다.
@@ -41,13 +69,13 @@ function App() {
 
 ```tsx
 // Small
-<Tabs size="sm" value={value} onValueChange={setValue} options={options} />
+<Tabs size="sm" defaultValue="all" options={options} />
 
 // Medium (기본)
-<Tabs size="md" value={value} onValueChange={setValue} options={options} />
+<Tabs size="md" defaultValue="all" options={options} />
 
 // Large
-<Tabs size="lg" value={value} onValueChange={setValue} options={options} />
+<Tabs size="lg" defaultValue="all" options={options} />
 ```
 
 ## 탭 비활성화
@@ -56,8 +84,7 @@ function App() {
 
 ```tsx
 <Tabs
-  value={value}
-  onValueChange={setValue}
+  defaultValue="all"
   options={[
     { label: '전체', value: 'all' },
     { label: '국내', value: 'domestic' },
@@ -115,8 +142,9 @@ Tabs는 WAI-ARIA radiogroup 패턴을 따릅니다.
 | Prop            | Type                          | Default | Description                       |
 |-----------------|-------------------------------|---------|-----------------------------------|
 | `options`       | `TabOption[]`                 | -       | 탭 항목 목록 (필수)               |
-| `value`         | `string`                      | -       | 현재 선택된 값 (필수)             |
-| `onValueChange` | `(value: string) => void`     | -       | 값 변경 시 호출되는 콜백 (필수)   |
+| `defaultValue`  | `string`                      | -       | 처음 선택해둘 값 (비제어 모드)    |
+| `value`         | `string`                      | -       | 현재 선택된 값. 주면 제어 모드    |
+| `onValueChange` | `(value: string) => void`     | -       | 값 변경 시 호출 (두 모드 모두)    |
 | `size`          | `'sm' \| 'md' \| 'lg'`        | `'md'`  | 탭 사이즈                         |
 | `aria-label`    | `string`                      | `'탭'`  | radiogroup 라벨                   |
 

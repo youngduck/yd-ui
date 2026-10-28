@@ -10,6 +10,7 @@ import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
 import { Chips } from './components/Chips/Chips'
 import { Tabs } from './components/Tabs/Tabs'
+import { Accordion } from './components/Accordion'
 import { YearPicker } from './components/Calendars/YearPicker/YearPicker'
 import { MonthPicker } from './components/Calendars/MonthPicker/MonthPicker'
 import { DatePicker } from './components/Calendars/DatePicker/DatePicker'
@@ -30,10 +31,6 @@ const OverviewPage: React.FC = () => {
   const [checked2, setChecked2] = useState(true)
   const [checked3, setChecked3] = useState(false)
 
-  const [tabSm, setTabSm] = useState('all')
-  const [tabMd, setTabMd] = useState('all')
-  const [tabLg, setTabLg] = useState('all')
-
   const [amount, setAmount] = useState('400000')
 
   const [year, setYear] = useState('2026')
@@ -44,6 +41,19 @@ const OverviewPage: React.FC = () => {
     { label: '전체', value: 'all' },
     { label: '국내', value: 'domestic' },
     { label: '해외', value: 'overseas' },
+  ]
+
+  const accordionItems = [
+    {
+      label: '배송은 얼마나 걸리나요?',
+      value: 'delivery',
+      content: <span>영업일 기준 2~3일 이내에 발송됩니다.</span>,
+    },
+    {
+      label: '교환·반품이 가능한가요?',
+      value: 'return',
+      content: <span>수령 후 7일 이내 신청하시면 가능합니다.</span>,
+    },
   ]
 
   const selectBox1 = useSelectBox({
@@ -241,7 +251,7 @@ const OverviewPage: React.FC = () => {
           </Card>
         </div>
 
-        {/* 4행: Calendar, Tabs, Card */}
+        {/* 4행: Calendar, Tabs, Accordion */}
         <div className="grid grid-cols-3 gap-8">
           <Card variant="outlined" className="min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
@@ -266,19 +276,36 @@ const OverviewPage: React.FC = () => {
             <div className="flex flex-col items-start gap-6">
               <div>
                 <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
-                <Tabs size="lg" value={tabLg} onValueChange={setTabLg} options={tabOptions} />
+                <Tabs size="lg" defaultValue="all" options={tabOptions} />
               </div>
               <div>
                 <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
-                <Tabs size="md" value={tabMd} onValueChange={setTabMd} options={tabOptions} />
+                <Tabs size="md" defaultValue="all" options={tabOptions} />
               </div>
               <div>
                 <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
-                <Tabs size="sm" value={tabSm} onValueChange={setTabSm} options={tabOptions} />
+                <Tabs size="sm" defaultValue="all" options={tabOptions} />
               </div>
             </div>
           </Card>
 
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Accordion</h2>
+            <div className="flex flex-col gap-6">
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Outlined</div>
+                <Accordion variant="outlined" defaultValue={['delivery']} items={accordionItems} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Filled</div>
+                <Accordion variant="filled" defaultValue={['delivery']} items={accordionItems} />
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* 5행: Card, PagedCard — 같은 variant 체계라 나란히 본다 */}
+        <div className="grid grid-cols-3 gap-8">
           <Card variant="outlined" className="min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Card</h2>
             <div className="flex flex-col gap-6">
@@ -296,14 +323,12 @@ const OverviewPage: React.FC = () => {
               </Card>
             </div>
           </Card>
-        </div>
 
-        {/* 5행: PagedCard */}
-        <div className="grid grid-cols-3 gap-8">
-          <Card variant="outlined" className="col-span-3 min-w-0">
+          <Card variant="outlined" className="col-span-2 min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">PagedCard</h2>
-            <div className="flex flex-wrap gap-8">
-              <PagedCard defaultPage={0} className="h-52 w-80">
+            {/* 고정 폭이면 칸 폭을 넘겨 세로로 떨어진다. 둘이 칸을 나눠 갖게 flex-1 로 둔다 */}
+            <div className="flex gap-6">
+              <PagedCard defaultPage={0} className="h-52 min-w-0 flex-1">
                 <PagedCard.Header>Outlined</PagedCard.Header>
                 <PagedCard.Page>
                   <div className={pageBox}>outlined 1page</div>
@@ -316,7 +341,7 @@ const OverviewPage: React.FC = () => {
                 </PagedCard.Page>
               </PagedCard>
 
-              <PagedCard variant="filled" defaultPage={0} className="h-52 w-80">
+              <PagedCard variant="filled" defaultPage={0} className="h-52 min-w-0 flex-1">
                 <PagedCard.Header>Filled</PagedCard.Header>
                 <PagedCard.Page>
                   <div className={pageBox}>filled 1page</div>

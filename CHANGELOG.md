@@ -1,3 +1,18 @@
+## [0.24.1] - 2026-10-23
+
+**Branch**: `ui-v0.24.1-Accordion컴포넌트추가`
+### 추가
+- feat: Accordion 컴포넌트 추가 (outlined/filled variant, single/multiple, 비제어 기본, lazy, WAI-ARIA 키보드 탐색)
+
+### 변경
+- test: vitest·Testing Library 테스트 환경 추가
+- refactor: Tabs 비제어 모드 지원 (defaultValue 추가, value/onValueChange 선택화) 및 테스트 추가
+- refactor: NumberInput className 조합을 clsx로 정리
+- docs: Accordion 문서화 (VitePress 페이지·사이드바, Overview 스토리 반영)
+- chore: v0.24.1 버전 범프
+- docs: v0.24.1 CHANGELOG 갱신
+
+---
 ## [0.23.3] - 2026-09-11
 
 **Branch**: `ui-v0.23.3-팝오버위치FloatingUI전환`
