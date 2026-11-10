@@ -286,6 +286,11 @@ const OverviewPage: React.FC = () => {
                 <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
                 <Tabs size="sm" defaultValue="all" options={tabOptions} />
               </div>
+              {/* underline 은 하단 구분선이 부모 폭만큼 늘어나므로 w-full 로 칸을 채운다 */}
+              <div className="w-full">
+                <div className="text-yds-c1m mb-2 text-gray-300">Underline</div>
+                <Tabs variant="underline" defaultValue="all" options={tabOptions} />
+              </div>
             </div>
           </Card>
 

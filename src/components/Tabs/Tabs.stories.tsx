@@ -9,13 +9,25 @@ const REGION_OPTIONS: TabOption[] = [
   { label: '해외', value: 'overseas' },
 ]
 
-const copyCode = (size?: TabsSize) => {
+const SECTION_OPTIONS: TabOption[] = [
+  { label: '실시간 차트', value: 'chart' },
+  { label: '지금 뜨는 산업', value: 'industry' },
+  { label: '외국인·기관 매매 동향', value: 'trend' },
+]
+
+const VARIANTS: { variant: TabsVariant; label: string }[] = [
+  { variant: 'default', label: 'Default' },
+  { variant: 'underline', label: 'Underline' },
+]
+
+const copyCode = (size?: TabsSize, variant?: TabsVariant) => {
   const sizeProp = size ? ` size="${size}"` : ''
+  const variantProp = variant && variant !== 'default' ? ` variant="${variant}"` : ''
   const code = `import { Tabs } from '@youngduck/yd-ui';
 
 function Example() {
   return (
-    <Tabs${sizeProp}
+    <Tabs${variantProp}${sizeProp}
       defaultValue="all"
       options={[
         { label: '전체', value: 'all' },
@@ -108,22 +120,43 @@ export const Default: Story = {
   },
 }
 
+export const Variants: Story = {
+  render: () => (
+    <div className="w-[480px] max-w-full space-y-8">
+      <div>
+        <div className="mb-2 text-lg font-bold text-white">Default (기본)</div>
+        <div className="mb-3 text-sm text-gray-300">
+          테두리 컨테이너 안에서 선택합니다. 같은 목록을 걸러 보는 필터에 씁니다.
+        </div>
+        <Tabs defaultValue="all" options={REGION_OPTIONS} />
+      </div>
+      <div>
+        <div className="mb-2 text-lg font-bold text-white">Underline</div>
+        <div className="mb-3 text-sm text-gray-300">
+          하단 구분선 위의 표시선으로 선택합니다. 화면 영역 자체를 바꾸는 탭에 씁니다.
+        </div>
+        <Tabs variant="underline" defaultValue="all" options={REGION_OPTIONS} />
+      </div>
+    </div>
+  ),
+}
+
 export const AllSizes: Story = {
   render: () => {
     return (
-      <div className="space-y-8">
-        <div>
-          <div className="mb-2 text-lg font-bold text-white">Small</div>
-          <Tabs size="sm" defaultValue="all" options={REGION_OPTIONS} />
-        </div>
-        <div>
-          <div className="mb-2 text-lg font-bold text-white">Medium (기본)</div>
-          <Tabs size="md" defaultValue="all" options={REGION_OPTIONS} />
-        </div>
-        <div>
-          <div className="mb-2 text-lg font-bold text-white">Large</div>
-          <Tabs size="lg" defaultValue="all" options={REGION_OPTIONS} />
-        </div>
+      // underline 은 높이가 48px 로 고정되고 size 는 글자 크기만 바꾼다
+      <div className="grid w-[640px] max-w-full grid-cols-2 gap-x-10 gap-y-8">
+        {(['sm', 'md', 'lg'] as TabsSize[]).map(size =>
+          VARIANTS.map(({ variant, label }) => (
+            <div key={`${size}-${variant}`}>
+              <div className="mb-2 text-lg font-bold text-white">
+                {label} · {size}
+                {size === 'md' ? ' (기본)' : ''}
+              </div>
+              <Tabs variant={variant} size={size} defaultValue="all" options={REGION_OPTIONS} />
+            </div>
+          )),
+        )}
       </div>
     )
   },
@@ -132,34 +165,24 @@ export const AllSizes: Story = {
 export const WithDisabledTab: Story = {
   render: () => {
     return (
-      <Tabs
-        defaultValue="all"
-        options={[
-          { label: '전체', value: 'all' },
-          { label: '국내', value: 'domestic' },
-          { label: '해외', value: 'overseas', disabled: true },
-        ]}
-      />
+      <div className="w-[480px] max-w-full space-y-8">
+        {VARIANTS.map(({ variant, label }) => (
+          <div key={variant}>
+            <div className="mb-2 text-lg font-bold text-white">{label}</div>
+            <Tabs
+              variant={variant}
+              defaultValue="all"
+              options={[
+                { label: '전체', value: 'all' },
+                { label: '국내', value: 'domestic' },
+                { label: '해외', value: 'overseas', disabled: true },
+              ]}
+            />
+          </div>
+        ))}
+      </div>
     )
   },
-}
-
-export const Underline: Story = {
-  render: () => (
-    // 하단 구분선이 부모 폭만큼 늘어나는 것을 보여주려고 폭을 준다
-    <div className="w-[560px] max-w-full">
-      <Tabs
-        variant="underline"
-        defaultValue="trend"
-        options={[
-          { label: '실시간 차트', value: 'chart' },
-          { label: '지금 뜨는 산업', value: 'industry' },
-          { label: '외국인·기관 매매 동향', value: 'trend' },
-        ]}
-        aria-label="주식 정보"
-      />
-    </div>
-  ),
 }
 
 export const Examples = {
@@ -179,6 +202,7 @@ function ExamplesContent() {
   // 이런 경우가 아니면 defaultValue 만으로 충분하다.
   const [region, setRegion] = useState('all')
   const [period, setPeriod] = useState('day')
+  const [section, setSection] = useState('trend')
 
   return (
     <div className="bg-background-primary min-h-screen p-8">
@@ -187,29 +211,52 @@ function ExamplesContent() {
         <p className="text-yds-b2 mb-8 text-gray-300">각 탭을 클릭하면 사용 코드가 클립보드에 복사됩니다.</p>
 
         <div className="bg-background-secondary mb-8 rounded-lg p-8">
-          <h2 className="text-yds-s1 mb-4 text-white">Sizes (사이즈 변형)</h2>
-          <p className="text-yds-c1m mb-6 text-gray-300">size prop으로 sm / md / lg 를 선택할 수 있습니다.</p>
-          <div className="space-y-6">
-            {(['sm', 'md', 'lg'] as TabsSize[]).map(size => (
-              <div key={size}>
-                <div className="mb-2 text-sm text-yellow-300">{size}</div>
-                <div
-                  className="hover:bg-background-tertiary inline-block cursor-pointer rounded-lg p-2 transition-colors"
-                  onClick={() => copyCode(size)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      copyCode(size)
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${size} 탭 - 클릭 시 코드 복사`}
-                >
-                  <SizedExample size={size} />
+          <h2 className="text-yds-s1 mb-4 text-white">Variants × Sizes</h2>
+          <p className="text-yds-c1m mb-6 text-gray-300">
+            variant prop으로 default / underline 을, size prop으로 sm / md / lg 를 선택할 수 있습니다.
+          </p>
+          <div className="grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2">
+            {(['sm', 'md', 'lg'] as TabsSize[]).map(size =>
+              VARIANTS.map(({ variant, label }) => (
+                <div key={`${size}-${variant}`}>
+                  <div className="mb-2 text-sm text-yellow-300">
+                    {label} · {size}
+                  </div>
+                  <div
+                    className="hover:bg-background-tertiary cursor-pointer rounded-lg p-2 transition-colors"
+                    onClick={() => copyCode(size, variant)}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        copyCode(size, variant)
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${label} ${size} 탭 - 클릭 시 코드 복사`}
+                  >
+                    <SizedExample size={size} variant={variant} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              )),
+            )}
+          </div>
+        </div>
+
+        <div className="bg-background-secondary mb-8 rounded-lg p-8">
+          <h2 className="text-yds-s1 mb-4 text-white">화면 전환 예시 (underline)</h2>
+          <p className="text-yds-c1m mb-6 text-gray-300">
+            페이지 상단에서 아래 영역 전체를 바꾸는 탭은 underline 을 사용합니다.
+          </p>
+          <Tabs
+            variant="underline"
+            value={section}
+            onValueChange={setSection}
+            options={SECTION_OPTIONS}
+            aria-label="주식 정보"
+          />
+          <div className="text-yds-b2 bg-background-primary mt-4 rounded-lg p-6 text-gray-300">
+            {SECTION_OPTIONS.find(option => option.value === section)?.label} 영역
           </div>
         </div>
 
@@ -238,6 +285,6 @@ function ExamplesContent() {
   )
 }
 
-function SizedExample({ size }: { size: TabsSize }) {
-  return <Tabs size={size} defaultValue="all" options={REGION_OPTIONS} />
+function SizedExample({ size, variant }: { size: TabsSize; variant: TabsVariant }) {
+  return <Tabs variant={variant} size={size} defaultValue="all" options={REGION_OPTIONS} />
 }
