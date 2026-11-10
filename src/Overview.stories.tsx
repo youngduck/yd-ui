@@ -9,7 +9,7 @@ import { CheckBox } from './components/CheckBox/CheckBox'
 import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
 import { Chips } from './components/Chips/Chips'
-import { Tabs } from './components/Tabs/Tabs'
+import { Tabs, type TabsSize, type TabsVariant } from './components/Tabs/Tabs'
 import { Accordion } from './components/Accordion'
 import { YearPicker } from './components/Calendars/YearPicker/YearPicker'
 import { MonthPicker } from './components/Calendars/MonthPicker/MonthPicker'
@@ -41,6 +41,13 @@ const OverviewPage: React.FC = () => {
     { label: '전체', value: 'all' },
     { label: '국내', value: 'domestic' },
     { label: '해외', value: 'overseas' },
+  ]
+
+  const tabVariants: TabsVariant[] = ['default', 'underline']
+  const tabSizes: { size: TabsSize; label: string }[] = [
+    { size: 'lg', label: 'Large' },
+    { size: 'md', label: 'Medium' },
+    { size: 'sm', label: 'Small' },
   ]
 
   const accordionItems = [
@@ -273,24 +280,18 @@ const OverviewPage: React.FC = () => {
 
           <Card variant="outlined" className="min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
+            {/* underline 은 하단 구분선이 부모 폭만큼 늘어나므로 w-full 로 칸을 채운다 */}
             <div className="flex flex-col items-start gap-6">
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
-                <Tabs size="lg" defaultValue="all" options={tabOptions} />
-              </div>
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
-                <Tabs size="md" defaultValue="all" options={tabOptions} />
-              </div>
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
-                <Tabs size="sm" defaultValue="all" options={tabOptions} />
-              </div>
-              {/* underline 은 하단 구분선이 부모 폭만큼 늘어나므로 w-full 로 칸을 채운다 */}
-              <div className="w-full">
-                <div className="text-yds-c1m mb-2 text-gray-300">Underline</div>
-                <Tabs variant="underline" defaultValue="all" options={tabOptions} />
-              </div>
+              {tabVariants.map(variant =>
+                tabSizes.map(({ size, label }) => (
+                  <div key={`${variant}-${size}`} className={variant === 'underline' ? 'w-full' : undefined}>
+                    <div className="text-yds-c1m mb-2 text-gray-300">
+                      {variant === 'underline' ? 'Underline' : 'Default'} · {label}
+                    </div>
+                    <Tabs variant={variant} size={size} defaultValue="all" options={tabOptions} />
+                  </div>
+                )),
+              )}
             </div>
           </Card>
 
