@@ -65,7 +65,7 @@ useState 로 만든 값이 `<Accordion>` 에 돌려주는 것 말고 **아무 �
 - **필요할 때만 제어**: `value` / `onValueChange` 를 주면 펼침 상태를 바깥에서 관리합니다.
 - **items 기반**: `{ label, value, content, disabled? }` 배열로 구성합니다.
 - **single / multiple**: `type` 으로 한 번에 하나만 펼칠지, 여러 개를 펼칠지 선택합니다.
-- **펼침 강조**: 펼쳐진 헤더는 노란(primary-400) 글자 + 180도 회전한 화살표로 표시됩니다.
+- **펼침 강조**: 펼쳐진 헤더는 연노랑(primary-200) 글자 + 180도 회전한 화살표로 표시됩니다.
 - **구분선**: 항목 사이에만 `--color-border-divider` 토큰의 구분선이 들어갑니다. (마지막 항목 아래에는 선이 없습니다)
 - **variant 지원**: Card 와 같은 `outlined`(테두리) / `filled`(배경) 체계 (기본값 outlined)
 - **지연 로딩**: `lazy` 로 펼치기 전까지 본문 렌더를 미룸 (본문이 쿼리를 들고 있을 때 필수)
@@ -248,8 +248,8 @@ Accordion 컴포넌트는 다음 디자인 토큰을 사용합니다.
 - `--color-accordion-filled-bg`: filled 배경색 (background-secondary, Card filled 와 동일)
 - `--color-accordion-divider`: 항목 사이 구분선 색상 (border-divider, Table 구분선과 공유)
 - `--color-accordion-trigger-text`: 헤더 텍스트 색상 (white)
-- `--color-accordion-trigger-text-hover`: 헤더 hover 텍스트 색상 (primary-200)
-- `--color-accordion-trigger-text-expanded`: 펼쳐진 헤더 텍스트 색상 (primary-400, 노란색)
+- `--color-accordion-trigger-text-hover`: 헤더 hover 텍스트 색상 (primary-50)
+- `--color-accordion-trigger-text-expanded`: 펼쳐진 헤더 텍스트 색상 (primary-200, 연노랑)
 - `--color-accordion-icon`: 화살표 아이콘 색상 (primary-100)
 - `--color-accordion-panel-text`: 본문 텍스트 색상 (primary-100)
 - `--color-accordion-focus-ring`: 포커스 링 색상 (white)

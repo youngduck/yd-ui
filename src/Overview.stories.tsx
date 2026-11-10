@@ -9,7 +9,7 @@ import { CheckBox } from './components/CheckBox/CheckBox'
 import { SelectBox } from './components/SelectBox/SelectBox'
 import { useSelectBox } from './components/SelectBox/hooks/useSelectBox'
 import { Chips } from './components/Chips/Chips'
-import { Tabs } from './components/Tabs/Tabs'
+import { Tabs, type TabsSize, type TabsVariant } from './components/Tabs/Tabs'
 import { Accordion } from './components/Accordion'
 import { YearPicker } from './components/Calendars/YearPicker/YearPicker'
 import { MonthPicker } from './components/Calendars/MonthPicker/MonthPicker'
@@ -41,6 +41,16 @@ const OverviewPage: React.FC = () => {
     { label: '전체', value: 'all' },
     { label: '국내', value: 'domestic' },
     { label: '해외', value: 'overseas' },
+  ]
+
+  const tabVariants: { variant: TabsVariant; label: string }[] = [
+    { variant: 'segmented', label: 'Segmented' },
+    { variant: 'underline', label: 'Underline' },
+  ]
+  const tabSizes: { size: TabsSize; label: string }[] = [
+    { size: 'lg', label: 'Large' },
+    { size: 'md', label: 'Medium' },
+    { size: 'sm', label: 'Small' },
   ]
 
   const accordionItems = [
@@ -251,7 +261,7 @@ const OverviewPage: React.FC = () => {
           </Card>
         </div>
 
-        {/* 4행: Calendar, Tabs, Accordion */}
+        {/* 4행: Calendar, Tabs — Tabs 는 두 variant 를 나란히 보려고 2칸을 쓴다 */}
         <div className="grid grid-cols-3 gap-8">
           <Card variant="outlined" className="min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
@@ -271,35 +281,21 @@ const OverviewPage: React.FC = () => {
             </div>
           </Card>
 
-          <Card variant="outlined" className="min-w-0">
+          <Card variant="outlined" className="col-span-2 min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
-            <div className="flex flex-col items-start gap-6">
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Large</div>
-                <Tabs size="lg" defaultValue="all" options={tabOptions} />
-              </div>
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Medium</div>
-                <Tabs size="md" defaultValue="all" options={tabOptions} />
-              </div>
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Small</div>
-                <Tabs size="sm" defaultValue="all" options={tabOptions} />
-              </div>
-            </div>
-          </Card>
-
-          <Card variant="outlined" className="min-w-0">
-            <h2 className="text-yds-h2 text-primary-300 mb-4">Accordion</h2>
-            <div className="flex flex-col gap-6">
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Outlined</div>
-                <Accordion variant="outlined" defaultValue={['delivery']} items={accordionItems} />
-              </div>
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Filled</div>
-                <Accordion variant="filled" defaultValue={['delivery']} items={accordionItems} />
-              </div>
+            <div className="grid grid-cols-2 gap-8">
+              {tabVariants.map(({ variant, label: variantLabel }) => (
+                <div key={variant} className="flex min-w-0 flex-col gap-6">
+                  {tabSizes.map(({ size, label }) => (
+                    <div key={size}>
+                      <div className="text-yds-c1m mb-2 text-gray-300">
+                        {variantLabel} · {label}
+                      </div>
+                      <Tabs variant={variant} size={size} defaultValue="all" options={tabOptions} />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </Card>
         </div>
@@ -353,6 +349,23 @@ const OverviewPage: React.FC = () => {
                   <div className={pageBox}>filled 3page</div>
                 </PagedCard.Page>
               </PagedCard>
+            </div>
+          </Card>
+        </div>
+
+        {/* 6행: Accordion */}
+        <div className="grid grid-cols-3 gap-8">
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Accordion</h2>
+            <div className="flex flex-col gap-6">
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Outlined</div>
+                <Accordion variant="outlined" defaultValue={['delivery']} items={accordionItems} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Filled</div>
+                <Accordion variant="filled" defaultValue={['delivery']} items={accordionItems} />
+              </div>
             </div>
           </Card>
         </div>

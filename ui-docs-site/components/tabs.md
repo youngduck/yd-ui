@@ -57,11 +57,33 @@ useState 로 만든 값이 `<Tabs>` 에 돌려주는 것 말고 **아무 데도 
 - **비제어 기본**: `defaultValue` 로 처음 선택할 탭만 지정하면 선택 상태는 컴포넌트가 직접 관리합니다.
 - **필요할 때만 제어**: `value` / `onValueChange` 를 주면 선택값을 바깥에서 관리합니다.
 - **options 기반**: `{ label, value, disabled? }` 배열로 탭을 구성합니다.
-- **선택 강조**: 선택된 탭은 노란(primary-400) 글자, 미선택 탭은 흰 글자로 표시됩니다.
+- **선택 강조**: 선택된 탭은 연노랑(primary-200) 글자, 미선택 탭은 흰 글자로 표시됩니다.
 - **구분선 테두리**: 컨테이너에 Table 행 구분선과 같은 `--color-border-divider` 토큰의 테두리가 적용됩니다.
 - **사이즈 지원**: sm / md / lg 세 가지 사이즈 제공 (기본값 md)
 - **접근성**: `role="radiogroup"` / `role="radio"`, 방향키·Home·End 키보드 탐색, 로빙 탭인덱스 적용
 - **디자인 토큰**: 색상·간격·타이포그래피를 모두 토큰에서 일괄 적용
+
+## Variants
+
+`variant` prop으로 탭 모양을 고릅니다. 두 모양 모두 선택·비제어·키보드 동작은 같습니다.
+
+- **segmented** (기본): 테두리 컨테이너 안에서 선택합니다. 지역·기간 필터처럼 **같은 목록을 걸러 보는** 토글에 어울립니다.
+- **underline**: 컨테이너 없이 하단 구분선 위에 노란 표시선으로 선택을 보여줍니다. 페이지 상단에서 **화면 영역 자체를 바꾸는** 탭에 어울립니다.
+
+```tsx
+<Tabs
+  variant="underline"
+  defaultValue="trend"
+  aria-label="주식 정보"
+  options={[
+    { label: '실시간 차트', value: 'chart' },
+    { label: '지금 뜨는 산업', value: 'industry' },
+    { label: '외국인·기관 매매 동향', value: 'trend' },
+  ]}
+/>
+```
+
+underline 은 부모 폭만큼 하단 구분선이 늘어나며, 높이는 48px 로 고정되고 `size` 는 글자 크기만 바꿉니다.
 
 ## Sizes
 
@@ -146,6 +168,7 @@ Tabs는 WAI-ARIA radiogroup 패턴을 따릅니다.
 | `value`         | `string`                      | -       | 현재 선택된 값. 주면 제어 모드    |
 | `onValueChange` | `(value: string) => void`     | -       | 값 변경 시 호출 (두 모드 모두)    |
 | `size`          | `'sm' \| 'md' \| 'lg'`        | `'md'`  | 탭 사이즈                         |
+| `variant`       | `'segmented' \| 'underline'`  | `'segmented'` | 탭 모양 (테두리 / 하단 표시선) |
 | `aria-label`    | `string`                      | `'탭'`  | radiogroup 라벨                   |
 
 `TabOption` 타입은 다음과 같습니다.
@@ -182,6 +205,17 @@ Tabs 컴포넌트는 다음 디자인 토큰을 사용합니다.
 - `--color-tabs-bg`: 컨테이너 배경색 (secondary-300)
 - `--color-tabs-border`: 컨테이너 테두리 색상 (border-divider, Table 구분선과 공유)
 - `--color-tabs-item-text`: 미선택 탭 텍스트 색상 (white)
-- `--color-tabs-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-100)
-- `--color-tabs-item-selected-text`: 선택된 탭 텍스트 색상 (primary-400, 노란색)
+- `--color-tabs-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-50)
+- `--color-tabs-item-selected-text`: 선택된 탭 텍스트 색상 (primary-200, 연노랑)
 - `--color-tabs-focus-ring`: 포커스 링 색상 (white)
+
+### Underline Variant Tokens
+- `--tabs-underline-gap`: 탭 사이 간격 (24px)
+- `--tabs-underline-item-height`: 탭 높이 (48px)
+- `--tabs-underline-item-padding-x`: 탭 좌우 패딩 (4px)
+- `--tabs-underline-indicator-height`: 선택 표시선 두께 (2px)
+- `--color-tabs-underline-border`: 하단 구분선 색상 (border-divider)
+- `--color-tabs-underline-item-text`: 미선택 탭 텍스트 색상 (primary-100)
+- `--color-tabs-underline-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-50)
+- `--color-tabs-underline-item-selected-text`: 선택된 탭 텍스트 색상 (primary-200)
+- `--color-tabs-underline-indicator`: 선택 표시선 색상 (primary-200)
