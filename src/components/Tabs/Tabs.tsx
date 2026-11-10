@@ -4,6 +4,12 @@ import { useRef, useState } from 'react'
 
 const tabsVariants = cva('yds-tabs', {
   variants: {
+    variant: {
+      /** 테두리 컨테이너 안에서 선택 (기본) */
+      default: '',
+      /** 하단 구분선 위의 표시선으로 선택 */
+      underline: 'yds-tabs-underline',
+    },
     size: {
       sm: 'yds-tabs-sm',
       md: 'yds-tabs-md',
@@ -11,12 +17,14 @@ const tabsVariants = cva('yds-tabs', {
     },
   },
   defaultVariants: {
+    variant: 'default',
     size: 'md',
   },
 })
 
 // 타입 export
 export type TabsSize = VariantProps<typeof tabsVariants>['size']
+export type TabsVariant = VariantProps<typeof tabsVariants>['variant']
 
 export type TabOption = {
   /** 화면에 노출되는 라벨 */
@@ -39,7 +47,16 @@ type TabsProps = {
 } & Omit<React.ComponentPropsWithoutRef<'div'>, 'onChange'> &
   VariantProps<typeof tabsVariants>
 
-export function Tabs({ options, value, defaultValue, onValueChange, size, className = '', ...props }: TabsProps) {
+export function Tabs({
+  options,
+  value,
+  defaultValue,
+  onValueChange,
+  size,
+  variant,
+  className = '',
+  ...props
+}: TabsProps) {
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   // 탭 선택은 라우팅·쿼리와 엮일 때만 바깥이 알면 되므로 비제어가 기본이다
@@ -105,7 +122,7 @@ export function Tabs({ options, value, defaultValue, onValueChange, size, classN
     <div
       role="radiogroup"
       aria-label={props['aria-label'] || '탭'}
-      className={clsx(tabsVariants({ size }), className)}
+      className={clsx(tabsVariants({ size, variant }), className)}
       {...props}
     >
       {options.map((option, index) => {

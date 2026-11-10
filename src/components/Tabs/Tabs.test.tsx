@@ -180,4 +180,23 @@ describe('Tabs', () => {
       expect(container.querySelectorAll('.yds-tabs-item-selected').length).toBe(1)
     })
   })
+
+  describe('variant', () => {
+    it('기본값이면 underline 클래스가 붙지 않는다', () => {
+      render(<Tabs options={OPTIONS} defaultValue="all" />)
+
+      expect(screen.getByRole('radiogroup').classList.contains('yds-tabs-underline')).toBe(false)
+    })
+
+    it('underline 이어도 선택·키보드 동작은 그대로다', async () => {
+      const user = userEvent.setup()
+      render(<Tabs variant="underline" options={OPTIONS} defaultValue="all" />)
+
+      expect(screen.getByRole('radiogroup').classList.contains('yds-tabs-underline')).toBe(true)
+
+      await user.click(tab('전체'))
+      await user.keyboard('{ArrowRight}')
+      expect(tab('국내').getAttribute('aria-checked')).toBe('true')
+    })
+  })
 })

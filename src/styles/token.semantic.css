@@ -204,6 +204,11 @@
   --tabs-typography-line-height: var(--line-height-yds-c1m);
   --tabs-typography-font-weight: var(--font-weight-yds-c1m);
   --tabs-typography-font-family: var(--font-yds-wanted);
+  /* Underline variant: 표시선을 담는 탭이라 표준 컨트롤 높이(48px)를 아이템 자체가 갖는다 */
+  --tabs-underline-gap: 24px;
+  --tabs-underline-item-height: 48px;
+  --tabs-underline-item-padding-x: 4px;
+  --tabs-underline-indicator-height: 2px;
 
   /* Accordion Spacing Tokens */
   --accordion-border-radius: var(--yds-border-radius);
@@ -250,6 +255,13 @@
   --color-tabs-item-text: var(--color-white);
   --color-tabs-item-text-hover: var(--color-primary-200);
   --color-tabs-item-selected-text: var(--color-primary-400);
+  /* Underline variant: 선택은 default 와 같은 옐로우. 미선택은 primary-100 —
+     secondary-50 은 배경(secondary-300) 대비 약 2:1 이라 WCAG 4.5:1 을 못 넘는다 */
+  --color-tabs-underline-border: var(--color-border-divider);
+  --color-tabs-underline-item-text: var(--color-primary-100);
+  --color-tabs-underline-item-text-hover: var(--color-white);
+  --color-tabs-underline-item-selected-text: var(--color-primary-400);
+  --color-tabs-underline-indicator: var(--color-primary-400);
   --color-tabs-focus-ring: var(--color-white);
 
   /* Calendar Spacing Tokens */
