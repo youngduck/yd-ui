@@ -12,6 +12,9 @@
 - docs: v0.25.1 CHANGELOG 갱신
 - docs: Overview Tabs 카드에 default·underline 모두 Large~Small 표시
 - style: Tabs·Accordion 활성 색상을 primary-400에서 연노랑 primary-200으로 변경 (hover는 primary-50)
+- docs: v0.25.1 CHANGELOG 갱신
+- refactor: Tabs 기본 variant 이름을 default에서 segmented로 변경 (Segmented Control 관례 명칭, 미배포 prop이라 호환 영향 없음)
+- docs: Overview 레이아웃 정리 (Tabs 2칸 차지·segmented/underline 가로 배치, Accordion 맨 아래 행으로 이동)
 
 ---
 ## [0.24.1] - 2026-10-23
