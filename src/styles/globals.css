@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* 스토리·테스트에서 쓴 레이아웃 유틸(grid-cols-1 등)이 라이브러리 CSS 로 새어 나가면
+   소비 앱의 같은 @layer utilities 뒤에 붙어 반응형 클래스(xl:grid-cols-8)를 덮어쓴다 (bdks-fe 관리자 레이아웃 붕괴).
+   Storybook 은 .storybook/preview.css 에서 스토리를 따로 스캔한다. */
+@source not "../**/*.stories.tsx";
+@source not "../**/*.test.tsx";
+@source not "../storybook";
+
 @import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
 
 @import "./token.primitive.css";
