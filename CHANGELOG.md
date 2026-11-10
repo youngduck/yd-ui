@@ -1,3 +1,14 @@
+## [0.25.1] - 2026-11-10
+
+**Branch**: `ui-v0.25.1-Tabs언더라인variant추가`
+### 추가
+- feat: Tabs underline variant 추가 (하단 구분선 위 노란 표시선, size는 글자 크기만 변경)
+
+### 변경
+- docs: Tabs underline variant 문서화 (Storybook Underline 스토리·variant 컨트롤, VitePress Variants 섹션·토큰)
+- chore: v0.25.1 버전 범프
+
+---
 ## [0.24.1] - 2026-10-23
 
 **Branch**: `ui-v0.24.1-Accordion컴포넌트추가`
