@@ -9,6 +9,9 @@
 - chore: v0.25.1 버전 범프
 - docs: v0.25.1 CHANGELOG 갱신
 - docs: Tabs 스토리 전반에 underline variant 반영 (Variants 비교 스토리, AllSizes·WithDisabledTab·Examples variant별 병렬 표시, Overview 카드 추가)
+- docs: v0.25.1 CHANGELOG 갱신
+- docs: Overview Tabs 카드에 default·underline 모두 Large~Small 표시
+- style: Tabs·Accordion 활성 색상을 primary-400에서 연노랑 primary-200으로 변경 (hover는 primary-50)
 
 ---
 ## [0.24.1] - 2026-10-23
