@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Tabs, type TabsSize, type TabOption } from './Tabs'
+import { Tabs, type TabsSize, type TabsVariant, type TabOption } from './Tabs'
 import { copyCodeToClipboard } from '../../storybook/utils'
 
 const REGION_OPTIONS: TabOption[] = [
@@ -44,6 +44,7 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
 ## 주요 특징
 - 구분선 색 테두리를 두른 네이비 컨테이너 안에서 선택 탭은 노란 글자, 미선택 탭은 흰 글자로 표시
 - sm / md / lg 사이즈 지원 (토큰화)
+- \`variant\`: default(테두리 컨테이너) / underline(하단 표시선)
 - 기본은 비제어: \`defaultValue\` 로 처음 선택할 탭만 지정하면 선택 상태는 컴포넌트가 직접 관리
 - 바깥에서 선택값을 읽거나 직접 바꿔야 할 때만 \`value\` / \`onValueChange\` 로 제어
 - \`options\` 배열로 탭을 구성하며 탭별 \`disabled\` 지원
@@ -54,6 +55,7 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
 - \`options\` prop에 \`{ label, value, disabled? }\` 배열을 전달합니다.
 - \`value\` prop으로 현재 선택 값을 지정하고, \`onValueChange\` 로 변경을 처리합니다.
 - \`size\` prop으로 sm / md / lg 를 선택합니다. (기본값 md)
+- 같은 목록을 걸러 보는 필터면 default, 화면 영역 자체를 바꾸는 탭이면 \`variant="underline"\` 을 씁니다.
         `,
       },
     },
@@ -64,6 +66,11 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
       options: ['sm', 'md', 'lg'] as TabsSize[],
       control: { type: 'select' },
       description: '탭 사이즈',
+    },
+    variant: {
+      options: ['default', 'underline'] as TabsVariant[],
+      control: { type: 'select' },
+      description: '탭 표시 스타일',
     },
     value: {
       control: false,
@@ -93,10 +100,11 @@ type Story = StoryObj<typeof Tabs>
 
 export const Default: Story = {
   render: args => {
-    return <Tabs size={args.size} defaultValue="all" options={REGION_OPTIONS} />
+    return <Tabs size={args.size} variant={args.variant} defaultValue="all" options={REGION_OPTIONS} />
   },
   args: {
     size: 'md',
+    variant: 'default',
   },
 }
 
@@ -134,6 +142,24 @@ export const WithDisabledTab: Story = {
       />
     )
   },
+}
+
+export const Underline: Story = {
+  render: () => (
+    // 하단 구분선이 부모 폭만큼 늘어나는 것을 보여주려고 폭을 준다
+    <div className="w-[560px] max-w-full">
+      <Tabs
+        variant="underline"
+        defaultValue="trend"
+        options={[
+          { label: '실시간 차트', value: 'chart' },
+          { label: '지금 뜨는 산업', value: 'industry' },
+          { label: '외국인·기관 매매 동향', value: 'trend' },
+        ]}
+        aria-label="주식 정보"
+      />
+    </div>
+  ),
 }
 
 export const Examples = {
