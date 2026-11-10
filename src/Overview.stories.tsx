@@ -43,7 +43,10 @@ const OverviewPage: React.FC = () => {
     { label: '해외', value: 'overseas' },
   ]
 
-  const tabVariants: TabsVariant[] = ['default', 'underline']
+  const tabVariants: { variant: TabsVariant; label: string }[] = [
+    { variant: 'segmented', label: 'Segmented' },
+    { variant: 'underline', label: 'Underline' },
+  ]
   const tabSizes: { size: TabsSize; label: string }[] = [
     { size: 'lg', label: 'Large' },
     { size: 'md', label: 'Medium' },
@@ -258,7 +261,7 @@ const OverviewPage: React.FC = () => {
           </Card>
         </div>
 
-        {/* 4행: Calendar, Tabs, Accordion */}
+        {/* 4행: Calendar, Tabs — Tabs 는 두 variant 를 나란히 보려고 2칸을 쓴다 */}
         <div className="grid grid-cols-3 gap-8">
           <Card variant="outlined" className="min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Calendar</h2>
@@ -278,34 +281,21 @@ const OverviewPage: React.FC = () => {
             </div>
           </Card>
 
-          <Card variant="outlined" className="min-w-0">
+          <Card variant="outlined" className="col-span-2 min-w-0">
             <h2 className="text-yds-h2 text-primary-300 mb-4">Tabs</h2>
-            {/* underline 은 하단 구분선이 부모 폭만큼 늘어나므로 w-full 로 칸을 채운다 */}
-            <div className="flex flex-col items-start gap-6">
-              {tabVariants.map(variant =>
-                tabSizes.map(({ size, label }) => (
-                  <div key={`${variant}-${size}`} className={variant === 'underline' ? 'w-full' : undefined}>
-                    <div className="text-yds-c1m mb-2 text-gray-300">
-                      {variant === 'underline' ? 'Underline' : 'Default'} · {label}
+            <div className="grid grid-cols-2 gap-8">
+              {tabVariants.map(({ variant, label: variantLabel }) => (
+                <div key={variant} className="flex min-w-0 flex-col gap-6">
+                  {tabSizes.map(({ size, label }) => (
+                    <div key={size}>
+                      <div className="text-yds-c1m mb-2 text-gray-300">
+                        {variantLabel} · {label}
+                      </div>
+                      <Tabs variant={variant} size={size} defaultValue="all" options={tabOptions} />
                     </div>
-                    <Tabs variant={variant} size={size} defaultValue="all" options={tabOptions} />
-                  </div>
-                )),
-              )}
-            </div>
-          </Card>
-
-          <Card variant="outlined" className="min-w-0">
-            <h2 className="text-yds-h2 text-primary-300 mb-4">Accordion</h2>
-            <div className="flex flex-col gap-6">
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Outlined</div>
-                <Accordion variant="outlined" defaultValue={['delivery']} items={accordionItems} />
-              </div>
-              <div>
-                <div className="text-yds-c1m mb-2 text-gray-300">Filled</div>
-                <Accordion variant="filled" defaultValue={['delivery']} items={accordionItems} />
-              </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </Card>
         </div>
@@ -359,6 +349,23 @@ const OverviewPage: React.FC = () => {
                   <div className={pageBox}>filled 3page</div>
                 </PagedCard.Page>
               </PagedCard>
+            </div>
+          </Card>
+        </div>
+
+        {/* 6행: Accordion */}
+        <div className="grid grid-cols-3 gap-8">
+          <Card variant="outlined" className="min-w-0">
+            <h2 className="text-yds-h2 text-primary-300 mb-4">Accordion</h2>
+            <div className="flex flex-col gap-6">
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Outlined</div>
+                <Accordion variant="outlined" defaultValue={['delivery']} items={accordionItems} />
+              </div>
+              <div>
+                <div className="text-yds-c1m mb-2 text-gray-300">Filled</div>
+                <Accordion variant="filled" defaultValue={['delivery']} items={accordionItems} />
+              </div>
             </div>
           </Card>
         </div>
