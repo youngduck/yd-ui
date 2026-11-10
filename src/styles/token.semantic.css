@@ -236,32 +236,33 @@
   /* Accordion Color Tokens
      variant 체계는 Card 와 동일하다. outlined 는 테두리로, filled 는 배경으로 영역을 구분하며
      두 토큰 값도 Card(--color-card-outlined-border / --color-card-filled-bg)와 같은 값을 쓴다.
-     펼쳐진 헤더는 Tabs 와 같이 옐로우(primary-400)로 강조한다. */
+     펼쳐진 헤더는 Tabs 와 같이 연노랑(primary-200)으로 강조한다. */
   --color-accordion-outlined-border: var(--color-secondary-50);
   --color-accordion-filled-bg: var(--color-background-secondary);
   --color-accordion-divider: var(--color-border-divider);
   --color-accordion-trigger-text: var(--color-white);
-  --color-accordion-trigger-text-hover: var(--color-primary-200);
-  --color-accordion-trigger-text-expanded: var(--color-primary-400);
+  --color-accordion-trigger-text-hover: var(--color-primary-50);
+  --color-accordion-trigger-text-expanded: var(--color-primary-200);
   --color-accordion-icon: var(--color-primary-100);
   --color-accordion-panel-text: var(--color-primary-100);
   --color-accordion-focus-ring: var(--color-white);
 
   /* Tabs Color Tokens (구분선 색 테두리, 선택은 노란 글자로 강조) */
   /* Calendar 트리거·SelectBox와 동일한 패턴: 투명(검은) 배경 + 옐로우 보더.
-     미선택 탭은 흰색, 선택된 탭은 옐로우(primary-400) 강조 */
+     미선택 탭은 흰색, 선택된 탭은 연노랑(primary-200) 강조.
+     primary-400 은 어두운 배경에서 너무 진해 보여 한 단계 밝힌다. hover 는 선택색과 겹치지 않게 primary-50 */
   --color-tabs-bg: transparent;
   --color-tabs-border: var(--color-border-primary-light);
   --color-tabs-item-text: var(--color-white);
-  --color-tabs-item-text-hover: var(--color-primary-200);
-  --color-tabs-item-selected-text: var(--color-primary-400);
-  /* Underline variant: 선택은 default 와 같은 옐로우. 미선택은 primary-100 —
+  --color-tabs-item-text-hover: var(--color-primary-50);
+  --color-tabs-item-selected-text: var(--color-primary-200);
+  /* Underline variant: 선택은 default 와 같은 연노랑. 미선택은 primary-100 —
      secondary-50 은 배경(secondary-300) 대비 약 2:1 이라 WCAG 4.5:1 을 못 넘는다 */
   --color-tabs-underline-border: var(--color-border-divider);
   --color-tabs-underline-item-text: var(--color-primary-100);
-  --color-tabs-underline-item-text-hover: var(--color-white);
-  --color-tabs-underline-item-selected-text: var(--color-primary-400);
-  --color-tabs-underline-indicator: var(--color-primary-400);
+  --color-tabs-underline-item-text-hover: var(--color-primary-50);
+  --color-tabs-underline-item-selected-text: var(--color-primary-200);
+  --color-tabs-underline-indicator: var(--color-primary-200);
   --color-tabs-focus-ring: var(--color-white);
 
   /* Calendar Spacing Tokens */

@@ -57,7 +57,7 @@ useState 로 만든 값이 `<Tabs>` 에 돌려주는 것 말고 **아무 데도 
 - **비제어 기본**: `defaultValue` 로 처음 선택할 탭만 지정하면 선택 상태는 컴포넌트가 직접 관리합니다.
 - **필요할 때만 제어**: `value` / `onValueChange` 를 주면 선택값을 바깥에서 관리합니다.
 - **options 기반**: `{ label, value, disabled? }` 배열로 탭을 구성합니다.
-- **선택 강조**: 선택된 탭은 노란(primary-400) 글자, 미선택 탭은 흰 글자로 표시됩니다.
+- **선택 강조**: 선택된 탭은 연노랑(primary-200) 글자, 미선택 탭은 흰 글자로 표시됩니다.
 - **구분선 테두리**: 컨테이너에 Table 행 구분선과 같은 `--color-border-divider` 토큰의 테두리가 적용됩니다.
 - **사이즈 지원**: sm / md / lg 세 가지 사이즈 제공 (기본값 md)
 - **접근성**: `role="radiogroup"` / `role="radio"`, 방향키·Home·End 키보드 탐색, 로빙 탭인덱스 적용
@@ -205,8 +205,8 @@ Tabs 컴포넌트는 다음 디자인 토큰을 사용합니다.
 - `--color-tabs-bg`: 컨테이너 배경색 (secondary-300)
 - `--color-tabs-border`: 컨테이너 테두리 색상 (border-divider, Table 구분선과 공유)
 - `--color-tabs-item-text`: 미선택 탭 텍스트 색상 (white)
-- `--color-tabs-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-100)
-- `--color-tabs-item-selected-text`: 선택된 탭 텍스트 색상 (primary-400, 노란색)
+- `--color-tabs-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-50)
+- `--color-tabs-item-selected-text`: 선택된 탭 텍스트 색상 (primary-200, 연노랑)
 - `--color-tabs-focus-ring`: 포커스 링 색상 (white)
 
 ### Underline Variant Tokens
@@ -216,6 +216,6 @@ Tabs 컴포넌트는 다음 디자인 토큰을 사용합니다.
 - `--tabs-underline-indicator-height`: 선택 표시선 두께 (2px)
 - `--color-tabs-underline-border`: 하단 구분선 색상 (border-divider)
 - `--color-tabs-underline-item-text`: 미선택 탭 텍스트 색상 (primary-100)
-- `--color-tabs-underline-item-text-hover`: 미선택 탭 hover 텍스트 색상 (white)
-- `--color-tabs-underline-item-selected-text`: 선택된 탭 텍스트 색상 (primary-400)
-- `--color-tabs-underline-indicator`: 선택 표시선 색상 (primary-400)
+- `--color-tabs-underline-item-text-hover`: 미선택 탭 hover 텍스트 색상 (primary-50)
+- `--color-tabs-underline-item-selected-text`: 선택된 탭 텍스트 색상 (primary-200)
+- `--color-tabs-underline-indicator`: 선택 표시선 색상 (primary-200)
