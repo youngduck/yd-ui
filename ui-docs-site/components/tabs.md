@@ -67,7 +67,7 @@ useState 로 만든 값이 `<Tabs>` 에 돌려주는 것 말고 **아무 데도 
 
 `variant` prop으로 탭 모양을 고릅니다. 두 모양 모두 선택·비제어·키보드 동작은 같습니다.
 
-- **default** (기본): 테두리 컨테이너 안에서 선택합니다. 지역·기간 필터처럼 **같은 목록을 걸러 보는** 토글에 어울립니다.
+- **segmented** (기본): 테두리 컨테이너 안에서 선택합니다. 지역·기간 필터처럼 **같은 목록을 걸러 보는** 토글에 어울립니다.
 - **underline**: 컨테이너 없이 하단 구분선 위에 노란 표시선으로 선택을 보여줍니다. 페이지 상단에서 **화면 영역 자체를 바꾸는** 탭에 어울립니다.
 
 ```tsx
@@ -168,7 +168,7 @@ Tabs는 WAI-ARIA radiogroup 패턴을 따릅니다.
 | `value`         | `string`                      | -       | 현재 선택된 값. 주면 제어 모드    |
 | `onValueChange` | `(value: string) => void`     | -       | 값 변경 시 호출 (두 모드 모두)    |
 | `size`          | `'sm' \| 'md' \| 'lg'`        | `'md'`  | 탭 사이즈                         |
-| `variant`       | `'default' \| 'underline'`    | `'default'` | 탭 모양 (테두리 / 하단 표시선) |
+| `variant`       | `'segmented' \| 'underline'`  | `'segmented'` | 탭 모양 (테두리 / 하단 표시선) |
 | `aria-label`    | `string`                      | `'탭'`  | radiogroup 라벨                   |
 
 `TabOption` 타입은 다음과 같습니다.

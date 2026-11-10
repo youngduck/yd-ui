@@ -5,8 +5,8 @@ import { useRef, useState } from 'react'
 const tabsVariants = cva('yds-tabs', {
   variants: {
     variant: {
-      /** 테두리 컨테이너 안에서 선택 (기본) */
-      default: '',
+      /** 테두리 컨테이너 안에서 선택 — Segmented Control 모양 (기본) */
+      segmented: '',
       /** 하단 구분선 위의 표시선으로 선택 */
       underline: 'yds-tabs-underline',
     },
@@ -17,7 +17,7 @@ const tabsVariants = cva('yds-tabs', {
     },
   },
   defaultVariants: {
-    variant: 'default',
+    variant: 'segmented',
     size: 'md',
   },
 })

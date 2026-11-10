@@ -16,13 +16,13 @@ const SECTION_OPTIONS: TabOption[] = [
 ]
 
 const VARIANTS: { variant: TabsVariant; label: string }[] = [
-  { variant: 'default', label: 'Default' },
+  { variant: 'segmented', label: 'Segmented' },
   { variant: 'underline', label: 'Underline' },
 ]
 
 const copyCode = (size?: TabsSize, variant?: TabsVariant) => {
   const sizeProp = size ? ` size="${size}"` : ''
-  const variantProp = variant && variant !== 'default' ? ` variant="${variant}"` : ''
+  const variantProp = variant && variant !== 'segmented' ? ` variant="${variant}"` : ''
   const code = `import { Tabs } from '@youngduck/yd-ui';
 
 function Example() {
@@ -56,7 +56,7 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
 ## 주요 특징
 - 구분선 색 테두리를 두른 네이비 컨테이너 안에서 선택 탭은 노란 글자, 미선택 탭은 흰 글자로 표시
 - sm / md / lg 사이즈 지원 (토큰화)
-- \`variant\`: default(테두리 컨테이너) / underline(하단 표시선)
+- \`variant\`: segmented(테두리 컨테이너, 기본) / underline(하단 표시선)
 - 기본은 비제어: \`defaultValue\` 로 처음 선택할 탭만 지정하면 선택 상태는 컴포넌트가 직접 관리
 - 바깥에서 선택값을 읽거나 직접 바꿔야 할 때만 \`value\` / \`onValueChange\` 로 제어
 - \`options\` 배열로 탭을 구성하며 탭별 \`disabled\` 지원
@@ -67,7 +67,7 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
 - \`options\` prop에 \`{ label, value, disabled? }\` 배열을 전달합니다.
 - \`value\` prop으로 현재 선택 값을 지정하고, \`onValueChange\` 로 변경을 처리합니다.
 - \`size\` prop으로 sm / md / lg 를 선택합니다. (기본값 md)
-- 같은 목록을 걸러 보는 필터면 default, 화면 영역 자체를 바꾸는 탭이면 \`variant="underline"\` 을 씁니다.
+- 같은 목록을 걸러 보는 필터면 segmented, 화면 영역 자체를 바꾸는 탭이면 \`variant="underline"\` 을 씁니다.
         `,
       },
     },
@@ -80,7 +80,7 @@ YD-UI 디자인 시스템의 탭 컴포넌트입니다.
       description: '탭 사이즈',
     },
     variant: {
-      options: ['default', 'underline'] as TabsVariant[],
+      options: ['segmented', 'underline'] as TabsVariant[],
       control: { type: 'select' },
       description: '탭 표시 스타일',
     },
@@ -116,7 +116,7 @@ export const Default: Story = {
   },
   args: {
     size: 'md',
-    variant: 'default',
+    variant: 'segmented',
   },
 }
 
@@ -124,7 +124,7 @@ export const Variants: Story = {
   render: () => (
     <div className="w-[480px] max-w-full space-y-8">
       <div>
-        <div className="mb-2 text-lg font-bold text-white">Default (기본)</div>
+        <div className="mb-2 text-lg font-bold text-white">Segmented (기본)</div>
         <div className="mb-3 text-sm text-gray-300">
           테두리 컨테이너 안에서 선택합니다. 같은 목록을 걸러 보는 필터에 씁니다.
         </div>
@@ -213,7 +213,7 @@ function ExamplesContent() {
         <div className="bg-background-secondary mb-8 rounded-lg p-8">
           <h2 className="text-yds-s1 mb-4 text-white">Variants × Sizes</h2>
           <p className="text-yds-c1m mb-6 text-gray-300">
-            variant prop으로 default / underline 을, size prop으로 sm / md / lg 를 선택할 수 있습니다.
+            variant prop으로 segmented / underline 을, size prop으로 sm / md / lg 를 선택할 수 있습니다.
           </p>
           <div className="grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2">
             {(['sm', 'md', 'lg'] as TabsSize[]).map(size =>
