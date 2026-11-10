@@ -7,6 +7,8 @@
 ### 변경
 - docs: Tabs underline variant 문서화 (Storybook Underline 스토리·variant 컨트롤, VitePress Variants 섹션·토큰)
 - chore: v0.25.1 버전 범프
+- docs: v0.25.1 CHANGELOG 갱신
+- docs: Tabs 스토리 전반에 underline variant 반영 (Variants 비교 스토리, AllSizes·WithDisabledTab·Examples variant별 병렬 표시, Overview 카드 추가)
 
 ---
 ## [0.24.1] - 2026-10-23
