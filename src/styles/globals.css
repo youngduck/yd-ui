@@ -1,9 +1,17 @@
-@import "tailwindcss";
+/* 배포 CSS(dist/index.css)의 진입점. src/index.ts 가 import 해서 rollup 이 빌드한다.
+   토큰(:root 변수)과 yds-* 컴포넌트 CSS만 담고, Tailwind 유틸·preflight 는 담지 않는다.
+   Tailwind 클래스는 YD-UI를 쓰는 프로젝트에서 dist/theme.css를 읽어 생성한다.
 
+   0.25.1 까지는 첫 줄이 @import "tailwindcss" 였다. Tailwind 는 import 여부와 상관없이 프로젝트 전체 파일을
+   훑어 클래스처럼 생긴 문자열을 모두 유틸로 만들기 때문에, 스토리에만 쓴 grid-cols-1 이 배포 CSS 에 들어갔고
+   bdks-fe의 같은 @layer utilities 뒤에 붙어 xl:grid-cols-8을 덮어쓰면서 관리자 화면이 1열로 표시됐다.
+
+   theme(static): 프로젝트에서 어떤 토큰을 쓰는지와 관계없이 모든 토큰을 :root 변수로 내보낸다.
+   @import 는 맨 앞(주석 다음)에만 둔다. 앞에 다른 규칙이 오면 스토리북이 뒤따르는 @import 를 버린다. */
 @import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
 
-@import "./token.primitive.css";
-@import "./token.semantic.css";
+@import "./token.primitive.css" theme(static);
+@import "./token.semantic.css" theme(static);
 @import "./token.components/token.components.button.css";
 @import "./token.components/token.components.input.css";
 @import "./token.components/token.components.checkbox.css";
@@ -20,7 +28,6 @@
 @import "./token.components/token.components.number-input.css";
 @import "./token.components/token.components.accordion.css";
 @import "./token.components/token.components.layout.css";
-
 
 /* 모든 스크롤바에 적용 */
 ::-webkit-scrollbar {

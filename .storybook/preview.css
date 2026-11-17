@@ -1,0 +1,8 @@
+/* 스토리북에서도 실제 프로젝트처럼 Tailwind와 YD-UI 스타일을 함께 불러온다.
+   스토리에 쓴 유틸은 여기서만 생성되고 배포 CSS(dist/index.css)에는 들어가지 않는다.
+   @import 는 모두 @source 보다 앞에 둔다. */
+@import 'tailwindcss';
+@import '../src/styles/globals.css';
+@import '../src/styles/token.utilities.css';
+
+@source '../src';

@@ -21,7 +21,10 @@ export default defineConfig({
       '/guide/': [
         {
           text: '시작하기',
-          items: [{ text: '설치', link: '/guide/installation' }],
+          items: [
+            { text: '설치', link: '/guide/installation' },
+            { text: 'Next.js', link: '/guide/nextjs' },
+          ],
         },
       ],
       '/tokens/': [

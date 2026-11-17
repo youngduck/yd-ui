@@ -4,7 +4,7 @@
  * white / primary-400 / primary-100 색상과 sm / md / lg / full 사이즈를 지원합니다.
  */
 @layer components {
-  /* 하위 호환용 타이포그래피 유틸 (기존 사용처 유지) */
+  /* 기존 글꼴 클래스도 계속 쓸 수 있도록 유지한다. */
   .yds-input-typography {
     font-size: var(--input-typography-font-size);
     line-height: var(--input-typography-line-height);
