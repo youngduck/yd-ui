@@ -1,4 +1,8 @@
-/* 라이브러리 CSS(globals.css)는 스토리를 스캔하지 않으므로, 스토리에서만 쓰는 유틸은 여기서 생성한다 */
+/* 스토리북에서도 실제 프로젝트처럼 Tailwind와 YD-UI 스타일을 함께 불러온다.
+   스토리에 쓴 유틸은 여기서만 생성되고 배포 CSS(dist/index.css)에는 들어가지 않는다.
+   @import 는 모두 @source 보다 앞에 둔다. */
+@import 'tailwindcss';
 @import '../src/styles/globals.css';
-@source '../src/**/*.stories.tsx';
-@source '../src/storybook';
+@import '../src/styles/token.utilities.css';
+
+@source '../src';
