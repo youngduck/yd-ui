@@ -10,7 +10,7 @@ const ITEMS: AccordionItem[] = [
   { label: '해외 배송도 되나요?', value: 'overseas', content: <p>일부 국가에 한해 가능합니다.</p> },
 ]
 
-/** 제어 컴포넌트를 실제 사용처처럼 상태와 함께 렌더한다 */
+/** 실제 화면에서처럼 상태를 관리하며 제어 컴포넌트를 렌더한다 */
 function ControlledAccordion({
   items = ITEMS,
   type,
