@@ -1,13 +1,17 @@
-## [0.25.2] - 2026-11-10
+## [0.25.2] - 2026-11-17
 
 **Branch**: `ui-v0.25.2-라이브러리CSS스토리유틸제외`
 ### 수정
 - fix: 라이브러리 CSS에서 스토리·테스트 전용 Tailwind 유틸 제외
 - fix: globals.css의 @source를 모든 @import 뒤로 이동 (스토리북 스타일 유실 수정)
+- fix: Tailwind 유틸을 배포 CSS에서 빼고 theme.css로 분리
 
 ### 변경
 - docs: globals.css에 Tailwind 전체 파일 스캔으로 스토리 유틸이 배포 CSS에 섞이는 경위 주석 보강
 - chore: v0.25.2 버전 범프
+- docs: v0.25.2 CHANGELOG 갱신
+- docs: 설치 가이드에 theme.css 설정과 Next.js 가이드 추가
+- docs: 테스트·컴포넌트 CSS 주석 문구 다듬기
 
 ---
 ## [0.25.1] - 2026-11-10
